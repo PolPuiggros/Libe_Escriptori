@@ -88,6 +88,7 @@
             this.buttonCalendariCentre.Location = new System.Drawing.Point(0, 128);
             this.buttonCalendariCentre.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonCalendariCentre.Name = "buttonCalendariCentre";
+            this.buttonCalendariCentre.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.buttonCalendariCentre.Size = new System.Drawing.Size(314, 64);
             this.buttonCalendariCentre.TabIndex = 9;
             this.buttonCalendariCentre.Text = "Calendari";
@@ -104,6 +105,7 @@
             this.buttonDepartamentsCentre.Location = new System.Drawing.Point(0, 64);
             this.buttonDepartamentsCentre.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonDepartamentsCentre.Name = "buttonDepartamentsCentre";
+            this.buttonDepartamentsCentre.Padding = new System.Windows.Forms.Padding(55, 0, 0, 0);
             this.buttonDepartamentsCentre.Size = new System.Drawing.Size(314, 64);
             this.buttonDepartamentsCentre.TabIndex = 8;
             this.buttonDepartamentsCentre.Text = "Departaments";
@@ -120,6 +122,7 @@
             this.buttonZonesValidables.Location = new System.Drawing.Point(0, 0);
             this.buttonZonesValidables.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonZonesValidables.Name = "buttonZonesValidables";
+            this.buttonZonesValidables.Padding = new System.Windows.Forms.Padding(75, 0, 0, 0);
             this.buttonZonesValidables.Size = new System.Drawing.Size(314, 64);
             this.buttonZonesValidables.TabIndex = 7;
             this.buttonZonesValidables.Text = "Zones Validables";
@@ -128,46 +131,58 @@
             // 
             // buttonCentre
             // 
+            this.buttonCentre.AccessibleName = "Centre";
             this.buttonCentre.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonCentre.FlatAppearance.BorderSize = 0;
             this.buttonCentre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCentre.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonCentre.Image = global::Libe_Escriptori.Properties.Resources.schoolicon;
+            this.buttonCentre.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonCentre.Location = new System.Drawing.Point(0, 508);
             this.buttonCentre.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonCentre.Name = "buttonCentre";
+            this.buttonCentre.Padding = new System.Windows.Forms.Padding(35, 0, 30, 0);
             this.buttonCentre.Size = new System.Drawing.Size(314, 64);
             this.buttonCentre.TabIndex = 6;
-            this.buttonCentre.Text = "Centre";
+            this.buttonCentre.Text = "    Centre";
             this.buttonCentre.UseVisualStyleBackColor = true;
             this.buttonCentre.Click += new System.EventHandler(this.buttonCentre_Click);
             // 
             // buttonGestionarGrups
             // 
+            this.buttonGestionarGrups.AccessibleName = "GestionarGrups";
             this.buttonGestionarGrups.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonGestionarGrups.FlatAppearance.BorderSize = 0;
             this.buttonGestionarGrups.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonGestionarGrups.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonGestionarGrups.Image = global::Libe_Escriptori.Properties.Resources.users_group;
+            this.buttonGestionarGrups.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonGestionarGrups.Location = new System.Drawing.Point(0, 444);
             this.buttonGestionarGrups.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonGestionarGrups.Name = "buttonGestionarGrups";
+            this.buttonGestionarGrups.Padding = new System.Windows.Forms.Padding(35, 0, 30, 0);
             this.buttonGestionarGrups.Size = new System.Drawing.Size(314, 64);
             this.buttonGestionarGrups.TabIndex = 5;
-            this.buttonGestionarGrups.Text = "Gestionar grups";
+            this.buttonGestionarGrups.Text = "    Gestionar grups";
             this.buttonGestionarGrups.UseVisualStyleBackColor = true;
             this.buttonGestionarGrups.Click += new System.EventHandler(this.buttonGestionarGrups_Click);
             // 
             // buttonGestionarCursos
             // 
+            this.buttonGestionarCursos.AccessibleName = "GestionarCursos";
             this.buttonGestionarCursos.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonGestionarCursos.FlatAppearance.BorderSize = 0;
             this.buttonGestionarCursos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonGestionarCursos.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonGestionarCursos.Image = global::Libe_Escriptori.Properties.Resources.books;
+            this.buttonGestionarCursos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonGestionarCursos.Location = new System.Drawing.Point(0, 380);
             this.buttonGestionarCursos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonGestionarCursos.Name = "buttonGestionarCursos";
+            this.buttonGestionarCursos.Padding = new System.Windows.Forms.Padding(35, 0, 30, 0);
             this.buttonGestionarCursos.Size = new System.Drawing.Size(314, 64);
             this.buttonGestionarCursos.TabIndex = 4;
-            this.buttonGestionarCursos.Text = "Gestionar cursos";
+            this.buttonGestionarCursos.Text = "    Gestionar cursos";
             this.buttonGestionarCursos.UseVisualStyleBackColor = true;
             this.buttonGestionarCursos.Click += new System.EventHandler(this.buttonGestionarCursos_Click);
             // 
@@ -192,6 +207,7 @@
             this.buttonGestionarProfessors.Location = new System.Drawing.Point(0, 64);
             this.buttonGestionarProfessors.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonGestionarProfessors.Name = "buttonGestionarProfessors";
+            this.buttonGestionarProfessors.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.buttonGestionarProfessors.Size = new System.Drawing.Size(314, 64);
             this.buttonGestionarProfessors.TabIndex = 4;
             this.buttonGestionarProfessors.Text = "Professors";
@@ -208,6 +224,7 @@
             this.buttonGestionarAlumnes.Location = new System.Drawing.Point(0, 0);
             this.buttonGestionarAlumnes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonGestionarAlumnes.Name = "buttonGestionarAlumnes";
+            this.buttonGestionarAlumnes.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.buttonGestionarAlumnes.Size = new System.Drawing.Size(314, 64);
             this.buttonGestionarAlumnes.TabIndex = 3;
             this.buttonGestionarAlumnes.Text = "Alumnes";
@@ -216,13 +233,17 @@
             // 
             // buttonGestionarUsuaris
             // 
+            this.buttonGestionarUsuaris.AccessibleName = "GestionarUsuaris";
             this.buttonGestionarUsuaris.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonGestionarUsuaris.FlatAppearance.BorderSize = 0;
             this.buttonGestionarUsuaris.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonGestionarUsuaris.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonGestionarUsuaris.Image = global::Libe_Escriptori.Properties.Resources.user__3_;
+            this.buttonGestionarUsuaris.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonGestionarUsuaris.Location = new System.Drawing.Point(0, 187);
             this.buttonGestionarUsuaris.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonGestionarUsuaris.Name = "buttonGestionarUsuaris";
+            this.buttonGestionarUsuaris.Padding = new System.Windows.Forms.Padding(35, 0, 30, 0);
             this.buttonGestionarUsuaris.Size = new System.Drawing.Size(314, 64);
             this.buttonGestionarUsuaris.TabIndex = 2;
             this.buttonGestionarUsuaris.Text = "Gestionar usuaris";
@@ -231,13 +252,18 @@
             // 
             // buttonInici
             // 
+            this.buttonInici.AccessibleName = "Inici";
             this.buttonInici.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonInici.FlatAppearance.BorderSize = 0;
             this.buttonInici.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInici.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonInici.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonInici.Image = global::Libe_Escriptori.Properties.Resources.home2;
+            this.buttonInici.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonInici.Location = new System.Drawing.Point(0, 123);
             this.buttonInici.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonInici.Name = "buttonInici";
+            this.buttonInici.Padding = new System.Windows.Forms.Padding(35, 0, 30, 0);
             this.buttonInici.Size = new System.Drawing.Size(314, 64);
             this.buttonInici.TabIndex = 1;
             this.buttonInici.Text = "Inici";
@@ -260,7 +286,7 @@
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(314, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(1149, 87);
+            this.panelTop.Size = new System.Drawing.Size(1139, 87);
             this.panelTop.TabIndex = 1;
             // 
             // Form1
@@ -273,6 +299,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
+            this.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.Text = "Form1";
             this.panelMenu.ResumeLayout(false);
             this.panelCentreSubmenu.ResumeLayout(false);

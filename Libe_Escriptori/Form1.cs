@@ -44,7 +44,7 @@ namespace Libe_Escriptori
         }
         private void buttonInici_Click(object sender, EventArgs e)
         {
-            DefaultButtonParent(buttonInici, previousButton);
+            DefaultButton(buttonInici, previousButton, false);
             selectedEntry(buttonInici);
             previousButton = buttonInici;
             hideSubMenu();
@@ -52,28 +52,28 @@ namespace Libe_Escriptori
 
         private void buttonGestionarUsuaris_Click(object sender, EventArgs e)
         {
-            DefaultButtonParent(buttonGestionarUsuaris, previousButton);
+            DefaultButton(buttonGestionarUsuaris, previousButton, false);
             selectedEntry(buttonGestionarUsuaris);
             previousButton = buttonGestionarUsuaris;
             showSubMenu(panelUsuaris);
         }
         private void buttonGestionarAlumnes_Click(object sender, EventArgs e)
         {
-            DefaultButtonChild(buttonGestionarAlumnes, previousButton);
+            DefaultButton(buttonGestionarAlumnes, previousButton,true);
             selectedEntry(buttonGestionarAlumnes);
             previousButton = buttonGestionarAlumnes;
         }
 
         private void buttonGestionarProfessors_Click(object sender, EventArgs e)
         {
-            DefaultButtonChild(buttonGestionarProfessors, previousButton);
+            DefaultButton(buttonGestionarProfessors, previousButton, true);
             selectedEntry(buttonGestionarProfessors);
             previousButton = buttonGestionarProfessors;
         }
 
         private void buttonGestionarCursos_Click(object sender, EventArgs e)
         {
-            DefaultButtonParent(buttonGestionarCursos, previousButton);
+            DefaultButton(buttonGestionarCursos, previousButton, false);
             selectedEntry(buttonGestionarCursos);
             previousButton = buttonGestionarCursos;
             hideSubMenu();
@@ -81,7 +81,7 @@ namespace Libe_Escriptori
 
         private void buttonGestionarGrups_Click(object sender, EventArgs e)
         {
-            DefaultButtonParent(buttonGestionarGrups, previousButton);
+            DefaultButton(buttonGestionarGrups, previousButton, false);
             selectedEntry(buttonGestionarGrups);
             previousButton = buttonGestionarGrups;
             hideSubMenu();
@@ -89,27 +89,27 @@ namespace Libe_Escriptori
 
         private void buttonCentre_Click(object sender, EventArgs e)
         {
-            DefaultButtonParent(buttonCentre, previousButton);
+            DefaultButton(buttonCentre, previousButton, false);
             selectedEntry(buttonCentre);
             previousButton = buttonCentre;
             showSubMenu(panelCentreSubmenu);
         }
         private void buttonZonesValidables_Click(object sender, EventArgs e)
         {
-            DefaultButtonChild(buttonZonesValidables, previousButton);
+            DefaultButton(buttonZonesValidables, previousButton, true);
             selectedEntry(buttonZonesValidables);
             previousButton = buttonZonesValidables;
         }
         private void buttonDepartamentsCentre_Click(object sender, EventArgs e)
         {
-            DefaultButtonChild(buttonDepartamentsCentre, previousButton);
+            DefaultButton(buttonDepartamentsCentre, previousButton, true);
             selectedEntry(buttonDepartamentsCentre);
             previousButton = buttonDepartamentsCentre;
         }
 
         private void buttonCalendariCentre_Click(object sender, EventArgs e)
         {
-            DefaultButtonChild(buttonCalendariCentre, previousButton);
+            DefaultButton(buttonCalendariCentre, previousButton, true);
             selectedEntry(buttonCalendariCentre);
             previousButton = buttonCalendariCentre;
         }
@@ -119,23 +119,23 @@ namespace Libe_Escriptori
             btn.Font = new Font(btn.Font.FontFamily, 11);
             btn.BackColor = Color.FromArgb(164,168,241);
         }
-        private void DefaultButtonParent(Button btnActual, Button previousBtn)
+        private void DefaultButton(Button btnActual, Button previousBtn, bool isChild)
         {
             if (btnActual.Text != previousBtn.Text)
             {
-                previousButton.Font = new Font(previousButton.Font.FontFamily, 10);
-                previousButton.BackColor = Color.White;
+                if (!String.IsNullOrEmpty(previousBtn.AccessibleName))
+                {
+                    previousButton.Font = new Font(previousButton.Font.FontFamily, 10);
+                    previousButton.BackColor = Color.White;
+                }
+                else
+                {
+                    previousButton.Font = new Font(previousButton.Font.FontFamily, 10);
+                    previousBtn.BackColor = Color.Gainsboro;
+                    
+                }
             }
            
-        }
-        private void DefaultButtonChild(Button btnActual, Button previousBtn)
-        {
-            if (btnActual.Text != previousBtn.Text)
-            {
-                previousButton.Font = new Font(previousButton.Font.FontFamily, 10);
-                previousBtn.BackColor = Color.Gainsboro;
-            }
-            
         }
 
         
