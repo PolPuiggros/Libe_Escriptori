@@ -53,6 +53,8 @@
             this.buttonProfile = new System.Windows.Forms.Button();
             this.buttonInbox = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.panelTot = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.panelUsuaris.SuspendLayout();
             this.panelCentreSubmenu.SuspendLayout();
             this.panelMenu.SuspendLayout();
@@ -63,6 +65,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panelTot);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(275, 70);
             this.panel1.Name = "panel1";
@@ -430,6 +433,14 @@
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
+            // panelTot
+            // 
+            this.panelTot.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelTot.Location = new System.Drawing.Point(0, 0);
+            this.panelTot.Name = "panelTot";
+            this.panelTot.Size = new System.Drawing.Size(1005, 650);
+            this.panelTot.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -441,6 +452,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.Text = "Form1";
+            this.panel1.ResumeLayout(false);
             this.panelUsuaris.ResumeLayout(false);
             this.panelCentreSubmenu.ResumeLayout(false);
             this.panelMenu.ResumeLayout(false);
@@ -479,5 +491,6 @@
         private Panel panel2;
         private Label labelUserName;
         private Button buttonLogout;
+        private Panel panelTot;
     }
 }

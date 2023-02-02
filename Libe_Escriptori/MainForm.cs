@@ -8,6 +8,8 @@ namespace Libe_Escriptori
         private bool mouseDown;
         private Point lastLocation;
 
+        //MID PANEL SIZE: 1005; 650
+
         public MainForm()
         {
             InitializeComponent();

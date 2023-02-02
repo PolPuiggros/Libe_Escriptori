@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="obj\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <None Remove="obj\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -24,11 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Forms\Inici\" />
-    <Folder Include="Forms\Gestionar Cursos\" />
-    <Folder Include="Forms\Gestionar Grups\" />
-    <Folder Include="Forms\Centre\" />
-    <Folder Include="Forms\Gestionar Usuaris\" />
+    <Folder Include="Forms\" />
   </ItemGroup>
 
 </Project>
