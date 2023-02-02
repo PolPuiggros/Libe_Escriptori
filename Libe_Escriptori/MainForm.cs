@@ -1,3 +1,5 @@
+using Microsoft.VisualBasic.Logging;
+
 namespace Libe_Escriptori
 {
     public partial class MainForm : Form
@@ -174,7 +176,12 @@ namespace Libe_Escriptori
 
         private void buttonLogout_Click(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("Estàs Segur que vols sortir?", "Sortir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Login login = new Login();
+                login.Show();
+                this.Close();
+            }
         }
     }
 }

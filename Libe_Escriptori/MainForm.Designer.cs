@@ -37,6 +37,9 @@
             this.buttonDepartamentsCentre = new System.Windows.Forms.Button();
             this.buttonZonesValidables = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonLogout = new System.Windows.Forms.Button();
+            this.labelUserName = new System.Windows.Forms.Label();
             this.buttonCentre = new System.Windows.Forms.Button();
             this.buttonGestionarGrups = new System.Windows.Forms.Button();
             this.buttonGestionarCursos = new System.Windows.Forms.Button();
@@ -50,15 +53,12 @@
             this.buttonProfile = new System.Windows.Forms.Button();
             this.buttonInbox = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.labelUserName = new System.Windows.Forms.Label();
-            this.buttonLogout = new System.Windows.Forms.Button();
             this.panelUsuaris.SuspendLayout();
             this.panelCentreSubmenu.SuspendLayout();
             this.panelMenu.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panelTop.SuspendLayout();
             this.panelAll.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -188,6 +188,44 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(275, 720);
             this.panelMenu.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.Controls.Add(this.buttonLogout);
+            this.panel2.Controls.Add(this.labelUserName);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 648);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(275, 72);
+            this.panel2.TabIndex = 8;
+            // 
+            // buttonLogout
+            // 
+            this.buttonLogout.BackColor = System.Drawing.Color.Transparent;
+            this.buttonLogout.BackgroundImage = global::Libe_Escriptori.Properties.Resources.exit;
+            this.buttonLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonLogout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonLogout.FlatAppearance.BorderSize = 0;
+            this.buttonLogout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLogout.Location = new System.Drawing.Point(41, 26);
+            this.buttonLogout.Name = "buttonLogout";
+            this.buttonLogout.Size = new System.Drawing.Size(28, 28);
+            this.buttonLogout.TabIndex = 2;
+            this.buttonLogout.UseVisualStyleBackColor = false;
+            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
+            // 
+            // labelUserName
+            // 
+            this.labelUserName.AutoSize = true;
+            this.labelUserName.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelUserName.Location = new System.Drawing.Point(90, 28);
+            this.labelUserName.Name = "labelUserName";
+            this.labelUserName.Size = new System.Drawing.Size(126, 25);
+            this.labelUserName.TabIndex = 0;
+            this.labelUserName.Text = "Administrador";
             // 
             // buttonCentre
             // 
@@ -392,44 +430,6 @@
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.panel2.Controls.Add(this.buttonLogout);
-            this.panel2.Controls.Add(this.labelUserName);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 636);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(275, 84);
-            this.panel2.TabIndex = 8;
-            // 
-            // labelUserName
-            // 
-            this.labelUserName.AutoSize = true;
-            this.labelUserName.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelUserName.Location = new System.Drawing.Point(61, 32);
-            this.labelUserName.Name = "labelUserName";
-            this.labelUserName.Size = new System.Drawing.Size(126, 25);
-            this.labelUserName.TabIndex = 0;
-            this.labelUserName.Text = "Administrador";
-            // 
-            // buttonLogout
-            // 
-            this.buttonLogout.BackColor = System.Drawing.Color.Transparent;
-            this.buttonLogout.BackgroundImage = global::Libe_Escriptori.Properties.Resources.exit;
-            this.buttonLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonLogout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonLogout.FlatAppearance.BorderSize = 0;
-            this.buttonLogout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.buttonLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLogout.Location = new System.Drawing.Point(199, 26);
-            this.buttonLogout.Name = "buttonLogout";
-            this.buttonLogout.Size = new System.Drawing.Size(36, 36);
-            this.buttonLogout.TabIndex = 2;
-            this.buttonLogout.UseVisualStyleBackColor = false;
-            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -444,10 +444,10 @@
             this.panelUsuaris.ResumeLayout(false);
             this.panelCentreSubmenu.ResumeLayout(false);
             this.panelMenu.ResumeLayout(false);
-            this.panelTop.ResumeLayout(false);
-            this.panelAll.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panelTop.ResumeLayout(false);
+            this.panelAll.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

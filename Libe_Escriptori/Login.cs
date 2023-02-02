@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace Libe_Escriptori
 {
-    public partial class GestionarUsuaris : Form
+    public partial class Login : Form
     {
-        public GestionarUsuaris()
+        public Login()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MainForm mf = new MainForm();
+            mf.Show();
+            this.Hide();
         }
     }
 }
