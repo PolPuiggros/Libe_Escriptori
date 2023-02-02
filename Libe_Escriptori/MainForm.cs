@@ -1,10 +1,12 @@
 namespace Libe_Escriptori
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         Button previousButton;
+        private bool mouseDown;
+        private Point lastLocation;
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             customDesign();
@@ -138,6 +140,41 @@ namespace Libe_Escriptori
            
         }
 
-        
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void buttonMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void panelMove_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            lastLocation = e.Location;
+        }
+
+        private void panelMove_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                this.Location = new Point(
+                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+
+                this.Update();
+            }
+        }
+
+        private void panelMove_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
