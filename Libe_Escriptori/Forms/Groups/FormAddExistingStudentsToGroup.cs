@@ -10,13 +10,11 @@ using System.Windows.Forms;
 
 namespace Libe_Escriptori.Forms.Groups
 {
-    public partial class FormAddGroup : Form
+    public partial class FormAddExistingStudentsToGroup : Form
     {
-        public FormAddGroup()
+        public FormAddExistingStudentsToGroup()
         {
             InitializeComponent();
         }
-
-        
     }
 }

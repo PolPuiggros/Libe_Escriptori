@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\polpu\\Documents\\GitHub\\Libe_Escriptori\\Libe_Escriptori\\Libe_Escriptori.csproj": {}
+    "C:\\Users\\cep.CEPNET0\\Documents\\GitHub\\Libe_Escriptori\\Libe_Escriptori\\Libe_Escriptori.csproj": {}
   },
   "projects": {
-    "C:\\Users\\polpu\\Documents\\GitHub\\Libe_Escriptori\\Libe_Escriptori\\Libe_Escriptori.csproj": {
+    "C:\\Users\\cep.CEPNET0\\Documents\\GitHub\\Libe_Escriptori\\Libe_Escriptori\\Libe_Escriptori.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\polpu\\Documents\\GitHub\\Libe_Escriptori\\Libe_Escriptori\\Libe_Escriptori.csproj",
+        "projectUniqueName": "C:\\Users\\cep.CEPNET0\\Documents\\GitHub\\Libe_Escriptori\\Libe_Escriptori\\Libe_Escriptori.csproj",
         "projectName": "Libe_Escriptori",
-        "projectPath": "C:\\Users\\polpu\\Documents\\GitHub\\Libe_Escriptori\\Libe_Escriptori\\Libe_Escriptori.csproj",
-        "packagesPath": "C:\\Users\\polpu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\polpu\\Documents\\GitHub\\Libe_Escriptori\\Libe_Escriptori\\obj\\",
+        "projectPath": "C:\\Users\\cep.CEPNET0\\Documents\\GitHub\\Libe_Escriptori\\Libe_Escriptori\\Libe_Escriptori.csproj",
+        "packagesPath": "C:\\Users\\cep.CEPNET0\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cep.CEPNET0\\Documents\\GitHub\\Libe_Escriptori\\Libe_Escriptori\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\polpu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\cep.CEPNET0\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -58,7 +58,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
