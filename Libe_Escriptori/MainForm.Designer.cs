@@ -465,8 +465,6 @@
         }
 
         #endregion
-
-        private Panel panel1;
         private Panel panelUsuaris;
         private Button buttonGestionarProfessors;
         private Button buttonGestionarAlumnes;
@@ -491,6 +489,10 @@
         private Panel panel2;
         private Label labelUserName;
         private Button buttonLogout;
+<<<<<<< HEAD
         private Panel panelTot;
+=======
+        public Panel panel1;
+>>>>>>> LIBE-22-Aplicar-Disseny-Desktop---Gestionar-usuaris
     }
 }
