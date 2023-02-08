@@ -68,6 +68,11 @@ namespace Libe_Escriptori
             DefaultButton(buttonGestionarAlumnes, previousButton,true);
             selectedEntry(buttonGestionarAlumnes);
             previousButton = buttonGestionarAlumnes;
+            Forms.Gestionar_Usuaris.GestionarUsuarisAlumnes gestionarUsuarisAlumnes = new Forms.Gestionar_Usuaris.GestionarUsuarisAlumnes();
+            gestionarUsuarisAlumnes.TopLevel = false;
+            panel1.Controls.Add(gestionarUsuarisAlumnes);
+            gestionarUsuarisAlumnes.BringToFront();
+            gestionarUsuarisAlumnes.Show();
         }
 
         private void buttonGestionarProfessors_Click(object sender, EventArgs e)
@@ -75,6 +80,11 @@ namespace Libe_Escriptori
             DefaultButton(buttonGestionarProfessors, previousButton, true);
             selectedEntry(buttonGestionarProfessors);
             previousButton = buttonGestionarProfessors;
+            Forms.Gestionar_Usuaris.GestionarUsuarisProfessors gestionarUsuarisProfessors = new Forms.Gestionar_Usuaris.GestionarUsuarisProfessors();
+            gestionarUsuarisProfessors.TopLevel = false;
+            panel1.Controls.Add(gestionarUsuarisProfessors);
+            gestionarUsuarisProfessors.BringToFront();
+            gestionarUsuarisProfessors.Show();
         }
 
         private void buttonGestionarCursos_Click(object sender, EventArgs e)
