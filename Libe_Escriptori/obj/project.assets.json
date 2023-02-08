@@ -8,19 +8,24 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\cep.CEPNET0\\.nuget\\packages\\": {}
+    "C:\\Users\\PauFeo\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cep.CEPNET0\\Documents\\GitHub\\Libe_Escriptori\\Libe_Escriptori\\Libe_Escriptori.csproj",
+      "projectUniqueName": "C:\\Users\\PauFeo\\Documents\\GitHub\\Libe_Escriptori\\Libe_Escriptori\\Libe_Escriptori.csproj",
       "projectName": "Libe_Escriptori",
-      "projectPath": "C:\\Users\\cep.CEPNET0\\Documents\\GitHub\\Libe_Escriptori\\Libe_Escriptori\\Libe_Escriptori.csproj",
-      "packagesPath": "C:\\Users\\cep.CEPNET0\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cep.CEPNET0\\Documents\\GitHub\\Libe_Escriptori\\Libe_Escriptori\\obj\\",
+      "projectPath": "C:\\Users\\PauFeo\\Documents\\GitHub\\Libe_Escriptori\\Libe_Escriptori\\Libe_Escriptori.csproj",
+      "packagesPath": "C:\\Users\\PauFeo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\PauFeo\\Documents\\GitHub\\Libe_Escriptori\\Libe_Escriptori\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\cep.CEPNET0\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\PauFeo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

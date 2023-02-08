@@ -82,3 +82,4 @@ C:\Users\PauFeo\Documents\GitHub\Libe_Escriptori\Libe_Escriptori\bin\Debug\net6.
 C:\Users\PauFeo\Documents\GitHub\Libe_Escriptori\Libe_Escriptori\bin\Debug\net6.0-windows\Libe_Escriptori.pdb
 C:\Users\PauFeo\Documents\GitHub\Libe_Escriptori\Libe_Escriptori\obj\Debug\net6.0-windows\Libe_Escriptori.genruntimeconfig.cache
 C:\Users\PauFeo\Documents\GitHub\Libe_Escriptori\Libe_Escriptori\obj\Debug\net6.0-windows\ref\Libe_Escriptori.dll
+C:\Users\PauFeo\Documents\GitHub\Libe_Escriptori\Libe_Escriptori\obj\Debug\net6.0-windows\Libe_Escriptori.Forms.Groups.FormScheduleCellInfo.resources
