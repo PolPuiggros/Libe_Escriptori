@@ -28,7 +28,6 @@
     <Folder Include="Forms\Gestionar Cursos\" />
     <Folder Include="Forms\Gestionar Grups\" />
     <Folder Include="Forms\Centre\" />
-    <Folder Include="Forms\Gestionar Usuaris\" />
   </ItemGroup>
 
 </Project>

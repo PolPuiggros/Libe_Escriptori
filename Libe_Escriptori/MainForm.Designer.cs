@@ -453,8 +453,6 @@
         }
 
         #endregion
-
-        private Panel panel1;
         private Panel panelUsuaris;
         private Button buttonGestionarProfessors;
         private Button buttonGestionarAlumnes;
@@ -479,5 +477,6 @@
         private Panel panel2;
         private Label labelUserName;
         private Button buttonLogout;
+        public Panel panel1;
     }
 }
