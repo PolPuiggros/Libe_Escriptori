@@ -16,12 +16,16 @@ namespace Libe_Escriptori
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonLogin_Click(object sender, EventArgs e)
         {
             MainForm mf = new MainForm();
             mf.Show();
             this.Hide();
+        }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

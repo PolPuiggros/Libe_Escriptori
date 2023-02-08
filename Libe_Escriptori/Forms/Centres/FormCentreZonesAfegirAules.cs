@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Libe_Escriptori.Forms
+namespace Libe_Escriptori.Forms.Centres
 {
-    public partial class FormHome : Form
+    public partial class FormCentreZonesAfegirAules : Form
     {
-        public FormHome()
+        public FormCentreZonesAfegirAules()
         {
             InitializeComponent();
         }

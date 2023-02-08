@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panelTot = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.labelNomCentre = new System.Windows.Forms.Label();
             this.panelUsuaris = new System.Windows.Forms.Panel();
             this.buttonGestionarProfessors = new System.Windows.Forms.Button();
             this.buttonGestionarAlumnes = new System.Windows.Forms.Button();
@@ -53,8 +57,8 @@
             this.buttonProfile = new System.Windows.Forms.Button();
             this.buttonInbox = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
-            this.panelTot = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            this.panelTot.SuspendLayout();
             this.panelUsuaris.SuspendLayout();
             this.panelCentreSubmenu.SuspendLayout();
             this.panelMenu.SuspendLayout();
@@ -71,6 +75,47 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1005, 650);
             this.panel1.TabIndex = 2;
+            // 
+            // panelTot
+            // 
+            this.panelTot.Controls.Add(this.label3);
+            this.panelTot.Controls.Add(this.label2);
+            this.panelTot.Controls.Add(this.labelNomCentre);
+            this.panelTot.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelTot.Location = new System.Drawing.Point(0, 0);
+            this.panelTot.Name = "panelTot";
+            this.panelTot.Size = new System.Drawing.Size(1005, 650);
+            this.panelTot.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(473, 551);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(91, 21);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "848645321";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(424, 518);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(193, 21);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "cep@politecnics.barcelona";
+            // 
+            // labelNomCentre
+            // 
+            this.labelNomCentre.AutoSize = true;
+            this.labelNomCentre.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelNomCentre.Location = new System.Drawing.Point(399, 484);
+            this.labelNomCentre.Name = "labelNomCentre";
+            this.labelNomCentre.Size = new System.Drawing.Size(241, 25);
+            this.labelNomCentre.TabIndex = 3;
+            this.labelNomCentre.Text = "Centre d\'estudis Politècnics";
             // 
             // panelUsuaris
             // 
@@ -381,6 +426,7 @@
             this.buttonMinimize.Name = "buttonMinimize";
             this.buttonMinimize.Size = new System.Drawing.Size(26, 29);
             this.buttonMinimize.TabIndex = 2;
+            this.buttonMinimize.TabStop = false;
             this.buttonMinimize.UseVisualStyleBackColor = false;
             this.buttonMinimize.Click += new System.EventHandler(this.buttonMinimize_Click);
             // 
@@ -398,6 +444,7 @@
             this.buttonProfile.Name = "buttonProfile";
             this.buttonProfile.Size = new System.Drawing.Size(42, 42);
             this.buttonProfile.TabIndex = 0;
+            this.buttonProfile.TabStop = false;
             this.buttonProfile.UseVisualStyleBackColor = false;
             // 
             // buttonInbox
@@ -414,6 +461,7 @@
             this.buttonInbox.Name = "buttonInbox";
             this.buttonInbox.Size = new System.Drawing.Size(36, 36);
             this.buttonInbox.TabIndex = 1;
+            this.buttonInbox.TabStop = false;
             this.buttonInbox.UseVisualStyleBackColor = false;
             // 
             // buttonClose
@@ -430,16 +478,9 @@
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(18, 18);
             this.buttonClose.TabIndex = 1;
+            this.buttonClose.TabStop = false;
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
-            // 
-            // panelTot
-            // 
-            this.panelTot.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelTot.Location = new System.Drawing.Point(0, 0);
-            this.panelTot.Name = "panelTot";
-            this.panelTot.Size = new System.Drawing.Size(1005, 650);
-            this.panelTot.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -453,6 +494,8 @@
             this.Name = "MainForm";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
+            this.panelTot.ResumeLayout(false);
+            this.panelTot.PerformLayout();
             this.panelUsuaris.ResumeLayout(false);
             this.panelCentreSubmenu.ResumeLayout(false);
             this.panelMenu.ResumeLayout(false);
@@ -492,5 +535,8 @@
         private Label labelUserName;
         private Button buttonLogout;
         private Panel panelTot;
+        private Label label3;
+        private Label label2;
+        private Label labelNomCentre;
     }
 }
