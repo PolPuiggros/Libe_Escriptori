@@ -30,10 +30,10 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridViewCourses = new System.Windows.Forms.DataGridView();
-            this.buttonNew = new System.Windows.Forms.Button();
             this.abreviacio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.departament = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonNew = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourses)).BeginInit();
             this.SuspendLayout();
@@ -64,16 +64,6 @@
             this.dataGridViewCourses.TabIndex = 3;
             this.dataGridViewCourses.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // buttonNew
-            // 
-            this.buttonNew.Location = new System.Drawing.Point(64, 43);
-            this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(108, 42);
-            this.buttonNew.TabIndex = 0;
-            this.buttonNew.Text = "Nou";
-            this.buttonNew.UseVisualStyleBackColor = true;
-            this.buttonNew.Click += new System.EventHandler(this.button1_Click);
-            // 
             // abreviacio
             // 
             this.abreviacio.DataPropertyName = "abreviacio";
@@ -94,6 +84,16 @@
             this.departament.HeaderText = "Departament";
             this.departament.Name = "departament";
             this.departament.ReadOnly = true;
+            // 
+            // buttonNew
+            // 
+            this.buttonNew.Location = new System.Drawing.Point(64, 43);
+            this.buttonNew.Name = "buttonNew";
+            this.buttonNew.Size = new System.Drawing.Size(108, 42);
+            this.buttonNew.TabIndex = 0;
+            this.buttonNew.Text = "Nou";
+            this.buttonNew.UseVisualStyleBackColor = true;
+            this.buttonNew.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormCourses1
             // 

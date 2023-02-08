@@ -21,7 +21,7 @@ namespace Libe_Escriptori.Forms.Courses
         private void InitGrid()
         {
             Image editImage = Properties.Resources.user__3_;
-            Image deleteImage = Properties.Resources.exit;
+            Image deleteImage = Properties.Resources.home1;
 
             dataGridViewCourses.Columns.Add(new DataGridViewImageColumn()
             {
