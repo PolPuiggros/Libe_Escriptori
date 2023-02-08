@@ -489,8 +489,10 @@
         private Panel panel2;
         private Label labelUserName;
         private Button buttonLogout;
+<<<<<<< HEAD
         private Panel panelTot;
+=======
         public Panel panel1;
-
+>>>>>>> LIBE-22-Aplicar-Disseny-Desktop---Gestionar-usuaris
     }
 }

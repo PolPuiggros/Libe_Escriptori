@@ -30,13 +30,14 @@
   </ItemGroup>
 
   <ItemGroup>
-
+<<<<<<< HEAD
     <Folder Include="Forms\" />
+=======
     <Folder Include="Forms\Inici\" />
     <Folder Include="Forms\Gestionar Cursos\" />
     <Folder Include="Forms\Gestionar Grups\" />
     <Folder Include="Forms\Centre\" />
-
+>>>>>>> LIBE-22-Aplicar-Disseny-Desktop---Gestionar-usuaris
   </ItemGroup>
 
 </Project>
