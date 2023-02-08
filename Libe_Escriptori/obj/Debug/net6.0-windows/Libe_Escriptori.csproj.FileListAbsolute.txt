@@ -34,3 +34,4 @@ C:\Users\polpu\Documents\GitHub\Libe_Escriptori\Libe_Escriptori\obj\Debug\net6.0
 C:\Users\polpu\Documents\GitHub\Libe_Escriptori\Libe_Escriptori\obj\Debug\net6.0-windows\Libe_Escriptori.Properties.Resources.resources
 C:\Users\polpu\Documents\GitHub\Libe_Escriptori\Libe_Escriptori\obj\Debug\net6.0-windows\Libe_Escriptori.MainForm.resources
 C:\Users\polpu\Documents\GitHub\Libe_Escriptori\Libe_Escriptori\obj\Debug\net6.0-windows\Libe_Escriptori.Login.resources
+C:\Users\polpu\Documents\GitHub\Libe_Escriptori\Libe_Escriptori\obj\Debug\net6.0-windows\Libe_Escriptori.Forms.FormCourses.resources
