@@ -12,18 +12,19 @@ namespace Libe_Escriptori.Forms.Groups
 {
     public partial class FormCreateScheduleGroup : Form
     {
-        Button previousSelectedButton   = new Button();
-        Button actualSelectedButton = new Button();
+        int previousSelectedButton;
+        int actualSelectedButton;
+
+
         public FormCreateScheduleGroup()
         {
             InitializeComponent();
-            selectedButton(buttonModul1);
             initializeDataGrid();
         }
 
         private void initializeDataGrid()
         {
-            dataGridViewSchedule.Rows.Add(5);
+            dataGridViewSchedule.Rows.Add(6);
 
             dataGridViewSchedule[0, 0].Value = "8:40";
             dataGridViewSchedule[0, 1].Value = "9:40";
@@ -31,32 +32,17 @@ namespace Libe_Escriptori.Forms.Groups
             dataGridViewSchedule[0, 3].Value = "11:40";
             dataGridViewSchedule[0, 4].Value = "12:00";
             dataGridViewSchedule[0, 5].Value = "13:00";
+
+
         }
 
-        public void selectedButton(Button button)
+        public void selectedButton(int index)
         {
-            previousSelectedButton = actualSelectedButton;
-            actualSelectedButton = button;
-            changeButtonColor(previousSelectedButton, Color.White);
-            changeButtonColor(actualSelectedButton, Color.Red);
+           
+           
         }
 
-        public void changeButtonColor(Button button, Color color)
-        {
-            button.BackColor = color;
-        }
-
-        private void buttonModul1_Click(object sender, EventArgs e)
-        {
-            selectedButton(buttonModul1);
-        }
-
-
-        private void buttonModul2_Click(object sender, EventArgs e)
-        {
-            selectedButton(buttonModul2);
-        }
-
+        
         private void dataGridViewSchedule_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             

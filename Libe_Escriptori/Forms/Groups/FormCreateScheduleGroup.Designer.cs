@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewSchedule = new System.Windows.Forms.DataGridView();
             this.headerHour = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,27 +39,28 @@
             this.headerWednesday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerThursday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerFriday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonModul1 = new System.Windows.Forms.Button();
-            this.buttonModul2 = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.panelSchedule = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSchedule)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewSchedule
             // 
+            this.dataGridViewSchedule.AllowUserToAddRows = false;
             this.dataGridViewSchedule.AllowUserToResizeColumns = false;
             this.dataGridViewSchedule.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSchedule.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSchedule.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewSchedule.ColumnHeadersHeight = 100;
             this.dataGridViewSchedule.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.headerHour,
@@ -68,19 +69,21 @@
             this.headerWednesday,
             this.headerThursday,
             this.headerFriday});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewSchedule.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewSchedule.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewSchedule.Location = new System.Drawing.Point(24, 55);
             this.dataGridViewSchedule.MultiSelect = false;
             this.dataGridViewSchedule.Name = "dataGridViewSchedule";
+            this.dataGridViewSchedule.ReadOnly = true;
             this.dataGridViewSchedule.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataGridViewSchedule.RowHeadersVisible = false;
+            this.dataGridViewSchedule.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewSchedule.RowTemplate.Height = 55;
             this.dataGridViewSchedule.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridViewSchedule.Size = new System.Drawing.Size(734, 527);
@@ -128,26 +131,6 @@
             this.headerFriday.Name = "headerFriday";
             this.headerFriday.ReadOnly = true;
             // 
-            // buttonModul1
-            // 
-            this.buttonModul1.Location = new System.Drawing.Point(773, 55);
-            this.buttonModul1.Name = "buttonModul1";
-            this.buttonModul1.Size = new System.Drawing.Size(95, 62);
-            this.buttonModul1.TabIndex = 1;
-            this.buttonModul1.Text = "M01";
-            this.buttonModul1.UseVisualStyleBackColor = true;
-            this.buttonModul1.Click += new System.EventHandler(this.buttonModul1_Click);
-            // 
-            // buttonModul2
-            // 
-            this.buttonModul2.Location = new System.Drawing.Point(884, 55);
-            this.buttonModul2.Name = "buttonModul2";
-            this.buttonModul2.Size = new System.Drawing.Size(95, 62);
-            this.buttonModul2.TabIndex = 2;
-            this.buttonModul2.Text = "M02";
-            this.buttonModul2.UseVisualStyleBackColor = true;
-            this.buttonModul2.Click += new System.EventHandler(this.buttonModul2_Click);
-            // 
             // buttonCancel
             // 
             this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(168)))), ((int)(((byte)(241)))));
@@ -175,16 +158,32 @@
             this.buttonSave.Text = "Guardar";
             this.buttonSave.UseVisualStyleBackColor = false;
             // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(780, 55);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(204, 527);
+            this.listView1.TabIndex = 11;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // panelSchedule
+            // 
+            this.panelSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelSchedule.Location = new System.Drawing.Point(0, 0);
+            this.panelSchedule.Name = "panelSchedule";
+            this.panelSchedule.Size = new System.Drawing.Size(1005, 650);
+            this.panelSchedule.TabIndex = 12;
+            // 
             // FormCreateScheduleGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 650);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonCancel);
-            this.Controls.Add(this.buttonModul2);
-            this.Controls.Add(this.buttonModul1);
             this.Controls.Add(this.dataGridViewSchedule);
+            this.Controls.Add(this.panelSchedule);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCreateScheduleGroup";
             this.Text = "FormCreateScheduleGroup";
@@ -198,8 +197,6 @@
 
         private BindingSource bindingSource1;
         private DataGridView dataGridViewSchedule;
-        private Button buttonModul1;
-        private Button buttonModul2;
         private DataGridViewTextBoxColumn headerHour;
         private DataGridViewTextBoxColumn headerMonday;
         private DataGridViewTextBoxColumn headerTuesday;
@@ -208,5 +205,7 @@
         private DataGridViewTextBoxColumn headerFriday;
         private Button buttonCancel;
         private Button buttonSave;
+        private ListView listView1;
+        private Panel panelSchedule;
     }
 }

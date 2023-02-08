@@ -43,6 +43,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
+            this.panelAddGroup = new System.Windows.Forms.Panel();
             this.panelManageStudents.SuspendLayout();
             this.panelManageSchedule.SuspendLayout();
             this.SuspendLayout();
@@ -214,6 +215,14 @@
             this.buttonSave.Text = "Guardar";
             this.buttonSave.UseVisualStyleBackColor = false;
             // 
+            // panelAddGroup
+            // 
+            this.panelAddGroup.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelAddGroup.Location = new System.Drawing.Point(0, 0);
+            this.panelAddGroup.Name = "panelAddGroup";
+            this.panelAddGroup.Size = new System.Drawing.Size(1005, 650);
+            this.panelAddGroup.TabIndex = 10;
+            // 
             // FormAddGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -230,6 +239,7 @@
             this.Controls.Add(this.comboBoxClassGroup);
             this.Controls.Add(this.comboBoxYearGroup);
             this.Controls.Add(this.comboBoxCicleGroup);
+            this.Controls.Add(this.panelAddGroup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormAddGroup";
             this.Text = "FormAddGroup";
@@ -259,5 +269,6 @@
         private Button buttonCancel;
         private Button buttonSave;
         private Label label1;
+        private Panel panelAddGroup;
     }
 }
