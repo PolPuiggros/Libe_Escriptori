@@ -55,3 +55,5 @@ C:\Users\cep.CEPNET0\Documents\GitHub\Libe_Escriptori\Libe_Escriptori\obj\Debug\
 C:\Users\cep.CEPNET0\Documents\GitHub\Libe_Escriptori\Libe_Escriptori\obj\Debug\net6.0-windows\Libe_Escriptori.pdb
 C:\Users\cep.CEPNET0\Documents\GitHub\Libe_Escriptori\Libe_Escriptori\obj\Debug\net6.0-windows\Libe_Escriptori.genruntimeconfig.cache
 C:\Users\cep.CEPNET0\Documents\GitHub\Libe_Escriptori\Libe_Escriptori\obj\Debug\net6.0-windows\ref\Libe_Escriptori.dll
+C:\Users\cep.CEPNET0\Documents\GitHub\Libe_Escriptori\Libe_Escriptori\obj\Debug\net6.0-windows\Libe_Escriptori.Forms.Courses.FormAddModuleDialog.resources
+C:\Users\cep.CEPNET0\Documents\GitHub\Libe_Escriptori\Libe_Escriptori\obj\Debug\net6.0-windows\Libe_Escriptori.Forms.Courses.FormCoursesEdit.resources

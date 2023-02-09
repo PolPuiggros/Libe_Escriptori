@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelCourses = new System.Windows.Forms.Panel();
             this.dataGridViewCourses = new System.Windows.Forms.DataGridView();
             this.abreviacio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.departament = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonNew = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.panelCourses.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourses)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelCourses
             // 
-            this.panel1.Controls.Add(this.dataGridViewCourses);
-            this.panel1.Controls.Add(this.buttonNew);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1005, 650);
-            this.panel1.TabIndex = 0;
+            this.panelCourses.Controls.Add(this.dataGridViewCourses);
+            this.panelCourses.Controls.Add(this.buttonNew);
+            this.panelCourses.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCourses.Location = new System.Drawing.Point(0, 0);
+            this.panelCourses.Name = "panelCourses";
+            this.panelCourses.Size = new System.Drawing.Size(1005, 650);
+            this.panelCourses.TabIndex = 0;
             // 
             // dataGridViewCourses
             // 
@@ -87,12 +87,16 @@
             // 
             // buttonNew
             // 
+            this.buttonNew.BackColor = System.Drawing.Color.White;
+            this.buttonNew.FlatAppearance.BorderSize = 0;
+            this.buttonNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonNew.Location = new System.Drawing.Point(64, 43);
             this.buttonNew.Name = "buttonNew";
             this.buttonNew.Size = new System.Drawing.Size(108, 42);
             this.buttonNew.TabIndex = 0;
             this.buttonNew.Text = "Nou";
-            this.buttonNew.UseVisualStyleBackColor = true;
+            this.buttonNew.UseVisualStyleBackColor = false;
             this.buttonNew.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormCourses1
@@ -100,11 +104,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 650);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelCourses);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCourses1";
             this.Text = "FormCourses";
-            this.panel1.ResumeLayout(false);
+            this.panelCourses.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourses)).EndInit();
             this.ResumeLayout(false);
 
@@ -112,7 +116,7 @@
 
         #endregion
 
-        private Panel panel1;
+        private Panel panelCourses;
         private Button buttonNew;
         private DataGridView dataGridViewCourses;
         private DataGridViewTextBoxColumn abreviacio;

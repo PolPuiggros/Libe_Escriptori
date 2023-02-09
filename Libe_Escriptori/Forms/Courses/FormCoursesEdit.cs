@@ -51,5 +51,18 @@ namespace Libe_Escriptori.Forms.Courses
         {
 
         }
+
+        private void buttonExistent_Click(object sender, EventArgs e)
+        {
+            using (FormAddModuleDialog f = new FormAddModuleDialog())
+            {
+                DialogResult dr = f.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    string custName = f.test;
+                    
+                }
+            }
+        }
     }
 }
