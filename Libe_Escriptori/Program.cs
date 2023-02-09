@@ -1,3 +1,5 @@
+using Libe_Escriptori.Forms.Centres;
+
 namespace Libe_Escriptori
 {
     internal static class Program
@@ -11,7 +13,8 @@ namespace Libe_Escriptori
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Login());
+            //Application.Run(new Login());
+            Application.Run(new FormCalendari());
         }
     }
 }

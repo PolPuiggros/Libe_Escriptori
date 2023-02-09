@@ -42,7 +42,6 @@ C:\Users\cep.CEPNET0\Desktop\Libe2\Libe_Escriptori\Libe_Escriptori\bin\Debug\net
 C:\Users\cep.CEPNET0\Desktop\Libe2\Libe_Escriptori\Libe_Escriptori\bin\Debug\net6.0-windows\Libe_Escriptori.pdb
 C:\Users\cep.CEPNET0\Desktop\Libe2\Libe_Escriptori\Libe_Escriptori\obj\Debug\net6.0-windows\Libe_Escriptori.csproj.AssemblyReference.cache
 C:\Users\cep.CEPNET0\Desktop\Libe2\Libe_Escriptori\Libe_Escriptori\obj\Debug\net6.0-windows\Libe_Escriptori.Forms.FormCourses.resources
-C:\Users\cep.CEPNET0\Desktop\Libe2\Libe_Escriptori\Libe_Escriptori\obj\Debug\net6.0-windows\Libe_Escriptori.Forms.FormHome.resources
 C:\Users\cep.CEPNET0\Desktop\Libe2\Libe_Escriptori\Libe_Escriptori\obj\Debug\net6.0-windows\Libe_Escriptori.Login.resources
 C:\Users\cep.CEPNET0\Desktop\Libe2\Libe_Escriptori\Libe_Escriptori\obj\Debug\net6.0-windows\Libe_Escriptori.MainForm.resources
 C:\Users\cep.CEPNET0\Desktop\Libe2\Libe_Escriptori\Libe_Escriptori\obj\Debug\net6.0-windows\Libe_Escriptori.Properties.Resources.resources
@@ -56,3 +55,9 @@ C:\Users\cep.CEPNET0\Desktop\Libe2\Libe_Escriptori\Libe_Escriptori\obj\Debug\net
 C:\Users\cep.CEPNET0\Desktop\Libe2\Libe_Escriptori\Libe_Escriptori\obj\Debug\net6.0-windows\Libe_Escriptori.pdb
 C:\Users\cep.CEPNET0\Desktop\Libe2\Libe_Escriptori\Libe_Escriptori\obj\Debug\net6.0-windows\Libe_Escriptori.genruntimeconfig.cache
 C:\Users\cep.CEPNET0\Desktop\Libe2\Libe_Escriptori\Libe_Escriptori\obj\Debug\net6.0-windows\ref\Libe_Escriptori.dll
+C:\Users\cep.CEPNET0\Desktop\Libe2\Libe_Escriptori\Libe_Escriptori\obj\Debug\net6.0-windows\Libe_Escriptori.Forms.Centres.FormCalendari.resources
+C:\Users\cep.CEPNET0\Desktop\Libe2\Libe_Escriptori\Libe_Escriptori\obj\Debug\net6.0-windows\Libe_Escriptori.Forms.Centres.FormCentreDepartaments.resources
+C:\Users\cep.CEPNET0\Desktop\Libe2\Libe_Escriptori\Libe_Escriptori\obj\Debug\net6.0-windows\Libe_Escriptori.Forms.Centres.FormCentreZonesAfegirAules.resources
+C:\Users\cep.CEPNET0\Desktop\Libe2\Libe_Escriptori\Libe_Escriptori\obj\Debug\net6.0-windows\Libe_Escriptori.Forms.FormCentreZonesValidables.resources
+C:\Users\cep.CEPNET0\Desktop\Libe2\Libe_Escriptori\Libe_Escriptori\obj\Debug\net6.0-windows\Libe_Escriptori.Forms.Centres.UserControlBlank.resources
+C:\Users\cep.CEPNET0\Desktop\Libe2\Libe_Escriptori\Libe_Escriptori\obj\Debug\net6.0-windows\Libe_Escriptori.Forms.Centres.UserControlDays.resources
