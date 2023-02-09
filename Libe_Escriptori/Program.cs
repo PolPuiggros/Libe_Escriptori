@@ -1,3 +1,5 @@
+using Libe_Escriptori.Forms.Courses;
+
 namespace Libe_Escriptori
 {
     internal static class Program
@@ -14,6 +16,7 @@ namespace Libe_Escriptori
             Application.Run(new Login());
             //Application.Run(new Forms.Gestionar_Usuaris.Professors.GestionarUsuarisProfessorsAfegint());
             //Application.Run(new Forms.Gestionar_Usuaris.GestionarUsuarisAlumnesAfegint());
+
         }
     }
 }
