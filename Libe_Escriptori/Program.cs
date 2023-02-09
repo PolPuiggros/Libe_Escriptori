@@ -1,4 +1,6 @@
 using Libe_Escriptori.Forms.Courses;
+using Libe_Escriptori.Forms.Centres;
+
 
 namespace Libe_Escriptori
 {

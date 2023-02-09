@@ -29,7 +29,6 @@
     </EmbeddedResource>
   </ItemGroup>
 
-
   <ItemGroup>
 
     <Folder Include="Forms\" />
@@ -39,5 +38,6 @@
     <Folder Include="Forms\Centre\" />
 
   </ItemGroup>
+
 
 </Project>

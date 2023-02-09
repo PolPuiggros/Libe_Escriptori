@@ -9,6 +9,25 @@ namespace Libe_Escriptori
         private Point lastLocation;
 
         //MID PANEL SIZE: 1005; 650
+        //POPUP SIZE!!!! 664; 495
+        //private void OpenChildForm(Form childForm, object btnSender)
+        //{
+        //    if (activeForm != null)
+        //    {
+        //        activeForm.Close();
+        //    }
+
+        //    activeForm = childForm;
+        //    ActivateButton(btnSender);
+        //    childForm.TopLevel = false;
+        //    childForm.FormBorderStyle = FormBorderStyle.None;
+        //    childForm.Dock = DockStyle.Fill;
+        //    panelMain.Controls.Add(childForm);
+        //    panelMain.Tag = childForm;
+        //    childForm.BringToFront();
+        //    childForm.Show();
+        //    labelTitle.Text = childForm.Text;
+        //}
 
         public MainForm()
         {
