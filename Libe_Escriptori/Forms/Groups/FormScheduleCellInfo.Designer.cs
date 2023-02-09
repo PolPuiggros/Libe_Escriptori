@@ -100,6 +100,7 @@
             this.Controls.Add(this.labelDay);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormScheduleCellInfo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormScheduleCellInfo";
             this.ResumeLayout(false);
             this.PerformLayout();
