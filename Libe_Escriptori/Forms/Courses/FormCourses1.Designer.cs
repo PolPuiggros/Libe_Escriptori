@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCourses1));
             this.panelCourses = new System.Windows.Forms.Panel();
             this.dataGridViewCourses = new System.Windows.Forms.DataGridView();
+            this.buttonNew = new System.Windows.Forms.Button();
             this.abreviacio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.departament = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonNew = new System.Windows.Forms.Button();
+            this.ColumnEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelCourses.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourses)).BeginInit();
             this.SuspendLayout();
@@ -55,7 +58,8 @@
             this.dataGridViewCourses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.abreviacio,
             this.nom,
-            this.departament});
+            this.departament,
+            this.ColumnEdit});
             this.dataGridViewCourses.Location = new System.Drawing.Point(64, 116);
             this.dataGridViewCourses.Name = "dataGridViewCourses";
             this.dataGridViewCourses.ReadOnly = true;
@@ -63,6 +67,20 @@
             this.dataGridViewCourses.Size = new System.Drawing.Size(880, 469);
             this.dataGridViewCourses.TabIndex = 3;
             this.dataGridViewCourses.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // buttonNew
+            // 
+            this.buttonNew.BackColor = System.Drawing.Color.White;
+            this.buttonNew.FlatAppearance.BorderSize = 0;
+            this.buttonNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonNew.Location = new System.Drawing.Point(64, 43);
+            this.buttonNew.Name = "buttonNew";
+            this.buttonNew.Size = new System.Drawing.Size(108, 42);
+            this.buttonNew.TabIndex = 0;
+            this.buttonNew.Text = "Nou";
+            this.buttonNew.UseVisualStyleBackColor = false;
+            this.buttonNew.Click += new System.EventHandler(this.button1_Click);
             // 
             // abreviacio
             // 
@@ -85,19 +103,22 @@
             this.departament.Name = "departament";
             this.departament.ReadOnly = true;
             // 
-            // buttonNew
+            // ColumnEdit
             // 
-            this.buttonNew.BackColor = System.Drawing.Color.White;
-            this.buttonNew.FlatAppearance.BorderSize = 0;
-            this.buttonNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonNew.Location = new System.Drawing.Point(64, 43);
-            this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(108, 42);
-            this.buttonNew.TabIndex = 0;
-            this.buttonNew.Text = "Nou";
-            this.buttonNew.UseVisualStyleBackColor = false;
-            this.buttonNew.Click += new System.EventHandler(this.button1_Click);
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle1.NullValue")));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.ColumnEdit.DefaultCellStyle = dataGridViewCellStyle1;
+            this.ColumnEdit.HeaderText = "";
+            this.ColumnEdit.Image = ((System.Drawing.Image)(resources.GetObject("ColumnEdit.Image")));
+            this.ColumnEdit.Name = "ColumnEdit";
+            this.ColumnEdit.ReadOnly = true;
+            this.ColumnEdit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ColumnEdit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // FormCourses1
             // 
@@ -122,5 +143,6 @@
         private DataGridViewTextBoxColumn abreviacio;
         private DataGridViewTextBoxColumn nom;
         private DataGridViewTextBoxColumn departament;
+        private DataGridViewImageColumn ColumnEdit;
     }
 }
