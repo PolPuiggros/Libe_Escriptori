@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Libe_Escriptori.Forms
+namespace Libe_Escriptori.Forms.Centres
 {
     public partial class FormCentreZonesValidables : Form
     {

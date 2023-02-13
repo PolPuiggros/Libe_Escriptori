@@ -9,8 +9,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Forms\Centre\**" />
+    <Compile Remove="Forms\Gestionar Cursos\**" />
+    <Compile Remove="Forms\Gestionar Grups\**" />
+    <Compile Remove="Forms\Inici\**" />
     <Compile Remove="obj\**" />
+    <EmbeddedResource Remove="Forms\Centre\**" />
+    <EmbeddedResource Remove="Forms\Gestionar Cursos\**" />
+    <EmbeddedResource Remove="Forms\Gestionar Grups\**" />
+    <EmbeddedResource Remove="Forms\Inici\**" />
     <EmbeddedResource Remove="obj\**" />
+    <None Remove="Forms\Centre\**" />
+    <None Remove="Forms\Gestionar Cursos\**" />
+    <None Remove="Forms\Gestionar Grups\**" />
+    <None Remove="Forms\Inici\**" />
     <None Remove="obj\**" />
   </ItemGroup>
 
@@ -27,17 +39,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-
-  <ItemGroup>
-
-    <Folder Include="Forms\" />
-    <Folder Include="Forms\Inici\" />
-    <Folder Include="Forms\Gestionar Cursos\" />
-    <Folder Include="Forms\Gestionar Grups\" />
-    <Folder Include="Forms\Centre\" />
-
   </ItemGroup>
 
 

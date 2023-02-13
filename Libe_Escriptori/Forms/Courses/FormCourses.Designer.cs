@@ -1,6 +1,6 @@
 ﻿namespace Libe_Escriptori.Forms.Courses
 {
-    partial class FormCourses1
+    partial class FormCourses
     {
         /// <summary>
         /// Required designer variable.
@@ -51,6 +51,7 @@
             // dataGridViewCourses
             // 
             this.dataGridViewCourses.AllowUserToOrderColumns = true;
+            this.dataGridViewCourses.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCourses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.abreviacio,

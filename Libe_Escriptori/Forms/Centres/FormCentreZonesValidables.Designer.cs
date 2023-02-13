@@ -1,4 +1,4 @@
-﻿namespace Libe_Escriptori.Forms
+﻿namespace Libe_Escriptori.Forms.Centres
 {
     partial class FormCentreZonesValidables
     {

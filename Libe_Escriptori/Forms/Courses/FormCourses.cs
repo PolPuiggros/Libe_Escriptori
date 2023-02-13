@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Libe_Escriptori.Forms.Courses
 {
-    public partial class FormCourses1 : Form
+    public partial class FormCourses : Form
     {
-        public FormCourses1()
+        public FormCourses()
         {
             InitializeComponent();
             InitGrid();
