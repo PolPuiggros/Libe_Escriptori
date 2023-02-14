@@ -15,11 +15,8 @@ namespace Libe_Escriptori
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Login());
-            //Application.Run(new Forms.Gestionar_Usuaris.Professors.GestionarUsuarisProfessorsAfegint());
-            //Application.Run(new Forms.Gestionar_Usuaris.GestionarUsuarisAlumnesAfegint());
-
-
+            //Application.Run(new Login());
+            Application.Run(new Forms.FormCentreZonesValidables());
         }
     }
 }

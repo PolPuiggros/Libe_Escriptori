@@ -52,6 +52,8 @@
             this.textBoxDni.Size = new System.Drawing.Size(366, 30);
             this.textBoxDni.TabIndex = 9;
             this.textBoxDni.Text = " DNI";
+            this.textBoxDni.Enter += new System.EventHandler(this.textBoxDni_Enter);
+            this.textBoxDni.Leave += new System.EventHandler(this.textBoxDni_Leave);
             // 
             // textBoxPhone
             // 
@@ -62,6 +64,8 @@
             this.textBoxPhone.Size = new System.Drawing.Size(366, 30);
             this.textBoxPhone.TabIndex = 8;
             this.textBoxPhone.Text = " Tel";
+            this.textBoxPhone.Enter += new System.EventHandler(this.textBoxPhone_Enter);
+            this.textBoxPhone.Leave += new System.EventHandler(this.textBoxPhone_Leave);
             // 
             // textBoxEmail
             // 
@@ -72,6 +76,8 @@
             this.textBoxEmail.Size = new System.Drawing.Size(810, 30);
             this.textBoxEmail.TabIndex = 7;
             this.textBoxEmail.Text = " Email";
+            this.textBoxEmail.Enter += new System.EventHandler(this.textBoxEmail_Enter);
+            this.textBoxEmail.Leave += new System.EventHandler(this.textBoxEmail_Leave);
             // 
             // textBoxSurname
             // 
@@ -82,6 +88,8 @@
             this.textBoxSurname.Size = new System.Drawing.Size(533, 30);
             this.textBoxSurname.TabIndex = 6;
             this.textBoxSurname.Text = " Cognoms";
+            this.textBoxSurname.Enter += new System.EventHandler(this.textBoxSurname_Enter);
+            this.textBoxSurname.Leave += new System.EventHandler(this.textBoxSurname_Leave);
             // 
             // textBoxName
             // 
@@ -92,6 +100,8 @@
             this.textBoxName.Size = new System.Drawing.Size(237, 30);
             this.textBoxName.TabIndex = 5;
             this.textBoxName.Text = " Nom";
+            this.textBoxName.Enter += new System.EventHandler(this.textBoxName_Enter);
+            this.textBoxName.Leave += new System.EventHandler(this.textBoxName_Leave);
             // 
             // labelDepartmentTeacher
             // 

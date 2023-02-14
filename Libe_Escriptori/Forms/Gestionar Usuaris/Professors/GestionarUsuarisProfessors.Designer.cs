@@ -76,6 +76,8 @@
             this.textBoxSearch.Size = new System.Drawing.Size(251, 22);
             this.textBoxSearch.TabIndex = 7;
             this.textBoxSearch.Text = "  Búsqueda...";
+            this.textBoxSearch.Enter += new System.EventHandler(this.textBoxSearch_Enter);
+            this.textBoxSearch.Leave += new System.EventHandler(this.textBoxSearch_Leave);
             // 
             // buttonNew
             // 

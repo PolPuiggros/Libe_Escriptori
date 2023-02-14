@@ -62,6 +62,8 @@
             this.textBoxSearch.Size = new System.Drawing.Size(251, 22);
             this.textBoxSearch.TabIndex = 1;
             this.textBoxSearch.Text = "  Búsqueda...";
+            this.textBoxSearch.Enter += new System.EventHandler(this.textBoxSearch_Enter);
+            this.textBoxSearch.Leave += new System.EventHandler(this.textBoxSearch_Leave);
             // 
             // comboBoxFilter
             // 
@@ -93,6 +95,8 @@
             this.textBoxFilterCourse.Size = new System.Drawing.Size(166, 22);
             this.textBoxFilterCourse.TabIndex = 3;
             this.textBoxFilterCourse.Text = "  Búsqueda...";
+            this.textBoxFilterCourse.Enter += new System.EventHandler(this.textBoxFilterCourse_Enter);
+            this.textBoxFilterCourse.Leave += new System.EventHandler(this.textBoxFilterCourse_Leave);
             // 
             // labelFilterCourse
             // 

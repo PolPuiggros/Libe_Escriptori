@@ -12,9 +12,20 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
 {
     public partial class GestionarUsuarisProfessors : Form
     {
+        private String textBoxHint = "  Búsqueda...";
         public GestionarUsuarisProfessors()
         {
             InitializeComponent();
+        }
+
+        private void textBoxSearch_Enter(object sender, EventArgs e)
+        {
+            TextBoxDesign.textBoxSearch_Enter(textBoxSearch, textBoxHint);
+        }
+
+        private void textBoxSearch_Leave(object sender, EventArgs e)
+        {
+            TextBoxDesign.textBoxSearch_Leave(textBoxSearch, textBoxHint);
         }
     }
 }

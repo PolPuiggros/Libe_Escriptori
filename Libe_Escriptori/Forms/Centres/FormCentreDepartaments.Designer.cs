@@ -49,7 +49,7 @@
             // textBoxNomDepartament
             // 
             this.textBoxNomDepartament.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxNomDepartament.ForeColor = System.Drawing.Color.DarkGray;
+            this.textBoxNomDepartament.ForeColor = System.Drawing.Color.Gray;
             this.textBoxNomDepartament.Location = new System.Drawing.Point(100, 118);
             this.textBoxNomDepartament.MaximumSize = new System.Drawing.Size(829, 31);
             this.textBoxNomDepartament.MinimumSize = new System.Drawing.Size(829, 31);
@@ -57,11 +57,13 @@
             this.textBoxNomDepartament.Size = new System.Drawing.Size(829, 31);
             this.textBoxNomDepartament.TabIndex = 2;
             this.textBoxNomDepartament.Text = " Nom del departament";
+            this.textBoxNomDepartament.Enter += new System.EventHandler(this.textBoxNomDepartament_Enter);
+            this.textBoxNomDepartament.Leave += new System.EventHandler(this.textBoxNomDepartament_Leave);
             // 
             // comboBoxDepartaments
             // 
             this.comboBoxDepartaments.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBoxDepartaments.ForeColor = System.Drawing.Color.DarkGray;
+            this.comboBoxDepartaments.ForeColor = System.Drawing.Color.Gray;
             this.comboBoxDepartaments.FormattingEnabled = true;
             this.comboBoxDepartaments.Location = new System.Drawing.Point(100, 178);
             this.comboBoxDepartaments.MaximumSize = new System.Drawing.Size(389, 0);

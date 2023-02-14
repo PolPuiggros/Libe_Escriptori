@@ -51,6 +51,8 @@
             this.textBoxName.Size = new System.Drawing.Size(237, 30);
             this.textBoxName.TabIndex = 0;
             this.textBoxName.Text = "Nom";
+            this.textBoxName.Enter += new System.EventHandler(this.textBoxName_Enter);
+            this.textBoxName.Leave += new System.EventHandler(this.textBoxName_Leave);
             // 
             // textBoxSurname
             // 
@@ -61,6 +63,8 @@
             this.textBoxSurname.Size = new System.Drawing.Size(533, 30);
             this.textBoxSurname.TabIndex = 1;
             this.textBoxSurname.Text = "Cognoms";
+            this.textBoxSurname.Enter += new System.EventHandler(this.textBoxSurname_Enter);
+            this.textBoxSurname.Leave += new System.EventHandler(this.textBoxSurname_Leave);
             // 
             // textBoxEmail
             // 
@@ -71,6 +75,8 @@
             this.textBoxEmail.Size = new System.Drawing.Size(810, 30);
             this.textBoxEmail.TabIndex = 2;
             this.textBoxEmail.Text = "Email";
+            this.textBoxEmail.Enter += new System.EventHandler(this.textBoxEmail_Enter);
+            this.textBoxEmail.Leave += new System.EventHandler(this.textBoxEmail_Leave);
             // 
             // textBoxPhone
             // 
@@ -81,6 +87,8 @@
             this.textBoxPhone.Size = new System.Drawing.Size(366, 30);
             this.textBoxPhone.TabIndex = 3;
             this.textBoxPhone.Text = "Tel";
+            this.textBoxPhone.Enter += new System.EventHandler(this.textBoxPhone_Enter);
+            this.textBoxPhone.Leave += new System.EventHandler(this.textBoxPhone_Leave);
             // 
             // textBoxDni
             // 
@@ -91,6 +99,8 @@
             this.textBoxDni.Size = new System.Drawing.Size(366, 30);
             this.textBoxDni.TabIndex = 4;
             this.textBoxDni.Text = "DNI";
+            this.textBoxDni.Enter += new System.EventHandler(this.textBoxDni_Enter);
+            this.textBoxDni.Leave += new System.EventHandler(this.textBoxDni_Leave);
             // 
             // labelAddictionalInfo
             // 

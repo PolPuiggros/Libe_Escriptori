@@ -12,9 +12,42 @@ namespace Libe_Escriptori.Forms.Courses
 {
     public partial class FormAddModule : Form
     {
+        private String textBoxHintAbreviation = " Abreviació";
+        private String textBoxHintHours = " Hores";
+        private String textBoxHintName = " Nom complert";
         public FormAddModule()
         {
             InitializeComponent();
+        }
+
+        private void textBoxAbbreviation_Enter(object sender, EventArgs e)
+        {
+            TextBoxDesign.textBoxSearch_Enter(textBoxAbbreviation, textBoxHintAbreviation);
+        }
+
+        private void textBoxAbbreviation_Leave(object sender, EventArgs e)
+        {
+            TextBoxDesign.textBoxSearch_Leave(textBoxAbbreviation, textBoxHintAbreviation);
+        }
+
+        private void textBoxHours_Enter(object sender, EventArgs e)
+        {
+            TextBoxDesign.textBoxSearch_Enter(textBoxHours, textBoxHintHours);
+        }
+
+        private void textBoxHours_Leave(object sender, EventArgs e)
+        {
+            TextBoxDesign.textBoxSearch_Leave(textBoxHours, textBoxHintHours);
+        }
+
+        private void textBoxName_Enter(object sender, EventArgs e)
+        {
+            TextBoxDesign.textBoxSearch_Enter(textBoxName, textBoxHintName);
+        }
+
+        private void textBoxName_Leave(object sender, EventArgs e)
+        {
+            TextBoxDesign.textBoxSearch_Leave(textBoxName, textBoxHintName);
         }
     }
 }

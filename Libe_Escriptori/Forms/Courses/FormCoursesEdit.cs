@@ -12,6 +12,8 @@ namespace Libe_Escriptori.Forms.Courses
 {
     public partial class FormCoursesEdit : Form
     {
+        private String textBoxHintAbreviation = " Abreviació";
+        private String textBoxHintName = " Nom Complert del curs";
         public FormCoursesEdit()
         {
             InitializeComponent();
@@ -63,6 +65,26 @@ namespace Libe_Escriptori.Forms.Courses
                     
                 }
             }
+        }
+
+        private void textBoxAbbreviation_Enter(object sender, EventArgs e)
+        {
+            TextBoxDesign.textBoxSearch_Enter(textBoxAbbreviation, textBoxHintAbreviation);
+        }
+
+        private void textBoxAbbreviation_Leave(object sender, EventArgs e)
+        {
+            TextBoxDesign.textBoxSearch_Leave(textBoxAbbreviation, textBoxHintAbreviation);
+        }
+
+        private void textBoxFullName_Enter(object sender, EventArgs e)
+        {
+            TextBoxDesign.textBoxSearch_Enter(textBoxFullName, textBoxHintName);
+        }
+
+        private void textBoxFullName_Leave(object sender, EventArgs e)
+        {
+            TextBoxDesign.textBoxSearch_Leave(textBoxFullName, textBoxHintName);
         }
     }
 }

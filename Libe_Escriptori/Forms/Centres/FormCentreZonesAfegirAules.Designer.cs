@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
             this.labelZonaValidable = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonGuardarZona = new System.Windows.Forms.Button();
@@ -51,18 +51,20 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Aules -";
             // 
-            // textBox1
+            // textBoxName
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.ForeColor = System.Drawing.Color.DarkGray;
-            this.textBox1.Location = new System.Drawing.Point(35, 87);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox1.MaximumSize = new System.Drawing.Size(420, 31);
-            this.textBox1.MinimumSize = new System.Drawing.Size(420, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(420, 31);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = " Nom de l\'aula";
+            this.textBoxName.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxName.ForeColor = System.Drawing.Color.DarkGray;
+            this.textBoxName.Location = new System.Drawing.Point(35, 87);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBoxName.MaximumSize = new System.Drawing.Size(420, 31);
+            this.textBoxName.MinimumSize = new System.Drawing.Size(420, 31);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(420, 31);
+            this.textBoxName.TabIndex = 2;
+            this.textBoxName.Text = " Nom de l\'aula";
+            this.textBoxName.Enter += new System.EventHandler(this.textBoxName_Enter);
+            this.textBoxName.Leave += new System.EventHandler(this.textBoxName_Leave);
             // 
             // labelZonaValidable
             // 
@@ -161,7 +163,7 @@
             this.Controls.Add(this.buttonGuardarZona);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.labelZonaValidable);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -177,7 +179,7 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox1;
+        private TextBox textBoxName;
         private Label labelZonaValidable;
         private Label label2;
         private Button buttonGuardarZona;

@@ -12,6 +12,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
 {
     public partial class GestionarUsuarisAlumnes : Form
     {
+        private String textBoxHint = "  Búsqueda...";
         public GestionarUsuarisAlumnes()
         {
             InitializeComponent();
@@ -24,6 +25,26 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             mainForm.panel1.Controls.Add(gestionarUsuarisAlumnesAfegint);
             gestionarUsuarisAlumnesAfegint.BringToFront();
             gestionarUsuarisAlumnesAfegint.Show();
+        }
+
+        private void textBoxSearch_Enter(object sender, EventArgs e)
+        {
+            TextBoxDesign.textBoxSearch_Enter(textBoxSearch, textBoxHint);
+        }
+
+        private void textBoxSearch_Leave(object sender, EventArgs e)
+        {
+            TextBoxDesign.textBoxSearch_Leave(textBoxSearch, textBoxHint);
+        }
+
+        private void textBoxFilterCourse_Enter(object sender, EventArgs e)
+        {
+            TextBoxDesign.textBoxSearch_Enter(textBoxFilterCourse, textBoxHint);
+        }
+
+        private void textBoxFilterCourse_Leave(object sender, EventArgs e)
+        {
+            TextBoxDesign.textBoxSearch_Leave(textBoxFilterCourse, textBoxHint);
         }
     }
 }

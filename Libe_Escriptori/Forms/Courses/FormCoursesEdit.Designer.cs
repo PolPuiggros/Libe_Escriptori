@@ -151,22 +151,28 @@
             // textBoxFullName
             // 
             this.textBoxFullName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxFullName.ForeColor = System.Drawing.Color.Gray;
             this.textBoxFullName.Location = new System.Drawing.Point(352, 75);
             this.textBoxFullName.Name = "textBoxFullName";
             this.textBoxFullName.Size = new System.Drawing.Size(579, 29);
             this.textBoxFullName.TabIndex = 1;
-            this.textBoxFullName.Text = "Nom Complert del curs";
+            this.textBoxFullName.Text = " Nom Complert del curs";
             this.textBoxFullName.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.textBoxFullName.Enter += new System.EventHandler(this.textBoxFullName_Enter);
+            this.textBoxFullName.Leave += new System.EventHandler(this.textBoxFullName_Leave);
             // 
             // textBoxAbbreviation
             // 
             this.textBoxAbbreviation.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxAbbreviation.ForeColor = System.Drawing.Color.Gray;
             this.textBoxAbbreviation.Location = new System.Drawing.Point(80, 75);
             this.textBoxAbbreviation.Name = "textBoxAbbreviation";
             this.textBoxAbbreviation.Size = new System.Drawing.Size(197, 29);
             this.textBoxAbbreviation.TabIndex = 0;
-            this.textBoxAbbreviation.Text = "Abreviació";
+            this.textBoxAbbreviation.Text = " Abreviació";
             this.textBoxAbbreviation.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBoxAbbreviation.Enter += new System.EventHandler(this.textBoxAbbreviation_Enter);
+            this.textBoxAbbreviation.Leave += new System.EventHandler(this.textBoxAbbreviation_Leave);
             // 
             // FormCoursesEdit
             // 

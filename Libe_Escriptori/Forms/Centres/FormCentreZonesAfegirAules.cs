@@ -12,6 +12,7 @@ namespace Libe_Escriptori.Forms.Centres
 {
     public partial class FormCentreZonesAfegirAules : Form
     {
+        private String textBoxHintNameDepartment = " Nom de l'aula";
         private bool mouseDown;
         private Point lastLocation;
         public FormCentreZonesAfegirAules()
@@ -38,6 +39,16 @@ namespace Libe_Escriptori.Forms.Centres
         private void panelMove_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
+        }
+
+        private void textBoxName_Enter(object sender, EventArgs e)
+        {
+            TextBoxDesign.textBoxSearch_Enter(textBoxName, textBoxHintNameDepartment);
+        }
+
+        private void textBoxName_Leave(object sender, EventArgs e)
+        {
+            TextBoxDesign.textBoxSearch_Leave(textBoxName, textBoxHintNameDepartment);
         }
     }
 }

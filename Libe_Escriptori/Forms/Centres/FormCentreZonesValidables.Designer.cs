@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBoxRadi = new System.Windows.Forms.TextBox();
+            this.textBoxZoneName = new System.Windows.Forms.TextBox();
+            this.textBoxZoneCoordinates = new System.Windows.Forms.TextBox();
+            this.textBoxRange = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buttonGuardarZona = new System.Windows.Forms.Button();
             this.buttonAfegirAules = new System.Windows.Forms.Button();
@@ -49,41 +49,47 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Zones Validables";
             // 
-            // textBox1
+            // textBoxZoneName
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.ForeColor = System.Drawing.Color.DarkGray;
-            this.textBox1.Location = new System.Drawing.Point(83, 99);
-            this.textBox1.MaximumSize = new System.Drawing.Size(829, 31);
-            this.textBox1.MinimumSize = new System.Drawing.Size(829, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(829, 27);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = " Nom de la zona validable";
+            this.textBoxZoneName.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxZoneName.ForeColor = System.Drawing.Color.Gray;
+            this.textBoxZoneName.Location = new System.Drawing.Point(83, 99);
+            this.textBoxZoneName.MaximumSize = new System.Drawing.Size(829, 31);
+            this.textBoxZoneName.MinimumSize = new System.Drawing.Size(829, 31);
+            this.textBoxZoneName.Name = "textBoxZoneName";
+            this.textBoxZoneName.Size = new System.Drawing.Size(829, 31);
+            this.textBoxZoneName.TabIndex = 1;
+            this.textBoxZoneName.Text = " Nom de la zona validable";
+            this.textBoxZoneName.Enter += new System.EventHandler(this.textBoxZoneName_Enter);
+            this.textBoxZoneName.Leave += new System.EventHandler(this.textBoxZoneName_Leave);
             // 
-            // textBox2
+            // textBoxZoneCoordinates
             // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.ForeColor = System.Drawing.Color.DarkGray;
-            this.textBox2.Location = new System.Drawing.Point(83, 165);
-            this.textBox2.MaximumSize = new System.Drawing.Size(460, 31);
-            this.textBox2.MinimumSize = new System.Drawing.Size(460, 31);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(460, 31);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.Text = " Coordenades de la zona";
+            this.textBoxZoneCoordinates.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxZoneCoordinates.ForeColor = System.Drawing.Color.Gray;
+            this.textBoxZoneCoordinates.Location = new System.Drawing.Point(83, 165);
+            this.textBoxZoneCoordinates.MaximumSize = new System.Drawing.Size(460, 31);
+            this.textBoxZoneCoordinates.MinimumSize = new System.Drawing.Size(460, 31);
+            this.textBoxZoneCoordinates.Name = "textBoxZoneCoordinates";
+            this.textBoxZoneCoordinates.Size = new System.Drawing.Size(460, 31);
+            this.textBoxZoneCoordinates.TabIndex = 2;
+            this.textBoxZoneCoordinates.Text = " Coordenades de la zona";
+            this.textBoxZoneCoordinates.Enter += new System.EventHandler(this.textBoxZoneCoordinates_Enter);
+            this.textBoxZoneCoordinates.Leave += new System.EventHandler(this.textBoxZoneCoordinates_Leave);
             // 
-            // textBoxRadi
+            // textBoxRange
             // 
-            this.textBoxRadi.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxRadi.ForeColor = System.Drawing.Color.DarkGray;
-            this.textBoxRadi.Location = new System.Drawing.Point(586, 165);
-            this.textBoxRadi.MaximumSize = new System.Drawing.Size(153, 31);
-            this.textBoxRadi.MinimumSize = new System.Drawing.Size(153, 31);
-            this.textBoxRadi.Name = "textBoxRadi";
-            this.textBoxRadi.Size = new System.Drawing.Size(153, 31);
-            this.textBoxRadi.TabIndex = 3;
-            this.textBoxRadi.Text = " Radi";
+            this.textBoxRange.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxRange.ForeColor = System.Drawing.Color.Gray;
+            this.textBoxRange.Location = new System.Drawing.Point(586, 165);
+            this.textBoxRange.MaximumSize = new System.Drawing.Size(153, 31);
+            this.textBoxRange.MinimumSize = new System.Drawing.Size(153, 31);
+            this.textBoxRange.Name = "textBoxRange";
+            this.textBoxRange.Size = new System.Drawing.Size(153, 31);
+            this.textBoxRange.TabIndex = 3;
+            this.textBoxRange.Text = " Radi";
+            this.textBoxRange.Enter += new System.EventHandler(this.textBoxRange_Enter);
+            this.textBoxRange.Leave += new System.EventHandler(this.textBoxRange_Leave);
             // 
             // dataGridView1
             // 
@@ -146,9 +152,9 @@
             this.Controls.Add(this.buttonAfegirAules);
             this.Controls.Add(this.buttonGuardarZona);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBoxRadi);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxRange);
+            this.Controls.Add(this.textBoxZoneCoordinates);
+            this.Controls.Add(this.textBoxZoneName);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCentreZonesValidables";
@@ -162,9 +168,9 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBoxRadi;
+        private TextBox textBoxZoneName;
+        private TextBox textBoxZoneCoordinates;
+        private TextBox textBoxRange;
         private DataGridView dataGridView1;
         private Button buttonGuardarZona;
         private Button buttonAfegirAules;
