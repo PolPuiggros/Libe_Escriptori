@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCourses1));
             this.panelCourses = new System.Windows.Forms.Panel();
             this.dataGridViewCourses = new System.Windows.Forms.DataGridView();
             this.buttonNew = new System.Windows.Forms.Button();
             this.abreviacio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.departament = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnEdit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ColumnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panelCourses.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourses)).BeginInit();
             this.SuspendLayout();
@@ -54,19 +54,23 @@
             // dataGridViewCourses
             // 
             this.dataGridViewCourses.AllowUserToOrderColumns = true;
+            this.dataGridViewCourses.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCourses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.abreviacio,
             this.nom,
             this.departament,
-            this.ColumnEdit});
+            this.ColumnEdit,
+            this.ColumnDelete});
             this.dataGridViewCourses.Location = new System.Drawing.Point(64, 116);
             this.dataGridViewCourses.Name = "dataGridViewCourses";
             this.dataGridViewCourses.ReadOnly = true;
+            this.dataGridViewCourses.RowHeadersVisible = false;
             this.dataGridViewCourses.RowTemplate.Height = 25;
             this.dataGridViewCourses.Size = new System.Drawing.Size(880, 469);
             this.dataGridViewCourses.TabIndex = 3;
             this.dataGridViewCourses.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridViewCourses.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridViewCourses_CellPainting);
             // 
             // buttonNew
             // 
@@ -84,6 +88,7 @@
             // 
             // abreviacio
             // 
+            this.abreviacio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.abreviacio.DataPropertyName = "abreviacio";
             this.abreviacio.HeaderText = "Abreviació Curs";
             this.abreviacio.Name = "abreviacio";
@@ -91,6 +96,7 @@
             // 
             // nom
             // 
+            this.nom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.nom.DataPropertyName = "nom";
             this.nom.HeaderText = "Nom";
             this.nom.Name = "nom";
@@ -98,6 +104,7 @@
             // 
             // departament
             // 
+            this.departament.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.departament.DataPropertyName = "departament";
             this.departament.HeaderText = "Departament";
             this.departament.Name = "departament";
@@ -105,20 +112,33 @@
             // 
             // ColumnEdit
             // 
+            this.ColumnEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle1.NullValue")));
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             this.ColumnEdit.DefaultCellStyle = dataGridViewCellStyle1;
+            this.ColumnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ColumnEdit.HeaderText = "";
-            this.ColumnEdit.Image = ((System.Drawing.Image)(resources.GetObject("ColumnEdit.Image")));
             this.ColumnEdit.Name = "ColumnEdit";
             this.ColumnEdit.ReadOnly = true;
             this.ColumnEdit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.ColumnEdit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColumnEdit.UseColumnTextForButtonValue = true;
+            this.ColumnEdit.Width = 24;
+            // 
+            // ColumnDelete
+            // 
+            this.ColumnDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnDelete.HeaderText = "";
+            this.ColumnDelete.Name = "ColumnDelete";
+            this.ColumnDelete.ReadOnly = true;
+            this.ColumnDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnDelete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColumnDelete.Width = 21;
             // 
             // FormCourses1
             // 
@@ -143,6 +163,7 @@
         private DataGridViewTextBoxColumn abreviacio;
         private DataGridViewTextBoxColumn nom;
         private DataGridViewTextBoxColumn departament;
-        private DataGridViewImageColumn ColumnEdit;
+        private DataGridViewButtonColumn ColumnEdit;
+        private DataGridViewButtonColumn ColumnDelete;
     }
 }
