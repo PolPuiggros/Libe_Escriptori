@@ -1,6 +1,6 @@
 ﻿namespace Libe_Escriptori.Forms.Courses
 {
-    partial class FormCoursesEdit
+    partial class FormCoursesAdd
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelCoursesAdd = new System.Windows.Forms.Panel();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.dataGridViewModules = new System.Windows.Forms.DataGridView();
@@ -38,27 +38,26 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBoxFullName = new System.Windows.Forms.TextBox();
             this.textBoxAbbreviation = new System.Windows.Forms.TextBox();
-            this.panel1.SuspendLayout();
+            this.panelCoursesAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewModules)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelCoursesAdd
             // 
-            this.panel1.Controls.Add(this.buttonCancel);
-            this.panel1.Controls.Add(this.buttonSave);
-            this.panel1.Controls.Add(this.dataGridViewModules);
-            this.panel1.Controls.Add(this.buttonExistent);
-            this.panel1.Controls.Add(this.buttonNew);
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.textBoxFullName);
-            this.panel1.Controls.Add(this.textBoxAbbreviation);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1005, 650);
-            this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panelCoursesAdd.Controls.Add(this.buttonCancel);
+            this.panelCoursesAdd.Controls.Add(this.buttonSave);
+            this.panelCoursesAdd.Controls.Add(this.dataGridViewModules);
+            this.panelCoursesAdd.Controls.Add(this.buttonExistent);
+            this.panelCoursesAdd.Controls.Add(this.buttonNew);
+            this.panelCoursesAdd.Controls.Add(this.comboBox1);
+            this.panelCoursesAdd.Controls.Add(this.textBox3);
+            this.panelCoursesAdd.Controls.Add(this.textBoxFullName);
+            this.panelCoursesAdd.Controls.Add(this.textBoxAbbreviation);
+            this.panelCoursesAdd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCoursesAdd.Location = new System.Drawing.Point(0, 0);
+            this.panelCoursesAdd.Name = "panelCoursesAdd";
+            this.panelCoursesAdd.Size = new System.Drawing.Size(1005, 650);
+            this.panelCoursesAdd.TabIndex = 0;
             // 
             // buttonCancel
             // 
@@ -86,7 +85,6 @@
             this.buttonSave.TabIndex = 7;
             this.buttonSave.Text = "Guardar";
             this.buttonSave.UseVisualStyleBackColor = false;
-            this.buttonSave.Click += new System.EventHandler(this.button3_Click);
             // 
             // dataGridViewModules
             // 
@@ -103,11 +101,11 @@
             this.buttonExistent.FlatAppearance.BorderSize = 0;
             this.buttonExistent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonExistent.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonExistent.Location = new System.Drawing.Point(259, 215);
+            this.buttonExistent.Location = new System.Drawing.Point(241, 215);
             this.buttonExistent.Name = "buttonExistent";
-            this.buttonExistent.Size = new System.Drawing.Size(131, 41);
+            this.buttonExistent.Size = new System.Drawing.Size(184, 41);
             this.buttonExistent.TabIndex = 5;
-            this.buttonExistent.Text = "Existent";
+            this.buttonExistent.Text = "Mòdul Existent";
             this.buttonExistent.UseVisualStyleBackColor = false;
             this.buttonExistent.Click += new System.EventHandler(this.buttonExistent_Click);
             // 
@@ -121,9 +119,9 @@
             this.buttonNew.Name = "buttonNew";
             this.buttonNew.Size = new System.Drawing.Size(131, 41);
             this.buttonNew.TabIndex = 4;
-            this.buttonNew.Text = "Nou";
+            this.buttonNew.Text = "Nou Mòdul";
             this.buttonNew.UseVisualStyleBackColor = false;
-            this.buttonNew.Click += new System.EventHandler(this.button1_Click);
+            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
             // comboBox1
             // 
@@ -135,7 +133,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(310, 29);
             this.comboBox1.TabIndex = 3;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // textBox3
             // 
@@ -146,7 +143,6 @@
             this.textBox3.Size = new System.Drawing.Size(469, 29);
             this.textBox3.TabIndex = 2;
             this.textBox3.Text = "Coordinador";
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // textBoxFullName
             // 
@@ -156,7 +152,6 @@
             this.textBoxFullName.Size = new System.Drawing.Size(579, 29);
             this.textBoxFullName.TabIndex = 1;
             this.textBoxFullName.Text = "Nom Complert del curs";
-            this.textBoxFullName.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBoxAbbreviation
             // 
@@ -166,19 +161,18 @@
             this.textBoxAbbreviation.Size = new System.Drawing.Size(197, 29);
             this.textBoxAbbreviation.TabIndex = 0;
             this.textBoxAbbreviation.Text = "Abreviació";
-            this.textBoxAbbreviation.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // FormCoursesEdit
+            // FormCoursesAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 650);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelCoursesAdd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormCoursesEdit";
+            this.Name = "FormCoursesAdd";
             this.Text = "FormModules";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelCoursesAdd.ResumeLayout(false);
+            this.panelCoursesAdd.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewModules)).EndInit();
             this.ResumeLayout(false);
 
@@ -186,7 +180,7 @@
 
         #endregion
 
-        private Panel panel1;
+        private Panel panelCoursesAdd;
         private Button buttonNew;
         private ComboBox comboBox1;
         private TextBox textBox3;

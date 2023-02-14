@@ -8,22 +8,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Libe_Escriptori.Forms.Groups
+namespace Libe_Escriptori.Forms.Courses
 {
-    public partial class FormAddGroup : Form
+    public partial class FormCoursesAdd : Form
     {
         private Form activeForm;
-        public FormAddGroup()
+        public FormCoursesAdd()
         {
             InitializeComponent();
         }
 
-        private void buttonManageStudents_Click_1(object sender, EventArgs e)
-        {
-            FormAddExistingStudentsToGroup faetg = new FormAddExistingStudentsToGroup();
-            faetg.Show();
-        }
+       
 
+        private void buttonExistent_Click(object sender, EventArgs e)
+        {
+            using (FormAddModuleDialog f = new FormAddModuleDialog())
+            {
+                DialogResult dr = f.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    string custName = f.test;
+                    
+                }
+            }
+        }
         private void OpenChildForm(Form childForm)
         {
             if (activeForm != null)
@@ -35,15 +43,15 @@ namespace Libe_Escriptori.Forms.Groups
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
-            panelAddGroup.Controls.Add(childForm);
-            panelAddGroup.Tag = childForm;
+            panelCoursesAdd.Controls.Add(childForm);
+            panelCoursesAdd.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
         }
 
-        private void buttonGestionarHorari_Click(object sender, EventArgs e)
+        private void buttonNew_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormCreateScheduleGroup());
+            OpenChildForm(new FormAddExistingModule());
         }
     }
 }

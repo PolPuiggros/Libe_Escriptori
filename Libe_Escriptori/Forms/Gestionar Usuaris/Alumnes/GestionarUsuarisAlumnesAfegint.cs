@@ -16,5 +16,10 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
         {
             InitializeComponent();
         }
+
+        private void buttonAfegir_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

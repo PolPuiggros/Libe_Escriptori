@@ -10,11 +10,15 @@ using System.Windows.Forms;
 
 namespace Libe_Escriptori.Forms.Courses
 {
-    public partial class FormAddModule : Form
+    public partial class FormAddExistingModule : Form
     {
-        public FormAddModule()
+        public FormAddExistingModule()
         {
             InitializeComponent();
+        }
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

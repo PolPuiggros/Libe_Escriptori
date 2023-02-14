@@ -161,6 +161,7 @@
             this.buttonAfegir.TabIndex = 16;
             this.buttonAfegir.Text = "Afegir";
             this.buttonAfegir.UseVisualStyleBackColor = false;
+            this.buttonAfegir.Click += new System.EventHandler(this.buttonAfegir_Click);
             // 
             // buttonCancelar
             // 

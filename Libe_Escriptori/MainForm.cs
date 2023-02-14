@@ -11,7 +11,7 @@ namespace Libe_Escriptori
         private bool mouseDown;
         private Point lastLocation;
         private Form activeForm;
-        private Button currentButton;
+        private Button? currentButton;
         //MID PANEL SIZE: 1005; 650
         //POPUP SIZE!!!! 664; 495
 

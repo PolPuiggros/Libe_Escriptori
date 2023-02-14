@@ -34,6 +34,7 @@
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("M01");
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("M02");
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.panelSchedule = new System.Windows.Forms.Panel();
             this.dataGridViewSchedule = new System.Windows.Forms.DataGridView();
             this.headerHour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerMonday = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,13 +42,25 @@
             this.headerWednesday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerThursday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerFriday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.listViewModuls = new System.Windows.Forms.ListView();
-            this.panelSchedule = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            this.panelSchedule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSchedule)).BeginInit();
             this.SuspendLayout();
+            // 
+            // panelSchedule
+            // 
+            this.panelSchedule.Controls.Add(this.dataGridViewSchedule);
+            this.panelSchedule.Controls.Add(this.buttonSave);
+            this.panelSchedule.Controls.Add(this.buttonCancel);
+            this.panelSchedule.Controls.Add(this.listViewModuls);
+            this.panelSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelSchedule.Location = new System.Drawing.Point(0, 0);
+            this.panelSchedule.Name = "panelSchedule";
+            this.panelSchedule.Size = new System.Drawing.Size(1005, 650);
+            this.panelSchedule.TabIndex = 0;
             // 
             // dataGridViewSchedule
             // 
@@ -80,7 +93,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewSchedule.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewSchedule.Location = new System.Drawing.Point(24, 55);
+            this.dataGridViewSchedule.Location = new System.Drawing.Point(25, 30);
             this.dataGridViewSchedule.MultiSelect = false;
             this.dataGridViewSchedule.Name = "dataGridViewSchedule";
             this.dataGridViewSchedule.ReadOnly = true;
@@ -93,7 +106,7 @@
             this.dataGridViewSchedule.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewSchedule.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridViewSchedule.Size = new System.Drawing.Size(734, 527);
-            this.dataGridViewSchedule.TabIndex = 0;
+            this.dataGridViewSchedule.TabIndex = 12;
             this.dataGridViewSchedule.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSchedule_CellClick);
             this.dataGridViewSchedule.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSchedule_CellDoubleClick);
             // 
@@ -138,19 +151,6 @@
             this.headerFriday.Name = "headerFriday";
             this.headerFriday.ReadOnly = true;
             // 
-            // buttonCancel
-            // 
-            this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(168)))), ((int)(((byte)(241)))));
-            this.buttonCancel.FlatAppearance.BorderSize = 0;
-            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCancel.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonCancel.Location = new System.Drawing.Point(334, 588);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(137, 50);
-            this.buttonCancel.TabIndex = 9;
-            this.buttonCancel.Text = "Cancelar";
-            this.buttonCancel.UseVisualStyleBackColor = false;
-            // 
             // buttonSave
             // 
             this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(64)))), ((int)(((byte)(171)))));
@@ -158,12 +158,25 @@
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSave.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonSave.ForeColor = System.Drawing.Color.White;
-            this.buttonSave.Location = new System.Drawing.Point(502, 588);
+            this.buttonSave.Location = new System.Drawing.Point(541, 572);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(136, 50);
-            this.buttonSave.TabIndex = 10;
+            this.buttonSave.TabIndex = 14;
             this.buttonSave.Text = "Guardar";
             this.buttonSave.UseVisualStyleBackColor = false;
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(168)))), ((int)(((byte)(241)))));
+            this.buttonCancel.FlatAppearance.BorderSize = 0;
+            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCancel.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonCancel.Location = new System.Drawing.Point(373, 572);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(137, 50);
+            this.buttonCancel.TabIndex = 13;
+            this.buttonCancel.Text = "Cancelar";
+            this.buttonCancel.UseVisualStyleBackColor = false;
             // 
             // listViewModuls
             // 
@@ -177,40 +190,28 @@
             this.listViewModuls.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
             listViewItem2});
-            this.listViewModuls.Location = new System.Drawing.Point(780, 55);
+            this.listViewModuls.Location = new System.Drawing.Point(776, 29);
             this.listViewModuls.MultiSelect = false;
             this.listViewModuls.Name = "listViewModuls";
             this.listViewModuls.Scrollable = false;
             this.listViewModuls.Size = new System.Drawing.Size(204, 527);
-            this.listViewModuls.TabIndex = 11;
+            this.listViewModuls.TabIndex = 15;
             this.listViewModuls.TileSize = new System.Drawing.Size(360, 54);
             this.listViewModuls.UseCompatibleStateImageBehavior = false;
             this.listViewModuls.View = System.Windows.Forms.View.Tile;
             this.listViewModuls.SelectedIndexChanged += new System.EventHandler(this.listViewModuls_SelectedIndexChanged);
-            // 
-            // panelSchedule
-            // 
-            this.panelSchedule.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelSchedule.Location = new System.Drawing.Point(0, 0);
-            this.panelSchedule.Name = "panelSchedule";
-            this.panelSchedule.Size = new System.Drawing.Size(1005, 650);
-            this.panelSchedule.TabIndex = 12;
             // 
             // FormCreateScheduleGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 650);
-            this.Controls.Add(this.listViewModuls);
-            this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.buttonCancel);
-            this.Controls.Add(this.dataGridViewSchedule);
             this.Controls.Add(this.panelSchedule);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCreateScheduleGroup";
             this.Text = "FormCreateScheduleGroup";
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            this.panelSchedule.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSchedule)).EndInit();
             this.ResumeLayout(false);
 
@@ -219,6 +220,7 @@
         #endregion
 
         private BindingSource bindingSource1;
+        private Panel panelSchedule;
         private DataGridView dataGridViewSchedule;
         private DataGridViewTextBoxColumn headerHour;
         private DataGridViewTextBoxColumn headerMonday;
@@ -226,9 +228,8 @@
         private DataGridViewTextBoxColumn headerWednesday;
         private DataGridViewTextBoxColumn headerThursday;
         private DataGridViewTextBoxColumn headerFriday;
-        private Button buttonCancel;
         private Button buttonSave;
+        private Button buttonCancel;
         private ListView listViewModuls;
-        private Panel panelSchedule;
     }
 }
