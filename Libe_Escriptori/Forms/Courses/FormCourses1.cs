@@ -34,7 +34,7 @@ namespace Libe_Escriptori.Forms.Courses
         {
             if (e.RowIndex < 0)
                 return;
-
+            int i = dataGridViewCourses.Columns.Count;
             // Edit button column
             if (e.ColumnIndex == 3)
             {

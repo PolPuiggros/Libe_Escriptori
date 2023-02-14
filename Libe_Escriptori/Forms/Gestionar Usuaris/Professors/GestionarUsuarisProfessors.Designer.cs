@@ -32,6 +32,12 @@
             this.comboBoxFilter = new System.Windows.Forms.ComboBox();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.buttonNew = new System.Windows.Forms.Button();
+            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSurnames = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEdit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDelete = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTeachers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -39,12 +45,20 @@
             // 
             this.dataGridViewTeachers.BackgroundColor = System.Drawing.Color.DarkGray;
             this.dataGridViewTeachers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTeachers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnName,
+            this.ColumnSurnames,
+            this.ColumnDNI,
+            this.ColumnDepartment,
+            this.ColumnEdit,
+            this.ColumnDelete});
             this.dataGridViewTeachers.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGridViewTeachers.Location = new System.Drawing.Point(93, 99);
             this.dataGridViewTeachers.Name = "dataGridViewTeachers";
             this.dataGridViewTeachers.RowTemplate.Height = 25;
             this.dataGridViewTeachers.Size = new System.Drawing.Size(818, 503);
             this.dataGridViewTeachers.TabIndex = 9;
+            this.dataGridViewTeachers.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridViewTeachers_CellPainting);
             // 
             // comboBoxFilter
             // 
@@ -90,6 +104,36 @@
             this.buttonNew.Text = "Nou";
             this.buttonNew.UseVisualStyleBackColor = false;
             // 
+            // ColumnName
+            // 
+            this.ColumnName.HeaderText = "Nom";
+            this.ColumnName.Name = "ColumnName";
+            // 
+            // ColumnSurnames
+            // 
+            this.ColumnSurnames.HeaderText = "Cognoms";
+            this.ColumnSurnames.Name = "ColumnSurnames";
+            // 
+            // ColumnDNI
+            // 
+            this.ColumnDNI.HeaderText = "DNI";
+            this.ColumnDNI.Name = "ColumnDNI";
+            // 
+            // ColumnDepartment
+            // 
+            this.ColumnDepartment.HeaderText = "Departament";
+            this.ColumnDepartment.Name = "ColumnDepartment";
+            // 
+            // ColumnEdit
+            // 
+            this.ColumnEdit.HeaderText = "";
+            this.ColumnEdit.Name = "ColumnEdit";
+            // 
+            // ColumnDelete
+            // 
+            this.ColumnDelete.HeaderText = "";
+            this.ColumnDelete.Name = "ColumnDelete";
+            // 
             // GestionarUsuarisProfessors
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -114,5 +158,11 @@
         private ComboBox comboBoxFilter;
         private TextBox textBoxSearch;
         private Button buttonNew;
+        private DataGridViewTextBoxColumn ColumnName;
+        private DataGridViewTextBoxColumn ColumnSurnames;
+        private DataGridViewTextBoxColumn ColumnDNI;
+        private DataGridViewTextBoxColumn ColumnDepartment;
+        private DataGridViewTextBoxColumn ColumnEdit;
+        private DataGridViewTextBoxColumn ColumnDelete;
     }
 }

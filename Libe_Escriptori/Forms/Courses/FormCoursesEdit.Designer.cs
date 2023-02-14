@@ -38,6 +38,12 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBoxFullName = new System.Windows.Forms.TextBox();
             this.textBoxAbbreviation = new System.Windows.Forms.TextBox();
+            this.ColumnAbreviacio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnModul = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnUFs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEdit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDelete = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewModules)).BeginInit();
             this.SuspendLayout();
@@ -91,11 +97,19 @@
             // dataGridViewModules
             // 
             this.dataGridViewModules.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewModules.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnAbreviacio,
+            this.ColumnModul,
+            this.ColumnHours,
+            this.ColumnUFs,
+            this.ColumnEdit,
+            this.ColumnDelete});
             this.dataGridViewModules.Location = new System.Drawing.Point(80, 285);
             this.dataGridViewModules.Name = "dataGridViewModules";
             this.dataGridViewModules.RowTemplate.Height = 25;
             this.dataGridViewModules.Size = new System.Drawing.Size(851, 238);
             this.dataGridViewModules.TabIndex = 6;
+            this.dataGridViewModules.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridViewModules_CellPainting);
             // 
             // buttonExistent
             // 
@@ -168,6 +182,36 @@
             this.textBoxAbbreviation.Text = "Abreviació";
             this.textBoxAbbreviation.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+            // ColumnAbreviacio
+            // 
+            this.ColumnAbreviacio.HeaderText = "Abreviació mòdul";
+            this.ColumnAbreviacio.Name = "ColumnAbreviacio";
+            // 
+            // ColumnModul
+            // 
+            this.ColumnModul.HeaderText = "Nom Modul";
+            this.ColumnModul.Name = "ColumnModul";
+            // 
+            // ColumnHours
+            // 
+            this.ColumnHours.HeaderText = "Hores";
+            this.ColumnHours.Name = "ColumnHours";
+            // 
+            // ColumnUFs
+            // 
+            this.ColumnUFs.HeaderText = "Número UFS";
+            this.ColumnUFs.Name = "ColumnUFs";
+            // 
+            // ColumnEdit
+            // 
+            this.ColumnEdit.HeaderText = "";
+            this.ColumnEdit.Name = "ColumnEdit";
+            // 
+            // ColumnDelete
+            // 
+            this.ColumnDelete.HeaderText = "";
+            this.ColumnDelete.Name = "ColumnDelete";
+            // 
             // FormCoursesEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -196,5 +240,11 @@
         private DataGridView dataGridViewModules;
         private Button buttonExistent;
         private Button buttonCancel;
+        private DataGridViewTextBoxColumn ColumnAbreviacio;
+        private DataGridViewTextBoxColumn ColumnModul;
+        private DataGridViewTextBoxColumn ColumnHours;
+        private DataGridViewTextBoxColumn ColumnUFs;
+        private DataGridViewTextBoxColumn ColumnEdit;
+        private DataGridViewTextBoxColumn ColumnDelete;
     }
 }

@@ -34,6 +34,12 @@
             this.textBoxFilterCourse = new System.Windows.Forms.TextBox();
             this.labelFilterCourse = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSurnames = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCourse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEdit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDelete = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,12 +118,50 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.DarkGray;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnName,
+            this.ColumnSurnames,
+            this.ColumnDNI,
+            this.ColumnCourse,
+            this.ColumnEdit,
+            this.ColumnDelete});
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGridView1.Location = new System.Drawing.Point(93, 99);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(818, 503);
             this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
+            // 
+            // ColumnName
+            // 
+            this.ColumnName.HeaderText = "Nom";
+            this.ColumnName.Name = "ColumnName";
+            // 
+            // ColumnSurnames
+            // 
+            this.ColumnSurnames.HeaderText = "Cognoms";
+            this.ColumnSurnames.Name = "ColumnSurnames";
+            // 
+            // ColumnDNI
+            // 
+            this.ColumnDNI.HeaderText = "DNI";
+            this.ColumnDNI.Name = "ColumnDNI";
+            // 
+            // ColumnCourse
+            // 
+            this.ColumnCourse.HeaderText = "Curs";
+            this.ColumnCourse.Name = "ColumnCourse";
+            // 
+            // ColumnEdit
+            // 
+            this.ColumnEdit.HeaderText = "";
+            this.ColumnEdit.Name = "ColumnEdit";
+            // 
+            // ColumnDelete
+            // 
+            this.ColumnDelete.HeaderText = "";
+            this.ColumnDelete.Name = "ColumnDelete";
             // 
             // GestionarUsuarisAlumnes
             // 
@@ -147,5 +191,11 @@
         private TextBox textBoxFilterCourse;
         private Label labelFilterCourse;
         private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn ColumnName;
+        private DataGridViewTextBoxColumn ColumnSurnames;
+        private DataGridViewTextBoxColumn ColumnDNI;
+        private DataGridViewTextBoxColumn ColumnCourse;
+        private DataGridViewTextBoxColumn ColumnEdit;
+        private DataGridViewTextBoxColumn ColumnDelete;
     }
 }
