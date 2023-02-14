@@ -18,6 +18,21 @@ namespace Libe_Escriptori
         }
         private void buttonLogin_Click(object sender, EventArgs e)
         {
+            //String usuariDb = "";
+            //String contraEncriptada = "";
+            //if (textBoxUsername.Text.Equals(usuariDb))
+            //{
+            //    if (Blowfish.verificarContra(contraEncriptada, textBoxPassword.Text))
+            //    {
+            //        MainForm mf = new MainForm();
+            //        mf.Show();
+            //        this.Hide();
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Els camps 'username' i / o 'password' són icorrectes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
             MainForm mf = new MainForm();
             mf.Show();
             this.Hide();
