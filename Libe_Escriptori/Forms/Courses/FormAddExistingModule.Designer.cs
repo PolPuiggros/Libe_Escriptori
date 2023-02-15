@@ -37,6 +37,15 @@
             this.textBoxHours = new System.Windows.Forms.TextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxAbbreviation = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxAbbreviation = new System.Windows.Forms.TextBox();
+            this.ColumnAbreviacio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnHores = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNumeroUfs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+
             this.panelNewModule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -107,11 +116,23 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnAbreviacio,
+            this.ColumnNom,
+            this.ColumnHores,
+            this.ColumnNumeroUfs,
+            this.ColumnEdit,
+            this.ColumnDelete});
+
             this.dataGridView1.Location = new System.Drawing.Point(96, 212);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(823, 289);
             this.dataGridView1.TabIndex = 3;
+
+            this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
+
             // 
             // textBoxHours
             // 
@@ -136,18 +157,77 @@
             this.textBoxName.Text = " Nom complert";
             this.textBoxName.Enter += new System.EventHandler(this.textBoxName_Enter);
             this.textBoxName.Leave += new System.EventHandler(this.textBoxName_Leave);
+            this.textBoxHours.Text = "Hores";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox2.Location = new System.Drawing.Point(477, 105);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(447, 31);
+            this.textBox2.TabIndex = 1;
+            this.textBox2.Text = "Nom complert";
             // 
             // textBoxAbbreviation
             // 
             this.textBoxAbbreviation.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+
             this.textBoxAbbreviation.ForeColor = System.Drawing.Color.Gray;
+
+
             this.textBoxAbbreviation.Location = new System.Drawing.Point(101, 105);
             this.textBoxAbbreviation.Name = "textBoxAbbreviation";
             this.textBoxAbbreviation.Size = new System.Drawing.Size(179, 31);
             this.textBoxAbbreviation.TabIndex = 0;
+
             this.textBoxAbbreviation.Text = " Abreviació";
             this.textBoxAbbreviation.Enter += new System.EventHandler(this.textBoxAbbreviation_Enter);
             this.textBoxAbbreviation.Leave += new System.EventHandler(this.textBoxAbbreviation_Leave);
+
+            this.textBoxAbbreviation.Text = "Abreviació";
+            // 
+            // ColumnAbreviacio
+            // 
+            this.ColumnAbreviacio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnAbreviacio.HeaderText = "Abreviació Modul";
+            this.ColumnAbreviacio.Name = "ColumnAbreviacio";
+            // 
+            // ColumnNom
+            // 
+            this.ColumnNom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnNom.HeaderText = "Nom Modul";
+            this.ColumnNom.Name = "ColumnNom";
+            // 
+            // ColumnHores
+            // 
+            this.ColumnHores.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnHores.HeaderText = "Hores";
+            this.ColumnHores.Name = "ColumnHores";
+            // 
+            // ColumnNumeroUfs
+            // 
+            this.ColumnNumeroUfs.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnNumeroUfs.HeaderText = "Número UFS";
+            this.ColumnNumeroUfs.Name = "ColumnNumeroUfs";
+            // 
+            // ColumnEdit
+            // 
+            this.ColumnEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnEdit.HeaderText = "";
+            this.ColumnEdit.Name = "ColumnEdit";
+            this.ColumnEdit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnEdit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColumnEdit.Width = 21;
+            // 
+            // ColumnDelete
+            // 
+            this.ColumnDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnDelete.HeaderText = "";
+            this.ColumnDelete.Name = "ColumnDelete";
+            this.ColumnDelete.Width = 21;
+
             // 
             // FormAddModule
             // 
@@ -176,5 +256,11 @@
         private Button buttonSave;
         private Button buttonCancel;
         private Label labelNewModule;
+        private DataGridViewTextBoxColumn ColumnAbreviacio;
+        private DataGridViewTextBoxColumn ColumnNom;
+        private DataGridViewTextBoxColumn ColumnHores;
+        private DataGridViewTextBoxColumn ColumnNumeroUfs;
+        private DataGridViewButtonColumn ColumnEdit;
+        private DataGridViewButtonColumn ColumnDelete;
     }
 }
