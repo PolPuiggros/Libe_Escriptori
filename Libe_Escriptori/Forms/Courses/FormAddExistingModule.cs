@@ -48,6 +48,7 @@ namespace Libe_Escriptori.Forms.Courses
         private void textBoxName_Leave(object sender, EventArgs e)
         {
             TextBoxDesign.textBoxSearch_Leave(textBoxName, textBoxHintName);
+        }
         
         private void buttonCancel_Click(object sender, EventArgs e)
         {

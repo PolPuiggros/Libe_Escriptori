@@ -153,7 +153,6 @@ namespace Libe_Escriptori.Forms.Courses
             this.textBoxFullName.Size = new System.Drawing.Size(579, 29);
             this.textBoxFullName.TabIndex = 1;
             this.textBoxFullName.Text = " Nom Complert del curs";
-            this.textBoxFullName.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             this.textBoxFullName.Enter += new System.EventHandler(this.textBoxFullName_Enter);
             this.textBoxFullName.Leave += new System.EventHandler(this.textBoxFullName_Leave);
             // 
@@ -166,7 +165,6 @@ namespace Libe_Escriptori.Forms.Courses
             this.textBoxAbbreviation.Size = new System.Drawing.Size(197, 29);
             this.textBoxAbbreviation.TabIndex = 0;
             this.textBoxAbbreviation.Text = " Abreviació";
-            this.textBoxAbbreviation.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.textBoxAbbreviation.Enter += new System.EventHandler(this.textBoxAbbreviation_Enter);
             this.textBoxAbbreviation.Leave += new System.EventHandler(this.textBoxAbbreviation_Leave);
             // 
