@@ -184,33 +184,41 @@
             // 
             // ColumnAbreviacio
             // 
+            this.ColumnAbreviacio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ColumnAbreviacio.HeaderText = "Abreviació mòdul";
             this.ColumnAbreviacio.Name = "ColumnAbreviacio";
             // 
             // ColumnModul
             // 
+            this.ColumnModul.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ColumnModul.HeaderText = "Nom Modul";
             this.ColumnModul.Name = "ColumnModul";
             // 
             // ColumnHours
             // 
+            this.ColumnHours.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ColumnHours.HeaderText = "Hores";
             this.ColumnHours.Name = "ColumnHours";
             // 
             // ColumnUFs
             // 
+            this.ColumnUFs.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ColumnUFs.HeaderText = "Número UFS";
             this.ColumnUFs.Name = "ColumnUFs";
             // 
             // ColumnEdit
             // 
+            this.ColumnEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ColumnEdit.HeaderText = "";
             this.ColumnEdit.Name = "ColumnEdit";
+            this.ColumnEdit.Width = 21;
             // 
             // ColumnDelete
             // 
+            this.ColumnDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ColumnDelete.HeaderText = "";
             this.ColumnDelete.Name = "ColumnDelete";
+            this.ColumnDelete.Width = 21;
             // 
             // FormCoursesEdit
             // 

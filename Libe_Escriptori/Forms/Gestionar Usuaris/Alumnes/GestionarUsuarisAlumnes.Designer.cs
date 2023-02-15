@@ -135,33 +135,41 @@
             // 
             // ColumnName
             // 
+            this.ColumnName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ColumnName.HeaderText = "Nom";
             this.ColumnName.Name = "ColumnName";
             // 
             // ColumnSurnames
             // 
+            this.ColumnSurnames.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ColumnSurnames.HeaderText = "Cognoms";
             this.ColumnSurnames.Name = "ColumnSurnames";
             // 
             // ColumnDNI
             // 
+            this.ColumnDNI.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ColumnDNI.HeaderText = "DNI";
             this.ColumnDNI.Name = "ColumnDNI";
             // 
             // ColumnCourse
             // 
+            this.ColumnCourse.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ColumnCourse.HeaderText = "Curs";
             this.ColumnCourse.Name = "ColumnCourse";
             // 
             // ColumnEdit
             // 
+            this.ColumnEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ColumnEdit.HeaderText = "";
             this.ColumnEdit.Name = "ColumnEdit";
+            this.ColumnEdit.Width = 21;
             // 
             // ColumnDelete
             // 
+            this.ColumnDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ColumnDelete.HeaderText = "";
             this.ColumnDelete.Name = "ColumnDelete";
+            this.ColumnDelete.Width = 21;
             // 
             // GestionarUsuarisAlumnes
             // 

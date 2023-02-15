@@ -29,14 +29,20 @@
         private void InitializeComponent()
         {
             this.panelNewModule = new System.Windows.Forms.Panel();
-            this.textBoxAbbreviation = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBoxHours = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.labelUF = new System.Windows.Forms.Label();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonCancel = new System.Windows.Forms.Button();
             this.labelNewModule = new System.Windows.Forms.Label();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.labelUF = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.textBoxHours = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxAbbreviation = new System.Windows.Forms.TextBox();
+            this.ColumnAbreviacio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnHores = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNumeroUfs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panelNewModule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -57,51 +63,28 @@
             this.panelNewModule.Size = new System.Drawing.Size(1005, 650);
             this.panelNewModule.TabIndex = 0;
             // 
-            // textBoxAbbreviation
+            // labelNewModule
             // 
-            this.textBoxAbbreviation.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxAbbreviation.Location = new System.Drawing.Point(101, 105);
-            this.textBoxAbbreviation.Name = "textBoxAbbreviation";
-            this.textBoxAbbreviation.Size = new System.Drawing.Size(179, 31);
-            this.textBoxAbbreviation.TabIndex = 0;
-            this.textBoxAbbreviation.Text = "Abreviació";
+            this.labelNewModule.AutoSize = true;
+            this.labelNewModule.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelNewModule.Location = new System.Drawing.Point(96, 64);
+            this.labelNewModule.Name = "labelNewModule";
+            this.labelNewModule.Size = new System.Drawing.Size(103, 25);
+            this.labelNewModule.TabIndex = 10;
+            this.labelNewModule.Text = "Nou Modul";
             // 
-            // textBox2
+            // buttonCancel
             // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(477, 105);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(447, 31);
-            this.textBox2.TabIndex = 1;
-            this.textBox2.Text = "Nom complert";
-            // 
-            // textBoxHours
-            // 
-            this.textBoxHours.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxHours.Location = new System.Drawing.Point(286, 105);
-            this.textBoxHours.Name = "textBoxHours";
-            this.textBoxHours.Size = new System.Drawing.Size(185, 31);
-            this.textBoxHours.TabIndex = 2;
-            this.textBoxHours.Text = "Hores";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(96, 212);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(823, 289);
-            this.dataGridView1.TabIndex = 3;
-            // 
-            // labelUF
-            // 
-            this.labelUF.AutoSize = true;
-            this.labelUF.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelUF.Location = new System.Drawing.Point(96, 173);
-            this.labelUF.Name = "labelUF";
-            this.labelUF.Size = new System.Drawing.Size(41, 25);
-            this.labelUF.TabIndex = 4;
-            this.labelUF.Text = "UFs";
+            this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(168)))), ((int)(((byte)(241)))));
+            this.buttonCancel.FlatAppearance.BorderSize = 0;
+            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCancel.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonCancel.Location = new System.Drawing.Point(340, 551);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(131, 41);
+            this.buttonCancel.TabIndex = 9;
+            this.buttonCancel.Text = "Cancelar";
+            this.buttonCancel.UseVisualStyleBackColor = false;
             // 
             // buttonSave
             // 
@@ -117,28 +100,101 @@
             this.buttonSave.Text = "Guardar";
             this.buttonSave.UseVisualStyleBackColor = false;
             // 
-            // buttonCancel
+            // labelUF
             // 
-            this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(168)))), ((int)(((byte)(241)))));
-            this.buttonCancel.FlatAppearance.BorderSize = 0;
-            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCancel.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonCancel.Location = new System.Drawing.Point(340, 551);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(131, 41);
-            this.buttonCancel.TabIndex = 9;
-            this.buttonCancel.Text = "Cancelar";
-            this.buttonCancel.UseVisualStyleBackColor = false;
+            this.labelUF.AutoSize = true;
+            this.labelUF.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelUF.Location = new System.Drawing.Point(96, 173);
+            this.labelUF.Name = "labelUF";
+            this.labelUF.Size = new System.Drawing.Size(41, 25);
+            this.labelUF.TabIndex = 4;
+            this.labelUF.Text = "UFs";
             // 
-            // labelNewModule
+            // dataGridView1
             // 
-            this.labelNewModule.AutoSize = true;
-            this.labelNewModule.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelNewModule.Location = new System.Drawing.Point(96, 64);
-            this.labelNewModule.Name = "labelNewModule";
-            this.labelNewModule.Size = new System.Drawing.Size(103, 25);
-            this.labelNewModule.TabIndex = 10;
-            this.labelNewModule.Text = "Nou Modul";
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnAbreviacio,
+            this.ColumnNom,
+            this.ColumnHores,
+            this.ColumnNumeroUfs,
+            this.ColumnEdit,
+            this.ColumnDelete});
+            this.dataGridView1.Location = new System.Drawing.Point(96, 212);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(823, 289);
+            this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
+            // 
+            // textBoxHours
+            // 
+            this.textBoxHours.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxHours.Location = new System.Drawing.Point(286, 105);
+            this.textBoxHours.Name = "textBoxHours";
+            this.textBoxHours.Size = new System.Drawing.Size(185, 31);
+            this.textBoxHours.TabIndex = 2;
+            this.textBoxHours.Text = "Hores";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox2.Location = new System.Drawing.Point(477, 105);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(447, 31);
+            this.textBox2.TabIndex = 1;
+            this.textBox2.Text = "Nom complert";
+            // 
+            // textBoxAbbreviation
+            // 
+            this.textBoxAbbreviation.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxAbbreviation.Location = new System.Drawing.Point(101, 105);
+            this.textBoxAbbreviation.Name = "textBoxAbbreviation";
+            this.textBoxAbbreviation.Size = new System.Drawing.Size(179, 31);
+            this.textBoxAbbreviation.TabIndex = 0;
+            this.textBoxAbbreviation.Text = "Abreviació";
+            // 
+            // ColumnAbreviacio
+            // 
+            this.ColumnAbreviacio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnAbreviacio.HeaderText = "Abreviació Modul";
+            this.ColumnAbreviacio.Name = "ColumnAbreviacio";
+            // 
+            // ColumnNom
+            // 
+            this.ColumnNom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnNom.HeaderText = "Nom Modul";
+            this.ColumnNom.Name = "ColumnNom";
+            // 
+            // ColumnHores
+            // 
+            this.ColumnHores.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnHores.HeaderText = "Hores";
+            this.ColumnHores.Name = "ColumnHores";
+            // 
+            // ColumnNumeroUfs
+            // 
+            this.ColumnNumeroUfs.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnNumeroUfs.HeaderText = "Número UFS";
+            this.ColumnNumeroUfs.Name = "ColumnNumeroUfs";
+            // 
+            // ColumnEdit
+            // 
+            this.ColumnEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnEdit.HeaderText = "";
+            this.ColumnEdit.Name = "ColumnEdit";
+            this.ColumnEdit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnEdit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColumnEdit.Width = 21;
+            // 
+            // ColumnDelete
+            // 
+            this.ColumnDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnDelete.HeaderText = "";
+            this.ColumnDelete.Name = "ColumnDelete";
+            this.ColumnDelete.Width = 21;
             // 
             // FormAddModule
             // 
@@ -167,5 +223,11 @@
         private Button buttonSave;
         private Button buttonCancel;
         private Label labelNewModule;
+        private DataGridViewTextBoxColumn ColumnAbreviacio;
+        private DataGridViewTextBoxColumn ColumnNom;
+        private DataGridViewTextBoxColumn ColumnHores;
+        private DataGridViewTextBoxColumn ColumnNumeroUfs;
+        private DataGridViewButtonColumn ColumnEdit;
+        private DataGridViewButtonColumn ColumnDelete;
     }
 }

@@ -36,8 +36,8 @@
             this.headerClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerTutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerAlumnes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.headerEdit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.headerDelete = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.headerEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.headerDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.comboBoxFilterGroups = new System.Windows.Forms.ComboBox();
             this.textBoxFilterGroups = new System.Windows.Forms.TextBox();
             this.panelGroups = new System.Windows.Forms.Panel();
@@ -84,6 +84,7 @@
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(882, 464);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
             // 
             // headerCicle
             // 
@@ -122,16 +123,24 @@
             // 
             // headerEdit
             // 
-            this.headerEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.headerEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.headerEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.headerEdit.HeaderText = "";
             this.headerEdit.Name = "headerEdit";
+            this.headerEdit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.headerEdit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.headerEdit.Width = 29;
             // 
             // headerDelete
             // 
-            this.headerDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.headerDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.headerDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.headerDelete.HeaderText = "";
             this.headerDelete.Name = "headerDelete";
             this.headerDelete.ReadOnly = true;
+            this.headerDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.headerDelete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.headerDelete.Width = 29;
             // 
             // comboBoxFilterGroups
             // 
@@ -194,13 +203,13 @@
         private DataGridView dataGridView1;
         private ComboBox comboBoxFilterGroups;
         private TextBox textBoxFilterGroups;
+        private Panel panelGroups;
         private DataGridViewTextBoxColumn headerCicle;
         private DataGridViewTextBoxColumn headerYear;
         private DataGridViewTextBoxColumn headerClass;
         private DataGridViewTextBoxColumn headerTutor;
         private DataGridViewTextBoxColumn headerAlumnes;
-        private DataGridViewTextBoxColumn headerEdit;
-        private DataGridViewTextBoxColumn headerDelete;
-        private Panel panelGroups;
+        private DataGridViewButtonColumn headerEdit;
+        private DataGridViewButtonColumn headerDelete;
     }
 }
