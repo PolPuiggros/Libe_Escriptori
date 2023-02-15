@@ -10,14 +10,15 @@ using System.Windows.Forms;
 
 namespace Libe_Escriptori.Forms.Courses
 {
-    public partial class FormAddExistingModule : Form
+    public partial class FormAddNewModule : Form
     {
         private String textBoxHintAbreviation = " Abreviació";
         private String textBoxHintHours = " Hores";
         private String textBoxHintName = " Nom complert";
-        public FormAddExistingModule()
+        public FormAddNewModule(Label label)
         {
             InitializeComponent();
+            label.Text = "Gestionar Cursos/Afegint Curs/Nou Mòdul";
         }
 
         private void textBoxAbbreviation_Enter(object sender, EventArgs e)

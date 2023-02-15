@@ -105,6 +105,7 @@
             this.buttonCancel.TabIndex = 20;
             this.buttonCancel.Text = "Cancelar";
             this.buttonCancel.UseVisualStyleBackColor = false;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonGestionarHorari
             // 

@@ -1,6 +1,6 @@
 ﻿namespace Libe_Escriptori.Forms.Courses
 {
-    partial class FormAddModuleDialog
+    partial class FormAddExistingModuleDialog
     {
         /// <summary>
         /// Required designer variable.
@@ -111,6 +111,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(664, 495);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonCancel);

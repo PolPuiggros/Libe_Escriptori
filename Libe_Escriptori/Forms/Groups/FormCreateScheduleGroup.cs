@@ -16,12 +16,12 @@ namespace Libe_Escriptori.Forms.Groups
         String  actualSelectedModul = "";
 
 
-        public FormCreateScheduleGroup()
+        public FormCreateScheduleGroup(Label ruta)
         {
             InitializeComponent();
             AdjustRowHeight();
             initializeDataGrid();
-            
+            ruta.Text = "Gestionar Grups/Afegint Grup/Creant Horari";
 
         }
 

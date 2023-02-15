@@ -15,9 +15,11 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
     {
         private String textBoxHint = "  Búsqueda...";
         Form activeForm;
-        public GestionarUsuarisProfessors()
+        Label labeld;
+        public GestionarUsuarisProfessors(Label label)
         {
             InitializeComponent();
+            labeld = label;
         }
 
         private void textBoxSearch_Enter(object sender, EventArgs e)
@@ -48,7 +50,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
 
         private void buttonNew_Click_1(object sender, EventArgs e)
         {
-            OpenChildForm(new GestionarUsuarisProfessorsAfegint());
+            OpenChildForm(new GestionarUsuarisProfessorsAfegint(labeld));
         }
     }
 }

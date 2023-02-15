@@ -12,19 +12,22 @@ namespace Libe_Escriptori.Forms.Courses
 {
     public partial class FormCoursesAdd : Form
     {
+        Label labeld;
         private String textBoxHintAbreviation = " Abreviació";
         private String textBoxHintName = " Nom Complert del curs";
         private Form activeForm;
-        public FormCoursesAdd()
+        public FormCoursesAdd(Label labelRuta)
         {
             InitializeComponent();
+            labelRuta.Text = "Gestionar Cursos/Afegint Curs";
+            labeld = labelRuta;
         }
 
        
 
         private void buttonExistent_Click(object sender, EventArgs e)
         {
-            using (FormAddModuleDialog f = new FormAddModuleDialog())
+            using (FormAddExistingModuleDialog f = new FormAddExistingModuleDialog(labeld))
             {
                 DialogResult dr = f.ShowDialog();
                 if (dr == DialogResult.OK)
@@ -73,7 +76,7 @@ namespace Libe_Escriptori.Forms.Courses
 
         private void buttonNew_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormAddExistingModule());
+            OpenChildForm(new FormAddNewModule(labeld));
         }
     }
 }

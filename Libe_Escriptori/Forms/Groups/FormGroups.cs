@@ -14,9 +14,11 @@ namespace Libe_Escriptori.Forms.Groups
     public partial class FormGroups : Form
     {
         Form activeForm;
-        public FormGroups()
+        Label ruta;
+        public FormGroups(Label ruta)
         {
             InitializeComponent();
+            this.ruta = ruta;
         }
         private void OpenChildForm(Form childForm)
         {
@@ -37,7 +39,7 @@ namespace Libe_Escriptori.Forms.Groups
 
         private void buttonNewGroup_Click_1(object sender, EventArgs e)
         {
-            OpenChildForm(new FormAddGroup());
+            OpenChildForm(new FormAddGroup(ruta));
         }
     }
 }

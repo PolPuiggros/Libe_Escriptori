@@ -97,7 +97,7 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(88, 243);
+            this.dataGridView1.Location = new System.Drawing.Point(83, 243);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(829, 261);
@@ -124,7 +124,7 @@
             this.buttonAfegirAules.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAfegirAules.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonAfegirAules.ForeColor = System.Drawing.Color.Black;
-            this.buttonAfegirAules.Location = new System.Drawing.Point(780, 510);
+            this.buttonAfegirAules.Location = new System.Drawing.Point(775, 510);
             this.buttonAfegirAules.Name = "buttonAfegirAules";
             this.buttonAfegirAules.Size = new System.Drawing.Size(137, 31);
             this.buttonAfegirAules.TabIndex = 17;
@@ -134,7 +134,9 @@
             // 
             // panelZonesValidables
             // 
+            this.panelZonesValidables.Controls.Add(this.Guardar);
             this.panelZonesValidables.Controls.Add(this.buttonGuardarZona);
+            this.panelZonesValidables.Controls.Add(this.buttonAfegirAules);
             this.panelZonesValidables.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelZonesValidables.Location = new System.Drawing.Point(0, 0);
             this.panelZonesValidables.Name = "panelZonesValidables";
@@ -148,7 +150,7 @@
             this.Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Guardar.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Guardar.ForeColor = System.Drawing.Color.White;
-            this.Guardar.Location = new System.Drawing.Point(459, 570);
+            this.Guardar.Location = new System.Drawing.Point(430, 562);
             this.Guardar.Name = "Guardar";
             this.Guardar.Size = new System.Drawing.Size(137, 40);
             this.Guardar.TabIndex = 18;
@@ -160,8 +162,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 650);
-            this.Controls.Add(this.Guardar);
-            this.Controls.Add(this.buttonAfegirAules);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBoxRange);
             this.Controls.Add(this.textBoxZoneCoordinates);

@@ -17,9 +17,11 @@ namespace Libe_Escriptori.Forms.Centres
         private String textBoxHintZoneCoordinates = " Coordenades de la zona";
         private String textBoxHintRange = " Radi";
         private Form activeForm;
-        public FormCentreZonesValidables()
+        Label ruta;
+        public FormCentreZonesValidables(Label ruta)
         {
             InitializeComponent();
+            this.ruta = ruta;
         }
 
         private void textBoxZoneName_Enter(object sender, EventArgs e)
@@ -70,7 +72,7 @@ namespace Libe_Escriptori.Forms.Centres
      
         private void buttonAfegirAules_Click_1(object sender, EventArgs e)
         {
-            FormCentreZonesAfegirAules f = new FormCentreZonesAfegirAules();
+            FormCentreZonesAfegirAules f = new FormCentreZonesAfegirAules(ruta);
             f.ShowDialog();
         }
     }

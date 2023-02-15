@@ -81,6 +81,7 @@ namespace Libe_Escriptori
                 activeForm.Close();
                 currentButton = null;
             }
+            labelRuta.Text = "Inici";
         }
 
         private void buttonGestionarUsuaris_Click(object sender, EventArgs e)
@@ -89,13 +90,15 @@ namespace Libe_Escriptori
             selectedEntry(buttonGestionarUsuaris);
             previousButton = buttonGestionarUsuaris;
             showSubMenu(panelUsuaris);
+            labelRuta.Text = "Gestionar Usuaris";
         }
         private void buttonGestionarAlumnes_Click(object sender, EventArgs e)
         {
             DefaultButton(buttonGestionarAlumnes, previousButton, true);
             selectedEntry(buttonGestionarAlumnes);
             previousButton = buttonGestionarAlumnes;
-            OpenChildForm(new Forms.Gestionar_Usuaris.GestionarUsuarisAlumnes(), sender);
+            OpenChildForm(new Forms.Gestionar_Usuaris.GestionarUsuarisAlumnes(labelRuta), sender);
+            labelRuta.Text = "Gestionar Usuaris/Gestionar Alumnes";
         }
 
         private void buttonGestionarProfessors_Click(object sender, EventArgs e)
@@ -103,7 +106,8 @@ namespace Libe_Escriptori
             DefaultButton(buttonGestionarProfessors, previousButton, true);
             selectedEntry(buttonGestionarProfessors);
             previousButton = buttonGestionarProfessors;
-            OpenChildForm(new Forms.Gestionar_Usuaris.GestionarUsuarisProfessors(), sender);
+            OpenChildForm(new Forms.Gestionar_Usuaris.GestionarUsuarisProfessors(labelRuta), sender);
+            labelRuta.Text = "Gestionar Usuaris/Gestionar Professors";
         }
 
         private void buttonGestionarCursos_Click(object sender, EventArgs e)
@@ -112,7 +116,8 @@ namespace Libe_Escriptori
             selectedEntry(buttonGestionarCursos);
             previousButton = buttonGestionarCursos;
             hideSubMenu();
-            OpenChildForm(new Forms.Courses.FormCourses(), sender);
+            OpenChildForm(new Forms.Courses.FormCourses(labelRuta), sender);
+            labelRuta.Text = "Gestionar Cursos";
         }
 
         private void buttonGestionarGrups_Click(object sender, EventArgs e)
@@ -121,7 +126,8 @@ namespace Libe_Escriptori
             selectedEntry(buttonGestionarGrups);
             previousButton = buttonGestionarGrups;
             hideSubMenu();
-            OpenChildForm(new Forms.Groups.FormGroups(), sender);
+            OpenChildForm(new Forms.Groups.FormGroups(labelRuta), sender);
+            labelRuta.Text = "Gestionar Grups";
         }
 
         private void buttonCentre_Click(object sender, EventArgs e)
@@ -130,13 +136,15 @@ namespace Libe_Escriptori
             selectedEntry(buttonCentre);
             previousButton = buttonCentre;
             showSubMenu(panelCentreSubmenu);
+            labelRuta.Text = "Centre";
         }
         private void buttonZonesValidables_Click(object sender, EventArgs e)
         {
             DefaultButton(buttonZonesValidables, previousButton, true);
             selectedEntry(buttonZonesValidables);
             previousButton = buttonZonesValidables;
-            OpenChildForm(new Forms.Centres.FormCentreZonesValidables(), sender);
+            OpenChildForm(new Forms.Centres.FormCentreZonesValidables(labelRuta), sender);
+            labelRuta.Text = "Centre/Zones Validables";
         }
         private void buttonDepartamentsCentre_Click(object sender, EventArgs e)
         {
@@ -144,6 +152,7 @@ namespace Libe_Escriptori
             selectedEntry(buttonDepartamentsCentre);
             previousButton = buttonDepartamentsCentre;
             OpenChildForm(new Forms.Centres.FormCentreDepartaments(), sender);
+            labelRuta.Text = "Centre/Departaments";
         }
 
         private void buttonCalendariCentre_Click(object sender, EventArgs e)
@@ -152,6 +161,7 @@ namespace Libe_Escriptori
             selectedEntry(buttonCalendariCentre);
             previousButton = buttonCalendariCentre;
             OpenChildForm(new Forms.Centres.FormCalendari(), sender);
+            labelRuta.Text = "Centre/Calendari";
         }
 
         private void selectedEntry(Button btn)

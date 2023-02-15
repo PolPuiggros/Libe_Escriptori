@@ -10,15 +10,18 @@ using System.Windows.Forms;
 
 namespace Libe_Escriptori.Forms.Courses
 {
-    public partial class FormAddModuleDialog : Form
+    public partial class FormAddExistingModuleDialog : Form
     {
         private bool mouseDown;
         private Point lastLocation;
         public string test;
-        public FormAddModuleDialog()
+        Label labeld;
+        public FormAddExistingModuleDialog(Label ruta)
         {
             //664; 495;
             InitializeComponent();
+            ruta.Text = "Gestionar Cursos/Afegint Curs/Mòduls Existents";
+            labeld = ruta;
             test = "hola";
         }
 
@@ -54,6 +57,7 @@ namespace Libe_Escriptori.Forms.Courses
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
+            labeld.Text = "Gestionar Cursos/Afegint Curs";
             this.Close();
         }
     }

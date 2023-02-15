@@ -15,9 +15,12 @@ namespace Libe_Escriptori.Forms.Centres
         private String textBoxHintNameDepartment = " Nom de l'aula";
         private bool mouseDown;
         private Point lastLocation;
-        public FormCentreZonesAfegirAules()
+        Label ruta;
+        public FormCentreZonesAfegirAules(Label ruta)
         {
             InitializeComponent();
+            ruta.Text = "Centre/Zones Validables/Afegint Aules";
+            this.ruta = ruta;
         }
         private void panelMove_MouseDown(object sender, MouseEventArgs e)
         {
@@ -49,6 +52,12 @@ namespace Libe_Escriptori.Forms.Centres
         private void textBoxName_Leave(object sender, EventArgs e)
         {
             TextBoxDesign.textBoxSearch_Leave(textBoxName, textBoxHintNameDepartment);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ruta.Text = "Centre/Zones Validables";
+            this.Close();
         }
     }
 }
