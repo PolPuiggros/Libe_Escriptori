@@ -13,15 +13,18 @@ namespace Libe_Escriptori.Forms.Groups
     public partial class FormAddGroup : Form
     {
         private Form activeForm;
-        public FormAddGroup()
+        Label ruta;
+        public FormAddGroup(Label ruta)
         {
             InitializeComponent();
+            ruta.Text = "Gestionar Grups/Afegint Grup";
+            this.ruta = ruta;
         }
 
         private void buttonManageStudents_Click_1(object sender, EventArgs e)
         {
-            FormAddExistingStudentsToGroup faetg = new FormAddExistingStudentsToGroup();
-            faetg.Show();
+            FormAddExistingStudentsToGroup faetg = new FormAddExistingStudentsToGroup(ruta);
+            faetg.ShowDialog();
         }
 
         private void OpenChildForm(Form childForm)
@@ -43,7 +46,13 @@ namespace Libe_Escriptori.Forms.Groups
 
         private void buttonGestionarHorari_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormCreateScheduleGroup());
+            OpenChildForm(new FormCreateScheduleGroup(ruta));
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            ruta.Text = "Gestionar Grups";
         }
     }
 }

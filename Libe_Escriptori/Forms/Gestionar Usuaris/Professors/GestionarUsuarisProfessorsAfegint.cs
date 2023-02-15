@@ -17,9 +17,10 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
         private String textBoxHintEmail = " Email";
         private String textBoxHintPhone = " Tel";
         private String textBoxHintDni = " DNI";
-        public GestionarUsuarisProfessorsAfegint()
+        public GestionarUsuarisProfessorsAfegint(Label labelRuta)
         {
             InitializeComponent();
+            labelRuta.Text = "Gestionar Usuaris/Gestionar Professors/Afegint";
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)

@@ -14,9 +14,11 @@ namespace Libe_Escriptori.Forms.Courses
     public partial class FormCourses : Form
     {
         Form activeForm;
-        public FormCourses()
+        Label labeld;
+        public FormCourses(Label labelRuta)
         {
             InitializeComponent();
+            labeld = labelRuta;
             InitGrid();
         }
 
@@ -68,7 +70,7 @@ namespace Libe_Escriptori.Forms.Courses
 
         private void buttonNew_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormCoursesAdd());
+            OpenChildForm(new FormCoursesAdd(labeld));
         }
     }
     

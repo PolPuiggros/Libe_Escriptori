@@ -14,13 +14,17 @@ namespace Libe_Escriptori.Forms.Groups
     {
         private bool mouseDown;
         private Point lastLocation;
-        public FormAddExistingStudentsToGroup()
+        Label ruta;
+        public FormAddExistingStudentsToGroup(Label ruta)
         {
             InitializeComponent();
+            ruta.Text = "Gestionar Grups/Afegint Grup/Afegint Estudiants Existents";
+            this.ruta = ruta;
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
         {
+            ruta.Text = "Gestionar Grups/Afegint Grup";
             this.Close();
         }
 

@@ -51,6 +51,7 @@
             this.buttonInici = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panelTop = new System.Windows.Forms.Panel();
+            this.labelRuta = new System.Windows.Forms.Label();
             this.panelMove = new System.Windows.Forms.Panel();
             this.panelAll = new System.Windows.Forms.Panel();
             this.buttonMinimize = new System.Windows.Forms.Button();
@@ -378,6 +379,7 @@
             // 
             this.panelTop.BackgroundImage = global::Libe_Escriptori.Properties.Resources.gradient;
             this.panelTop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelTop.Controls.Add(this.labelRuta);
             this.panelTop.Controls.Add(this.panelMove);
             this.panelTop.Controls.Add(this.panelAll);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
@@ -386,6 +388,18 @@
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(1005, 70);
             this.panelTop.TabIndex = 1;
+            // 
+            // labelRuta
+            // 
+            this.labelRuta.AutoSize = true;
+            this.labelRuta.BackColor = System.Drawing.Color.Transparent;
+            this.labelRuta.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelRuta.ForeColor = System.Drawing.Color.White;
+            this.labelRuta.Location = new System.Drawing.Point(25, 36);
+            this.labelRuta.Name = "labelRuta";
+            this.labelRuta.Size = new System.Drawing.Size(47, 25);
+            this.labelRuta.TabIndex = 2;
+            this.labelRuta.Text = "Inici";
             // 
             // panelMove
             // 
@@ -502,6 +516,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panelTop.ResumeLayout(false);
+            this.panelTop.PerformLayout();
             this.panelAll.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -537,6 +552,6 @@
         private Label label3;
         private Label label2;
         private Label labelNomCentre;
-
+        private Label labelRuta;
     }
 }
