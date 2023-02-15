@@ -13,18 +13,31 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
     public partial class GestionarUsuarisAlumnes : Form
     {
         private String textBoxHint = "  Búsqueda...";
+        Form activeForm;
         public GestionarUsuarisAlumnes()
         {
             InitializeComponent();
         }
-
-        private void buttonNew_Click(object sender, EventArgs e)
+        private void OpenChildForm(Form childForm)
         {
-            GestionarUsuarisAlumnesAfegint gestionarUsuarisAlumnesAfegint = new GestionarUsuarisAlumnesAfegint() { TopLevel = false, TopMost = true };
-            MainForm mainForm = new MainForm();
-            mainForm.panel1.Controls.Add(gestionarUsuarisAlumnesAfegint);
-            gestionarUsuarisAlumnesAfegint.BringToFront();
-            gestionarUsuarisAlumnesAfegint.Show();
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelGestionarUsuaris.Controls.Add(childForm);
+            panelGestionarUsuaris.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
+
+        private void buttonNew_Click_1(object sender, EventArgs e)
+        {
+            OpenChildForm(new GestionarUsuarisAlumnesAfegint());
         }
 
         private void textBoxSearch_Enter(object sender, EventArgs e)

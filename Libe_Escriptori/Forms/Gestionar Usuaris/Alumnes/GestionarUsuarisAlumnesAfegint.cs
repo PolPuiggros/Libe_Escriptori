@@ -71,5 +71,9 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
         {
             TextBoxDesign.textBoxSearch_Leave(textBoxDni, textBoxHintDni);
         }
+        private void buttonAfegir_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

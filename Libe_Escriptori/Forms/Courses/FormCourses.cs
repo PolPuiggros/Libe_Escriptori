@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Libe_Escriptori.Forms.Gestionar_Usuaris.Professors;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +11,10 @@ using System.Windows.Forms;
 
 namespace Libe_Escriptori.Forms.Courses
 {
-    public partial class FormCourses1 : Form
+    public partial class FormCourses : Form
     {
-        public FormCourses1()
+        Form activeForm;
+        public FormCourses()
         {
             InitializeComponent();
             InitGrid();
@@ -46,18 +48,28 @@ namespace Libe_Escriptori.Forms.Courses
 
 
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void OpenChildForm(Form childForm)
         {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
 
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelCourses.Controls.Add(childForm);
+            panelCourses.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        private void buttonNew_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new FormCoursesAdd());
         }
-
-        
     }
     
 }

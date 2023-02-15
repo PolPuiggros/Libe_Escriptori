@@ -104,6 +104,21 @@ namespace Libe_Escriptori.Forms.Groups
                 
             }
         }
+
+        private void dataGridViewSchedule_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     

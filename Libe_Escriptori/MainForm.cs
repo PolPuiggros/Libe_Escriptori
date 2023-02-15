@@ -1,4 +1,7 @@
+using Libe_Escriptori.Forms;
+using Microsoft.VisualBasic.ApplicationServices;
 using Microsoft.VisualBasic.Logging;
+using System.Runtime.ConstrainedExecution;
 
 namespace Libe_Escriptori
 {
@@ -7,27 +10,10 @@ namespace Libe_Escriptori
         Button previousButton;
         private bool mouseDown;
         private Point lastLocation;
-
+        private Form activeForm;
+        private Button? currentButton;
         //MID PANEL SIZE: 1005; 650
         //POPUP SIZE!!!! 664; 495
-        //private void OpenChildForm(Form childForm, object btnSender)
-        //{
-        //    if (activeForm != null)
-        //    {
-        //        activeForm.Close();
-        //    }
-
-        //    activeForm = childForm;
-        //    ActivateButton(btnSender);
-        //    childForm.TopLevel = false;
-        //    childForm.FormBorderStyle = FormBorderStyle.None;
-        //    childForm.Dock = DockStyle.Fill;
-        //    panelMain.Controls.Add(childForm);
-        //    panelMain.Tag = childForm;
-        //    childForm.BringToFront();
-        //    childForm.Show();
-        //    labelTitle.Text = childForm.Text;
-        //}
 
         public MainForm()
         {
@@ -40,6 +26,22 @@ namespace Libe_Escriptori
             selectedEntry(buttonInici);
             panelUsuaris.Visible = false;
             panelCentreSubmenu.Visible = false;
+        }
+        private void OpenChildForm(Form childForm, object btnSender)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelTot.Controls.Add(childForm);
+            panelTot.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
         }
 
         private void hideSubMenu()
@@ -73,6 +75,12 @@ namespace Libe_Escriptori
             selectedEntry(buttonInici);
             previousButton = buttonInici;
             hideSubMenu();
+
+            if (activeForm != null)
+            {
+                activeForm.Close();
+                currentButton = null;
+            }
         }
 
         private void buttonGestionarUsuaris_Click(object sender, EventArgs e)
@@ -84,14 +92,10 @@ namespace Libe_Escriptori
         }
         private void buttonGestionarAlumnes_Click(object sender, EventArgs e)
         {
-            DefaultButton(buttonGestionarAlumnes, previousButton,true);
+            DefaultButton(buttonGestionarAlumnes, previousButton, true);
             selectedEntry(buttonGestionarAlumnes);
             previousButton = buttonGestionarAlumnes;
-            Forms.Gestionar_Usuaris.GestionarUsuarisAlumnes gestionarUsuarisAlumnes = new Forms.Gestionar_Usuaris.GestionarUsuarisAlumnes();
-            gestionarUsuarisAlumnes.TopLevel = false;
-            panel1.Controls.Add(gestionarUsuarisAlumnes);
-            gestionarUsuarisAlumnes.BringToFront();
-            gestionarUsuarisAlumnes.Show();
+            OpenChildForm(new Forms.Gestionar_Usuaris.GestionarUsuarisAlumnes(), sender);
         }
 
         private void buttonGestionarProfessors_Click(object sender, EventArgs e)
@@ -99,11 +103,7 @@ namespace Libe_Escriptori
             DefaultButton(buttonGestionarProfessors, previousButton, true);
             selectedEntry(buttonGestionarProfessors);
             previousButton = buttonGestionarProfessors;
-            Forms.Gestionar_Usuaris.GestionarUsuarisProfessors gestionarUsuarisProfessors = new Forms.Gestionar_Usuaris.GestionarUsuarisProfessors();
-            gestionarUsuarisProfessors.TopLevel = false;
-            panel1.Controls.Add(gestionarUsuarisProfessors);
-            gestionarUsuarisProfessors.BringToFront();
-            gestionarUsuarisProfessors.Show();
+            OpenChildForm(new Forms.Gestionar_Usuaris.GestionarUsuarisProfessors(), sender);
         }
 
         private void buttonGestionarCursos_Click(object sender, EventArgs e)
@@ -112,6 +112,7 @@ namespace Libe_Escriptori
             selectedEntry(buttonGestionarCursos);
             previousButton = buttonGestionarCursos;
             hideSubMenu();
+            OpenChildForm(new Forms.Courses.FormCourses(), sender);
         }
 
         private void buttonGestionarGrups_Click(object sender, EventArgs e)
@@ -120,6 +121,7 @@ namespace Libe_Escriptori
             selectedEntry(buttonGestionarGrups);
             previousButton = buttonGestionarGrups;
             hideSubMenu();
+            OpenChildForm(new Forms.Groups.FormGroups(), sender);
         }
 
         private void buttonCentre_Click(object sender, EventArgs e)
@@ -134,12 +136,14 @@ namespace Libe_Escriptori
             DefaultButton(buttonZonesValidables, previousButton, true);
             selectedEntry(buttonZonesValidables);
             previousButton = buttonZonesValidables;
+            OpenChildForm(new Forms.Centres.FormCentreZonesValidables(), sender);
         }
         private void buttonDepartamentsCentre_Click(object sender, EventArgs e)
         {
             DefaultButton(buttonDepartamentsCentre, previousButton, true);
             selectedEntry(buttonDepartamentsCentre);
             previousButton = buttonDepartamentsCentre;
+            OpenChildForm(new Forms.Centres.FormCentreDepartaments(), sender);
         }
 
         private void buttonCalendariCentre_Click(object sender, EventArgs e)
@@ -147,6 +151,7 @@ namespace Libe_Escriptori
             DefaultButton(buttonCalendariCentre, previousButton, true);
             selectedEntry(buttonCalendariCentre);
             previousButton = buttonCalendariCentre;
+            OpenChildForm(new Forms.Centres.FormCalendari(), sender);
         }
 
         private void selectedEntry(Button btn)

@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace Libe_Escriptori.Forms.Courses
 {
-    public partial class FormAddModule : Form
+    public partial class FormAddExistingModule : Form
     {
         private String textBoxHintAbreviation = " Abreviació";
         private String textBoxHintHours = " Hores";
         private String textBoxHintName = " Nom complert";
-        public FormAddModule()
+        public FormAddExistingModule()
         {
             InitializeComponent();
         }
@@ -48,6 +48,10 @@ namespace Libe_Escriptori.Forms.Courses
         private void textBoxName_Leave(object sender, EventArgs e)
         {
             TextBoxDesign.textBoxSearch_Leave(textBoxName, textBoxHintName);
+        
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

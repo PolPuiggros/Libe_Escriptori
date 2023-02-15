@@ -10,49 +10,17 @@ using System.Windows.Forms;
 
 namespace Libe_Escriptori.Forms.Courses
 {
-    public partial class FormCoursesEdit : Form
+    public partial class FormCoursesAdd : Form
     {
         private String textBoxHintAbreviation = " Abreviació";
         private String textBoxHintName = " Nom Complert del curs";
-        public FormCoursesEdit()
+        private Form activeForm;
+        public FormCoursesAdd()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void buttonExistent_Click(object sender, EventArgs e)
         {
@@ -85,6 +53,27 @@ namespace Libe_Escriptori.Forms.Courses
         private void textBoxFullName_Leave(object sender, EventArgs e)
         {
             TextBoxDesign.textBoxSearch_Leave(textBoxFullName, textBoxHintName);
+        }
+        private void OpenChildForm(Form childForm)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelCoursesAdd.Controls.Add(childForm);
+            panelCoursesAdd.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
+
+        private void buttonNew_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormAddExistingModule());
         }
     }
 }

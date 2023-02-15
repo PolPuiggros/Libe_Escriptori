@@ -1,6 +1,6 @@
 ﻿namespace Libe_Escriptori.Forms.Courses
 {
-    partial class FormAddModule
+    partial class FormAddExistingModule
     {
         /// <summary>
         /// Required designer variable.

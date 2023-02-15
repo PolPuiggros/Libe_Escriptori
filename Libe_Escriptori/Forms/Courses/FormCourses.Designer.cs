@@ -1,6 +1,6 @@
 ﻿namespace Libe_Escriptori.Forms.Courses
 {
-    partial class FormCourses1
+    partial class FormCourses
     {
         /// <summary>
         /// Required designer variable.
@@ -51,18 +51,19 @@
             // dataGridViewCourses
             // 
             this.dataGridViewCourses.AllowUserToOrderColumns = true;
+            this.dataGridViewCourses.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCourses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.abreviacio,
             this.nom,
             this.departament});
-            this.dataGridViewCourses.Location = new System.Drawing.Point(64, 116);
+            this.dataGridViewCourses.Location = new System.Drawing.Point(62, 127);
             this.dataGridViewCourses.Name = "dataGridViewCourses";
             this.dataGridViewCourses.ReadOnly = true;
+            this.dataGridViewCourses.RowHeadersVisible = false;
             this.dataGridViewCourses.RowTemplate.Height = 25;
             this.dataGridViewCourses.Size = new System.Drawing.Size(880, 469);
-            this.dataGridViewCourses.TabIndex = 3;
-            this.dataGridViewCourses.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridViewCourses.TabIndex = 5;
             // 
             // abreviacio
             // 
@@ -91,22 +92,22 @@
             this.buttonNew.FlatAppearance.BorderSize = 0;
             this.buttonNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonNew.Location = new System.Drawing.Point(64, 43);
+            this.buttonNew.Location = new System.Drawing.Point(62, 54);
             this.buttonNew.Name = "buttonNew";
             this.buttonNew.Size = new System.Drawing.Size(108, 42);
-            this.buttonNew.TabIndex = 0;
+            this.buttonNew.TabIndex = 4;
             this.buttonNew.Text = "Nou";
             this.buttonNew.UseVisualStyleBackColor = false;
-            this.buttonNew.Click += new System.EventHandler(this.button1_Click);
+            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
-            // FormCourses1
+            // FormCourses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 650);
             this.Controls.Add(this.panelCourses);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormCourses1";
+            this.Name = "FormCourses";
             this.Text = "FormCourses";
             this.panelCourses.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourses)).EndInit();
@@ -117,10 +118,10 @@
         #endregion
 
         private Panel panelCourses;
-        private Button buttonNew;
         private DataGridView dataGridViewCourses;
         private DataGridViewTextBoxColumn abreviacio;
         private DataGridViewTextBoxColumn nom;
         private DataGridViewTextBoxColumn departament;
+        private Button buttonNew;
     }
 }
