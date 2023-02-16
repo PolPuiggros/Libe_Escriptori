@@ -10,10 +10,15 @@ using System.Windows.Forms;
 
 namespace Libe_Escriptori.Forms.Groups
 {
+    
     public partial class FormCreateScheduleGroup : Form
     {
-        String previousSelectedModul = "";
-        String  actualSelectedModul = "";
+        string previousSelectedModul;
+        string actualSelectedModul;
+        int indexItem;
+        List<string> moduls = new List<string>();
+        List<Color> colors = new List<Color>();
+
 
 
         public FormCreateScheduleGroup(Label ruta)
@@ -22,6 +27,8 @@ namespace Libe_Escriptori.Forms.Groups
             AdjustRowHeight();
             initializeDataGrid();
             ruta.Text = "Gestionar Grups/Afegint Grup/Creant Horari";
+            fillColors();
+            fillModuls();
 
         }
 
@@ -51,6 +58,7 @@ namespace Libe_Escriptori.Forms.Groups
             else
             {
                 dataGridViewSchedule.CurrentCell.Value = actualSelectedModul;
+                dataGridViewSchedule.CurrentCell.Style.BackColor = colors[indexItem];
             }
         }
 
@@ -59,7 +67,7 @@ namespace Libe_Escriptori.Forms.Groups
             if (listViewModuls.SelectedItems.Count > 0)
             {
                 String modulSeleccionat = listViewModuls.SelectedItems[0].Text;
-
+                indexItem = listViewModuls.SelectedItems[0].Index;
                 previousSelectedModul = actualSelectedModul;
                 actualSelectedModul = modulSeleccionat;
             }
@@ -118,6 +126,55 @@ namespace Libe_Escriptori.Forms.Groups
         private void buttonSave_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void fillColors()
+        {
+            colors.Add(Color.FromArgb(171, 222, 230));
+            colors.Add(Color.FromArgb(203, 170, 203));
+            colors.Add(Color.FromArgb(255, 255, 181));
+            colors.Add(Color.FromArgb(255, 204, 182));
+            colors.Add(Color.FromArgb(243, 176, 195));
+            colors.Add(Color.FromArgb(198, 219, 218));
+            colors.Add(Color.FromArgb(254, 225, 232));
+            colors.Add(Color.FromArgb(254, 215, 195));
+            colors.Add(Color.FromArgb(246, 234, 194));
+            colors.Add(Color.FromArgb(236, 213, 227));
+            colors.Add(Color.FromArgb(255, 150, 138));
+            colors.Add(Color.FromArgb(255, 174, 165));
+            colors.Add(Color.FromArgb(255, 197, 191));
+            colors.Add(Color.FromArgb(255, 216, 190));
+            colors.Add(Color.FromArgb(255, 200, 162));
+            colors.Add(Color.FromArgb(212, 240, 240));
+            colors.Add(Color.FromArgb(143, 202, 202));
+            colors.Add(Color.FromArgb(204, 226, 203));
+            colors.Add(Color.FromArgb(182, 207, 182));
+            colors.Add(Color.FromArgb(151, 193, 169));
+
+
+        }
+        private void fillModuls()
+        {
+            moduls.Add("M01");
+            moduls.Add("M02");
+            moduls.Add("M03");
+            moduls.Add("M04");
+            moduls.Add("M05");
+            moduls.Add("M06");
+            moduls.Add("M07");
+            moduls.Add("M08");
+            moduls.Add("M09");
+            moduls.Add("M10");
+            moduls.Add("M11");
+            moduls.Add("M12");
+            moduls.Add("M13");
+            moduls.Add("M14");
+            moduls.Add("M15");
+            moduls.Add("M16");
+            moduls.Add("M17");
+            moduls.Add("M18");
+            moduls.Add("M19");
+            moduls.Add("M20");
         }
     }
 
