@@ -35,6 +35,12 @@
             this.comboBoxFilter = new System.Windows.Forms.ComboBox();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.buttonNew = new System.Windows.Forms.Button();
+            this.ColumnNom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCognoms = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCurs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panelGestionarUsuaris.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -57,12 +63,20 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.DarkGray;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnNom,
+            this.ColumnCognoms,
+            this.ColumnDNI,
+            this.ColumnCurs,
+            this.ColumnEdit,
+            this.ColumnDelete});
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGridView1.Location = new System.Drawing.Point(92, 99);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(818, 503);
             this.dataGridView1.TabIndex = 11;
+            this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
             // 
             // labelFilterCourse
             // 
@@ -139,6 +153,46 @@
             this.buttonNew.UseVisualStyleBackColor = false;
             this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click_1);
             // 
+            // ColumnNom
+            // 
+            this.ColumnNom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnNom.HeaderText = "Nom";
+            this.ColumnNom.Name = "ColumnNom";
+            // 
+            // ColumnCognoms
+            // 
+            this.ColumnCognoms.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnCognoms.HeaderText = "Cognoms";
+            this.ColumnCognoms.Name = "ColumnCognoms";
+            // 
+            // ColumnDNI
+            // 
+            this.ColumnDNI.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnDNI.HeaderText = "DNI";
+            this.ColumnDNI.Name = "ColumnDNI";
+            // 
+            // ColumnCurs
+            // 
+            this.ColumnCurs.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnCurs.HeaderText = "Curs";
+            this.ColumnCurs.Name = "ColumnCurs";
+            // 
+            // ColumnEdit
+            // 
+            this.ColumnEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnEdit.HeaderText = "";
+            this.ColumnEdit.Name = "ColumnEdit";
+            this.ColumnEdit.Width = 21;
+            // 
+            // ColumnDelete
+            // 
+            this.ColumnDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnDelete.HeaderText = "";
+            this.ColumnDelete.Name = "ColumnDelete";
+            this.ColumnDelete.Width = 21;
+            // 
             // GestionarUsuarisAlumnes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -164,5 +218,11 @@
         private ComboBox comboBoxFilter;
         private TextBox textBoxSearch;
         private Button buttonNew;
+        private DataGridViewTextBoxColumn ColumnNom;
+        private DataGridViewTextBoxColumn ColumnCognoms;
+        private DataGridViewTextBoxColumn ColumnDNI;
+        private DataGridViewTextBoxColumn ColumnCurs;
+        private DataGridViewButtonColumn ColumnEdit;
+        private DataGridViewButtonColumn ColumnDelete;
     }
 }

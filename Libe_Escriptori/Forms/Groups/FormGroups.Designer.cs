@@ -33,14 +33,14 @@
             this.textBoxFilterGroups = new System.Windows.Forms.TextBox();
             this.comboBoxFilterGroups = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.buttonNewGroup = new System.Windows.Forms.Button();
             this.headerCicle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerTutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerAlumnes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.headerEdit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.headerDelete = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonNewGroup = new System.Windows.Forms.Button();
+            this.headerEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.headerDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panelGroups.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -109,6 +109,22 @@
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(882, 464);
             this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
+            // 
+            // buttonNewGroup
+            // 
+            this.buttonNewGroup.BackColor = System.Drawing.Color.White;
+            this.buttonNewGroup.FlatAppearance.BorderSize = 0;
+            this.buttonNewGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNewGroup.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonNewGroup.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonNewGroup.Location = new System.Drawing.Point(61, 56);
+            this.buttonNewGroup.Name = "buttonNewGroup";
+            this.buttonNewGroup.Size = new System.Drawing.Size(90, 35);
+            this.buttonNewGroup.TabIndex = 4;
+            this.buttonNewGroup.Text = "Nou";
+            this.buttonNewGroup.UseVisualStyleBackColor = false;
+            this.buttonNewGroup.Click += new System.EventHandler(this.buttonNewGroup_Click_1);
             // 
             // headerCicle
             // 
@@ -147,31 +163,24 @@
             // 
             // headerEdit
             // 
-            this.headerEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.headerEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.headerEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.headerEdit.HeaderText = "";
             this.headerEdit.Name = "headerEdit";
+            this.headerEdit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.headerEdit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.headerEdit.Width = 29;
             // 
             // headerDelete
             // 
-            this.headerDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.headerDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.headerDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.headerDelete.HeaderText = "";
             this.headerDelete.Name = "headerDelete";
             this.headerDelete.ReadOnly = true;
-            // 
-            // buttonNewGroup
-            // 
-            this.buttonNewGroup.BackColor = System.Drawing.Color.White;
-            this.buttonNewGroup.FlatAppearance.BorderSize = 0;
-            this.buttonNewGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNewGroup.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonNewGroup.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonNewGroup.Location = new System.Drawing.Point(61, 56);
-            this.buttonNewGroup.Name = "buttonNewGroup";
-            this.buttonNewGroup.Size = new System.Drawing.Size(90, 35);
-            this.buttonNewGroup.TabIndex = 4;
-            this.buttonNewGroup.Text = "Nou";
-            this.buttonNewGroup.UseVisualStyleBackColor = false;
-            this.buttonNewGroup.Click += new System.EventHandler(this.buttonNewGroup_Click_1);
+            this.headerDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.headerDelete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.headerDelete.Width = 29;
             // 
             // FormGroups
             // 
@@ -197,13 +206,13 @@
         private TextBox textBoxFilterGroups;
         private ComboBox comboBoxFilterGroups;
         private DataGridView dataGridView1;
+        private Button buttonNewGroup;
         private DataGridViewTextBoxColumn headerCicle;
         private DataGridViewTextBoxColumn headerYear;
         private DataGridViewTextBoxColumn headerClass;
         private DataGridViewTextBoxColumn headerTutor;
         private DataGridViewTextBoxColumn headerAlumnes;
-        private DataGridViewTextBoxColumn headerEdit;
-        private DataGridViewTextBoxColumn headerDelete;
-        private Button buttonNewGroup;
+        private DataGridViewButtonColumn headerEdit;
+        private DataGridViewButtonColumn headerDelete;
     }
 }
