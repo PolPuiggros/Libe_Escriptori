@@ -39,6 +39,7 @@
             this.labelDivendres = new System.Windows.Forms.Label();
             this.labelDissabte = new System.Windows.Forms.Label();
             this.labelDate = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // flowLayoutPanelDaysContainer
@@ -148,11 +149,20 @@
             this.labelDate.Text = "MONTH YEAR";
             this.labelDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Location = new System.Drawing.Point(763, 496);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(206, 131);
+            this.panel1.TabIndex = 14;
+            // 
             // FormCalendari
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 650);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.labelDate);
             this.Controls.Add(this.labelDiumenge);
             this.Controls.Add(this.labelDivendres);
@@ -185,5 +195,6 @@
         private Label labelDivendres;
         private Label labelDissabte;
         private Label labelDate;
+        private Panel panel1;
     }
 }

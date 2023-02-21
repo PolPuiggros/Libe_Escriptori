@@ -12,9 +12,15 @@ namespace Libe_Escriptori.Forms.Centres
 {
     public partial class UserControlDays : UserControl
     {
-        public UserControlDays()
+        public UserControlDays(Color color)
         {
             InitializeComponent();
+            BackGroundColor(color);
+        }
+
+        private void BackGroundColor(Color color)
+        {
+            this.BackColor = color;
         }
 
         private void UserControlDays_Load(object sender, EventArgs e)
