@@ -15,7 +15,7 @@ namespace Libe_Escriptori.Forms.Groups
     {
         string previousSelectedModul;
         string actualSelectedModul;
-        int indexItem;
+        int indexItem = -1;
         List<string> moduls = new List<string>();
         List<Color> colors = new List<Color>();
 
@@ -50,16 +50,8 @@ namespace Libe_Escriptori.Forms.Groups
         private void dataGridViewSchedule_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             
-
-            if (dataGridViewSchedule.CurrentCell.ColumnIndex == 0)
-            {
-                MessageBox.Show("No pots modificar les hores");
-            }
-            else
-            {
-                dataGridViewSchedule.CurrentCell.Value = actualSelectedModul;
-                dataGridViewSchedule.CurrentCell.Style.BackColor = colors[indexItem];
-            }
+            
+           
         }
 
         private void listViewModuls_SelectedIndexChanged(object sender, EventArgs e)
@@ -175,6 +167,60 @@ namespace Libe_Escriptori.Forms.Groups
             moduls.Add("M18");
             moduls.Add("M19");
             moduls.Add("M20");
+
+            foreach (string modul in moduls)
+            {
+                listViewModuls.Items.Add(modul);
+            }
+            
+        }
+
+        private void dataGridViewSchedule_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                this.dataGridViewSchedule.Rows[e.RowIndex].Selected = true;
+                dataGridViewSchedule.CurrentCell = dataGridViewSchedule.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                if (dataGridViewSchedule.CurrentCell.ColumnIndex == 0)
+                {
+                    MessageBox.Show("No pots modificar les hores");
+                }
+                else
+                {
+                    int column = dataGridViewSchedule.CurrentCell.ColumnIndex;
+                    int row = dataGridViewSchedule.CurrentCell.RowIndex;
+                    if (dataGridViewSchedule[column, row].Value != null)
+                    {
+                        String day = dataGridViewSchedule.Columns[column].HeaderText.ToString();
+                        String hour = dataGridViewSchedule[0, row].Value.ToString();
+                        String module = dataGridViewSchedule[column, row].Value.ToString();
+                        // classroom
+
+
+                        Form formDetailClass = new FormScheduleCellInfo(day, hour, module, "1.01");
+                        formDetailClass.Show();
+                    }
+                }
+            }
+
+
+            else if (e.Button == MouseButtons.Left)
+            {
+                if (dataGridViewSchedule.CurrentCell.ColumnIndex == 0)
+                {
+                    MessageBox.Show("No pots modificar les hores");
+                }
+                else
+                {
+                    if (indexItem != -1)
+                    {
+                        dataGridViewSchedule.CurrentCell.Value = actualSelectedModul;
+                        dataGridViewSchedule.CurrentCell.Style.BackColor = colors[indexItem];
+                    }
+
+                }
+            }
+            
         }
     }
 

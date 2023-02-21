@@ -29,12 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCreateScheduleGroup));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("M01");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("M02");
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panelSchedule = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.labelRightClick = new System.Windows.Forms.Label();
+            this.labelLeftClick = new System.Windows.Forms.Label();
+            this.pictureBoxRightClick = new System.Windows.Forms.PictureBox();
+            this.pictureBoxLeftClick = new System.Windows.Forms.PictureBox();
             this.dataGridViewSchedule = new System.Windows.Forms.DataGridView();
             this.headerHour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerMonday = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,11 +51,15 @@
             this.listViewModuls = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.panelSchedule.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRightClick)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLeftClick)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSchedule)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSchedule
             // 
+            this.panelSchedule.Controls.Add(this.panel1);
             this.panelSchedule.Controls.Add(this.dataGridViewSchedule);
             this.panelSchedule.Controls.Add(this.buttonSave);
             this.panelSchedule.Controls.Add(this.buttonCancel);
@@ -61,6 +69,62 @@
             this.panelSchedule.Name = "panelSchedule";
             this.panelSchedule.Size = new System.Drawing.Size(1005, 650);
             this.panelSchedule.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.labelRightClick);
+            this.panel1.Controls.Add(this.labelLeftClick);
+            this.panel1.Controls.Add(this.pictureBoxRightClick);
+            this.panel1.Controls.Add(this.pictureBoxLeftClick);
+            this.panel1.Location = new System.Drawing.Point(832, 431);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(150, 126);
+            this.panel1.TabIndex = 16;
+            // 
+            // labelRightClick
+            // 
+            this.labelRightClick.AutoSize = true;
+            this.labelRightClick.Location = new System.Drawing.Point(43, 85);
+            this.labelRightClick.Name = "labelRightClick";
+            this.labelRightClick.Size = new System.Drawing.Size(97, 15);
+            this.labelRightClick.TabIndex = 18;
+            this.labelRightClick.Text = "Veure informació";
+            // 
+            // labelLeftClick
+            // 
+            this.labelLeftClick.AutoSize = true;
+            this.labelLeftClick.Location = new System.Drawing.Point(43, 27);
+            this.labelLeftClick.Name = "labelLeftClick";
+            this.labelLeftClick.Size = new System.Drawing.Size(77, 15);
+            this.labelLeftClick.TabIndex = 17;
+            this.labelLeftClick.Text = "Afegir mòdul";
+            // 
+            // pictureBoxRightClick
+            // 
+            this.pictureBoxRightClick.BackColor = System.Drawing.Color.White;
+            this.pictureBoxRightClick.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxRightClick.BackgroundImage")));
+            this.pictureBoxRightClick.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxRightClick.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxRightClick.Image")));
+            this.pictureBoxRightClick.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxRightClick.InitialImage")));
+            this.pictureBoxRightClick.Location = new System.Drawing.Point(5, 75);
+            this.pictureBoxRightClick.Name = "pictureBoxRightClick";
+            this.pictureBoxRightClick.Size = new System.Drawing.Size(35, 35);
+            this.pictureBoxRightClick.TabIndex = 1;
+            this.pictureBoxRightClick.TabStop = false;
+            // 
+            // pictureBoxLeftClick
+            // 
+            this.pictureBoxLeftClick.BackColor = System.Drawing.Color.White;
+            this.pictureBoxLeftClick.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxLeftClick.BackgroundImage")));
+            this.pictureBoxLeftClick.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxLeftClick.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLeftClick.Image")));
+            this.pictureBoxLeftClick.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxLeftClick.InitialImage")));
+            this.pictureBoxLeftClick.Location = new System.Drawing.Point(5, 17);
+            this.pictureBoxLeftClick.Name = "pictureBoxLeftClick";
+            this.pictureBoxLeftClick.Size = new System.Drawing.Size(35, 35);
+            this.pictureBoxLeftClick.TabIndex = 0;
+            this.pictureBoxLeftClick.TabStop = false;
             // 
             // dataGridViewSchedule
             // 
@@ -105,10 +169,11 @@
             this.dataGridViewSchedule.RowTemplate.Height = 55;
             this.dataGridViewSchedule.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewSchedule.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewSchedule.Size = new System.Drawing.Size(734, 527);
+            this.dataGridViewSchedule.Size = new System.Drawing.Size(788, 527);
             this.dataGridViewSchedule.TabIndex = 12;
             this.dataGridViewSchedule.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSchedule_CellClick);
             this.dataGridViewSchedule.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSchedule_CellDoubleClick);
+            this.dataGridViewSchedule.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewSchedule_CellMouseUp);
             // 
             // headerHour
             // 
@@ -180,25 +245,21 @@
             // 
             // listViewModuls
             // 
-            this.listViewModuls.Alignment = System.Windows.Forms.ListViewAlignment.Default;
+            this.listViewModuls.Alignment = System.Windows.Forms.ListViewAlignment.SnapToGrid;
             this.listViewModuls.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listViewModuls.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listViewModuls.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.listViewModuls.FullRowSelect = true;
-            this.listViewModuls.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
-            this.listViewModuls.Location = new System.Drawing.Point(776, 29);
+            this.listViewModuls.Location = new System.Drawing.Point(832, 29);
             this.listViewModuls.MultiSelect = false;
             this.listViewModuls.Name = "listViewModuls";
-            this.listViewModuls.Scrollable = false;
-            this.listViewModuls.Size = new System.Drawing.Size(204, 527);
+            this.listViewModuls.Size = new System.Drawing.Size(150, 358);
             this.listViewModuls.TabIndex = 15;
             this.listViewModuls.TileSize = new System.Drawing.Size(360, 54);
             this.listViewModuls.UseCompatibleStateImageBehavior = false;
-            this.listViewModuls.View = System.Windows.Forms.View.Tile;
+            this.listViewModuls.View = System.Windows.Forms.View.List;
             this.listViewModuls.SelectedIndexChanged += new System.EventHandler(this.listViewModuls_SelectedIndexChanged);
             // 
             // FormCreateScheduleGroup
@@ -212,6 +273,10 @@
             this.Text = "FormCreateScheduleGroup";
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.panelSchedule.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRightClick)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLeftClick)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSchedule)).EndInit();
             this.ResumeLayout(false);
 
@@ -231,5 +296,10 @@
         private Button buttonSave;
         private Button buttonCancel;
         private ListView listViewModuls;
+        private Panel panel1;
+        private PictureBox pictureBoxLeftClick;
+        private Label labelLeftClick;
+        private PictureBox pictureBoxRightClick;
+        private Label labelRightClick;
     }
 }
