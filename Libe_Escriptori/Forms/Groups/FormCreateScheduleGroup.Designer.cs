@@ -40,15 +40,15 @@
             this.pictureBoxRightClick = new System.Windows.Forms.PictureBox();
             this.pictureBoxLeftClick = new System.Windows.Forms.PictureBox();
             this.dataGridViewSchedule = new System.Windows.Forms.DataGridView();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.listViewModuls = new System.Windows.Forms.ListView();
             this.headerHour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerMonday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerTuesday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerWednesday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerThursday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerFriday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonCancel = new System.Windows.Forms.Button();
-            this.listViewModuls = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.panelSchedule.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -73,6 +73,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.labelRightClick);
             this.panel1.Controls.Add(this.labelLeftClick);
             this.panel1.Controls.Add(this.pictureBoxRightClick);
@@ -132,7 +133,7 @@
             this.dataGridViewSchedule.AllowUserToDeleteRows = false;
             this.dataGridViewSchedule.AllowUserToResizeColumns = false;
             this.dataGridViewSchedule.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -142,6 +143,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewSchedule.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewSchedule.ColumnHeadersHeight = 50;
+            this.dataGridViewSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewSchedule.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.headerHour,
             this.headerMonday,
@@ -175,47 +177,6 @@
             this.dataGridViewSchedule.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSchedule_CellDoubleClick);
             this.dataGridViewSchedule.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewSchedule_CellMouseUp);
             // 
-            // headerHour
-            // 
-            this.headerHour.HeaderText = "Hora";
-            this.headerHour.Name = "headerHour";
-            this.headerHour.ReadOnly = true;
-            // 
-            // headerMonday
-            // 
-            this.headerMonday.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.headerMonday.HeaderText = "Dilluns";
-            this.headerMonday.Name = "headerMonday";
-            this.headerMonday.ReadOnly = true;
-            // 
-            // headerTuesday
-            // 
-            this.headerTuesday.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.headerTuesday.HeaderText = "Dimarts";
-            this.headerTuesday.Name = "headerTuesday";
-            this.headerTuesday.ReadOnly = true;
-            // 
-            // headerWednesday
-            // 
-            this.headerWednesday.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.headerWednesday.HeaderText = "Dimecres";
-            this.headerWednesday.Name = "headerWednesday";
-            this.headerWednesday.ReadOnly = true;
-            // 
-            // headerThursday
-            // 
-            this.headerThursday.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.headerThursday.HeaderText = "Dijous";
-            this.headerThursday.Name = "headerThursday";
-            this.headerThursday.ReadOnly = true;
-            // 
-            // headerFriday
-            // 
-            this.headerFriday.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.headerFriday.HeaderText = "Divendres";
-            this.headerFriday.Name = "headerFriday";
-            this.headerFriday.ReadOnly = true;
-            // 
             // buttonSave
             // 
             this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(64)))), ((int)(((byte)(171)))));
@@ -245,10 +206,11 @@
             // 
             // listViewModuls
             // 
-            this.listViewModuls.Alignment = System.Windows.Forms.ListViewAlignment.SnapToGrid;
+            this.listViewModuls.Alignment = System.Windows.Forms.ListViewAlignment.Default;
             this.listViewModuls.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.listViewModuls.AutoArrange = false;
             this.listViewModuls.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listViewModuls.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.listViewModuls.FullRowSelect = true;
@@ -257,10 +219,63 @@
             this.listViewModuls.Name = "listViewModuls";
             this.listViewModuls.Size = new System.Drawing.Size(150, 358);
             this.listViewModuls.TabIndex = 15;
-            this.listViewModuls.TileSize = new System.Drawing.Size(360, 54);
+            this.listViewModuls.TileSize = new System.Drawing.Size(130, 30);
             this.listViewModuls.UseCompatibleStateImageBehavior = false;
-            this.listViewModuls.View = System.Windows.Forms.View.List;
+            this.listViewModuls.View = System.Windows.Forms.View.Tile;
             this.listViewModuls.SelectedIndexChanged += new System.EventHandler(this.listViewModuls_SelectedIndexChanged);
+            // 
+            // headerHour
+            // 
+            this.headerHour.HeaderText = "Hora";
+            this.headerHour.Name = "headerHour";
+            this.headerHour.ReadOnly = true;
+            this.headerHour.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.headerHour.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // headerMonday
+            // 
+            this.headerMonday.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.headerMonday.HeaderText = "Dilluns";
+            this.headerMonday.Name = "headerMonday";
+            this.headerMonday.ReadOnly = true;
+            this.headerMonday.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.headerMonday.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // headerTuesday
+            // 
+            this.headerTuesday.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.headerTuesday.HeaderText = "Dimarts";
+            this.headerTuesday.Name = "headerTuesday";
+            this.headerTuesday.ReadOnly = true;
+            this.headerTuesday.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.headerTuesday.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // headerWednesday
+            // 
+            this.headerWednesday.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.headerWednesday.HeaderText = "Dimecres";
+            this.headerWednesday.Name = "headerWednesday";
+            this.headerWednesday.ReadOnly = true;
+            this.headerWednesday.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.headerWednesday.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // headerThursday
+            // 
+            this.headerThursday.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.headerThursday.HeaderText = "Dijous";
+            this.headerThursday.Name = "headerThursday";
+            this.headerThursday.ReadOnly = true;
+            this.headerThursday.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.headerThursday.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // headerFriday
+            // 
+            this.headerFriday.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.headerFriday.HeaderText = "Divendres";
+            this.headerFriday.Name = "headerFriday";
+            this.headerFriday.ReadOnly = true;
+            this.headerFriday.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.headerFriday.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // FormCreateScheduleGroup
             // 
@@ -287,12 +302,6 @@
         private BindingSource bindingSource1;
         private Panel panelSchedule;
         private DataGridView dataGridViewSchedule;
-        private DataGridViewTextBoxColumn headerHour;
-        private DataGridViewTextBoxColumn headerMonday;
-        private DataGridViewTextBoxColumn headerTuesday;
-        private DataGridViewTextBoxColumn headerWednesday;
-        private DataGridViewTextBoxColumn headerThursday;
-        private DataGridViewTextBoxColumn headerFriday;
         private Button buttonSave;
         private Button buttonCancel;
         private ListView listViewModuls;
@@ -301,5 +310,11 @@
         private Label labelLeftClick;
         private PictureBox pictureBoxRightClick;
         private Label labelRightClick;
+        private DataGridViewTextBoxColumn headerHour;
+        private DataGridViewTextBoxColumn headerMonday;
+        private DataGridViewTextBoxColumn headerTuesday;
+        private DataGridViewTextBoxColumn headerWednesday;
+        private DataGridViewTextBoxColumn headerThursday;
+        private DataGridViewTextBoxColumn headerFriday;
     }
 }
