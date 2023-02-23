@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualBasic;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,8 +15,18 @@ namespace Libe_Escriptori.Forms.Centres
 {
     public partial class FormCalendari : Form
     {
-        int month, year;
         CultureInfo ci = new CultureInfo("ca-ES");
+        int month, year;
+        public static Color colorPicked = Color.White;
+
+
+        //Arrays de dies "especials"
+        public static List<DateTime> diesLliureDisposicio = new List<DateTime>();
+        public static List<DateTime> diesFestius = new List<DateTime>();
+        public static DateTime iniciCurs;
+        public static DateTime fiCurs;
+
+
         public FormCalendari()
         {
             InitializeComponent();
@@ -54,13 +65,13 @@ namespace Libe_Escriptori.Forms.Centres
             {
                 if( (i + sunday) % 7 == 0 || (i + saturday) % 7 == 0)
                 {
-                    UserControlDays ucdays = new UserControlDays(Color.FromArgb(255, 128, 128));
+                    UserControlDays ucdays = new UserControlDays(Color.FromArgb(255, 128, 128), labelDate);
                     ucdays.days(i);
                     flowLayoutPanelDaysContainer.Controls.Add(ucdays);
                 }
                 else
                 {
-                    UserControlDays ucdays = new UserControlDays(Color.FromKnownColor(KnownColor.White));
+                    UserControlDays ucdays = new UserControlDays(Color.FromKnownColor(KnownColor.White), labelDate);
                     ucdays.days(i);
                     flowLayoutPanelDaysContainer.Controls.Add(ucdays);
                 }
@@ -97,13 +108,13 @@ namespace Libe_Escriptori.Forms.Centres
             {
                 if ((i + daysOftheWeek) % 7 == 0 || (i + daysOftheWeek - 1) % 7 == 0)
                 {
-                    UserControlDays ucdays = new UserControlDays(Color.FromArgb(255, 128, 128));
+                    UserControlDays ucdays = new UserControlDays(Color.FromArgb(255, 128, 128), labelDate);
                     ucdays.days(i);
                     flowLayoutPanelDaysContainer.Controls.Add(ucdays);
                 }
                 else
                 {
-                    UserControlDays ucdays = new UserControlDays(Color.FromKnownColor(KnownColor.White));
+                    UserControlDays ucdays = new UserControlDays(Color.FromKnownColor(KnownColor.White), labelDate);
                     ucdays.days(i);
                     flowLayoutPanelDaysContainer.Controls.Add(ucdays);
                 }
@@ -111,9 +122,24 @@ namespace Libe_Escriptori.Forms.Centres
             }
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void panelLliureEleccio_Click(object sender, EventArgs e)
         {
+            colorPicked = Color.FromArgb(192, 192, 255);
+        }
 
+        private void panelVacances_Click(object sender, EventArgs e)
+        {
+            colorPicked = Color.FromArgb(255, 255, 128);
+        }
+
+        private void panelPrimerDiaDeCurs_Click(object sender, EventArgs e)
+        {
+            colorPicked = Color.FromArgb(128, 255, 128);
+        }
+
+        private void panelUltimDiaDelCurs_Click(object sender, EventArgs e)
+        {
+            colorPicked = Color.FromArgb(255, 128, 255);
         }
 
         private void buttonAnterior_Click(object sender, EventArgs e)
@@ -145,13 +171,13 @@ namespace Libe_Escriptori.Forms.Centres
             {
                 if ((i + daysOftheWeek) % 7 == 0 || (i + daysOftheWeek - 1) % 7 == 0)
                 {
-                    UserControlDays ucdays = new UserControlDays(Color.FromArgb(255, 128, 128));
+                    UserControlDays ucdays = new UserControlDays(Color.FromArgb(255, 128, 128), labelDate);
                     ucdays.days(i);
                     flowLayoutPanelDaysContainer.Controls.Add(ucdays);
                 }
                 else
                 {
-                    UserControlDays ucdays = new UserControlDays(Color.FromKnownColor(KnownColor.White));
+                    UserControlDays ucdays = new UserControlDays(Color.FromKnownColor(KnownColor.White), labelDate);
                     ucdays.days(i);
                     flowLayoutPanelDaysContainer.Controls.Add(ucdays);
                 }
