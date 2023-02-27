@@ -1,11 +1,16 @@
 ﻿using Libe_Escriptori.Forms.Groups;
+using Libe_Escriptori.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using System.Text;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -72,6 +77,76 @@ namespace Libe_Escriptori.Forms.Centres
         {
             FormCentreZonesAfegirAules f = new FormCentreZonesAfegirAules();
             f.ShowDialog();
+        }
+
+        private void buttonGuardarZona_Click(object sender, EventArgs e)
+        {
+            POSTValidateZone();
+        }
+
+        private async Task POSTValidateZone()
+        {
+            //Variable global Baseurl
+            var BASEURL = "https://localhost:44385";
+            //Variable url concreta
+            var url = "/api/validable_zones";
+
+            var coordinates = textBoxZoneCoordinates.Text.Split(",");
+            var latitude = Double.Parse(coordinates[0]);
+            var longitude = Double.Parse(coordinates[1]);
+
+            ValidateZonesDTO validateZonesDTO = new ValidateZonesDTO();
+            validateZonesDTO.name = textBoxZoneName.Text;
+            validateZonesDTO.radius = int.Parse(textBoxRange.Text);
+            validateZonesDTO.latitude = 4.3;
+            validateZonesDTO.longitude = 5.5;
+
+            var json = JsonConvert.SerializeObject(validateZonesDTO);
+            //var data = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
+            
+
+            using (var client = new HttpClient())
+            {
+
+                client.BaseAddress = new Uri(BASEURL);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage response = await client.GetAsync(url).ConfigureAwait(true);
+                if (response.IsSuccessStatusCode)
+                {
+                    //ValidateZonesDTO validateZone = await response.Content.ReadAsAsync<ValidateZonesDTO>().ConfigureAwait(false);
+                    MessageBox.Show("Success");
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Internal server Error");
+                }
+
+
+                /*
+                HttpResponseMessage response = await client.PostAsJsonAsync(url, validateZonesDTO);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    // Get the URI of the created resource.
+                    MessageBox.Show("S'ha afegit correctament");
+                }
+                else
+                {
+                    MessageBox.Show("ERROR");
+                }
+               
+                */
+
+
+
+
+            }
+
+
+            
         }
     }
 }

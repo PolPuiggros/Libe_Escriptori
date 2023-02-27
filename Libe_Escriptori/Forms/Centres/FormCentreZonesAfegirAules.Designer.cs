@@ -101,6 +101,7 @@
             this.buttonGuardarZona.TabIndex = 7;
             this.buttonGuardarZona.Text = "Afegir l\'aula";
             this.buttonGuardarZona.UseVisualStyleBackColor = false;
+            this.buttonGuardarZona.Click += new System.EventHandler(this.buttonGuardarZona_Click);
             // 
             // dataGridView1
             // 

@@ -116,6 +116,7 @@
             this.buttonGuardarZona.TabIndex = 16;
             this.buttonGuardarZona.Text = "Guardar zona";
             this.buttonGuardarZona.UseVisualStyleBackColor = false;
+            this.buttonGuardarZona.Click += new System.EventHandler(this.buttonGuardarZona_Click);
             // 
             // buttonAfegirAules
             // 
