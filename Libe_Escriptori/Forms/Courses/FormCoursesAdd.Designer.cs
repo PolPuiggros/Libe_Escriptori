@@ -32,18 +32,18 @@ namespace Libe_Escriptori.Forms.Courses
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.dataGridViewModules = new System.Windows.Forms.DataGridView();
-            this.buttonExistent = new System.Windows.Forms.Button();
-            this.buttonNew = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBoxFullName = new System.Windows.Forms.TextBox();
-            this.textBoxAbbreviation = new System.Windows.Forms.TextBox();
             this.ColumnAbreviacio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNomModul = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnHores = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNumeroUFS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.buttonExistent = new System.Windows.Forms.Button();
+            this.buttonNew = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBoxFullName = new System.Windows.Forms.TextBox();
+            this.textBoxAbbreviation = new System.Windows.Forms.TextBox();
             this.panelCoursesAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewModules)).BeginInit();
             this.SuspendLayout();
@@ -70,7 +70,7 @@ namespace Libe_Escriptori.Forms.Courses
             this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(168)))), ((int)(((byte)(241)))));
             this.buttonCancel.FlatAppearance.BorderSize = 0;
             this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCancel.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonCancel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonCancel.Location = new System.Drawing.Point(375, 553);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(131, 41);
@@ -83,7 +83,7 @@ namespace Libe_Escriptori.Forms.Courses
             this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(64)))), ((int)(((byte)(171)))));
             this.buttonSave.FlatAppearance.BorderSize = 0;
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSave.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonSave.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonSave.ForeColor = System.Drawing.Color.White;
             this.buttonSave.Location = new System.Drawing.Point(547, 553);
             this.buttonSave.Name = "buttonSave";
@@ -102,85 +102,12 @@ namespace Libe_Escriptori.Forms.Courses
             this.ColumnNumeroUFS,
             this.ColumnEdit,
             this.ColumnDelete});
-            this.dataGridViewModules.Location = new System.Drawing.Point(80, 285);
+            this.dataGridViewModules.Location = new System.Drawing.Point(80, 252);
             this.dataGridViewModules.Name = "dataGridViewModules";
             this.dataGridViewModules.RowTemplate.Height = 25;
-            this.dataGridViewModules.Size = new System.Drawing.Size(851, 238);
+            this.dataGridViewModules.Size = new System.Drawing.Size(851, 271);
             this.dataGridViewModules.TabIndex = 6;
             this.dataGridViewModules.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridViewModules_CellPainting);
-            // 
-            // buttonExistent
-            // 
-            this.buttonExistent.BackColor = System.Drawing.Color.White;
-            this.buttonExistent.FlatAppearance.BorderSize = 0;
-            this.buttonExistent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonExistent.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonExistent.Location = new System.Drawing.Point(241, 215);
-            this.buttonExistent.Name = "buttonExistent";
-            this.buttonExistent.Size = new System.Drawing.Size(184, 41);
-            this.buttonExistent.TabIndex = 5;
-            this.buttonExistent.Text = "Mòdul Existent";
-            this.buttonExistent.UseVisualStyleBackColor = false;
-            this.buttonExistent.Click += new System.EventHandler(this.buttonExistent_Click);
-            // 
-            // buttonNew
-            // 
-            this.buttonNew.BackColor = System.Drawing.Color.White;
-            this.buttonNew.FlatAppearance.BorderSize = 0;
-            this.buttonNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonNew.Location = new System.Drawing.Point(80, 215);
-            this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(131, 41);
-            this.buttonNew.TabIndex = 4;
-            this.buttonNew.Text = "Nou Mòdul";
-            this.buttonNew.UseVisualStyleBackColor = false;
-            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Departament"});
-            this.comboBox1.Location = new System.Drawing.Point(80, 147);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(310, 29);
-            this.comboBox1.TabIndex = 3;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(462, 148);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(469, 29);
-            this.textBox3.TabIndex = 2;
-            this.textBox3.Text = "Coordinador";
-            // 
-            // textBoxFullName
-            // 
-            this.textBoxFullName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxFullName.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxFullName.Location = new System.Drawing.Point(352, 75);
-            this.textBoxFullName.Name = "textBoxFullName";
-            this.textBoxFullName.Size = new System.Drawing.Size(579, 29);
-            this.textBoxFullName.TabIndex = 1;
-            this.textBoxFullName.Text = " Nom Complert del curs";
-            this.textBoxFullName.Enter += new System.EventHandler(this.textBoxFullName_Enter);
-            this.textBoxFullName.Leave += new System.EventHandler(this.textBoxFullName_Leave);
-            // 
-            // textBoxAbbreviation
-            // 
-            this.textBoxAbbreviation.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxAbbreviation.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxAbbreviation.Location = new System.Drawing.Point(80, 75);
-            this.textBoxAbbreviation.Name = "textBoxAbbreviation";
-            this.textBoxAbbreviation.Size = new System.Drawing.Size(197, 29);
-            this.textBoxAbbreviation.TabIndex = 0;
-            this.textBoxAbbreviation.Text = " Abreviació";
-            this.textBoxAbbreviation.Enter += new System.EventHandler(this.textBoxAbbreviation_Enter);
-            this.textBoxAbbreviation.Leave += new System.EventHandler(this.textBoxAbbreviation_Leave);
             // 
             // ColumnAbreviacio
             // 
@@ -221,6 +148,88 @@ namespace Libe_Escriptori.Forms.Courses
             this.ColumnDelete.HeaderText = "";
             this.ColumnDelete.Name = "ColumnDelete";
             this.ColumnDelete.Width = 21;
+            // 
+            // buttonExistent
+            // 
+            this.buttonExistent.BackColor = System.Drawing.Color.White;
+            this.buttonExistent.FlatAppearance.BorderSize = 0;
+            this.buttonExistent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExistent.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonExistent.Location = new System.Drawing.Point(241, 215);
+            this.buttonExistent.Name = "buttonExistent";
+            this.buttonExistent.Size = new System.Drawing.Size(137, 31);
+            this.buttonExistent.TabIndex = 5;
+            this.buttonExistent.Text = "Mòdul Existent";
+            this.buttonExistent.UseVisualStyleBackColor = false;
+            this.buttonExistent.Click += new System.EventHandler(this.buttonExistent_Click);
+            // 
+            // buttonNew
+            // 
+            this.buttonNew.BackColor = System.Drawing.Color.White;
+            this.buttonNew.FlatAppearance.BorderSize = 0;
+            this.buttonNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonNew.Location = new System.Drawing.Point(80, 215);
+            this.buttonNew.Name = "buttonNew";
+            this.buttonNew.Size = new System.Drawing.Size(137, 31);
+            this.buttonNew.TabIndex = 4;
+            this.buttonNew.Text = "Nou Mòdul";
+            this.buttonNew.UseVisualStyleBackColor = false;
+            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.IntegralHeight = false;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Departament"});
+            this.comboBox1.Location = new System.Drawing.Point(80, 147);
+            this.comboBox1.MaximumSize = new System.Drawing.Size(310, 0);
+            this.comboBox1.MinimumSize = new System.Drawing.Size(310, 0);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(310, 28);
+            this.comboBox1.TabIndex = 3;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox3.Location = new System.Drawing.Point(462, 148);
+            this.textBox3.MaximumSize = new System.Drawing.Size(469, 31);
+            this.textBox3.MinimumSize = new System.Drawing.Size(469, 31);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(469, 31);
+            this.textBox3.TabIndex = 2;
+            this.textBox3.Text = "Coordinador";
+            // 
+            // textBoxFullName
+            // 
+            this.textBoxFullName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxFullName.ForeColor = System.Drawing.Color.Gray;
+            this.textBoxFullName.Location = new System.Drawing.Point(352, 75);
+            this.textBoxFullName.MaximumSize = new System.Drawing.Size(579, 31);
+            this.textBoxFullName.MinimumSize = new System.Drawing.Size(579, 31);
+            this.textBoxFullName.Name = "textBoxFullName";
+            this.textBoxFullName.Size = new System.Drawing.Size(579, 31);
+            this.textBoxFullName.TabIndex = 1;
+            this.textBoxFullName.Text = " Nom Complert del curs";
+            this.textBoxFullName.Enter += new System.EventHandler(this.textBoxFullName_Enter);
+            this.textBoxFullName.Leave += new System.EventHandler(this.textBoxFullName_Leave);
+            // 
+            // textBoxAbbreviation
+            // 
+            this.textBoxAbbreviation.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxAbbreviation.ForeColor = System.Drawing.Color.Gray;
+            this.textBoxAbbreviation.Location = new System.Drawing.Point(80, 75);
+            this.textBoxAbbreviation.MaximumSize = new System.Drawing.Size(197, 31);
+            this.textBoxAbbreviation.MinimumSize = new System.Drawing.Size(197, 31);
+            this.textBoxAbbreviation.Name = "textBoxAbbreviation";
+            this.textBoxAbbreviation.Size = new System.Drawing.Size(197, 31);
+            this.textBoxAbbreviation.TabIndex = 0;
+            this.textBoxAbbreviation.Text = " Abreviació";
+            this.textBoxAbbreviation.Enter += new System.EventHandler(this.textBoxAbbreviation_Enter);
+            this.textBoxAbbreviation.Leave += new System.EventHandler(this.textBoxAbbreviation_Leave);
             // 
             // FormCoursesAdd
             // 

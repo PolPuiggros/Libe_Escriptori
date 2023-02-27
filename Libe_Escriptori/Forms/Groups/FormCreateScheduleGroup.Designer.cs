@@ -40,15 +40,15 @@
             this.pictureBoxRightClick = new System.Windows.Forms.PictureBox();
             this.pictureBoxLeftClick = new System.Windows.Forms.PictureBox();
             this.dataGridViewSchedule = new System.Windows.Forms.DataGridView();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonCancel = new System.Windows.Forms.Button();
-            this.listViewModuls = new System.Windows.Forms.ListView();
             this.headerHour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerMonday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerTuesday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerWednesday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerThursday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerFriday = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.listViewModuls = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.panelSchedule.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -177,53 +177,6 @@
             this.dataGridViewSchedule.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSchedule_CellDoubleClick);
             this.dataGridViewSchedule.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewSchedule_CellMouseUp);
             // 
-            // buttonSave
-            // 
-            this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(64)))), ((int)(((byte)(171)))));
-            this.buttonSave.FlatAppearance.BorderSize = 0;
-            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSave.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonSave.ForeColor = System.Drawing.Color.White;
-            this.buttonSave.Location = new System.Drawing.Point(541, 572);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(136, 50);
-            this.buttonSave.TabIndex = 14;
-            this.buttonSave.Text = "Guardar";
-            this.buttonSave.UseVisualStyleBackColor = false;
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(168)))), ((int)(((byte)(241)))));
-            this.buttonCancel.FlatAppearance.BorderSize = 0;
-            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCancel.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonCancel.Location = new System.Drawing.Point(373, 572);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(137, 50);
-            this.buttonCancel.TabIndex = 13;
-            this.buttonCancel.Text = "Cancelar";
-            this.buttonCancel.UseVisualStyleBackColor = false;
-            // 
-            // listViewModuls
-            // 
-            this.listViewModuls.Alignment = System.Windows.Forms.ListViewAlignment.Default;
-            this.listViewModuls.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listViewModuls.AutoArrange = false;
-            this.listViewModuls.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listViewModuls.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.listViewModuls.FullRowSelect = true;
-            this.listViewModuls.Location = new System.Drawing.Point(832, 29);
-            this.listViewModuls.MultiSelect = false;
-            this.listViewModuls.Name = "listViewModuls";
-            this.listViewModuls.Size = new System.Drawing.Size(150, 358);
-            this.listViewModuls.TabIndex = 15;
-            this.listViewModuls.TileSize = new System.Drawing.Size(130, 30);
-            this.listViewModuls.UseCompatibleStateImageBehavior = false;
-            this.listViewModuls.View = System.Windows.Forms.View.Tile;
-            this.listViewModuls.SelectedIndexChanged += new System.EventHandler(this.listViewModuls_SelectedIndexChanged);
-            // 
             // headerHour
             // 
             this.headerHour.HeaderText = "Hora";
@@ -276,6 +229,53 @@
             this.headerFriday.ReadOnly = true;
             this.headerFriday.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.headerFriday.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(64)))), ((int)(((byte)(171)))));
+            this.buttonSave.FlatAppearance.BorderSize = 0;
+            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSave.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonSave.ForeColor = System.Drawing.Color.White;
+            this.buttonSave.Location = new System.Drawing.Point(541, 572);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(137, 40);
+            this.buttonSave.TabIndex = 14;
+            this.buttonSave.Text = "Guardar";
+            this.buttonSave.UseVisualStyleBackColor = false;
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(168)))), ((int)(((byte)(241)))));
+            this.buttonCancel.FlatAppearance.BorderSize = 0;
+            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCancel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonCancel.Location = new System.Drawing.Point(373, 572);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(137, 40);
+            this.buttonCancel.TabIndex = 13;
+            this.buttonCancel.Text = "Cancelar";
+            this.buttonCancel.UseVisualStyleBackColor = false;
+            // 
+            // listViewModuls
+            // 
+            this.listViewModuls.Alignment = System.Windows.Forms.ListViewAlignment.Default;
+            this.listViewModuls.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listViewModuls.AutoArrange = false;
+            this.listViewModuls.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listViewModuls.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.listViewModuls.FullRowSelect = true;
+            this.listViewModuls.Location = new System.Drawing.Point(832, 29);
+            this.listViewModuls.MultiSelect = false;
+            this.listViewModuls.Name = "listViewModuls";
+            this.listViewModuls.Size = new System.Drawing.Size(150, 358);
+            this.listViewModuls.TabIndex = 15;
+            this.listViewModuls.TileSize = new System.Drawing.Size(130, 30);
+            this.listViewModuls.UseCompatibleStateImageBehavior = false;
+            this.listViewModuls.View = System.Windows.Forms.View.Tile;
+            this.listViewModuls.SelectedIndexChanged += new System.EventHandler(this.listViewModuls_SelectedIndexChanged);
             // 
             // FormCreateScheduleGroup
             // 

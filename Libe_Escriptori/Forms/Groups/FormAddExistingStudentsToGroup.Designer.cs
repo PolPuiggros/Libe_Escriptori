@@ -89,11 +89,11 @@
             this.buttonSaveStudentsGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(64)))), ((int)(((byte)(171)))));
             this.buttonSaveStudentsGroup.FlatAppearance.BorderSize = 0;
             this.buttonSaveStudentsGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSaveStudentsGroup.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonSaveStudentsGroup.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonSaveStudentsGroup.ForeColor = System.Drawing.Color.White;
-            this.buttonSaveStudentsGroup.Location = new System.Drawing.Point(282, 426);
+            this.buttonSaveStudentsGroup.Location = new System.Drawing.Point(268, 426);
             this.buttonSaveStudentsGroup.Name = "buttonSaveStudentsGroup";
-            this.buttonSaveStudentsGroup.Size = new System.Drawing.Size(94, 41);
+            this.buttonSaveStudentsGroup.Size = new System.Drawing.Size(137, 40);
             this.buttonSaveStudentsGroup.TabIndex = 1;
             this.buttonSaveStudentsGroup.Text = "Guardar";
             this.buttonSaveStudentsGroup.UseVisualStyleBackColor = false;
