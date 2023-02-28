@@ -12,9 +12,15 @@ namespace Libe_Escriptori.Forms.Centres
 {
     public partial class UserControlBlank : UserControl
     {
-        public UserControlBlank()
+        public UserControlBlank(Color color)
         {
             InitializeComponent();
+            BackGroundColor(color);
+        }
+
+        private void BackGroundColor(Color color)
+        {
+            this.BackColor = color;
         }
     }
 }
