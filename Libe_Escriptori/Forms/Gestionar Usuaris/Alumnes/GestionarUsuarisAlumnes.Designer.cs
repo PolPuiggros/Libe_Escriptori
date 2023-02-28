@@ -123,23 +123,23 @@
             this.labelFilterCourse.AutoSize = true;
             this.labelFilterCourse.BackColor = System.Drawing.Color.White;
             this.labelFilterCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.labelFilterCourse.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelFilterCourse.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelFilterCourse.ForeColor = System.Drawing.Color.Black;
-            this.labelFilterCourse.Location = new System.Drawing.Point(869, 49);
-            this.labelFilterCourse.MaximumSize = new System.Drawing.Size(44, 31);
-            this.labelFilterCourse.MinimumSize = new System.Drawing.Size(44, 31);
+            this.labelFilterCourse.Location = new System.Drawing.Point(860, 58);
+            this.labelFilterCourse.MaximumSize = new System.Drawing.Size(50, 31);
+            this.labelFilterCourse.MinimumSize = new System.Drawing.Size(50, 31);
             this.labelFilterCourse.Name = "labelFilterCourse";
             this.labelFilterCourse.Padding = new System.Windows.Forms.Padding(2);
-            this.labelFilterCourse.Size = new System.Drawing.Size(44, 31);
+            this.labelFilterCourse.Size = new System.Drawing.Size(50, 31);
             this.labelFilterCourse.TabIndex = 10;
             this.labelFilterCourse.Text = "CURS";
             // 
             // textBoxFilterCourse
             // 
-            this.textBoxFilterCourse.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxFilterCourse.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxFilterCourse.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxFilterCourse.ForeColor = System.Drawing.Color.DarkGray;
-            this.textBoxFilterCourse.Location = new System.Drawing.Point(706, 49);
+            this.textBoxFilterCourse.Location = new System.Drawing.Point(688, 58);
             this.textBoxFilterCourse.MaximumSize = new System.Drawing.Size(166, 31);
             this.textBoxFilterCourse.MinimumSize = new System.Drawing.Size(166, 31);
             this.textBoxFilterCourse.Name = "textBoxFilterCourse";
@@ -152,29 +152,28 @@
             // comboBoxFilter
             // 
             this.comboBoxFilter.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBoxFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxFilter.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBoxFilter.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxFilter.ForeColor = System.Drawing.SystemColors.WindowText;
             this.comboBoxFilter.FormattingEnabled = true;
             this.comboBoxFilter.IntegralHeight = false;
-            this.comboBoxFilter.ItemHeight = 20;
+            this.comboBoxFilter.ItemHeight = 21;
             this.comboBoxFilter.Items.AddRange(new object[] {
             "Nom",
             "Cognom",
             "DNI"});
-            this.comboBoxFilter.Location = new System.Drawing.Point(538, 49);
+            this.comboBoxFilter.Location = new System.Drawing.Point(546, 60);
             this.comboBoxFilter.MaximumSize = new System.Drawing.Size(121, 0);
             this.comboBoxFilter.MinimumSize = new System.Drawing.Size(121, 0);
             this.comboBoxFilter.Name = "comboBoxFilter";
-            this.comboBoxFilter.Size = new System.Drawing.Size(121, 28);
+            this.comboBoxFilter.Size = new System.Drawing.Size(121, 29);
             this.comboBoxFilter.TabIndex = 8;
             // 
             // textBoxSearch
             // 
-            this.textBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxSearch.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxSearch.ForeColor = System.Drawing.Color.DarkGray;
-            this.textBoxSearch.Location = new System.Drawing.Point(289, 49);
+            this.textBoxSearch.Location = new System.Drawing.Point(289, 58);
             this.textBoxSearch.MaximumSize = new System.Drawing.Size(251, 31);
             this.textBoxSearch.MinimumSize = new System.Drawing.Size(251, 31);
             this.textBoxSearch.Name = "textBoxSearch";
@@ -190,9 +189,9 @@
             this.buttonNew.FlatAppearance.BorderSize = 0;
             this.buttonNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonNew.Location = new System.Drawing.Point(92, 49);
+            this.buttonNew.Location = new System.Drawing.Point(92, 58);
             this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(137, 40);
+            this.buttonNew.Size = new System.Drawing.Size(125, 31);
             this.buttonNew.TabIndex = 6;
             this.buttonNew.Text = "Nou";
             this.buttonNew.UseVisualStyleBackColor = false;

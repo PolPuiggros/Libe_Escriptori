@@ -117,30 +117,29 @@
             // comboBoxFilter
             // 
             this.comboBoxFilter.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBoxFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxFilter.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBoxFilter.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxFilter.ForeColor = System.Drawing.SystemColors.WindowText;
             this.comboBoxFilter.FormattingEnabled = true;
             this.comboBoxFilter.IntegralHeight = false;
-            this.comboBoxFilter.ItemHeight = 20;
+            this.comboBoxFilter.ItemHeight = 21;
             this.comboBoxFilter.Items.AddRange(new object[] {
             "Nom",
             "Cognom",
             "DNI"});
-            this.comboBoxFilter.Location = new System.Drawing.Point(784, 48);
+            this.comboBoxFilter.Location = new System.Drawing.Point(784, 60);
             this.comboBoxFilter.MaximumSize = new System.Drawing.Size(127, 0);
             this.comboBoxFilter.MaxLength = 127;
             this.comboBoxFilter.MinimumSize = new System.Drawing.Size(127, 0);
             this.comboBoxFilter.Name = "comboBoxFilter";
-            this.comboBoxFilter.Size = new System.Drawing.Size(127, 28);
+            this.comboBoxFilter.Size = new System.Drawing.Size(127, 29);
             this.comboBoxFilter.TabIndex = 12;
             // 
             // textBoxSearch
             // 
-            this.textBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxSearch.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxSearch.ForeColor = System.Drawing.Color.DarkGray;
-            this.textBoxSearch.Location = new System.Drawing.Point(536, 48);
+            this.textBoxSearch.Location = new System.Drawing.Point(527, 58);
             this.textBoxSearch.MaximumSize = new System.Drawing.Size(251, 31);
             this.textBoxSearch.MinimumSize = new System.Drawing.Size(251, 31);
             this.textBoxSearch.Name = "textBoxSearch";
