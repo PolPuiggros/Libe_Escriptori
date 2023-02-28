@@ -60,10 +60,10 @@
             // labelNewModule
             // 
             this.labelNewModule.AutoSize = true;
-            this.labelNewModule.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelNewModule.Location = new System.Drawing.Point(96, 64);
+            this.labelNewModule.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelNewModule.Location = new System.Drawing.Point(96, 53);
             this.labelNewModule.Name = "labelNewModule";
-            this.labelNewModule.Size = new System.Drawing.Size(103, 25);
+            this.labelNewModule.Size = new System.Drawing.Size(153, 37);
             this.labelNewModule.TabIndex = 10;
             this.labelNewModule.Text = "Nou Modul";
             // 
@@ -75,7 +75,7 @@
             this.buttonCancel.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonCancel.Location = new System.Drawing.Point(340, 551);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(131, 41);
+            this.buttonCancel.Size = new System.Drawing.Size(137, 40);
             this.buttonCancel.TabIndex = 9;
             this.buttonCancel.Text = "Cancelar";
             this.buttonCancel.UseVisualStyleBackColor = false;
@@ -89,7 +89,7 @@
             this.buttonSave.ForeColor = System.Drawing.Color.White;
             this.buttonSave.Location = new System.Drawing.Point(548, 551);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(131, 41);
+            this.buttonSave.Size = new System.Drawing.Size(137, 40);
             this.buttonSave.TabIndex = 8;
             this.buttonSave.Text = "Guardar";
             this.buttonSave.UseVisualStyleBackColor = false;
@@ -97,10 +97,10 @@
             // labelUF
             // 
             this.labelUF.AutoSize = true;
-            this.labelUF.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelUF.Location = new System.Drawing.Point(96, 173);
+            this.labelUF.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelUF.Location = new System.Drawing.Point(96, 172);
             this.labelUF.Name = "labelUF";
-            this.labelUF.Size = new System.Drawing.Size(41, 25);
+            this.labelUF.Size = new System.Drawing.Size(60, 37);
             this.labelUF.TabIndex = 4;
             this.labelUF.Text = "UFs";
             // 
@@ -110,14 +110,16 @@
             this.dataGridView1.Location = new System.Drawing.Point(96, 212);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(823, 289);
+            this.dataGridView1.Size = new System.Drawing.Size(828, 289);
             this.dataGridView1.TabIndex = 3;
             // 
             // textBoxHours
             // 
-            this.textBoxHours.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxHours.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxHours.ForeColor = System.Drawing.Color.Gray;
             this.textBoxHours.Location = new System.Drawing.Point(286, 105);
+            this.textBoxHours.MaximumSize = new System.Drawing.Size(185, 31);
+            this.textBoxHours.MinimumSize = new System.Drawing.Size(185, 31);
             this.textBoxHours.Name = "textBoxHours";
             this.textBoxHours.Size = new System.Drawing.Size(185, 31);
             this.textBoxHours.TabIndex = 2;
@@ -127,9 +129,11 @@
             // 
             // textBoxName
             // 
-            this.textBoxName.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxName.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxName.ForeColor = System.Drawing.Color.Gray;
             this.textBoxName.Location = new System.Drawing.Point(477, 105);
+            this.textBoxName.MaximumSize = new System.Drawing.Size(447, 31);
+            this.textBoxName.MinimumSize = new System.Drawing.Size(447, 31);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(447, 31);
             this.textBoxName.TabIndex = 1;
@@ -139,9 +143,11 @@
             // 
             // textBoxAbbreviation
             // 
-            this.textBoxAbbreviation.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxAbbreviation.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxAbbreviation.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxAbbreviation.Location = new System.Drawing.Point(101, 105);
+            this.textBoxAbbreviation.Location = new System.Drawing.Point(96, 105);
+            this.textBoxAbbreviation.MaximumSize = new System.Drawing.Size(179, 31);
+            this.textBoxAbbreviation.MinimumSize = new System.Drawing.Size(179, 31);
             this.textBoxAbbreviation.Name = "textBoxAbbreviation";
             this.textBoxAbbreviation.Size = new System.Drawing.Size(179, 31);
             this.textBoxAbbreviation.TabIndex = 0;
@@ -149,14 +155,14 @@
             this.textBoxAbbreviation.Enter += new System.EventHandler(this.textBoxAbbreviation_Enter);
             this.textBoxAbbreviation.Leave += new System.EventHandler(this.textBoxAbbreviation_Leave);
             // 
-            // FormAddModule
+            // FormAddNewModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 650);
             this.Controls.Add(this.panelNewModule);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormAddModule";
+            this.Name = "FormAddNewModule";
             this.Text = "FormAddModule";
             this.panelNewModule.ResumeLayout(false);
             this.panelNewModule.PerformLayout();

@@ -64,10 +64,10 @@
             // labelModuleName
             // 
             this.labelModuleName.AutoSize = true;
-            this.labelModuleName.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelModuleName.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelModuleName.Location = new System.Drawing.Point(299, 25);
             this.labelModuleName.Name = "labelModuleName";
-            this.labelModuleName.Size = new System.Drawing.Size(72, 32);
+            this.labelModuleName.Size = new System.Drawing.Size(76, 37);
             this.labelModuleName.TabIndex = 4;
             this.labelModuleName.Text = "DAM";
             // 
@@ -107,7 +107,7 @@
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
             // 
-            // FormAddModuleDialog
+            // FormAddExistingModuleDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -120,7 +120,7 @@
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormAddModuleDialog";
+            this.Name = "FormAddExistingModuleDialog";
             this.Text = "FormAddModuleDialog";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

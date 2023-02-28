@@ -117,10 +117,10 @@
             this.buttonNew.BackColor = System.Drawing.Color.White;
             this.buttonNew.FlatAppearance.BorderSize = 0;
             this.buttonNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonNew.Location = new System.Drawing.Point(62, 54);
             this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(108, 42);
+            this.buttonNew.Size = new System.Drawing.Size(137, 31);
             this.buttonNew.TabIndex = 4;
             this.buttonNew.Text = "Nou";
             this.buttonNew.UseVisualStyleBackColor = false;
