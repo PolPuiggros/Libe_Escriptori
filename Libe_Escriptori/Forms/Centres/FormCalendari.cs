@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -63,6 +64,7 @@ namespace Libe_Escriptori.Forms.Centres
 
             for( int i = 1; i <= days; i++)
             {
+                DateTime dia = new DateTime(year, month, i);
                 if( (i + sunday) % 7 == 0 || (i + saturday) % 7 == 0)
                 {
                     UserControlDays ucdays = new UserControlDays(Color.FromArgb(255, 128, 128), labelDate);
@@ -71,9 +73,40 @@ namespace Libe_Escriptori.Forms.Centres
                 }
                 else
                 {
-                    UserControlDays ucdays = new UserControlDays(Color.FromKnownColor(KnownColor.White), labelDate);
-                    ucdays.days(i);
-                    flowLayoutPanelDaysContainer.Controls.Add(ucdays);
+                    int indexLliureDisposicio = diesLliureDisposicio.IndexOf(dia);
+                    int indexFestius = diesFestius.IndexOf(dia);
+
+                    if (indexLliureDisposicio != -1)
+                    {
+                        UserControlDays ucdaysLliureDispo = new UserControlDays(Color.FromArgb(192, 192, 255), labelDate);
+                        ucdaysLliureDispo.days(i);
+                        flowLayoutPanelDaysContainer.Controls.Add(ucdaysLliureDispo);
+                    }
+                    else if (indexFestius != -1)
+                    {
+                        UserControlDays ucdaysFestius = new UserControlDays(Color.FromArgb(255, 255, 128), labelDate);
+                        ucdaysFestius.days(i);
+                        flowLayoutPanelDaysContainer.Controls.Add(ucdaysFestius);
+                    }
+                    else if (dia == iniciCurs)
+                    {
+                        UserControlDays ucdaysIniciCurs = new UserControlDays(Color.FromArgb(128, 255, 128), labelDate);
+                        ucdaysIniciCurs.days(i);
+                        flowLayoutPanelDaysContainer.Controls.Add(ucdaysIniciCurs);
+                    }
+                    else if (dia == fiCurs)
+                    {
+                        UserControlDays ucdaysFiCurs = new UserControlDays(Color.FromArgb(255, 128, 255), labelDate);
+                        ucdaysFiCurs.days(i);
+                        flowLayoutPanelDaysContainer.Controls.Add(ucdaysFiCurs);
+                    }
+                    else
+                    {
+                        UserControlDays ucdays = new UserControlDays(Color.FromKnownColor(KnownColor.White), labelDate);
+                        ucdays.days(i);
+                        flowLayoutPanelDaysContainer.Controls.Add(ucdays);
+                    }
+
                 }
 
             }
@@ -106,6 +139,7 @@ namespace Libe_Escriptori.Forms.Centres
 
             for (int i = 1; i <= days; i++)
             {
+                DateTime dia = new DateTime(year, month, i);
                 if ((i + daysOftheWeek) % 7 == 0 || (i + daysOftheWeek - 1) % 7 == 0)
                 {
                     UserControlDays ucdays = new UserControlDays(Color.FromArgb(255, 128, 128), labelDate);
@@ -113,35 +147,45 @@ namespace Libe_Escriptori.Forms.Centres
                     flowLayoutPanelDaysContainer.Controls.Add(ucdays);
                 }
                 else
-                {
-                    UserControlDays ucdays = new UserControlDays(Color.FromKnownColor(KnownColor.White), labelDate);
-                    ucdays.days(i);
-                    flowLayoutPanelDaysContainer.Controls.Add(ucdays);
+                { 
+                    int indexLliureDisposicio = diesLliureDisposicio.IndexOf(dia);
+                    int indexFestius = diesFestius.IndexOf(dia);
+
+                    if (indexLliureDisposicio != -1)
+                    {
+                        UserControlDays ucdaysLliureDispo = new UserControlDays(Color.FromArgb(192, 192, 255), labelDate);
+                        ucdaysLliureDispo.days(i);
+                        flowLayoutPanelDaysContainer.Controls.Add(ucdaysLliureDispo);
+                    }
+                    else if (indexFestius != -1)
+                    {
+                        UserControlDays ucdaysFestius = new UserControlDays(Color.FromArgb(255, 255, 128), labelDate);
+                        ucdaysFestius.days(i);
+                        flowLayoutPanelDaysContainer.Controls.Add(ucdaysFestius);
+                    }
+                    else if(dia == iniciCurs)
+                    {
+                        UserControlDays ucdaysIniciCurs = new UserControlDays(Color.FromArgb(128, 255, 128), labelDate);
+                        ucdaysIniciCurs.days(i);
+                        flowLayoutPanelDaysContainer.Controls.Add(ucdaysIniciCurs);
+                    }
+                    else if (dia == fiCurs)
+                    {
+                        UserControlDays ucdaysFiCurs = new UserControlDays(Color.FromArgb(255, 128, 255), labelDate);
+                        ucdaysFiCurs.days(i);
+                        flowLayoutPanelDaysContainer.Controls.Add(ucdaysFiCurs);
+                    }
+                    else
+                    {
+                        UserControlDays ucdays = new UserControlDays(Color.FromKnownColor(KnownColor.White), labelDate);
+                        ucdays.days(i);
+                        flowLayoutPanelDaysContainer.Controls.Add(ucdays);
+                    }
+                    
                 }
 
             }
         }
-
-        private void panelLliureEleccio_Click(object sender, EventArgs e)
-        {
-            colorPicked = Color.FromArgb(192, 192, 255);
-        }
-
-        private void panelVacances_Click(object sender, EventArgs e)
-        {
-            colorPicked = Color.FromArgb(255, 255, 128);
-        }
-
-        private void panelPrimerDiaDeCurs_Click(object sender, EventArgs e)
-        {
-            colorPicked = Color.FromArgb(128, 255, 128);
-        }
-
-        private void panelUltimDiaDelCurs_Click(object sender, EventArgs e)
-        {
-            colorPicked = Color.FromArgb(255, 128, 255);
-        }
-
         private void buttonAnterior_Click(object sender, EventArgs e)
         {
             flowLayoutPanelDaysContainer.Controls.Clear();
@@ -169,6 +213,7 @@ namespace Libe_Escriptori.Forms.Centres
 
             for (int i = 1; i <= days; i++)
             {
+                DateTime dia = new DateTime(year, month, i);
                 if ((i + daysOftheWeek) % 7 == 0 || (i + daysOftheWeek - 1) % 7 == 0)
                 {
                     UserControlDays ucdays = new UserControlDays(Color.FromArgb(255, 128, 128), labelDate);
@@ -177,12 +222,79 @@ namespace Libe_Escriptori.Forms.Centres
                 }
                 else
                 {
-                    UserControlDays ucdays = new UserControlDays(Color.FromKnownColor(KnownColor.White), labelDate);
-                    ucdays.days(i);
-                    flowLayoutPanelDaysContainer.Controls.Add(ucdays);
+                    int indexLliureDisposicio = diesLliureDisposicio.IndexOf(dia);
+                    int indexFestius = diesFestius.IndexOf(dia);
+
+                    if (indexLliureDisposicio != -1)
+                    {
+                        UserControlDays ucdaysLliureDispo = new UserControlDays(Color.FromArgb(192, 192, 255), labelDate);
+                        ucdaysLliureDispo.days(i);
+                        flowLayoutPanelDaysContainer.Controls.Add(ucdaysLliureDispo);
+                    }
+                    else if (indexFestius != -1)
+                    {
+                        UserControlDays ucdaysFestius = new UserControlDays(Color.FromArgb(255, 255, 128), labelDate);
+                        ucdaysFestius.days(i);
+                        flowLayoutPanelDaysContainer.Controls.Add(ucdaysFestius);
+                    }
+                    else if (dia == iniciCurs)
+                    {
+                        UserControlDays ucdaysIniciCurs = new UserControlDays(Color.FromArgb(128, 255, 128), labelDate);
+                        ucdaysIniciCurs.days(i);
+                        flowLayoutPanelDaysContainer.Controls.Add(ucdaysIniciCurs);
+                    }
+                    else if (dia == fiCurs)
+                    {
+                        UserControlDays ucdaysFiCurs = new UserControlDays(Color.FromArgb(255, 128, 255), labelDate);
+                        ucdaysFiCurs.days(i);
+                        flowLayoutPanelDaysContainer.Controls.Add(ucdaysFiCurs);
+                    }
+                    else
+                    {
+                        UserControlDays ucdays = new UserControlDays(Color.FromKnownColor(KnownColor.White), labelDate);
+                        ucdays.days(i);
+                        flowLayoutPanelDaysContainer.Controls.Add(ucdays);
+                    }
+
                 }
 
             }
+        }
+
+        private void panelLliureEleccio_Click(object sender, EventArgs e)
+        {
+            colorPicked = Color.FromArgb(192, 192, 255);
+        }
+        private void panel16_Click(object sender, EventArgs e)
+        {
+            colorPicked = Color.FromArgb(192, 192, 255);
+        }
+
+        private void panelVacances_Click(object sender, EventArgs e)
+        {
+            colorPicked = Color.FromArgb(255, 255, 128);
+        }
+        private void panel19_Click(object sender, EventArgs e)
+        {
+            colorPicked = Color.FromArgb(255, 255, 128);
+        }
+
+        private void panelPrimerDiaDeCurs_Click(object sender, EventArgs e)
+        {
+            colorPicked = Color.FromArgb(128, 255, 128);
+        }
+
+        private void panel18_Click(object sender, EventArgs e)
+        {
+            colorPicked = Color.FromArgb(128, 255, 128);
+        }
+        private void panelUltimDiaDelCurs_Click(object sender, EventArgs e)
+        {
+            colorPicked = Color.FromArgb(255, 128, 255);
+        }
+        private void panel20_Click(object sender, EventArgs e)
+        {
+            colorPicked = Color.FromArgb(255, 128, 255);
         }
     }
 }

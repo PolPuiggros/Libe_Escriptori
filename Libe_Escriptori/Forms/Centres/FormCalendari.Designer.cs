@@ -214,6 +214,7 @@
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(31, 19);
             this.panel20.TabIndex = 26;
+            this.panel20.Click += new System.EventHandler(this.panel20_Click);
             // 
             // panelPrimerDiaDeCurs
             // 
@@ -246,6 +247,7 @@
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(31, 19);
             this.panel18.TabIndex = 26;
+            this.panel18.Click += new System.EventHandler(this.panel18_Click);
             // 
             // panelVacances
             // 
@@ -278,6 +280,7 @@
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(31, 19);
             this.panel19.TabIndex = 22;
+            this.panel19.Click += new System.EventHandler(this.panel19_Click);
             // 
             // panelLliureEleccio
             // 
@@ -305,10 +308,11 @@
             // 
             this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.panel16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel16.Location = new System.Drawing.Point(12, 5);
+            this.panel16.Location = new System.Drawing.Point(13, 5);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(31, 19);
             this.panel16.TabIndex = 20;
+            this.panel16.Click += new System.EventHandler(this.panel16_Click);
             // 
             // panelCapdeSetmana
             // 

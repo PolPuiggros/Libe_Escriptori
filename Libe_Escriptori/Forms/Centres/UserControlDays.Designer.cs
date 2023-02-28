@@ -51,6 +51,7 @@
             this.Size = new System.Drawing.Size(127, 67);
             this.Load += new System.EventHandler(this.UserControlDays_Load);
             this.Click += new System.EventHandler(this.UserControlDays_Click);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.UserControlDays_MouseUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 

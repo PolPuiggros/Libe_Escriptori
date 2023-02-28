@@ -100,6 +100,7 @@ namespace Libe_Escriptori.Forms.Centres
 
             DateTime daySelected = new DateTime(year, month, day);
 
+
             BackGroundColor(colorPicked);
             if (colorPicked.Equals(blue))
             {
@@ -116,6 +117,14 @@ namespace Libe_Escriptori.Forms.Centres
             else if (colorPicked.Equals(pink))
             {
                 FormCalendari.fiCurs = daySelected;
+            }
+        }
+
+        private void UserControlDays_MouseUp(object sender, MouseEventArgs e)
+        {
+           if(e.Button == MouseButtons.Right)
+            {
+                //TODO
             }
         }
     }
