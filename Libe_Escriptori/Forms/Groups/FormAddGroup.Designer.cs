@@ -201,52 +201,52 @@
             // 
             // comboBoxMainClassGroup
             // 
-            this.comboBoxMainClassGroup.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBoxMainClassGroup.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxMainClassGroup.FormattingEnabled = true;
             this.comboBoxMainClassGroup.Location = new System.Drawing.Point(380, 115);
             this.comboBoxMainClassGroup.Name = "comboBoxMainClassGroup";
-            this.comboBoxMainClassGroup.Size = new System.Drawing.Size(250, 28);
+            this.comboBoxMainClassGroup.Size = new System.Drawing.Size(250, 29);
             this.comboBoxMainClassGroup.TabIndex = 16;
             this.comboBoxMainClassGroup.Text = "Aula Principal";
             // 
             // comboBoxTutorGroup
             // 
-            this.comboBoxTutorGroup.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBoxTutorGroup.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxTutorGroup.FormattingEnabled = true;
             this.comboBoxTutorGroup.Location = new System.Drawing.Point(59, 115);
             this.comboBoxTutorGroup.Name = "comboBoxTutorGroup";
-            this.comboBoxTutorGroup.Size = new System.Drawing.Size(288, 28);
+            this.comboBoxTutorGroup.Size = new System.Drawing.Size(288, 29);
             this.comboBoxTutorGroup.TabIndex = 15;
             this.comboBoxTutorGroup.Text = "Tutor";
             // 
             // comboBoxClassGroup
             // 
-            this.comboBoxClassGroup.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBoxClassGroup.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxClassGroup.FormattingEnabled = true;
             this.comboBoxClassGroup.Location = new System.Drawing.Point(437, 62);
             this.comboBoxClassGroup.Name = "comboBoxClassGroup";
-            this.comboBoxClassGroup.Size = new System.Drawing.Size(193, 28);
+            this.comboBoxClassGroup.Size = new System.Drawing.Size(193, 29);
             this.comboBoxClassGroup.TabIndex = 14;
             this.comboBoxClassGroup.Text = "Classe";
             // 
             // comboBoxYearGroup
             // 
-            this.comboBoxYearGroup.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBoxYearGroup.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxYearGroup.FormattingEnabled = true;
             this.comboBoxYearGroup.Location = new System.Drawing.Point(254, 62);
             this.comboBoxYearGroup.Name = "comboBoxYearGroup";
-            this.comboBoxYearGroup.Size = new System.Drawing.Size(162, 28);
+            this.comboBoxYearGroup.Size = new System.Drawing.Size(162, 29);
             this.comboBoxYearGroup.TabIndex = 13;
             this.comboBoxYearGroup.Text = "Any";
             // 
             // comboBoxCicleGroup
             // 
-            this.comboBoxCicleGroup.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBoxCicleGroup.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxCicleGroup.FormattingEnabled = true;
             this.comboBoxCicleGroup.Location = new System.Drawing.Point(59, 62);
             this.comboBoxCicleGroup.MinimumSize = new System.Drawing.Size(166, 0);
             this.comboBoxCicleGroup.Name = "comboBoxCicleGroup";
-            this.comboBoxCicleGroup.Size = new System.Drawing.Size(166, 28);
+            this.comboBoxCicleGroup.Size = new System.Drawing.Size(166, 29);
             this.comboBoxCicleGroup.TabIndex = 12;
             this.comboBoxCicleGroup.Text = "Cicle";
             // 

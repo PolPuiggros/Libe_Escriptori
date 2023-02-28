@@ -44,25 +44,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             OpenChildForm(new GestionarUsuarisAlumnesAfegint(label));
         }
 
-        private void textBoxSearch_Enter(object sender, EventArgs e)
-        {
-            TextBoxDesign.textBoxSearch_Enter(textBoxSearch, textBoxHint);
-        }
-
-        private void textBoxSearch_Leave(object sender, EventArgs e)
-        {
-            TextBoxDesign.textBoxSearch_Leave(textBoxSearch, textBoxHint);
-        }
-
-        private void textBoxFilterCourse_Enter(object sender, EventArgs e)
-        {
-            TextBoxDesign.textBoxSearch_Enter(textBoxFilterCourse, textBoxHint);
-        }
-
-        private void textBoxFilterCourse_Leave(object sender, EventArgs e)
-        {
-            TextBoxDesign.textBoxSearch_Leave(textBoxFilterCourse, textBoxHint);
-        }
+       
 
         private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {

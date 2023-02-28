@@ -115,7 +115,7 @@
             // 
             // textBoxHours
             // 
-            this.textBoxHours.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxHours.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.textBoxHours.ForeColor = System.Drawing.Color.Gray;
             this.textBoxHours.Location = new System.Drawing.Point(286, 105);
             this.textBoxHours.MaximumSize = new System.Drawing.Size(185, 31);
@@ -129,7 +129,7 @@
             // 
             // textBoxName
             // 
-            this.textBoxName.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.textBoxName.ForeColor = System.Drawing.Color.Gray;
             this.textBoxName.Location = new System.Drawing.Point(477, 105);
             this.textBoxName.MaximumSize = new System.Drawing.Size(447, 31);
@@ -143,7 +143,7 @@
             // 
             // textBoxAbbreviation
             // 
-            this.textBoxAbbreviation.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxAbbreviation.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.textBoxAbbreviation.ForeColor = System.Drawing.Color.Gray;
             this.textBoxAbbreviation.Location = new System.Drawing.Point(96, 105);
             this.textBoxAbbreviation.MaximumSize = new System.Drawing.Size(179, 31);

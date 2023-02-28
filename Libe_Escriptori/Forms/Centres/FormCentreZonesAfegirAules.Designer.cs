@@ -53,7 +53,7 @@
             // 
             // textBoxName
             // 
-            this.textBoxName.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxName.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.textBoxName.ForeColor = System.Drawing.Color.DarkGray;
             this.textBoxName.Location = new System.Drawing.Point(35, 87);
             this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);

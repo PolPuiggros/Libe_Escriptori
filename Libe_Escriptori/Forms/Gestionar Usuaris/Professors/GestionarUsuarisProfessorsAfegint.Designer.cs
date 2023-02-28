@@ -45,11 +45,11 @@
             // 
             // textBoxDni
             // 
-            this.textBoxDni.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxDni.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.textBoxDni.ForeColor = System.Drawing.Color.Gray;
             this.textBoxDni.Location = new System.Drawing.Point(543, 237);
             this.textBoxDni.Name = "textBoxDni";
-            this.textBoxDni.Size = new System.Drawing.Size(366, 30);
+            this.textBoxDni.Size = new System.Drawing.Size(366, 29);
             this.textBoxDni.TabIndex = 9;
             this.textBoxDni.Text = " DNI";
             this.textBoxDni.Enter += new System.EventHandler(this.textBoxDni_Enter);
@@ -57,11 +57,11 @@
             // 
             // textBoxPhone
             // 
-            this.textBoxPhone.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxPhone.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.textBoxPhone.ForeColor = System.Drawing.Color.Gray;
             this.textBoxPhone.Location = new System.Drawing.Point(99, 237);
             this.textBoxPhone.Name = "textBoxPhone";
-            this.textBoxPhone.Size = new System.Drawing.Size(366, 30);
+            this.textBoxPhone.Size = new System.Drawing.Size(366, 29);
             this.textBoxPhone.TabIndex = 8;
             this.textBoxPhone.Text = " Tel";
             this.textBoxPhone.Enter += new System.EventHandler(this.textBoxPhone_Enter);
@@ -69,11 +69,11 @@
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.textBoxEmail.ForeColor = System.Drawing.Color.Gray;
             this.textBoxEmail.Location = new System.Drawing.Point(99, 156);
             this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(810, 30);
+            this.textBoxEmail.Size = new System.Drawing.Size(810, 29);
             this.textBoxEmail.TabIndex = 7;
             this.textBoxEmail.Text = " Email";
             this.textBoxEmail.Enter += new System.EventHandler(this.textBoxEmail_Enter);
@@ -81,11 +81,11 @@
             // 
             // textBoxSurname
             // 
-            this.textBoxSurname.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxSurname.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.textBoxSurname.ForeColor = System.Drawing.Color.Gray;
             this.textBoxSurname.Location = new System.Drawing.Point(376, 79);
             this.textBoxSurname.Name = "textBoxSurname";
-            this.textBoxSurname.Size = new System.Drawing.Size(533, 30);
+            this.textBoxSurname.Size = new System.Drawing.Size(533, 29);
             this.textBoxSurname.TabIndex = 6;
             this.textBoxSurname.Text = " Cognoms";
             this.textBoxSurname.Enter += new System.EventHandler(this.textBoxSurname_Enter);
@@ -93,11 +93,11 @@
             // 
             // textBoxName
             // 
-            this.textBoxName.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.textBoxName.ForeColor = System.Drawing.Color.Gray;
             this.textBoxName.Location = new System.Drawing.Point(99, 79);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(237, 30);
+            this.textBoxName.Size = new System.Drawing.Size(237, 29);
             this.textBoxName.TabIndex = 5;
             this.textBoxName.Text = " Nom";
             this.textBoxName.Enter += new System.EventHandler(this.textBoxName_Enter);

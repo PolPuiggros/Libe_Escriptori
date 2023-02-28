@@ -53,7 +53,7 @@
             // 
             // textBoxZoneName
             // 
-            this.textBoxZoneName.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxZoneName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.textBoxZoneName.ForeColor = System.Drawing.Color.Gray;
             this.textBoxZoneName.Location = new System.Drawing.Point(83, 99);
             this.textBoxZoneName.MaximumSize = new System.Drawing.Size(829, 31);
@@ -67,7 +67,7 @@
             // 
             // textBoxZoneCoordinates
             // 
-            this.textBoxZoneCoordinates.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxZoneCoordinates.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.textBoxZoneCoordinates.ForeColor = System.Drawing.Color.Gray;
             this.textBoxZoneCoordinates.Location = new System.Drawing.Point(83, 165);
             this.textBoxZoneCoordinates.MaximumSize = new System.Drawing.Size(460, 31);
@@ -81,9 +81,9 @@
             // 
             // textBoxRange
             // 
-            this.textBoxRange.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxRange.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.textBoxRange.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxRange.Location = new System.Drawing.Point(586, 165);
+            this.textBoxRange.Location = new System.Drawing.Point(588, 165);
             this.textBoxRange.MaximumSize = new System.Drawing.Size(153, 31);
             this.textBoxRange.MinimumSize = new System.Drawing.Size(153, 31);
             this.textBoxRange.Name = "textBoxRange";
@@ -135,6 +135,7 @@
             // panelZonesValidables
             // 
             this.panelZonesValidables.Controls.Add(this.Guardar);
+            this.panelZonesValidables.Controls.Add(this.textBoxRange);
             this.panelZonesValidables.Controls.Add(this.buttonGuardarZona);
             this.panelZonesValidables.Controls.Add(this.buttonAfegirAules);
             this.panelZonesValidables.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -163,7 +164,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 650);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBoxRange);
             this.Controls.Add(this.textBoxZoneCoordinates);
             this.Controls.Add(this.textBoxZoneName);
             this.Controls.Add(this.label1);
@@ -173,6 +173,7 @@
             this.Text = "FormCentreZonesValidables";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panelZonesValidables.ResumeLayout(false);
+            this.panelZonesValidables.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

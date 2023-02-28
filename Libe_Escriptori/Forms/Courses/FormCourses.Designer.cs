@@ -61,12 +61,12 @@
             this.departament,
             this.ColumnEdit,
             this.ColumnDelete});
-            this.dataGridViewCourses.Location = new System.Drawing.Point(62, 127);
+            this.dataGridViewCourses.Location = new System.Drawing.Point(65, 89);
             this.dataGridViewCourses.Name = "dataGridViewCourses";
             this.dataGridViewCourses.ReadOnly = true;
             this.dataGridViewCourses.RowHeadersVisible = false;
             this.dataGridViewCourses.RowTemplate.Height = 25;
-            this.dataGridViewCourses.Size = new System.Drawing.Size(880, 469);
+            this.dataGridViewCourses.Size = new System.Drawing.Size(880, 505);
             this.dataGridViewCourses.TabIndex = 5;
             this.dataGridViewCourses.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridViewCourses_CellPainting);
             // 
@@ -118,7 +118,7 @@
             this.buttonNew.FlatAppearance.BorderSize = 0;
             this.buttonNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonNew.Location = new System.Drawing.Point(62, 54);
+            this.buttonNew.Location = new System.Drawing.Point(65, 49);
             this.buttonNew.Name = "buttonNew";
             this.buttonNew.Size = new System.Drawing.Size(137, 31);
             this.buttonNew.TabIndex = 4;

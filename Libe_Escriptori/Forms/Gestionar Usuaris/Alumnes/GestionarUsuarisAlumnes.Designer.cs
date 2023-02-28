@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panelGestionarUsuaris = new System.Windows.Forms.Panel();
+            this.textBoxFiltres = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ColumnNom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCognoms = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -36,10 +38,7 @@
             this.ColumnCurs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.labelFilterCourse = new System.Windows.Forms.Label();
-            this.textBoxFilterCourse = new System.Windows.Forms.TextBox();
             this.comboBoxFilter = new System.Windows.Forms.ComboBox();
-            this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.buttonNew = new System.Windows.Forms.Button();
             this.panelGestionarUsuaris.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -47,17 +46,39 @@
             // 
             // panelGestionarUsuaris
             // 
+            this.panelGestionarUsuaris.Controls.Add(this.textBoxFiltres);
+            this.panelGestionarUsuaris.Controls.Add(this.label2);
             this.panelGestionarUsuaris.Controls.Add(this.dataGridView1);
-            this.panelGestionarUsuaris.Controls.Add(this.labelFilterCourse);
-            this.panelGestionarUsuaris.Controls.Add(this.textBoxFilterCourse);
             this.panelGestionarUsuaris.Controls.Add(this.comboBoxFilter);
-            this.panelGestionarUsuaris.Controls.Add(this.textBoxSearch);
             this.panelGestionarUsuaris.Controls.Add(this.buttonNew);
             this.panelGestionarUsuaris.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelGestionarUsuaris.Location = new System.Drawing.Point(0, 0);
             this.panelGestionarUsuaris.Name = "panelGestionarUsuaris";
             this.panelGestionarUsuaris.Size = new System.Drawing.Size(1005, 650);
             this.panelGestionarUsuaris.TabIndex = 6;
+            // 
+            // textBoxFiltres
+            // 
+            this.textBoxFiltres.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.textBoxFiltres.ForeColor = System.Drawing.Color.Gray;
+            this.textBoxFiltres.Location = new System.Drawing.Point(313, 49);
+            this.textBoxFiltres.MaximumSize = new System.Drawing.Size(829, 31);
+            this.textBoxFiltres.MinimumSize = new System.Drawing.Size(450, 31);
+            this.textBoxFiltres.Name = "textBoxFiltres";
+            this.textBoxFiltres.Size = new System.Drawing.Size(450, 31);
+            this.textBoxFiltres.TabIndex = 13;
+            this.textBoxFiltres.Text = " Introdueix dades clau de l\'usuari ex. DNI, Cognom...";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(313, 83);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(149, 13);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "ex. Marcel, Garcia, 43129473F";
             // 
             // dataGridView1
             // 
@@ -71,10 +92,11 @@
             this.ColumnEdit,
             this.ColumnDelete});
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridView1.Location = new System.Drawing.Point(92, 99);
+            this.dataGridView1.Location = new System.Drawing.Point(91, 111);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(818, 503);
+            this.dataGridView1.Size = new System.Drawing.Size(818, 474);
             this.dataGridView1.TabIndex = 11;
             this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
             // 
@@ -118,70 +140,26 @@
             this.ColumnDelete.Name = "ColumnDelete";
             this.ColumnDelete.Width = 21;
             // 
-            // labelFilterCourse
-            // 
-            this.labelFilterCourse.AutoSize = true;
-            this.labelFilterCourse.BackColor = System.Drawing.Color.White;
-            this.labelFilterCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.labelFilterCourse.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelFilterCourse.ForeColor = System.Drawing.Color.Black;
-            this.labelFilterCourse.Location = new System.Drawing.Point(860, 58);
-            this.labelFilterCourse.MaximumSize = new System.Drawing.Size(50, 31);
-            this.labelFilterCourse.MinimumSize = new System.Drawing.Size(50, 31);
-            this.labelFilterCourse.Name = "labelFilterCourse";
-            this.labelFilterCourse.Padding = new System.Windows.Forms.Padding(2);
-            this.labelFilterCourse.Size = new System.Drawing.Size(50, 31);
-            this.labelFilterCourse.TabIndex = 10;
-            this.labelFilterCourse.Text = "CURS";
-            // 
-            // textBoxFilterCourse
-            // 
-            this.textBoxFilterCourse.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxFilterCourse.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxFilterCourse.ForeColor = System.Drawing.Color.DarkGray;
-            this.textBoxFilterCourse.Location = new System.Drawing.Point(688, 58);
-            this.textBoxFilterCourse.MaximumSize = new System.Drawing.Size(166, 31);
-            this.textBoxFilterCourse.MinimumSize = new System.Drawing.Size(166, 31);
-            this.textBoxFilterCourse.Name = "textBoxFilterCourse";
-            this.textBoxFilterCourse.Size = new System.Drawing.Size(166, 31);
-            this.textBoxFilterCourse.TabIndex = 3;
-            this.textBoxFilterCourse.Text = "  Búsqueda...";
-            this.textBoxFilterCourse.Enter += new System.EventHandler(this.textBoxFilterCourse_Enter);
-            this.textBoxFilterCourse.Leave += new System.EventHandler(this.textBoxFilterCourse_Leave);
-            // 
             // comboBoxFilter
             // 
             this.comboBoxFilter.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBoxFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFilter.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxFilter.ForeColor = System.Drawing.SystemColors.WindowText;
             this.comboBoxFilter.FormattingEnabled = true;
             this.comboBoxFilter.IntegralHeight = false;
             this.comboBoxFilter.ItemHeight = 21;
             this.comboBoxFilter.Items.AddRange(new object[] {
-            "Nom",
-            "Cognom",
-            "DNI"});
-            this.comboBoxFilter.Location = new System.Drawing.Point(546, 60);
-            this.comboBoxFilter.MaximumSize = new System.Drawing.Size(121, 0);
+            "DAM",
+            "DAW",
+            "SMIX",
+            "..."});
+            this.comboBoxFilter.Location = new System.Drawing.Point(777, 51);
+            this.comboBoxFilter.MaximumSize = new System.Drawing.Size(150, 0);
             this.comboBoxFilter.MinimumSize = new System.Drawing.Size(121, 0);
             this.comboBoxFilter.Name = "comboBoxFilter";
-            this.comboBoxFilter.Size = new System.Drawing.Size(121, 29);
+            this.comboBoxFilter.Size = new System.Drawing.Size(132, 29);
             this.comboBoxFilter.TabIndex = 8;
-            // 
-            // textBoxSearch
-            // 
-            this.textBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxSearch.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxSearch.ForeColor = System.Drawing.Color.DarkGray;
-            this.textBoxSearch.Location = new System.Drawing.Point(289, 58);
-            this.textBoxSearch.MaximumSize = new System.Drawing.Size(251, 31);
-            this.textBoxSearch.MinimumSize = new System.Drawing.Size(251, 31);
-            this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(251, 31);
-            this.textBoxSearch.TabIndex = 1;
-            this.textBoxSearch.Text = "  Búsqueda...";
-            this.textBoxSearch.Enter += new System.EventHandler(this.textBoxSearch_Enter);
-            this.textBoxSearch.Leave += new System.EventHandler(this.textBoxSearch_Leave);
             // 
             // buttonNew
             // 
@@ -189,7 +167,7 @@
             this.buttonNew.FlatAppearance.BorderSize = 0;
             this.buttonNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonNew.Location = new System.Drawing.Point(92, 58);
+            this.buttonNew.Location = new System.Drawing.Point(91, 49);
             this.buttonNew.Name = "buttonNew";
             this.buttonNew.Size = new System.Drawing.Size(125, 31);
             this.buttonNew.TabIndex = 6;
@@ -217,10 +195,7 @@
 
         private Panel panelGestionarUsuaris;
         private DataGridView dataGridView1;
-        private Label labelFilterCourse;
-        private TextBox textBoxFilterCourse;
         private ComboBox comboBoxFilter;
-        private TextBox textBoxSearch;
         private Button buttonNew;
         private DataGridViewTextBoxColumn ColumnNom;
         private DataGridViewTextBoxColumn ColumnCognoms;
@@ -228,5 +203,7 @@
         private DataGridViewTextBoxColumn ColumnCurs;
         private DataGridViewButtonColumn ColumnEdit;
         private DataGridViewButtonColumn ColumnDelete;
+        private Label label2;
+        private TextBox textBoxFiltres;
     }
 }

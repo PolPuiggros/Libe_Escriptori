@@ -104,8 +104,9 @@ namespace Libe_Escriptori.Forms.Courses
             this.ColumnDelete});
             this.dataGridViewModules.Location = new System.Drawing.Point(80, 252);
             this.dataGridViewModules.Name = "dataGridViewModules";
+            this.dataGridViewModules.RowHeadersVisible = false;
             this.dataGridViewModules.RowTemplate.Height = 25;
-            this.dataGridViewModules.Size = new System.Drawing.Size(851, 271);
+            this.dataGridViewModules.Size = new System.Drawing.Size(851, 285);
             this.dataGridViewModules.TabIndex = 6;
             this.dataGridViewModules.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridViewModules_CellPainting);
             // 
@@ -155,7 +156,7 @@ namespace Libe_Escriptori.Forms.Courses
             this.buttonExistent.FlatAppearance.BorderSize = 0;
             this.buttonExistent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonExistent.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonExistent.Location = new System.Drawing.Point(241, 215);
+            this.buttonExistent.Location = new System.Drawing.Point(236, 206);
             this.buttonExistent.Name = "buttonExistent";
             this.buttonExistent.Size = new System.Drawing.Size(137, 31);
             this.buttonExistent.TabIndex = 5;
@@ -169,7 +170,7 @@ namespace Libe_Escriptori.Forms.Courses
             this.buttonNew.FlatAppearance.BorderSize = 0;
             this.buttonNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonNew.Location = new System.Drawing.Point(80, 215);
+            this.buttonNew.Location = new System.Drawing.Point(80, 206);
             this.buttonNew.Name = "buttonNew";
             this.buttonNew.Size = new System.Drawing.Size(137, 31);
             this.buttonNew.TabIndex = 4;
@@ -179,7 +180,7 @@ namespace Libe_Escriptori.Forms.Courses
             // 
             // comboBox1
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.IntegralHeight = false;
             this.comboBox1.Items.AddRange(new object[] {
@@ -188,13 +189,13 @@ namespace Libe_Escriptori.Forms.Courses
             this.comboBox1.MaximumSize = new System.Drawing.Size(310, 0);
             this.comboBox1.MinimumSize = new System.Drawing.Size(310, 0);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(310, 28);
+            this.comboBox1.Size = new System.Drawing.Size(310, 29);
             this.comboBox1.TabIndex = 3;
             // 
             // textBox3
             // 
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(462, 148);
+            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox3.Location = new System.Drawing.Point(462, 145);
             this.textBox3.MaximumSize = new System.Drawing.Size(469, 31);
             this.textBox3.MinimumSize = new System.Drawing.Size(469, 31);
             this.textBox3.Name = "textBox3";
@@ -205,7 +206,7 @@ namespace Libe_Escriptori.Forms.Courses
             // 
             // textBoxFullName
             // 
-            this.textBoxFullName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxFullName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.textBoxFullName.ForeColor = System.Drawing.Color.Gray;
             this.textBoxFullName.Location = new System.Drawing.Point(352, 75);
             this.textBoxFullName.MaximumSize = new System.Drawing.Size(579, 31);
@@ -219,7 +220,7 @@ namespace Libe_Escriptori.Forms.Courses
             // 
             // textBoxAbbreviation
             // 
-            this.textBoxAbbreviation.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxAbbreviation.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.textBoxAbbreviation.ForeColor = System.Drawing.Color.Gray;
             this.textBoxAbbreviation.Location = new System.Drawing.Point(80, 75);
             this.textBoxAbbreviation.MaximumSize = new System.Drawing.Size(197, 31);

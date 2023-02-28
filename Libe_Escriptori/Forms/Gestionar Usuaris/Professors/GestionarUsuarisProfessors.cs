@@ -22,16 +22,6 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             InitializeComponent();
             labeld = label;
         }
-
-        private void textBoxSearch_Enter(object sender, EventArgs e)
-        {
-            TextBoxDesign.textBoxSearch_Enter(textBoxSearch, textBoxHint);
-        }
-
-        private void textBoxSearch_Leave(object sender, EventArgs e)
-        {
-            TextBoxDesign.textBoxSearch_Leave(textBoxSearch, textBoxHint);
-        }
         private void OpenChildForm(Form childForm)
         {
             if (activeForm != null)

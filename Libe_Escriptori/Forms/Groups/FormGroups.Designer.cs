@@ -30,25 +30,27 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelGroups = new System.Windows.Forms.Panel();
-            this.textBoxFilterGroups = new System.Windows.Forms.TextBox();
-            this.comboBoxFilterGroups = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.buttonNewGroup = new System.Windows.Forms.Button();
+            this.comboBoxFilter = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.headerCicle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.headerYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.headerPromotion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerTutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerAlumnes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.headerDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.buttonNewGroup = new System.Windows.Forms.Button();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.panelGroups.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelGroups
             // 
-            this.panelGroups.Controls.Add(this.textBoxFilterGroups);
-            this.panelGroups.Controls.Add(this.comboBoxFilterGroups);
+            this.panelGroups.Controls.Add(this.comboBox3);
+            this.panelGroups.Controls.Add(this.comboBox1);
+            this.panelGroups.Controls.Add(this.comboBoxFilter);
             this.panelGroups.Controls.Add(this.dataGridView1);
             this.panelGroups.Controls.Add(this.buttonNewGroup);
             this.panelGroups.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -56,35 +58,6 @@
             this.panelGroups.Name = "panelGroups";
             this.panelGroups.Size = new System.Drawing.Size(1005, 650);
             this.panelGroups.TabIndex = 0;
-            // 
-            // textBoxFilterGroups
-            // 
-            this.textBoxFilterGroups.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxFilterGroups.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.textBoxFilterGroups.Location = new System.Drawing.Point(504, 66);
-            this.textBoxFilterGroups.MaximumSize = new System.Drawing.Size(318, 31);
-            this.textBoxFilterGroups.MinimumSize = new System.Drawing.Size(318, 31);
-            this.textBoxFilterGroups.Name = "textBoxFilterGroups";
-            this.textBoxFilterGroups.Size = new System.Drawing.Size(318, 31);
-            this.textBoxFilterGroups.TabIndex = 7;
-            this.textBoxFilterGroups.Text = "Búsqueda...";
-            // 
-            // comboBoxFilterGroups
-            // 
-            this.comboBoxFilterGroups.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxFilterGroups.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBoxFilterGroups.FormattingEnabled = true;
-            this.comboBoxFilterGroups.Items.AddRange(new object[] {
-            "Cicle",
-            "Any",
-            "Classe",
-            "Tutor",
-            "Alumnes",
-            "Aula"});
-            this.comboBoxFilterGroups.Location = new System.Drawing.Point(822, 66);
-            this.comboBoxFilterGroups.Name = "comboBoxFilterGroups";
-            this.comboBoxFilterGroups.Size = new System.Drawing.Size(121, 28);
-            this.comboBoxFilterGroups.TabIndex = 6;
             // 
             // dataGridView1
             // 
@@ -101,18 +74,74 @@
             this.dataGridView1.ColumnHeadersHeight = 35;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.headerCicle,
-            this.headerYear,
+            this.headerPromotion,
             this.headerClass,
             this.headerTutor,
             this.headerAlumnes,
             this.headerEdit,
             this.headerDelete});
-            this.dataGridView1.Location = new System.Drawing.Point(61, 131);
+            this.dataGridView1.Location = new System.Drawing.Point(61, 127);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(882, 464);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
+            // 
+            // buttonNewGroup
+            // 
+            this.buttonNewGroup.BackColor = System.Drawing.Color.White;
+            this.buttonNewGroup.FlatAppearance.BorderSize = 0;
+            this.buttonNewGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNewGroup.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonNewGroup.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonNewGroup.Location = new System.Drawing.Point(61, 66);
+            this.buttonNewGroup.Name = "buttonNewGroup";
+            this.buttonNewGroup.Size = new System.Drawing.Size(137, 35);
+            this.buttonNewGroup.TabIndex = 4;
+            this.buttonNewGroup.Text = "Nou";
+            this.buttonNewGroup.UseVisualStyleBackColor = false;
+            this.buttonNewGroup.Click += new System.EventHandler(this.buttonNewGroup_Click_1);
+            // 
+            // comboBoxFilter
+            // 
+            this.comboBoxFilter.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBoxFilter.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBoxFilter.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.comboBoxFilter.FormattingEnabled = true;
+            this.comboBoxFilter.IntegralHeight = false;
+            this.comboBoxFilter.ItemHeight = 21;
+            this.comboBoxFilter.Items.AddRange(new object[] {
+            "Nom",
+            "Cognom",
+            "DNI"});
+            this.comboBoxFilter.Location = new System.Drawing.Point(384, 72);
+            this.comboBoxFilter.MaximumSize = new System.Drawing.Size(200, 0);
+            this.comboBoxFilter.MinimumSize = new System.Drawing.Size(121, 0);
+            this.comboBoxFilter.Name = "comboBoxFilter";
+            this.comboBoxFilter.Size = new System.Drawing.Size(168, 29);
+            this.comboBoxFilter.TabIndex = 9;
+            this.comboBoxFilter.Text = "Cicle";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox1.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.IntegralHeight = false;
+            this.comboBox1.ItemHeight = 21;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Nom",
+            "Cognom",
+            "DNI"});
+            this.comboBox1.Location = new System.Drawing.Point(775, 72);
+            this.comboBox1.MaximumSize = new System.Drawing.Size(200, 0);
+            this.comboBox1.MinimumSize = new System.Drawing.Size(121, 0);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(168, 29);
+            this.comboBox1.TabIndex = 10;
+            this.comboBox1.Text = "Promoció";
             // 
             // headerCicle
             // 
@@ -121,12 +150,12 @@
             this.headerCicle.Name = "headerCicle";
             this.headerCicle.ReadOnly = true;
             // 
-            // headerYear
+            // headerPromotion
             // 
-            this.headerYear.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.headerYear.HeaderText = "Any";
-            this.headerYear.Name = "headerYear";
-            this.headerYear.ReadOnly = true;
+            this.headerPromotion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.headerPromotion.HeaderText = "Promoció";
+            this.headerPromotion.Name = "headerPromotion";
+            this.headerPromotion.ReadOnly = true;
             // 
             // headerClass
             // 
@@ -170,20 +199,25 @@
             this.headerDelete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.headerDelete.Width = 29;
             // 
-            // buttonNewGroup
+            // comboBox3
             // 
-            this.buttonNewGroup.BackColor = System.Drawing.Color.White;
-            this.buttonNewGroup.FlatAppearance.BorderSize = 0;
-            this.buttonNewGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNewGroup.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonNewGroup.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonNewGroup.Location = new System.Drawing.Point(61, 56);
-            this.buttonNewGroup.Name = "buttonNewGroup";
-            this.buttonNewGroup.Size = new System.Drawing.Size(137, 40);
-            this.buttonNewGroup.TabIndex = 4;
-            this.buttonNewGroup.Text = "Nou";
-            this.buttonNewGroup.UseVisualStyleBackColor = false;
-            this.buttonNewGroup.Click += new System.EventHandler(this.buttonNewGroup_Click_1);
+            this.comboBox3.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox3.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.IntegralHeight = false;
+            this.comboBox3.ItemHeight = 21;
+            this.comboBox3.Items.AddRange(new object[] {
+            "Nom",
+            "Cognom",
+            "DNI"});
+            this.comboBox3.Location = new System.Drawing.Point(580, 72);
+            this.comboBox3.MaximumSize = new System.Drawing.Size(200, 0);
+            this.comboBox3.MinimumSize = new System.Drawing.Size(121, 0);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(168, 29);
+            this.comboBox3.TabIndex = 11;
+            this.comboBox3.Text = "Classe";
             // 
             // FormGroups
             // 
@@ -197,7 +231,6 @@
             this.Name = "FormGroups";
             this.Text = "FormGroups";
             this.panelGroups.ResumeLayout(false);
-            this.panelGroups.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -206,16 +239,17 @@
         #endregion
 
         private Panel panelGroups;
-        private TextBox textBoxFilterGroups;
-        private ComboBox comboBoxFilterGroups;
         private DataGridView dataGridView1;
         private Button buttonNewGroup;
+        private ComboBox comboBoxFilter;
+        private ComboBox comboBox1;
         private DataGridViewTextBoxColumn headerCicle;
-        private DataGridViewTextBoxColumn headerYear;
+        private DataGridViewTextBoxColumn headerPromotion;
         private DataGridViewTextBoxColumn headerClass;
         private DataGridViewTextBoxColumn headerTutor;
         private DataGridViewTextBoxColumn headerAlumnes;
         private DataGridViewButtonColumn headerEdit;
         private DataGridViewButtonColumn headerDelete;
+        private ComboBox comboBox3;
     }
 }
