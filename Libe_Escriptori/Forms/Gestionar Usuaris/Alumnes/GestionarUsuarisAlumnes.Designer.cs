@@ -61,10 +61,10 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             // 
             // textBoxFiltres
             // 
-            this.textBoxFiltres.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.textBoxFiltres.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Italic);
             this.textBoxFiltres.ForeColor = System.Drawing.Color.Gray;
             this.textBoxFiltres.Location = new System.Drawing.Point(313, 49);
-            this.textBoxFiltres.MaximumSize = new System.Drawing.Size(829, 31);
+            this.textBoxFiltres.MaximumSize = new System.Drawing.Size(711, 31);
             this.textBoxFiltres.MinimumSize = new System.Drawing.Size(450, 31);
             this.textBoxFiltres.Name = "textBoxFiltres";
             this.textBoxFiltres.Size = new System.Drawing.Size(450, 31);
@@ -74,9 +74,8 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic);
             this.label2.Location = new System.Drawing.Point(313, 83);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(149, 13);
             this.label2.TabIndex = 12;
@@ -146,7 +145,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             // 
             this.comboBoxFilter.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxFilter.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBoxFilter.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.comboBoxFilter.ForeColor = System.Drawing.SystemColors.WindowText;
             this.comboBoxFilter.FormattingEnabled = true;
             this.comboBoxFilter.IntegralHeight = false;
@@ -168,7 +167,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.buttonNew.BackColor = System.Drawing.Color.White;
             this.buttonNew.FlatAppearance.BorderSize = 0;
             this.buttonNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.buttonNew.Location = new System.Drawing.Point(91, 49);
             this.buttonNew.Name = "buttonNew";
             this.buttonNew.Size = new System.Drawing.Size(125, 31);
@@ -179,7 +178,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             // 
             // GestionarUsuarisAlumnes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 650);
             this.Controls.Add(this.panelGestionarUsuaris);
