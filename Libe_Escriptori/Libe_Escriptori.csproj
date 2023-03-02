@@ -222,6 +222,7 @@
     <Compile Include="Models\groups.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GroupsOrm.cs" />
     <Compile Include="Models\holidays.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
@@ -258,6 +259,7 @@
     <Compile Include="Models\modules.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Orm.cs" />
     <Compile Include="Models\profesors.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
@@ -366,6 +368,8 @@
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\csproj.AssemblyReference.cache" />
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.groups.datasource" />
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.GroupsOrm.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

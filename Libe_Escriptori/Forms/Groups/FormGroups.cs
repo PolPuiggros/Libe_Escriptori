@@ -1,4 +1,5 @@
 ﻿using Libe_Escriptori.Forms.Gestionar_Usuaris;
+using Libe_Escriptori.Models;
 using Libe_Escriptori.Properties;
 using System;
 using System.Collections.Generic;
@@ -73,6 +74,30 @@ namespace Libe_Escriptori.Forms.Groups
 
                 e.Graphics.DrawImage(Resources.bin, new Rectangle(x, y, w, h));
                 e.Handled = true;
+            }
+        }
+
+        private void FormGroups_Load(object sender, EventArgs e)
+        {
+            bindingSourceGroups.DataSource = GroupsOrm.Select();
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+
+            groups _groups = (groups)dataGridViewGroups.Rows[e.RowIndex].DataBoundItem;
+            //Columna de l'abreviació
+            if (e.ColumnIndex == 0)
+            {
+                e.Value = _groups.courses.abreviation;
+            }
+            if (e.ColumnIndex == 3)
+            {
+                e.Value = _groups.profesors.name;
+            }
+            if (e.ColumnIndex == 4)
+            {
+                e.Value = _groups.students.Count.ToString();
             }
         }
     }
