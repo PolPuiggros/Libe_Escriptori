@@ -30,16 +30,21 @@ namespace Libe_Escriptori.Forms.Courses
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelCourses = new System.Windows.Forms.Panel();
             this.dataGridViewCourses = new System.Windows.Forms.DataGridView();
-            this.abreviacio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.departament = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonNew = new System.Windows.Forms.Button();
+            this.bindingSourceCourses = new System.Windows.Forms.BindingSource(this.components);
+            this.abreviationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalhoursDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.buttonNew = new System.Windows.Forms.Button();
             this.panelCourses.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourses)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCourses)).BeginInit();
             this.SuspendLayout();
             // 
             // panelCourses
@@ -54,15 +59,35 @@ namespace Libe_Escriptori.Forms.Courses
             // 
             // dataGridViewCourses
             // 
+            this.dataGridViewCourses.AllowUserToAddRows = false;
+            this.dataGridViewCourses.AllowUserToDeleteRows = false;
             this.dataGridViewCourses.AllowUserToOrderColumns = true;
+            this.dataGridViewCourses.AutoGenerateColumns = false;
             this.dataGridViewCourses.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCourses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCourses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.abreviacio,
-            this.nom,
-            this.departament,
+            this.abreviationDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.totalhoursDataGridViewTextBoxColumn,
             this.ColumnEdit,
             this.ColumnDelete});
+            this.dataGridViewCourses.DataSource = this.bindingSourceCourses;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewCourses.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewCourses.Location = new System.Drawing.Point(65, 89);
             this.dataGridViewCourses.Name = "dataGridViewCourses";
             this.dataGridViewCourses.ReadOnly = true;
@@ -72,54 +97,12 @@ namespace Libe_Escriptori.Forms.Courses
             this.dataGridViewCourses.TabIndex = 5;
             this.dataGridViewCourses.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridViewCourses_CellPainting);
             // 
-            // abreviacio
-            // 
-            this.abreviacio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.abreviacio.DataPropertyName = "abreviacio";
-            this.abreviacio.HeaderText = "Abreviació Curs";
-            this.abreviacio.Name = "abreviacio";
-            this.abreviacio.ReadOnly = true;
-            // 
-            // nom
-            // 
-            this.nom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nom.DataPropertyName = "nom";
-            this.nom.HeaderText = "Nom";
-            this.nom.Name = "nom";
-            this.nom.ReadOnly = true;
-            // 
-            // departament
-            // 
-            this.departament.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.departament.DataPropertyName = "departament";
-            this.departament.HeaderText = "Departament";
-            this.departament.Name = "departament";
-            this.departament.ReadOnly = true;
-            // 
-            // ColumnEdit
-            // 
-            this.ColumnEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColumnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnEdit.HeaderText = "";
-            this.ColumnEdit.Name = "ColumnEdit";
-            this.ColumnEdit.ReadOnly = true;
-            this.ColumnEdit.Width = 21;
-            // 
-            // ColumnDelete
-            // 
-            this.ColumnDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColumnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnDelete.HeaderText = "";
-            this.ColumnDelete.Name = "ColumnDelete";
-            this.ColumnDelete.ReadOnly = true;
-            this.ColumnDelete.Width = 21;
-            // 
             // buttonNew
             // 
             this.buttonNew.BackColor = System.Drawing.Color.White;
             this.buttonNew.FlatAppearance.BorderSize = 0;
             this.buttonNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.buttonNew.Location = new System.Drawing.Point(65, 49);
             this.buttonNew.Name = "buttonNew";
             this.buttonNew.Size = new System.Drawing.Size(137, 31);
@@ -128,17 +111,65 @@ namespace Libe_Escriptori.Forms.Courses
             this.buttonNew.UseVisualStyleBackColor = false;
             this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
+            // bindingSourceCourses
+            // 
+            this.bindingSourceCourses.DataSource = typeof(Libe_Escriptori.Models.courses);
+            // 
+            // abreviationDataGridViewTextBoxColumn
+            // 
+            this.abreviationDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.abreviationDataGridViewTextBoxColumn.DataPropertyName = "abreviation";
+            this.abreviationDataGridViewTextBoxColumn.HeaderText = "abreviation";
+            this.abreviationDataGridViewTextBoxColumn.Name = "abreviationDataGridViewTextBoxColumn";
+            this.abreviationDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // totalhoursDataGridViewTextBoxColumn
+            // 
+            this.totalhoursDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.totalhoursDataGridViewTextBoxColumn.DataPropertyName = "total_hours";
+            this.totalhoursDataGridViewTextBoxColumn.HeaderText = "total_hours";
+            this.totalhoursDataGridViewTextBoxColumn.Name = "totalhoursDataGridViewTextBoxColumn";
+            this.totalhoursDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ColumnEdit
+            // 
+            this.ColumnEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnEdit.HeaderText = "";
+            this.ColumnEdit.Name = "ColumnEdit";
+            this.ColumnEdit.ReadOnly = true;
+            this.ColumnEdit.Width = 5;
+            // 
+            // ColumnDelete
+            // 
+            this.ColumnDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnDelete.HeaderText = "";
+            this.ColumnDelete.Name = "ColumnDelete";
+            this.ColumnDelete.ReadOnly = true;
+            this.ColumnDelete.Width = 5;
+            // 
             // FormCourses
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 650);
             this.Controls.Add(this.panelCourses);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCourses";
             this.Text = "FormCourses";
+            this.Load += new System.EventHandler(this.FormCourses_Load);
             this.panelCourses.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourses)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCourses)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -148,9 +179,10 @@ namespace Libe_Escriptori.Forms.Courses
         private Panel panelCourses;
         private DataGridView dataGridViewCourses;
         private Button buttonNew;
-        private DataGridViewTextBoxColumn abreviacio;
-        private DataGridViewTextBoxColumn nom;
-        private DataGridViewTextBoxColumn departament;
+        private BindingSource bindingSourceCourses;
+        private DataGridViewTextBoxColumn abreviationDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn totalhoursDataGridViewTextBoxColumn;
         private DataGridViewButtonColumn ColumnEdit;
         private DataGridViewButtonColumn ColumnDelete;
     }

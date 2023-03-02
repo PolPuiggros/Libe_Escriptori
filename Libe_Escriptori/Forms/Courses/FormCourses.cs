@@ -1,4 +1,5 @@
 ﻿using Libe_Escriptori.Forms.Gestionar_Usuaris.Professors;
+using Libe_Escriptori.Models.Courses;
 using Libe_Escriptori.Properties;
 using System;
 using System.Collections.Generic;
@@ -77,6 +78,11 @@ namespace Libe_Escriptori.Forms.Courses
                 e.Graphics.DrawImage(Resources.bin, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
+        }
+
+        private void FormCourses_Load(object sender, EventArgs e)
+        {
+            bindingSourceCourses.DataSource = CoursesORM.Select();
         }
     }
     
