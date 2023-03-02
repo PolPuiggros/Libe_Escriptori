@@ -95,7 +95,7 @@ namespace Libe_Escriptori.Forms.Centres
             // labelDilluns
             // 
             this.labelDilluns.AutoSize = true;
-            this.labelDilluns.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelDilluns.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.labelDilluns.Location = new System.Drawing.Point(71, 66);
             this.labelDilluns.Name = "labelDilluns";
             this.labelDilluns.Size = new System.Drawing.Size(57, 21);
@@ -105,7 +105,7 @@ namespace Libe_Escriptori.Forms.Centres
             // labelDimarts
             // 
             this.labelDimarts.AutoSize = true;
-            this.labelDimarts.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelDimarts.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.labelDimarts.Location = new System.Drawing.Point(195, 66);
             this.labelDimarts.Name = "labelDimarts";
             this.labelDimarts.Size = new System.Drawing.Size(69, 21);
@@ -115,7 +115,7 @@ namespace Libe_Escriptori.Forms.Centres
             // labelDimecres
             // 
             this.labelDimecres.AutoSize = true;
-            this.labelDimecres.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelDimecres.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.labelDimecres.Location = new System.Drawing.Point(325, 66);
             this.labelDimecres.Name = "labelDimecres";
             this.labelDimecres.Size = new System.Drawing.Size(81, 21);
@@ -125,7 +125,7 @@ namespace Libe_Escriptori.Forms.Centres
             // labelDijous
             // 
             this.labelDijous.AutoSize = true;
-            this.labelDijous.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelDijous.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.labelDijous.Location = new System.Drawing.Point(469, 66);
             this.labelDijous.Name = "labelDijous";
             this.labelDijous.Size = new System.Drawing.Size(54, 21);
@@ -135,7 +135,7 @@ namespace Libe_Escriptori.Forms.Centres
             // labelDiumenge
             // 
             this.labelDiumenge.AutoSize = true;
-            this.labelDiumenge.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelDiumenge.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.labelDiumenge.Location = new System.Drawing.Point(854, 66);
             this.labelDiumenge.Name = "labelDiumenge";
             this.labelDiumenge.Size = new System.Drawing.Size(91, 21);
@@ -145,7 +145,7 @@ namespace Libe_Escriptori.Forms.Centres
             // labelDivendres
             // 
             this.labelDivendres.AutoSize = true;
-            this.labelDivendres.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelDivendres.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.labelDivendres.Location = new System.Drawing.Point(585, 66);
             this.labelDivendres.Name = "labelDivendres";
             this.labelDivendres.Size = new System.Drawing.Size(87, 21);
@@ -155,7 +155,7 @@ namespace Libe_Escriptori.Forms.Centres
             // labelDissabte
             // 
             this.labelDissabte.AutoSize = true;
-            this.labelDissabte.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelDissabte.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.labelDissabte.Location = new System.Drawing.Point(728, 66);
             this.labelDissabte.Name = "labelDissabte";
             this.labelDissabte.Size = new System.Drawing.Size(76, 21);
@@ -164,7 +164,7 @@ namespace Libe_Escriptori.Forms.Centres
             // 
             // labelDate
             // 
-            this.labelDate.Font = new System.Drawing.Font("Microsoft YaHei UI", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelDate.Font = new System.Drawing.Font("Microsoft YaHei UI", 17.25F);
             this.labelDate.Location = new System.Drawing.Point(298, 22);
             this.labelDate.Name = "labelDate";
             this.labelDate.Size = new System.Drawing.Size(400, 30);
@@ -191,9 +191,9 @@ namespace Libe_Escriptori.Forms.Centres
             this.panelUltimDiaDelCurs.Controls.Add(this.panel20);
             this.panelUltimDiaDelCurs.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panelUltimDiaDelCurs.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelUltimDiaDelCurs.Location = new System.Drawing.Point(0, 116);
+            this.panelUltimDiaDelCurs.Location = new System.Drawing.Point(0, 100);
             this.panelUltimDiaDelCurs.Name = "panelUltimDiaDelCurs";
-            this.panelUltimDiaDelCurs.Size = new System.Drawing.Size(204, 29);
+            this.panelUltimDiaDelCurs.Size = new System.Drawing.Size(204, 25);
             this.panelUltimDiaDelCurs.TabIndex = 10;
             this.panelUltimDiaDelCurs.Click += new System.EventHandler(this.panelUltimDiaDelCurs_Click);
             // 
@@ -201,8 +201,8 @@ namespace Libe_Escriptori.Forms.Centres
             // 
             this.label15.AutoSize = true;
             this.label15.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label15.Location = new System.Drawing.Point(49, 4);
+            this.label15.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.label15.Location = new System.Drawing.Point(42, 3);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(132, 20);
             this.label15.TabIndex = 27;
@@ -212,9 +212,9 @@ namespace Libe_Escriptori.Forms.Centres
             // 
             this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.panel20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel20.Location = new System.Drawing.Point(12, 5);
+            this.panel20.Location = new System.Drawing.Point(10, 4);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(31, 19);
+            this.panel20.Size = new System.Drawing.Size(27, 17);
             this.panel20.TabIndex = 26;
             this.panel20.Click += new System.EventHandler(this.panel20_Click);
             // 
@@ -224,9 +224,9 @@ namespace Libe_Escriptori.Forms.Centres
             this.panelPrimerDiaDeCurs.Controls.Add(this.panel18);
             this.panelPrimerDiaDeCurs.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panelPrimerDiaDeCurs.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelPrimerDiaDeCurs.Location = new System.Drawing.Point(0, 87);
+            this.panelPrimerDiaDeCurs.Location = new System.Drawing.Point(0, 75);
             this.panelPrimerDiaDeCurs.Name = "panelPrimerDiaDeCurs";
-            this.panelPrimerDiaDeCurs.Size = new System.Drawing.Size(204, 29);
+            this.panelPrimerDiaDeCurs.Size = new System.Drawing.Size(204, 25);
             this.panelPrimerDiaDeCurs.TabIndex = 9;
             this.panelPrimerDiaDeCurs.Click += new System.EventHandler(this.panelPrimerDiaDeCurs_Click);
             // 
@@ -234,8 +234,8 @@ namespace Libe_Escriptori.Forms.Centres
             // 
             this.label13.AutoSize = true;
             this.label13.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(47, 4);
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.label13.Location = new System.Drawing.Point(40, 3);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(142, 20);
             this.label13.TabIndex = 27;
@@ -245,9 +245,9 @@ namespace Libe_Escriptori.Forms.Centres
             // 
             this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.panel18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel18.Location = new System.Drawing.Point(12, 5);
+            this.panel18.Location = new System.Drawing.Point(10, 4);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(31, 19);
+            this.panel18.Size = new System.Drawing.Size(27, 17);
             this.panel18.TabIndex = 26;
             this.panel18.Click += new System.EventHandler(this.panel18_Click);
             // 
@@ -257,9 +257,9 @@ namespace Libe_Escriptori.Forms.Centres
             this.panelVacances.Controls.Add(this.panel19);
             this.panelVacances.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panelVacances.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelVacances.Location = new System.Drawing.Point(0, 58);
+            this.panelVacances.Location = new System.Drawing.Point(0, 50);
             this.panelVacances.Name = "panelVacances";
-            this.panelVacances.Size = new System.Drawing.Size(204, 29);
+            this.panelVacances.Size = new System.Drawing.Size(204, 25);
             this.panelVacances.TabIndex = 3;
             this.panelVacances.Click += new System.EventHandler(this.panelVacances_Click);
             // 
@@ -267,8 +267,8 @@ namespace Libe_Escriptori.Forms.Centres
             // 
             this.labelVacances.AutoSize = true;
             this.labelVacances.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.labelVacances.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelVacances.Location = new System.Drawing.Point(49, 4);
+            this.labelVacances.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.labelVacances.Location = new System.Drawing.Point(42, 3);
             this.labelVacances.Name = "labelVacances";
             this.labelVacances.Size = new System.Drawing.Size(144, 20);
             this.labelVacances.TabIndex = 23;
@@ -278,9 +278,9 @@ namespace Libe_Escriptori.Forms.Centres
             // 
             this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.panel19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel19.Location = new System.Drawing.Point(12, 5);
+            this.panel19.Location = new System.Drawing.Point(10, 4);
             this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(31, 19);
+            this.panel19.Size = new System.Drawing.Size(27, 17);
             this.panel19.TabIndex = 22;
             this.panel19.Click += new System.EventHandler(this.panel19_Click);
             // 
@@ -290,17 +290,17 @@ namespace Libe_Escriptori.Forms.Centres
             this.panelLliureEleccio.Controls.Add(this.panel16);
             this.panelLliureEleccio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panelLliureEleccio.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLliureEleccio.Location = new System.Drawing.Point(0, 29);
+            this.panelLliureEleccio.Location = new System.Drawing.Point(0, 25);
             this.panelLliureEleccio.Name = "panelLliureEleccio";
-            this.panelLliureEleccio.Size = new System.Drawing.Size(204, 29);
+            this.panelLliureEleccio.Size = new System.Drawing.Size(204, 25);
             this.panelLliureEleccio.TabIndex = 2;
             this.panelLliureEleccio.Click += new System.EventHandler(this.panelLliureEleccio_Click);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(50, 4);
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.label12.Location = new System.Drawing.Point(43, 3);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(106, 20);
             this.label12.TabIndex = 21;
@@ -310,9 +310,9 @@ namespace Libe_Escriptori.Forms.Centres
             // 
             this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.panel16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel16.Location = new System.Drawing.Point(13, 5);
+            this.panel16.Location = new System.Drawing.Point(11, 4);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(31, 19);
+            this.panel16.Size = new System.Drawing.Size(27, 17);
             this.panel16.TabIndex = 20;
             this.panel16.Click += new System.EventHandler(this.panel16_Click);
             // 
@@ -323,14 +323,14 @@ namespace Libe_Escriptori.Forms.Centres
             this.panelCapdeSetmana.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCapdeSetmana.Location = new System.Drawing.Point(0, 0);
             this.panelCapdeSetmana.Name = "panelCapdeSetmana";
-            this.panelCapdeSetmana.Size = new System.Drawing.Size(204, 29);
+            this.panelCapdeSetmana.Size = new System.Drawing.Size(204, 25);
             this.panelCapdeSetmana.TabIndex = 0;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(46, 3);
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.label11.Location = new System.Drawing.Point(39, 3);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(138, 20);
             this.label11.TabIndex = 19;
@@ -340,14 +340,14 @@ namespace Libe_Escriptori.Forms.Centres
             // 
             this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel14.Location = new System.Drawing.Point(12, 5);
+            this.panel14.Location = new System.Drawing.Point(10, 4);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(31, 19);
+            this.panel14.Size = new System.Drawing.Size(27, 17);
             this.panel14.TabIndex = 18;
             // 
             // FormCalendari
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 650);
             this.Controls.Add(this.panelLlegenda);

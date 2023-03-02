@@ -36,8 +36,8 @@ namespace Libe_Escriptori.Forms.Centres
             // labelDay
             // 
             this.labelDay.AutoSize = true;
-            this.labelDay.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelDay.Location = new System.Drawing.Point(4, 4);
+            this.labelDay.Font = new System.Drawing.Font("Gadugi", 12F);
+            this.labelDay.Location = new System.Drawing.Point(3, 3);
             this.labelDay.Name = "labelDay";
             this.labelDay.Size = new System.Drawing.Size(27, 19);
             this.labelDay.TabIndex = 0;
@@ -45,7 +45,7 @@ namespace Libe_Escriptori.Forms.Centres
             // 
             // UserControlDays
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.labelDay);
