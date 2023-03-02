@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="08e827d7b4f9451d806635d89ff97626" Name="Diagram1">
+        <EntityTypeShape EntityType="libeModel.attendance" Width="1.5" PointX="7.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="libeModel.attendance_status" Width="1.5" PointX="5.25" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="libeModel.calendars" Width="1.5" PointX="7.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="libeModel.center_information" Width="1.5" PointX="11.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="libeModel.classrooms" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="libeModel.courses" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="libeModel.departments" Width="1.5" PointX="9.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="libeModel.groups" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="libeModel.holiday_type" Width="1.5" PointX="12.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="libeModel.holidays" Width="1.5" PointX="10" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="libeModel.justification_status" Width="1.5" PointX="3" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="libeModel.justifications" Width="1.5" PointX="5.25" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="libeModel.lessons" Width="1.5" PointX="5.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="libeModel.logs" Width="1.5" PointX="12.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="libeModel.modules" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="libeModel.profesors" Width="1.5" PointX="7.5" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="libeModel.schedules" Width="1.5" PointX="3" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="libeModel.students" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="libeModel.units" Width="1.5" PointX="10.5" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="libeModel.user_type" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="libeModel.users" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="libeModel.validable_zones" Width="1.5" PointX="0.75" PointY="13.5" IsExpanded="true" />
+        <AssociationConnector Association="libeModel.FK_attendance_attendance_status" ManuallyRouted="false" />
+        <AssociationConnector Association="libeModel.FK_attendance_justifications" ManuallyRouted="false" />
+        <AssociationConnector Association="libeModel.FK_attendance_lessons" ManuallyRouted="false" />
+        <AssociationConnector Association="libeModel.FK_attendance_students" ManuallyRouted="false" />
+        <AssociationConnector Association="libeModel.FK_attendance_units" ManuallyRouted="false" />
+        <AssociationConnector Association="libeModel.FK_holidays_calendars" ManuallyRouted="false" />
+        <AssociationConnector Association="libeModel.FK_classrooms_users" ManuallyRouted="false" />
+        <AssociationConnector Association="libeModel.FK_classrooms1_validable_zones" ManuallyRouted="false" />
+        <AssociationConnector Association="libeModel.FK_lessons_classrooms" ManuallyRouted="false" />
+        <AssociationConnector Association="libeModel.FK_groups_groups" ManuallyRouted="false" />
+        <AssociationConnector Association="libeModel.FK_departaments_profesors" ManuallyRouted="false" />
+        <AssociationConnector Association="libeModel.FK_groups_profesors" ManuallyRouted="false" />
+        <AssociationConnector Association="libeModel.FK_groups_schedules" ManuallyRouted="false" />
+        <AssociationConnector Association="libeModel.FK_students_groups" ManuallyRouted="false" />
+        <AssociationConnector Association="libeModel.FK_justifications_justification_status" ManuallyRouted="false" />
+        <AssociationConnector Association="libeModel.FK_lessons_modules" ManuallyRouted="false" />
+        <AssociationConnector Association="libeModel.FK_lessons_profesors" ManuallyRouted="false" />
+        <AssociationConnector Association="libeModel.FK_lessons_schedules" ManuallyRouted="false" />
+        <AssociationConnector Association="libeModel.FK_units_units" ManuallyRouted="false" />
+        <AssociationConnector Association="libeModel.FK_profesors_users" ManuallyRouted="false" />
+        <AssociationConnector Association="libeModel.FK_students_users1" ManuallyRouted="false" />
+        <AssociationConnector Association="libeModel.FK_users_user_type" ManuallyRouted="false" />
+        <AssociationConnector Association="libeModel.course_module" ManuallyRouted="false" />
+        <AssociationConnector Association="libeModel.profesor_department" ManuallyRouted="false" />
+        <AssociationConnector Association="libeModel.profesor_lesson" ManuallyRouted="false" />
+        <AssociationConnector Association="libeModel.profesor_module" ManuallyRouted="false" />
+        <AssociationConnector Association="libeModel.student_unit" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
