@@ -1,4 +1,5 @@
-﻿using Libe_Escriptori.Properties;
+﻿using Libe_Escriptori.Models.Usuaris.Alumnes;
+using Libe_Escriptori.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,12 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             label = labelRuta;
             
         }
+
+        private void GestionarUsuarisAlumnes_Load(object sender, EventArgs e)
+        {
+            bindingSourceStudents.DataSource = AlumnesOrm.Select();
+        }
+
         private void OpenChildForm(Form childForm)
         {
             if (activeForm != null)
@@ -51,7 +58,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             if (e.RowIndex < 0)
                 return;
             // Edit button column
-            if (e.ColumnIndex == 4)
+            if (e.ColumnIndex == 8)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
@@ -65,7 +72,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             }
 
             // Delete button column
-            if (e.ColumnIndex == 5)
+            if (e.ColumnIndex == 9)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 

@@ -258,6 +258,7 @@
     <Compile Include="Models\modules.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Orm.cs" />
     <Compile Include="Models\profesors.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
@@ -276,6 +277,7 @@
     <Compile Include="Models\user_type.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Usuaris\Alumnes\AlumnesOrm.cs" />
     <Compile Include="Models\validable_zones.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
@@ -366,6 +368,7 @@
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\csproj.AssemblyReference.cache" />
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.students.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
