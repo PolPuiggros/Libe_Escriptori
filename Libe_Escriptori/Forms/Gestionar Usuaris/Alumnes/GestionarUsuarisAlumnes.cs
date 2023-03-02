@@ -1,4 +1,6 @@
-﻿using Libe_Escriptori.Properties;
+﻿using Libe_Escriptori.Models;
+using Libe_Escriptori.Models.Usuaris.Alumnes;
+using Libe_Escriptori.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +24,12 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             label = labelRuta;
             
         }
+
+        private void GestionarUsuarisAlumnes_Load(object sender, EventArgs e)
+        {
+            bindingSourceStudents.DataSource = AlumnesOrm.Select();
+        }
+
         private void OpenChildForm(Form childForm)
         {
             if (activeForm != null)
@@ -43,7 +51,6 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
         {
             OpenChildForm(new GestionarUsuarisAlumnesAfegint(label));
         }
-
        
 
         private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -51,7 +58,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             if (e.RowIndex < 0)
                 return;
             // Edit button column
-            if (e.ColumnIndex == 4)
+            if (e.ColumnIndex == 8)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
@@ -65,7 +72,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             }
 
             // Delete button column
-            if (e.ColumnIndex == 5)
+            if (e.ColumnIndex == 9)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
@@ -77,6 +84,25 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
                 e.Graphics.DrawImage(Resources.bin, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+                if (e.ColumnIndex == 8)
+                {
+                    OpenChildForm(new GestionarUsuarisAlumnesAfegint(label));
+                } else if(e.ColumnIndex == 9)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Estas segur que vols borrar l'alumne?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                    if (dialogResult == DialogResult.OK)
+                    {
+                        dataGridView1.CurrentRow.Selected = true;
+                        AlumnesOrm.Delete((students)dataGridView1.SelectedRows[0].DataBoundItem);
+                    }
+                }
+            
         }
     }
 }
