@@ -262,7 +262,7 @@ namespace Libe_Escriptori
             this.buttonLogout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.buttonLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLogout.Location = new System.Drawing.Point(35, 23);
+            this.buttonLogout.Location = new System.Drawing.Point(41, 26);
             this.buttonLogout.Name = "buttonLogout";
             this.buttonLogout.Size = new System.Drawing.Size(28, 28);
             this.buttonLogout.TabIndex = 2;
@@ -273,7 +273,7 @@ namespace Libe_Escriptori
             // 
             this.labelUserName.AutoSize = true;
             this.labelUserName.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.labelUserName.Location = new System.Drawing.Point(77, 24);
+            this.labelUserName.Location = new System.Drawing.Point(90, 28);
             this.labelUserName.Name = "labelUserName";
             this.labelUserName.Size = new System.Drawing.Size(126, 25);
             this.labelUserName.TabIndex = 0;

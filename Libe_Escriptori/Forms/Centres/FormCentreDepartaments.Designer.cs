@@ -41,7 +41,7 @@ namespace Libe_Escriptori.Forms.Centres
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 20F);
             this.label1.Location = new System.Drawing.Point(397, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(184, 37);
@@ -50,11 +50,11 @@ namespace Libe_Escriptori.Forms.Centres
             // 
             // textBoxNomDepartament
             // 
-            this.textBoxNomDepartament.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.textBoxNomDepartament.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
             this.textBoxNomDepartament.ForeColor = System.Drawing.Color.Gray;
             this.textBoxNomDepartament.Location = new System.Drawing.Point(100, 118);
             this.textBoxNomDepartament.MaximumSize = new System.Drawing.Size(829, 31);
-            this.textBoxNomDepartament.MinimumSize = new System.Drawing.Size(829, 31);
+            this.textBoxNomDepartament.MinimumSize = new System.Drawing.Size(711, 31);
             this.textBoxNomDepartament.Name = "textBoxNomDepartament";
             this.textBoxNomDepartament.Size = new System.Drawing.Size(829, 31);
             this.textBoxNomDepartament.TabIndex = 2;
@@ -64,7 +64,7 @@ namespace Libe_Escriptori.Forms.Centres
             // 
             // comboBoxDepartaments
             // 
-            this.comboBoxDepartaments.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.comboBoxDepartaments.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
             this.comboBoxDepartaments.ForeColor = System.Drawing.Color.Gray;
             this.comboBoxDepartaments.FormattingEnabled = true;
             this.comboBoxDepartaments.Location = new System.Drawing.Point(100, 178);
@@ -80,7 +80,7 @@ namespace Libe_Escriptori.Forms.Centres
             this.buttonGuardarZona.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(171)))));
             this.buttonGuardarZona.FlatAppearance.BorderSize = 0;
             this.buttonGuardarZona.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonGuardarZona.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonGuardarZona.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.buttonGuardarZona.ForeColor = System.Drawing.Color.White;
             this.buttonGuardarZona.Location = new System.Drawing.Point(505, 178);
             this.buttonGuardarZona.Name = "buttonGuardarZona";
@@ -101,7 +101,7 @@ namespace Libe_Escriptori.Forms.Centres
             // 
             // FormCentreDepartaments
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 650);
             this.Controls.Add(this.dataGridView1);
