@@ -35,19 +35,19 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.textBoxFiltres = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.comboBoxFilter = new System.Windows.Forms.ComboBox();
             this.buttonNew = new System.Windows.Forms.Button();
-            this.bindingSourceStudents = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.surnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.surname2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dniDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phonenumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.autoregisterDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.hasrepeatedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ColumnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.bindingSourceStudents = new System.Windows.Forms.BindingSource(this.components);
             this.panelGestionarUsuaris.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceStudents)).BeginInit();
@@ -110,9 +110,35 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(818, 474);
             this.dataGridView1.TabIndex = 11;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
+            // 
+            // email
+            // 
+            this.email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.email.DataPropertyName = "email";
+            this.email.HeaderText = "EMAIL";
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
+            // 
+            // ColumnEdit
+            // 
+            this.ColumnEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnEdit.HeaderText = "";
+            this.ColumnEdit.Name = "ColumnEdit";
+            this.ColumnEdit.Width = 21;
+            // 
+            // ColumnDelete
+            // 
+            this.ColumnDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnDelete.HeaderText = "";
+            this.ColumnDelete.Name = "ColumnDelete";
+            this.ColumnDelete.Width = 21;
             // 
             // comboBoxFilter
             // 
@@ -149,10 +175,6 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.buttonNew.UseVisualStyleBackColor = false;
             this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click_1);
             // 
-            // bindingSourceStudents
-            // 
-            this.bindingSourceStudents.DataSource = typeof(Libe_Escriptori.Models.students);
-            // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -181,14 +203,6 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.dniDataGridViewTextBoxColumn.HeaderText = "DNI";
             this.dniDataGridViewTextBoxColumn.Name = "dniDataGridViewTextBoxColumn";
             // 
-            // email
-            // 
-            this.email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.email.DataPropertyName = "email";
-            this.email.HeaderText = "EMAIL";
-            this.email.Name = "email";
-            this.email.ReadOnly = true;
-            // 
             // phonenumberDataGridViewTextBoxColumn
             // 
             this.phonenumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -210,21 +224,9 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.hasrepeatedDataGridViewCheckBoxColumn.HeaderText = "REPETIDOR";
             this.hasrepeatedDataGridViewCheckBoxColumn.Name = "hasrepeatedDataGridViewCheckBoxColumn";
             // 
-            // ColumnEdit
+            // bindingSourceStudents
             // 
-            this.ColumnEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColumnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnEdit.HeaderText = "";
-            this.ColumnEdit.Name = "ColumnEdit";
-            this.ColumnEdit.Width = 21;
-            // 
-            // ColumnDelete
-            // 
-            this.ColumnDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColumnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnDelete.HeaderText = "";
-            this.ColumnDelete.Name = "ColumnDelete";
-            this.ColumnDelete.Width = 21;
+            this.bindingSourceStudents.DataSource = typeof(Libe_Escriptori.Models.students);
             // 
             // GestionarUsuarisAlumnes
             // 

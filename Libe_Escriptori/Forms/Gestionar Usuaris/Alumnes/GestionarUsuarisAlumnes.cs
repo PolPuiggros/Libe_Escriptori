@@ -1,4 +1,5 @@
-﻿using Libe_Escriptori.Models.Usuaris.Alumnes;
+﻿using Libe_Escriptori.Models;
+using Libe_Escriptori.Models.Usuaris.Alumnes;
 using Libe_Escriptori.Properties;
 using System;
 using System.Collections.Generic;
@@ -50,7 +51,6 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
         {
             OpenChildForm(new GestionarUsuarisAlumnesAfegint(label));
         }
-
        
 
         private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -84,6 +84,25 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
                 e.Graphics.DrawImage(Resources.bin, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+                if (e.ColumnIndex == 8)
+                {
+                    OpenChildForm(new GestionarUsuarisAlumnesAfegint(label));
+                } else if(e.ColumnIndex == 9)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Estas segur que vols borrar l'alumne?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                    if (dialogResult == DialogResult.OK)
+                    {
+                        dataGridView1.CurrentRow.Selected = true;
+                        AlumnesOrm.Delete((students)dataGridView1.SelectedRows[0].DataBoundItem);
+                    }
+                }
+            
         }
     }
 }

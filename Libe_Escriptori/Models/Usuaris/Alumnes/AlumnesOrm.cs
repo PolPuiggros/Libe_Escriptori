@@ -16,5 +16,10 @@ namespace Libe_Escriptori.Models.Usuaris.Alumnes
 
             return _students;
         }
+        public static void Delete(students _students)
+        {
+            Orm.db.students.Remove(_students);
+            Orm.db.SaveChanges();
+        }
     }
 }
