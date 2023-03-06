@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Libe_Escriptori.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,14 +35,7 @@ namespace Libe_Escriptori.Forms.Groups
 
         private void initializeDataGrid()
         {
-            dataGridViewSchedule.Rows.Add(6);
-
-            dataGridViewSchedule[0, 0].Value = "8:40";
-            dataGridViewSchedule[0, 1].Value = "9:40";
-            dataGridViewSchedule[0, 2].Value = "10:40";
-            dataGridViewSchedule[0, 3].Value = "11:40";
-            dataGridViewSchedule[0, 4].Value = "12:00";
-            dataGridViewSchedule[0, 5].Value = "13:00";
+            
 
         }
 
@@ -221,6 +215,22 @@ namespace Libe_Escriptori.Forms.Groups
                 }
             }
             
+        }
+
+        private void dataGridViewSchedule_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex== 0)
+            {
+                if (e.RowIndex== 0)
+                {
+                    
+                }
+            }
+        }
+
+        private void FormCreateScheduleGroup_Load(object sender, EventArgs e)
+        {
+            bindingSourceLessons.DataSource = LessonsOrm.Select();
         }
     }
 

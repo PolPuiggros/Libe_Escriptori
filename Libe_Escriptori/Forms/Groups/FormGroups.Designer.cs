@@ -37,9 +37,6 @@ namespace Libe_Escriptori.Forms.Groups
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBoxFilter = new System.Windows.Forms.ComboBox();
             this.dataGridViewGroups = new System.Windows.Forms.DataGridView();
-            this.buttonNewGroup = new System.Windows.Forms.Button();
-            this.bindingSourceGroups = new System.Windows.Forms.BindingSource(this.components);
-            this.groupsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.courseidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gradeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupletterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +49,9 @@ namespace Libe_Escriptori.Forms.Groups
             this.schedulesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.headerDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.bindingSourceGroups = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonNewGroup = new System.Windows.Forms.Button();
+            this.groupsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelGroups.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroups)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGroups)).BeginInit();
@@ -164,7 +164,7 @@ namespace Libe_Escriptori.Forms.Groups
             this.headerEdit,
             this.headerDelete});
             this.dataGridViewGroups.DataSource = this.bindingSourceGroups;
-            this.dataGridViewGroups.Location = new System.Drawing.Point(52, 110);
+            this.dataGridViewGroups.Location = new System.Drawing.Point(53, 110);
             this.dataGridViewGroups.Name = "dataGridViewGroups";
             this.dataGridViewGroups.ReadOnly = true;
             this.dataGridViewGroups.RowHeadersVisible = false;
@@ -174,29 +174,6 @@ namespace Libe_Escriptori.Forms.Groups
             this.dataGridViewGroups.TabIndex = 5;
             this.dataGridViewGroups.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridViewGroups.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
-            // 
-            // buttonNewGroup
-            // 
-            this.buttonNewGroup.BackColor = System.Drawing.Color.White;
-            this.buttonNewGroup.FlatAppearance.BorderSize = 0;
-            this.buttonNewGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNewGroup.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.buttonNewGroup.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonNewGroup.Location = new System.Drawing.Point(52, 57);
-            this.buttonNewGroup.Name = "buttonNewGroup";
-            this.buttonNewGroup.Size = new System.Drawing.Size(117, 30);
-            this.buttonNewGroup.TabIndex = 4;
-            this.buttonNewGroup.Text = "Nou";
-            this.buttonNewGroup.UseVisualStyleBackColor = false;
-            this.buttonNewGroup.Click += new System.EventHandler(this.buttonNewGroup_Click_1);
-            // 
-            // bindingSourceGroups
-            // 
-            this.bindingSourceGroups.DataSource = typeof(Libe_Escriptori.Models.groups);
-            // 
-            // groupsBindingSource
-            // 
-            this.groupsBindingSource.DataSource = typeof(Libe_Escriptori.Models.groups);
             // 
             // courseidDataGridViewTextBoxColumn
             // 
@@ -299,6 +276,29 @@ namespace Libe_Escriptori.Forms.Groups
             this.headerDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.headerDelete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.headerDelete.Width = 29;
+            // 
+            // bindingSourceGroups
+            // 
+            this.bindingSourceGroups.DataSource = typeof(Libe_Escriptori.Models.groups);
+            // 
+            // buttonNewGroup
+            // 
+            this.buttonNewGroup.BackColor = System.Drawing.Color.White;
+            this.buttonNewGroup.FlatAppearance.BorderSize = 0;
+            this.buttonNewGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNewGroup.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.buttonNewGroup.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonNewGroup.Location = new System.Drawing.Point(52, 57);
+            this.buttonNewGroup.Name = "buttonNewGroup";
+            this.buttonNewGroup.Size = new System.Drawing.Size(117, 30);
+            this.buttonNewGroup.TabIndex = 4;
+            this.buttonNewGroup.Text = "Nou";
+            this.buttonNewGroup.UseVisualStyleBackColor = false;
+            this.buttonNewGroup.Click += new System.EventHandler(this.buttonNewGroup_Click_1);
+            // 
+            // groupsBindingSource
+            // 
+            this.groupsBindingSource.DataSource = typeof(Libe_Escriptori.Models.groups);
             // 
             // FormGroups
             // 
