@@ -30,6 +30,7 @@ namespace Libe_Escriptori.Forms.Centres
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxZoneName = new System.Windows.Forms.TextBox();
             this.textBoxZoneCoordinates = new System.Windows.Forms.TextBox();
@@ -39,8 +40,15 @@ namespace Libe_Escriptori.Forms.Centres
             this.buttonAfegirAules = new System.Windows.Forms.Button();
             this.panelZonesValidables = new System.Windows.Forms.Panel();
             this.Guardar = new System.Windows.Forms.Button();
+            this.bindingSourceZonesValidables = new System.Windows.Forms.BindingSource(this.components);
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.radiusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.latitudeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.longitudeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classroomsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelZonesValidables.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceZonesValidables)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -61,7 +69,7 @@ namespace Libe_Escriptori.Forms.Centres
             this.textBoxZoneName.MaximumSize = new System.Drawing.Size(829, 31);
             this.textBoxZoneName.MinimumSize = new System.Drawing.Size(829, 31);
             this.textBoxZoneName.Name = "textBoxZoneName";
-            this.textBoxZoneName.Size = new System.Drawing.Size(829, 31);
+            this.textBoxZoneName.Size = new System.Drawing.Size(829, 29);
             this.textBoxZoneName.TabIndex = 1;
             this.textBoxZoneName.Text = " Nom de la zona validable";
             this.textBoxZoneName.Enter += new System.EventHandler(this.textBoxZoneName_Enter);
@@ -75,7 +83,7 @@ namespace Libe_Escriptori.Forms.Centres
             this.textBoxZoneCoordinates.MaximumSize = new System.Drawing.Size(460, 31);
             this.textBoxZoneCoordinates.MinimumSize = new System.Drawing.Size(460, 31);
             this.textBoxZoneCoordinates.Name = "textBoxZoneCoordinates";
-            this.textBoxZoneCoordinates.Size = new System.Drawing.Size(460, 31);
+            this.textBoxZoneCoordinates.Size = new System.Drawing.Size(460, 29);
             this.textBoxZoneCoordinates.TabIndex = 2;
             this.textBoxZoneCoordinates.Text = " Coordenades de la zona";
             this.textBoxZoneCoordinates.Enter += new System.EventHandler(this.textBoxZoneCoordinates_Enter);
@@ -89,7 +97,7 @@ namespace Libe_Escriptori.Forms.Centres
             this.textBoxRange.MaximumSize = new System.Drawing.Size(153, 31);
             this.textBoxRange.MinimumSize = new System.Drawing.Size(153, 31);
             this.textBoxRange.Name = "textBoxRange";
-            this.textBoxRange.Size = new System.Drawing.Size(153, 31);
+            this.textBoxRange.Size = new System.Drawing.Size(153, 29);
             this.textBoxRange.TabIndex = 3;
             this.textBoxRange.Text = " Radi";
             this.textBoxRange.Enter += new System.EventHandler(this.textBoxRange_Enter);
@@ -97,10 +105,24 @@ namespace Libe_Escriptori.Forms.Centres
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nameDataGridViewTextBoxColumn,
+            this.radiusDataGridViewTextBoxColumn,
+            this.latitudeDataGridViewTextBoxColumn,
+            this.longitudeDataGridViewTextBoxColumn,
+            this.classroomsDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.bindingSourceZonesValidables;
             this.dataGridView1.Location = new System.Drawing.Point(83, 243);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(829, 261);
             this.dataGridView1.TabIndex = 15;
@@ -160,6 +182,45 @@ namespace Libe_Escriptori.Forms.Centres
             this.Guardar.Text = "Guardar";
             this.Guardar.UseVisualStyleBackColor = false;
             // 
+            // bindingSourceZonesValidables
+            // 
+            this.bindingSourceZonesValidables.DataSource = typeof(Libe_Escriptori.Models.validable_zones);
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Nom";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // radiusDataGridViewTextBoxColumn
+            // 
+            this.radiusDataGridViewTextBoxColumn.DataPropertyName = "radius";
+            this.radiusDataGridViewTextBoxColumn.HeaderText = "Radi";
+            this.radiusDataGridViewTextBoxColumn.Name = "radiusDataGridViewTextBoxColumn";
+            this.radiusDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // latitudeDataGridViewTextBoxColumn
+            // 
+            this.latitudeDataGridViewTextBoxColumn.DataPropertyName = "latitude";
+            this.latitudeDataGridViewTextBoxColumn.HeaderText = "Latitut";
+            this.latitudeDataGridViewTextBoxColumn.Name = "latitudeDataGridViewTextBoxColumn";
+            this.latitudeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // longitudeDataGridViewTextBoxColumn
+            // 
+            this.longitudeDataGridViewTextBoxColumn.DataPropertyName = "longitude";
+            this.longitudeDataGridViewTextBoxColumn.HeaderText = "Longitude";
+            this.longitudeDataGridViewTextBoxColumn.Name = "longitudeDataGridViewTextBoxColumn";
+            this.longitudeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // classroomsDataGridViewTextBoxColumn
+            // 
+            this.classroomsDataGridViewTextBoxColumn.DataPropertyName = "classrooms";
+            this.classroomsDataGridViewTextBoxColumn.HeaderText = "Nombre d\'aules";
+            this.classroomsDataGridViewTextBoxColumn.Name = "classroomsDataGridViewTextBoxColumn";
+            this.classroomsDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // FormCentreZonesValidables
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -173,9 +234,11 @@ namespace Libe_Escriptori.Forms.Centres
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCentreZonesValidables";
             this.Text = "FormCentreZonesValidables";
+            this.Load += new System.EventHandler(this.FormCentreZonesValidables_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panelZonesValidables.ResumeLayout(false);
             this.panelZonesValidables.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceZonesValidables)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,5 +255,11 @@ namespace Libe_Escriptori.Forms.Centres
         private Button buttonAfegirAules;
         private Panel panelZonesValidables;
         private Button Guardar;
+        private BindingSource bindingSourceZonesValidables;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn radiusDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn latitudeDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn longitudeDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn classroomsDataGridViewTextBoxColumn;
     }
 }

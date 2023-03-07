@@ -27,7 +27,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
 
         private void GestionarUsuarisAlumnes_Load(object sender, EventArgs e)
         {
-            bindingSourceStudents.DataSource = AlumnesOrm.Select(false);
+            bindingSourceStudents.DataSource = AlumnesOrm.Select(true);
         }
 
         private void OpenChildForm(Form childForm)

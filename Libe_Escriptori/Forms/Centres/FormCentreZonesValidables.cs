@@ -1,4 +1,6 @@
 ﻿using Libe_Escriptori.Forms.Groups;
+using Libe_Escriptori.Models.Centre;
+using Libe_Escriptori.Models.Usuaris.Alumnes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -74,6 +76,11 @@ namespace Libe_Escriptori.Forms.Centres
         {
             FormCentreZonesAfegirAules f = new FormCentreZonesAfegirAules(ruta);
             f.ShowDialog();
+        }
+
+        private void FormCentreZonesValidables_Load(object sender, EventArgs e)
+        {
+            bindingSourceZonesValidables.DataSource = ZonesValidablesOrm.Select(true);
         }
     }
 }
