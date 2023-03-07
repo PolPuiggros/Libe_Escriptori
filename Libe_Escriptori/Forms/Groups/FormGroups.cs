@@ -100,5 +100,14 @@ namespace Libe_Escriptori.Forms.Groups
                 e.Value = _groups.students.Count.ToString();
             }
         }
+
+        private void dataGridViewGroups_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            groups _groups = (groups)dataGridViewGroups.Rows[e.RowIndex].DataBoundItem;
+            if (dataGridViewGroups.Columns[e.ColumnIndex].Name == "headerEdit")
+            {
+                OpenChildForm(new FormAddGroup(ruta,_groups));
+            }
+        }
     }
 }

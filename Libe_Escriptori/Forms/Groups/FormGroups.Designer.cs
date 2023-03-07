@@ -37,6 +37,9 @@ namespace Libe_Escriptori.Forms.Groups
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBoxFilter = new System.Windows.Forms.ComboBox();
             this.dataGridViewGroups = new System.Windows.Forms.DataGridView();
+            this.headerEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.headerDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.buttonNewGroup = new System.Windows.Forms.Button();
             this.courseidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gradeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupletterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,10 +50,7 @@ namespace Libe_Escriptori.Forms.Groups
             this.coursesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.profesorsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.schedulesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.headerEdit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.headerDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.bindingSourceGroups = new System.Windows.Forms.BindingSource(this.components);
-            this.buttonNewGroup = new System.Windows.Forms.Button();
             this.groupsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelGroups.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroups)).BeginInit();
@@ -172,8 +172,46 @@ namespace Libe_Escriptori.Forms.Groups
             this.dataGridViewGroups.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewGroups.Size = new System.Drawing.Size(756, 402);
             this.dataGridViewGroups.TabIndex = 5;
+            this.dataGridViewGroups.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGroups_CellClick);
             this.dataGridViewGroups.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridViewGroups.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
+            // 
+            // headerEdit
+            // 
+            this.headerEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.headerEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.headerEdit.HeaderText = "";
+            this.headerEdit.Name = "headerEdit";
+            this.headerEdit.ReadOnly = true;
+            this.headerEdit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.headerEdit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.headerEdit.Width = 29;
+            // 
+            // headerDelete
+            // 
+            this.headerDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.headerDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.headerDelete.HeaderText = "";
+            this.headerDelete.Name = "headerDelete";
+            this.headerDelete.ReadOnly = true;
+            this.headerDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.headerDelete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.headerDelete.Width = 29;
+            // 
+            // buttonNewGroup
+            // 
+            this.buttonNewGroup.BackColor = System.Drawing.Color.White;
+            this.buttonNewGroup.FlatAppearance.BorderSize = 0;
+            this.buttonNewGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNewGroup.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.buttonNewGroup.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonNewGroup.Location = new System.Drawing.Point(52, 57);
+            this.buttonNewGroup.Name = "buttonNewGroup";
+            this.buttonNewGroup.Size = new System.Drawing.Size(117, 30);
+            this.buttonNewGroup.TabIndex = 4;
+            this.buttonNewGroup.Text = "Nou";
+            this.buttonNewGroup.UseVisualStyleBackColor = false;
+            this.buttonNewGroup.Click += new System.EventHandler(this.buttonNewGroup_Click_1);
             // 
             // courseidDataGridViewTextBoxColumn
             // 
@@ -255,46 +293,9 @@ namespace Libe_Escriptori.Forms.Groups
             this.schedulesDataGridViewTextBoxColumn.ReadOnly = true;
             this.schedulesDataGridViewTextBoxColumn.Visible = false;
             // 
-            // headerEdit
-            // 
-            this.headerEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.headerEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.headerEdit.HeaderText = "";
-            this.headerEdit.Name = "headerEdit";
-            this.headerEdit.ReadOnly = true;
-            this.headerEdit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.headerEdit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.headerEdit.Width = 29;
-            // 
-            // headerDelete
-            // 
-            this.headerDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.headerDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.headerDelete.HeaderText = "";
-            this.headerDelete.Name = "headerDelete";
-            this.headerDelete.ReadOnly = true;
-            this.headerDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.headerDelete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.headerDelete.Width = 29;
-            // 
             // bindingSourceGroups
             // 
             this.bindingSourceGroups.DataSource = typeof(Libe_Escriptori.Models.groups);
-            // 
-            // buttonNewGroup
-            // 
-            this.buttonNewGroup.BackColor = System.Drawing.Color.White;
-            this.buttonNewGroup.FlatAppearance.BorderSize = 0;
-            this.buttonNewGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNewGroup.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.buttonNewGroup.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonNewGroup.Location = new System.Drawing.Point(52, 57);
-            this.buttonNewGroup.Name = "buttonNewGroup";
-            this.buttonNewGroup.Size = new System.Drawing.Size(117, 30);
-            this.buttonNewGroup.TabIndex = 4;
-            this.buttonNewGroup.Text = "Nou";
-            this.buttonNewGroup.UseVisualStyleBackColor = false;
-            this.buttonNewGroup.Click += new System.EventHandler(this.buttonNewGroup_Click_1);
             // 
             // groupsBindingSource
             // 

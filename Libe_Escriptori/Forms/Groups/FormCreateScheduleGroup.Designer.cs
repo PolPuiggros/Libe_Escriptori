@@ -41,10 +41,10 @@ namespace Libe_Escriptori.Forms.Groups
             this.pictureBoxRightClick = new System.Windows.Forms.PictureBox();
             this.pictureBoxLeftClick = new System.Windows.Forms.PictureBox();
             this.dataGridViewSchedule = new System.Windows.Forms.DataGridView();
+            this.bindingSourceLessons = new System.Windows.Forms.BindingSource(this.components);
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.listViewModuls = new System.Windows.Forms.ListView();
-            this.bindingSourceLessons = new System.Windows.Forms.BindingSource(this.components);
             this.starting_hour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnMonday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTuesday = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -182,6 +182,10 @@ namespace Libe_Escriptori.Forms.Groups
             this.dataGridViewSchedule.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewSchedule_CellFormatting);
             this.dataGridViewSchedule.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewSchedule_CellMouseUp);
             // 
+            // bindingSourceLessons
+            // 
+            this.bindingSourceLessons.DataSource = typeof(Libe_Escriptori.Models.lessons);
+            // 
             // buttonSave
             // 
             this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(64)))), ((int)(((byte)(171)))));
@@ -229,10 +233,6 @@ namespace Libe_Escriptori.Forms.Groups
             this.listViewModuls.UseCompatibleStateImageBehavior = false;
             this.listViewModuls.View = System.Windows.Forms.View.Tile;
             this.listViewModuls.SelectedIndexChanged += new System.EventHandler(this.listViewModuls_SelectedIndexChanged);
-            // 
-            // bindingSourceLessons
-            // 
-            this.bindingSourceLessons.DataSource = typeof(Libe_Escriptori.Models.lessons);
             // 
             // starting_hour
             // 
