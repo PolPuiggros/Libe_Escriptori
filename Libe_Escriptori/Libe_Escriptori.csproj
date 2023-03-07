@@ -384,9 +384,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include=".gitattributes" />
-    <Content Include=".gitignore" />
-    <Content Include="csproj.user" />
     <Content Include="Models\ModelLibe.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ModelLibe.Context.cs</LastGenOutput>
@@ -401,6 +398,9 @@
     <Content Include="Resources\books.png" />
     <Content Include="Resources\close.png" />
     <Content Include="Resources\close1.png" />
+    <None Include="Resources\eraser.png" />
+    <None Include="Resources\eraser_small.png" />
+    <None Include="Resources\eraser_smaller.png" />
     <Content Include="Resources\exit.png" />
     <Content Include="Resources\gradient.png" />
     <Content Include="Resources\home.png" />
@@ -410,6 +410,7 @@
     <Content Include="Resources\inbox.png" />
     <Content Include="Resources\left-click.png" />
     <Content Include="Resources\lines_yellow.jpg" />
+    <None Include="Resources\mid_eraser.png" />
     <Content Include="Resources\minus.png" />
     <Content Include="Resources\profile_pic.png" />
     <Content Include="Resources\profile_pic_big.png" />

@@ -57,6 +57,7 @@ namespace Libe_Escriptori.Forms.Centres
             this.panelCapdeSetmana = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.buttonDelete = new System.Windows.Forms.Button();
             this.panelLlegenda.SuspendLayout();
             this.panelUltimDiaDelCurs.SuspendLayout();
             this.panelPrimerDiaDeCurs.SuspendLayout();
@@ -180,9 +181,9 @@ namespace Libe_Escriptori.Forms.Centres
             this.panelLlegenda.Controls.Add(this.panelVacances);
             this.panelLlegenda.Controls.Add(this.panelLliureEleccio);
             this.panelLlegenda.Controls.Add(this.panelCapdeSetmana);
-            this.panelLlegenda.Location = new System.Drawing.Point(763, 486);
+            this.panelLlegenda.Location = new System.Drawing.Point(763, 487);
             this.panelLlegenda.Name = "panelLlegenda";
-            this.panelLlegenda.Size = new System.Drawing.Size(206, 147);
+            this.panelLlegenda.Size = new System.Drawing.Size(206, 129);
             this.panelLlegenda.TabIndex = 14;
             // 
             // panelUltimDiaDelCurs
@@ -345,11 +346,28 @@ namespace Libe_Escriptori.Forms.Centres
             this.panel14.Size = new System.Drawing.Size(27, 17);
             this.panel14.TabIndex = 18;
             // 
+            // buttonDelete
+            // 
+            this.buttonDelete.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.buttonDelete.Image = global::Libe_Escriptori.Properties.Resources.mid_eraser;
+            this.buttonDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDelete.Location = new System.Drawing.Point(148, 558);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(116, 35);
+            this.buttonDelete.TabIndex = 15;
+            this.buttonDelete.Text = "  Esborrar";
+            this.buttonDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
             // FormCalendari
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 650);
+            this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.panelLlegenda);
             this.Controls.Add(this.labelDate);
             this.Controls.Add(this.labelDiumenge);
@@ -410,5 +428,6 @@ namespace Libe_Escriptori.Forms.Centres
         private Panel panel19;
         private Label label12;
         private Panel panel16;
+        private Button buttonDelete;
     }
 }
