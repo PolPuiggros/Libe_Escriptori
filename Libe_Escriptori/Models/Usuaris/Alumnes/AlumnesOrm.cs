@@ -23,6 +23,8 @@ namespace Libe_Escriptori.Models.Usuaris.Alumnes
                 .Where(c => c.id == _students.id)
                 .First();
             _students.active = false;
+            _students.users.active = false;
+            _students.deleted_timestamp = DateTime.Now;
             Orm.db.SaveChanges();
         }
     }
