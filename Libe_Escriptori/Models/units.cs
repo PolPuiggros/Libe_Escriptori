@@ -26,11 +26,15 @@ namespace Libe_Escriptori.Models
         public string name { get; set; }
         public int total_hours { get; set; }
         public int module_id { get; set; }
+        public bool active { get; set; }
+        public System.DateTime created_timestamp { get; set; }
+        public Nullable<System.DateTime> updated_timestamp { get; set; }
+        public Nullable<System.DateTime> deleted_timestamp { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<attendance> attendance { get; set; }
-        public virtual modules modules { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<students> students { get; set; }
+        public virtual modules modules { get; set; }
     }
 }

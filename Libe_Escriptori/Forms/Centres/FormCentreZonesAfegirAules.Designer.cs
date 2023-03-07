@@ -45,9 +45,8 @@ namespace Libe_Escriptori.Forms.Centres
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 20F);
             this.label1.Location = new System.Drawing.Point(203, 19);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 37);
             this.label1.TabIndex = 1;
@@ -55,10 +54,9 @@ namespace Libe_Escriptori.Forms.Centres
             // 
             // textBoxName
             // 
-            this.textBoxName.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.textBoxName.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Italic);
             this.textBoxName.ForeColor = System.Drawing.Color.DarkGray;
             this.textBoxName.Location = new System.Drawing.Point(35, 87);
-            this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxName.MaximumSize = new System.Drawing.Size(420, 31);
             this.textBoxName.MinimumSize = new System.Drawing.Size(420, 31);
             this.textBoxName.Name = "textBoxName";
@@ -71,9 +69,8 @@ namespace Libe_Escriptori.Forms.Centres
             // labelZonaValidable
             // 
             this.labelZonaValidable.AutoSize = true;
-            this.labelZonaValidable.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelZonaValidable.Font = new System.Drawing.Font("Segoe UI", 20F);
             this.labelZonaValidable.Location = new System.Drawing.Point(294, 19);
-            this.labelZonaValidable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelZonaValidable.Name = "labelZonaValidable";
             this.labelZonaValidable.Size = new System.Drawing.Size(157, 37);
             this.labelZonaValidable.TabIndex = 3;
@@ -82,9 +79,8 @@ namespace Libe_Escriptori.Forms.Centres
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic);
             this.label2.Location = new System.Drawing.Point(35, 119);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 13);
             this.label2.TabIndex = 4;
@@ -95,7 +91,7 @@ namespace Libe_Escriptori.Forms.Centres
             this.buttonGuardarZona.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(171)))));
             this.buttonGuardarZona.FlatAppearance.BorderSize = 0;
             this.buttonGuardarZona.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonGuardarZona.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonGuardarZona.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.buttonGuardarZona.ForeColor = System.Drawing.Color.White;
             this.buttonGuardarZona.Location = new System.Drawing.Point(490, 87);
             this.buttonGuardarZona.Name = "buttonGuardarZona";
@@ -119,7 +115,7 @@ namespace Libe_Escriptori.Forms.Centres
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(171)))));
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(342, 426);
             this.button1.Name = "button1";
@@ -133,7 +129,7 @@ namespace Libe_Escriptori.Forms.Centres
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(168)))), ((int)(((byte)(241)))));
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.button2.ForeColor = System.Drawing.Color.Black;
             this.button2.Location = new System.Drawing.Point(165, 426);
             this.button2.Name = "button2";
@@ -156,7 +152,7 @@ namespace Libe_Escriptori.Forms.Centres
             // 
             // FormCentreZonesAfegirAules
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(664, 495);
@@ -170,7 +166,6 @@ namespace Libe_Escriptori.Forms.Centres
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FormCentreZonesAfegirAules";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormCentreZonesAfegirAules";

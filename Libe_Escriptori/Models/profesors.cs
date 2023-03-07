@@ -18,10 +18,10 @@ namespace Libe_Escriptori.Models
         public profesors()
         {
             this.departments = new HashSet<departments>();
-            this.groups = new HashSet<groups>();
             this.lessons = new HashSet<lessons>();
             this.departments1 = new HashSet<departments>();
             this.lessons1 = new HashSet<lessons>();
+            this.groups = new HashSet<groups>();
             this.modules = new HashSet<modules>();
         }
     
@@ -32,11 +32,13 @@ namespace Libe_Escriptori.Models
         public string email { get; set; }
         public string phone_number { get; set; }
         public string profile_picture { get; set; }
+        public bool active { get; set; }
+        public System.DateTime created_timestamp { get; set; }
+        public Nullable<System.DateTime> updated_timestamp { get; set; }
+        public Nullable<System.DateTime> deleted_timestamp { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<departments> departments { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<groups> groups { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<lessons> lessons { get; set; }
         public virtual users users { get; set; }
@@ -44,6 +46,8 @@ namespace Libe_Escriptori.Models
         public virtual ICollection<departments> departments1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<lessons> lessons1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<groups> groups { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<modules> modules { get; set; }
     }
