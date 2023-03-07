@@ -26,6 +26,10 @@ namespace Libe_Escriptori.Models
         public int course_id { get; set; }
         public int tutor_id { get; set; }
         public int schedule_id { get; set; }
+        public bool active { get; set; }
+        public System.DateTime created_timestamp { get; set; }
+        public Nullable<System.DateTime> updated_timestamp { get; set; }
+        public Nullable<System.DateTime> deleted_timestamp { get; set; }
     
         public virtual courses courses { get; set; }
         public virtual profesors profesors { get; set; }

@@ -25,6 +25,10 @@ namespace Libe_Escriptori.Models
         public int radius { get; set; }
         public decimal latitude { get; set; }
         public decimal longitude { get; set; }
+        public bool active { get; set; }
+        public System.DateTime created_timestamp { get; set; }
+        public Nullable<System.DateTime> updated_timestamp { get; set; }
+        public Nullable<System.DateTime> deleted_timestamp { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<classrooms> classrooms { get; set; }
