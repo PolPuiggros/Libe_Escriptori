@@ -46,7 +46,7 @@ namespace Libe_Escriptori.Forms.Centres
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 20F);
             this.label1.Location = new System.Drawing.Point(399, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(216, 37);
@@ -55,7 +55,7 @@ namespace Libe_Escriptori.Forms.Centres
             // 
             // textBoxZoneName
             // 
-            this.textBoxZoneName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.textBoxZoneName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
             this.textBoxZoneName.ForeColor = System.Drawing.Color.Gray;
             this.textBoxZoneName.Location = new System.Drawing.Point(83, 99);
             this.textBoxZoneName.MaximumSize = new System.Drawing.Size(829, 31);
@@ -69,7 +69,7 @@ namespace Libe_Escriptori.Forms.Centres
             // 
             // textBoxZoneCoordinates
             // 
-            this.textBoxZoneCoordinates.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.textBoxZoneCoordinates.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
             this.textBoxZoneCoordinates.ForeColor = System.Drawing.Color.Gray;
             this.textBoxZoneCoordinates.Location = new System.Drawing.Point(83, 165);
             this.textBoxZoneCoordinates.MaximumSize = new System.Drawing.Size(460, 31);
@@ -83,9 +83,9 @@ namespace Libe_Escriptori.Forms.Centres
             // 
             // textBoxRange
             // 
-            this.textBoxRange.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.textBoxRange.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
             this.textBoxRange.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxRange.Location = new System.Drawing.Point(588, 165);
+            this.textBoxRange.Location = new System.Drawing.Point(586, 165);
             this.textBoxRange.MaximumSize = new System.Drawing.Size(153, 31);
             this.textBoxRange.MinimumSize = new System.Drawing.Size(153, 31);
             this.textBoxRange.Name = "textBoxRange";
@@ -110,7 +110,7 @@ namespace Libe_Escriptori.Forms.Centres
             this.buttonGuardarZona.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(171)))));
             this.buttonGuardarZona.FlatAppearance.BorderSize = 0;
             this.buttonGuardarZona.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonGuardarZona.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonGuardarZona.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.buttonGuardarZona.ForeColor = System.Drawing.Color.White;
             this.buttonGuardarZona.Location = new System.Drawing.Point(775, 165);
             this.buttonGuardarZona.Name = "buttonGuardarZona";
@@ -124,11 +124,11 @@ namespace Libe_Escriptori.Forms.Centres
             this.buttonAfegirAules.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(168)))), ((int)(((byte)(241)))));
             this.buttonAfegirAules.FlatAppearance.BorderSize = 0;
             this.buttonAfegirAules.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAfegirAules.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonAfegirAules.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.buttonAfegirAules.ForeColor = System.Drawing.Color.Black;
-            this.buttonAfegirAules.Location = new System.Drawing.Point(775, 510);
+            this.buttonAfegirAules.Location = new System.Drawing.Point(664, 442);
             this.buttonAfegirAules.Name = "buttonAfegirAules";
-            this.buttonAfegirAules.Size = new System.Drawing.Size(137, 31);
+            this.buttonAfegirAules.Size = new System.Drawing.Size(117, 27);
             this.buttonAfegirAules.TabIndex = 17;
             this.buttonAfegirAules.Text = "Afegir aules";
             this.buttonAfegirAules.UseVisualStyleBackColor = false;
@@ -151,7 +151,7 @@ namespace Libe_Escriptori.Forms.Centres
             this.Guardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(171)))));
             this.Guardar.FlatAppearance.BorderSize = 0;
             this.Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Guardar.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Guardar.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.Guardar.ForeColor = System.Drawing.Color.White;
             this.Guardar.Location = new System.Drawing.Point(430, 562);
             this.Guardar.Name = "Guardar";
@@ -162,7 +162,7 @@ namespace Libe_Escriptori.Forms.Centres
             // 
             // FormCentreZonesValidables
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 650);
             this.Controls.Add(this.dataGridView1);
