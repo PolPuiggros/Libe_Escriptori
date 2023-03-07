@@ -8,9 +8,10 @@ namespace Libe_Escriptori.Models.Usuaris.Alumnes
 {
     public static class AlumnesOrm
     {
-        public static List<students> Select()
+        public static List<students> Select(bool active)
         {
             List<students> _students = Orm.db.students
+                .Where(c => c.active == active)
                 .ToList();
 
 
@@ -18,7 +19,10 @@ namespace Libe_Escriptori.Models.Usuaris.Alumnes
         }
         public static void Delete(students _students)
         {
-            Orm.db.students.Remove(_students);
+            _students = Orm.db.students
+                .Where(c => c.id == _students.id)
+                .First();
+            _students.active = false;
             Orm.db.SaveChanges();
         }
     }

@@ -24,6 +24,10 @@ namespace Libe_Escriptori.Models
         public string name { get; set; }
         public int validable_zone_id { get; set; }
         public int user_id { get; set; }
+        public bool active { get; set; }
+        public System.DateTime created_timestamp { get; set; }
+        public Nullable<System.DateTime> updated_timestamp { get; set; }
+        public Nullable<System.DateTime> deleted_timesatmp { get; set; }
     
         public virtual users users { get; set; }
         public virtual validable_zones validable_zones { get; set; }
