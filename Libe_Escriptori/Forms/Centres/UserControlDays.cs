@@ -18,6 +18,10 @@ namespace Libe_Escriptori.Forms.Centres
         private Color yellow = Color.FromArgb(255, 255, 128);
         private Color green = Color.FromArgb(128, 255, 128);
         private Color pink = Color.FromArgb(255, 128, 255);
+        private Color weekendColor = Color.FromArgb(255, 128, 128);
+        private Color previousColor;
+
+        private DateTime defaultDateTime = new DateTime(1, 1, 1);
         public UserControlDays(Color color, Label date)
         {
             InitializeComponent();
@@ -99,24 +103,90 @@ namespace Libe_Escriptori.Forms.Centres
             int day = int.Parse(labelDay.Text);
 
             DateTime daySelected = new DateTime(year, month, day);
-
-
-            BackGroundColor(colorPicked);
-            if (colorPicked.Equals(blue))
+            if(this.BackColor != weekendColor)
             {
-                FormCalendari.diesLliureDisposicio.Add(daySelected);
+                BackGroundColor(colorPicked);
             }
-            else if (colorPicked.Equals(yellow))
+            
+            if (colorPicked.Equals(blue) && FormCalendari.diesLliureDisposicio.Where(d => d.Equals(daySelected)).FirstOrDefault() == default)
             {
+                var isFestiu = FormCalendari.diesFestius.Where(d => d.Equals(daySelected)).FirstOrDefault();
+                if (isFestiu != default)
+                {
+                    FormCalendari.diesFestius.Remove(isFestiu);
+                }
+                FormCalendari.diesLliureDisposicio.Add(daySelected);
+
+            }
+            else if (colorPicked.Equals(yellow) && FormCalendari.diesFestius.Where(d => d.Equals(daySelected)).FirstOrDefault() == default)
+            {
+                var isLliureDisposicio = FormCalendari.diesLliureDisposicio.Where(d => d.Equals(daySelected)).FirstOrDefault();
+                if (isLliureDisposicio != default)
+                {
+                    FormCalendari.diesLliureDisposicio.Remove(isLliureDisposicio);
+                }
                 FormCalendari.diesFestius.Add(daySelected);
             }
             else if (colorPicked.Equals(green))
             {
+                var isFestiu = FormCalendari.diesFestius.Where(d => d.Equals(daySelected)).FirstOrDefault();
+                var isLliureDisposicio = FormCalendari.diesLliureDisposicio.Where(d => d.Equals(daySelected)).FirstOrDefault();
+
+
+                if (isFestiu != null)
+                {
+                    FormCalendari.diesFestius.Remove(isFestiu);
+                }
+                if (isLliureDisposicio != null)
+                {
+                    FormCalendari.diesLliureDisposicio.Remove(isLliureDisposicio);
+                }
+                if (daySelected == FormCalendari.fiCurs)
+                {
+                    FormCalendari.fiCurs = defaultDateTime;
+                }
+               
                 FormCalendari.iniciCurs = daySelected;
+
             }
             else if (colorPicked.Equals(pink))
             {
+                var isFestiu = FormCalendari.diesFestius.Where(d => d.Equals(daySelected)).FirstOrDefault();
+                var isLliureDisposicio = FormCalendari.diesLliureDisposicio.Where(d => d.Equals(daySelected)).FirstOrDefault();
+                if (isFestiu != null)
+                {
+                    FormCalendari.diesFestius.Remove(isFestiu);
+                }
+                if (isLliureDisposicio != null)
+                {
+                    FormCalendari.diesLliureDisposicio.Remove(isLliureDisposicio);
+                }
+                if (daySelected == FormCalendari.iniciCurs)
+                {
+                    FormCalendari.iniciCurs = defaultDateTime;
+                }
                 FormCalendari.fiCurs = daySelected;
+            }
+            else if (colorPicked.Equals(Color.White))
+            {
+                var isFestiu = FormCalendari.diesFestius.Where(d => d.Equals(daySelected)).FirstOrDefault();
+                var isLliureDisposicio = FormCalendari.diesLliureDisposicio.Where(d => d.Equals(daySelected)).FirstOrDefault();
+                if (isFestiu != null)
+                {
+                    FormCalendari.diesFestius.Remove(isFestiu);
+                }
+                if(isLliureDisposicio != null){
+                    FormCalendari.diesLliureDisposicio.Remove(isLliureDisposicio);
+                }
+
+                if (daySelected == FormCalendari.fiCurs)
+                {
+                    FormCalendari.fiCurs = defaultDateTime; 
+                }
+                if (daySelected == FormCalendari.iniciCurs)
+                {
+                    FormCalendari.iniciCurs = defaultDateTime;
+                }
             }
         }
 
