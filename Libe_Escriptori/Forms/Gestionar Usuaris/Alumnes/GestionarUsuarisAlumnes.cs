@@ -27,7 +27,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
 
         private void GestionarUsuarisAlumnes_Load(object sender, EventArgs e)
         {
-            bindingSourceStudents.DataSource = AlumnesOrm.Select(true);
+            bindingSourceStudents.DataSource = AlumnesOrm.Select(false);
         }
 
         private void OpenChildForm(Form childForm)
@@ -100,6 +100,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
                     {
                         dataGridView1.CurrentRow.Selected = true;
                         AlumnesOrm.Delete((students)dataGridView1.SelectedRows[0].DataBoundItem);
+                    //Recargar
                     }
                 }
             
