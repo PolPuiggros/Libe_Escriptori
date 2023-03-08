@@ -216,6 +216,9 @@
     <Compile Include="Models\courses.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Courses\UnitsORM.cs" />
+    <Compile Include="Models\Courses\ModulesORM.cs" />
+    <Compile Include="Models\Courses\CoursesORM.cs" />
     <Compile Include="Models\departments.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
@@ -368,7 +371,11 @@
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\csproj.AssemblyReference.cache" />
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.Courses.CoursesORM.datasource" />
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.courses.datasource" />
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.modules.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.students.datasource" />
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.units.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

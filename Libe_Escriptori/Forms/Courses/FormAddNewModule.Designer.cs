@@ -30,6 +30,7 @@ namespace Libe_Escriptori.Forms.Courses
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelNewModule = new System.Windows.Forms.Panel();
             this.labelNewModule = new System.Windows.Forms.Label();
             this.buttonCancel = new System.Windows.Forms.Button();
@@ -39,8 +40,13 @@ namespace Libe_Escriptori.Forms.Courses
             this.textBoxHours = new System.Windows.Forms.TextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxAbbreviation = new System.Windows.Forms.TextBox();
+            this.bindingSourceUnits = new System.Windows.Forms.BindingSource(this.components);
+            this.abreviationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalhoursDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelNewModule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUnits)).BeginInit();
             this.SuspendLayout();
             // 
             // panelNewModule
@@ -95,6 +101,7 @@ namespace Libe_Escriptori.Forms.Courses
             this.buttonSave.TabIndex = 8;
             this.buttonSave.Text = "Guardar";
             this.buttonSave.UseVisualStyleBackColor = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // labelUF
             // 
@@ -108,7 +115,14 @@ namespace Libe_Escriptori.Forms.Courses
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.abreviationDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.totalhoursDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.bindingSourceUnits;
             this.dataGridView1.Location = new System.Drawing.Point(82, 184);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
@@ -157,6 +171,28 @@ namespace Libe_Escriptori.Forms.Courses
             this.textBoxAbbreviation.Enter += new System.EventHandler(this.textBoxAbbreviation_Enter);
             this.textBoxAbbreviation.Leave += new System.EventHandler(this.textBoxAbbreviation_Leave);
             // 
+            // bindingSourceUnits
+            // 
+            this.bindingSourceUnits.DataSource = typeof(Libe_Escriptori.Models.units);
+            // 
+            // abreviationDataGridViewTextBoxColumn
+            // 
+            this.abreviationDataGridViewTextBoxColumn.DataPropertyName = "abreviation";
+            this.abreviationDataGridViewTextBoxColumn.HeaderText = "abreviation";
+            this.abreviationDataGridViewTextBoxColumn.Name = "abreviationDataGridViewTextBoxColumn";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // totalhoursDataGridViewTextBoxColumn
+            // 
+            this.totalhoursDataGridViewTextBoxColumn.DataPropertyName = "total_hours";
+            this.totalhoursDataGridViewTextBoxColumn.HeaderText = "total_hours";
+            this.totalhoursDataGridViewTextBoxColumn.Name = "totalhoursDataGridViewTextBoxColumn";
+            // 
             // FormAddNewModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -166,9 +202,11 @@ namespace Libe_Escriptori.Forms.Courses
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormAddNewModule";
             this.Text = "FormAddModule";
+            this.Load += new System.EventHandler(this.FormAddNewModule_Load);
             this.panelNewModule.ResumeLayout(false);
             this.panelNewModule.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUnits)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -184,5 +222,9 @@ namespace Libe_Escriptori.Forms.Courses
         private Button buttonSave;
         private Button buttonCancel;
         private Label labelNewModule;
+        private BindingSource bindingSourceUnits;
+        private DataGridViewTextBoxColumn abreviationDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn totalhoursDataGridViewTextBoxColumn;
     }
 }

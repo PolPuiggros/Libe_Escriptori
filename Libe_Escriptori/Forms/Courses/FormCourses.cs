@@ -1,4 +1,8 @@
-﻿using Libe_Escriptori.Forms.Gestionar_Usuaris.Professors;
+﻿using Libe_Escriptori.Forms.Gestionar_Usuaris;
+using Libe_Escriptori.Forms.Gestionar_Usuaris.Professors;
+using Libe_Escriptori.Models;
+using Libe_Escriptori.Models.Courses;
+using Libe_Escriptori.Models.Usuaris.Alumnes;
 using Libe_Escriptori.Properties;
 using System;
 using System.Collections.Generic;
@@ -43,7 +47,7 @@ namespace Libe_Escriptori.Forms.Courses
 
         private void buttonNew_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormCoursesAdd(labeld));
+            OpenChildForm(new FormCoursesAdd(labeld, -1));
         }
 
         private void dataGridViewCourses_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -76,6 +80,31 @@ namespace Libe_Escriptori.Forms.Courses
 
                 e.Graphics.DrawImage(Resources.bin, new Rectangle(x, y, w, h));
                 e.Handled = true;
+            }
+        }
+
+        private void FormCourses_Load(object sender, EventArgs e)
+        {
+            bindingSourceCourses.DataSource = CoursesORM.Select();
+        }
+
+        private void dataGridViewCourses_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 3)
+            {
+                var selectedCourse = (courses)dataGridViewCourses.SelectedRows[0].DataBoundItem;
+                OpenChildForm(new FormCoursesAdd(labeld, selectedCourse.id));
+            }
+            else if (e.ColumnIndex == 4)
+            {
+                DialogResult dialogResult = MessageBox.Show("Estas segur que vols esborrar aquest curs?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (dialogResult == DialogResult.OK)
+                {
+                    dataGridViewCourses.CurrentRow.Selected = true;
+                    CoursesORM.Delete((courses)dataGridViewCourses.SelectedRows[0].DataBoundItem);
+                    bindingSourceCourses.DataSource = CoursesORM.Select();
+                }
             }
         }
     }
