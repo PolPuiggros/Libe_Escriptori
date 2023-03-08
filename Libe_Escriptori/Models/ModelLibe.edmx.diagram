@@ -39,7 +39,7 @@
         <AssociationConnector Association="libeModel.profesor_department" />
         <AssociationConnector Association="libeModel.profesor_lesson" />
         <AssociationConnector Association="libeModel.student_unit" />
-        <EntityTypeShape EntityType="libeModel.classrooms" Width="1.5" PointX="5.75" PointY="12.875" />
+        <EntityTypeShape EntityType="libeModel.classrooms" Width="1.5" PointX="7.25" PointY="14.125" />
         <EntityTypeShape EntityType="libeModel.courses" Width="1.5" PointX="0.5" PointY="9.625" />
         <EntityTypeShape EntityType="libeModel.groups" Width="1.5" PointX="2.375" PointY="6.625" />
         <EntityTypeShape EntityType="libeModel.modules" Width="1.5" PointX="2.75" PointY="10.875" />

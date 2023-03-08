@@ -173,7 +173,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.buttonNew.TabIndex = 6;
             this.buttonNew.Text = "Nou";
             this.buttonNew.UseVisualStyleBackColor = false;
-            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click_1);
+            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
             // nameDataGridViewTextBoxColumn
             // 

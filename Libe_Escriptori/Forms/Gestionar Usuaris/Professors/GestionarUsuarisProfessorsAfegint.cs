@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Libe_Escriptori.Models;
+using Libe_Escriptori.Models.Usuaris.Profesors;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,30 +18,45 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
         private String textBoxHintSurnname = " Cognoms";
         private String textBoxHintEmail = " Email";
         private String textBoxHintPhone = " Tel";
-        private String textBoxHintDni = " DNI";
+
+        BindingList<departments> listDepartaments = new BindingList<departments>();
+
         public GestionarUsuarisProfessorsAfegint(Label labelRuta)
         {
             InitializeComponent();
             labelRuta.Text = "Gestionar Usuaris/Gestionar Professors/Afegint";
         }
 
+        private void GestionarUsuarisProfessorsAfegint_Load(object sender, EventArgs e)
+        {
+            bindingSourceDepartments.DataSource = DepartmentsOrm.Select(true);
+        }
+
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            foreach (var selectedItem in listBoxAllDepartments.SelectedItems)
+            foreach (departments selectedItem in listBoxAllDepartments.SelectedItems)
             {
-                if (!listBoxteacherDespartments.Items.Contains(selectedItem))
+                if (listDepartaments.FirstOrDefault(d => d.id == selectedItem.id) == null)
                 {
-                    listBoxteacherDespartments.Items.Add(selectedItem);
+                    listDepartaments.Add(selectedItem);
                 }
             }
+            listBoxteacherDespartments.ValueMember = "id";
+            listBoxteacherDespartments.DisplayMember = "name";
+            listBoxteacherDespartments.DataSource = listDepartaments;
+
             listBoxAllDepartments.ClearSelected();
         }
 
         private void buttonDeleteDepartment_Click(object sender, EventArgs e)
         {
-            while (listBoxteacherDespartments.SelectedItems.Count > 0) {
-                listBoxteacherDespartments.Items.Remove(listBoxteacherDespartments.SelectedItems[0]);
+            int count = listBoxteacherDespartments.SelectedItems.Count;
+            while (count > 0) {
+                listDepartaments.RemoveAt(listBoxteacherDespartments.SelectedIndex);
+                listBoxteacherDespartments.DataSource = listDepartaments;
+                count--;
             }
+            listBoxteacherDespartments.ClearSelected();
         }
 
         private void textBoxName_Enter(object sender, EventArgs e)
@@ -82,14 +99,29 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
             TextBoxDesign.textBoxSearch_Leave(textBoxPhone, textBoxHintPhone);
         }
 
-        private void textBoxDni_Enter(object sender, EventArgs e)
+        private void buttonAfegir_Click(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Enter(textBoxDni, textBoxHintDni);
-        }
+            string[] surnames = textBoxSurname.Text.Split(' ', (char)2);
 
-        private void textBoxDni_Leave(object sender, EventArgs e)
-        {
-            TextBoxDesign.textBoxSearch_Leave(textBoxDni, textBoxHintDni);
+            users _users = new users();
+            _users.username = textBoxName.Text.Substring(0,1).ToLower() + surnames[0].ToLower() + surnames[1].Substring(0,1).ToLower();
+            _users.password = Blowfish.encriptarContrasenya(textBoxName.Text + textBoxPhone.Text);
+            _users.type = 2;
+            _users.active = true;
+            UsersOrm.Insert(_users);
+
+            profesors _profesors = new profesors();
+
+            _profesors.id = UsersOrm.Select(_users.username);
+            _profesors.name = textBoxName.Text;
+            _profesors.surname1 = surnames[0];
+            _profesors.surname2 = surnames[1];
+            _profesors.email = textBoxEmail.Text;
+            _profesors.phone_number = textBoxPhone.Text;
+            _profesors.departments = listBoxteacherDespartments.Items.Cast<departments>().ToList();
+            _profesors.active = true;
+            _profesors.created_timestamp = DateTime.Now;
+            ProfesorsOrm.Insert(_profesors);
         }
     }
 }

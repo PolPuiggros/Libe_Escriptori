@@ -222,6 +222,7 @@
     <Compile Include="Models\departments.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DepartmentsOrm.cs" />
     <Compile Include="Models\groups.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
@@ -281,6 +282,8 @@
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Usuaris\Alumnes\AlumnesOrm.cs" />
+    <Compile Include="Models\Usuaris\Profesors\ProfesorsOrm.cs" />
+    <Compile Include="Models\Usuaris\UsersOrm.cs" />
     <Compile Include="Models\validable_zones.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
@@ -371,9 +374,8 @@
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\csproj.AssemblyReference.cache" />
-    <None Include="Properties\DataSources\Libe_Escriptori.Models.Courses.CoursesORM.datasource" />
-    <None Include="Properties\DataSources\Libe_Escriptori.Models.courses.datasource" />
-    <None Include="Properties\DataSources\Libe_Escriptori.Models.modules.datasource" />
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.departments.datasource" />
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.profesors.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.students.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.units.datasource" />
     <None Include="Properties\Settings.settings">
