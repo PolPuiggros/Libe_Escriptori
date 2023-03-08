@@ -1,4 +1,6 @@
-﻿using Libe_Escriptori.Properties;
+﻿using Libe_Escriptori.Models;
+using Libe_Escriptori.Models.Courses;
+using Libe_Escriptori.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,11 +19,18 @@ namespace Libe_Escriptori.Forms.Courses
         private String textBoxHintAbreviation = " Abreviació";
         private String textBoxHintName = " Nom Complert del curs";
         private Form activeForm;
-        public FormCoursesAdd(Label labelRuta)
+        private int courseId;
+        private bool addingNew = false;
+        public FormCoursesAdd(Label labelRuta, int courseId)
         {
             InitializeComponent();
             labelRuta.Text = "Gestionar Cursos/Afegint Curs";
             labeld = labelRuta;
+            this.courseId = courseId;
+            if (courseId < 0)
+            {
+                addingNew = true;
+            }
         }
 
        
@@ -77,7 +86,7 @@ namespace Libe_Escriptori.Forms.Courses
 
         private void buttonNew_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormAddNewModule(labeld));
+            OpenChildForm(new FormAddNewModule(labeld, -1));
         }
 
         private void dataGridViewModules_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -111,6 +120,59 @@ namespace Libe_Escriptori.Forms.Courses
                 e.Graphics.DrawImage(Resources.bin, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
+        }
+
+        private void FormCoursesAdd_Load(object sender, EventArgs e)
+        {
+            if (!addingNew)
+            {
+                bindingSourceModules.DataSource = ModulesORM.Select(courseId);
+            }
+
+            
+        }
+
+        private void bindingSourceModules_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridViewModules_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if(e.ColumnIndex == 3)
+            {
+                modules m = (modules)dataGridViewModules.Rows[e.RowIndex].DataBoundItem;
+                if (m != null)
+                {
+                    e.Value = m.units.Count.ToString();
+                }
+                
+            }
+        }
+
+        private void dataGridViewModules_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 4)
+            {
+                var selectedModule = (modules)dataGridViewModules.SelectedRows[0].DataBoundItem;
+                OpenChildForm(new FormAddNewModule(labeld, selectedModule.id));
+            }
+            else if (e.ColumnIndex == 5)
+            {
+                DialogResult dialogResult = MessageBox.Show("Estas segur que vols esborrar aquest modul?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (dialogResult == DialogResult.OK)
+                {
+                    dataGridViewModules.CurrentRow.Selected = true;
+                    ModulesORM.Delete((modules)dataGridViewModules.SelectedRows[0].DataBoundItem);
+                    dataGridViewModules.DataSource = CoursesORM.Select();
+                }
+            }
+        }
+
+        private void panelCoursesAdd_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

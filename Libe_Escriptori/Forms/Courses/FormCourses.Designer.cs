@@ -35,13 +35,13 @@ namespace Libe_Escriptori.Forms.Courses
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelCourses = new System.Windows.Forms.Panel();
             this.dataGridViewCourses = new System.Windows.Forms.DataGridView();
-            this.buttonNew = new System.Windows.Forms.Button();
-            this.bindingSourceCourses = new System.Windows.Forms.BindingSource(this.components);
             this.abreviationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalhoursDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.bindingSourceCourses = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonNew = new System.Windows.Forms.Button();
             this.panelCourses.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCourses)).BeginInit();
@@ -93,27 +93,11 @@ namespace Libe_Escriptori.Forms.Courses
             this.dataGridViewCourses.ReadOnly = true;
             this.dataGridViewCourses.RowHeadersVisible = false;
             this.dataGridViewCourses.RowTemplate.Height = 25;
+            this.dataGridViewCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCourses.Size = new System.Drawing.Size(880, 505);
             this.dataGridViewCourses.TabIndex = 5;
+            this.dataGridViewCourses.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCourses_CellClick);
             this.dataGridViewCourses.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridViewCourses_CellPainting);
-            // 
-            // buttonNew
-            // 
-            this.buttonNew.BackColor = System.Drawing.Color.White;
-            this.buttonNew.FlatAppearance.BorderSize = 0;
-            this.buttonNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.buttonNew.Location = new System.Drawing.Point(65, 49);
-            this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(137, 31);
-            this.buttonNew.TabIndex = 4;
-            this.buttonNew.Text = "Nou";
-            this.buttonNew.UseVisualStyleBackColor = false;
-            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
-            // 
-            // bindingSourceCourses
-            // 
-            this.bindingSourceCourses.DataSource = typeof(Libe_Escriptori.Models.courses);
             // 
             // abreviationDataGridViewTextBoxColumn
             // 
@@ -156,6 +140,24 @@ namespace Libe_Escriptori.Forms.Courses
             this.ColumnDelete.Name = "ColumnDelete";
             this.ColumnDelete.ReadOnly = true;
             this.ColumnDelete.Width = 5;
+            // 
+            // bindingSourceCourses
+            // 
+            this.bindingSourceCourses.DataSource = typeof(Libe_Escriptori.Models.courses);
+            // 
+            // buttonNew
+            // 
+            this.buttonNew.BackColor = System.Drawing.Color.White;
+            this.buttonNew.FlatAppearance.BorderSize = 0;
+            this.buttonNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.buttonNew.Location = new System.Drawing.Point(65, 49);
+            this.buttonNew.Name = "buttonNew";
+            this.buttonNew.Size = new System.Drawing.Size(137, 31);
+            this.buttonNew.TabIndex = 4;
+            this.buttonNew.Text = "Nou";
+            this.buttonNew.UseVisualStyleBackColor = false;
+            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
             // FormCourses
             // 
