@@ -1,4 +1,5 @@
 ﻿using Libe_Escriptori.Models;
+using Libe_Escriptori.Models.Courses;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,8 @@ namespace Libe_Escriptori.Forms.Groups
         List<Color> colors = new List<Color>();
         schedules _schedule;
         List<TimeSpan> hours = new List<TimeSpan>();
+        List<modules> modules = new List<modules>();
+        List<string> modulesCodes = new List<string>();
 
 
 
@@ -29,18 +32,26 @@ namespace Libe_Escriptori.Forms.Groups
         public FormCreateScheduleGroup(Label ruta)
         {
             InitializeComponent();
+            fillColors();
+            fillModuls();
             hours = LessonsOrm.SelectHours();
             dataGridViewSchedule.RowCount = hours.Count;
             initializeDataGrid();
             AdjustRowHeight();
             ruta.Text = "Gestionar Grups/Afegint Grup/Creant Horari";
-            fillColors();
-            fillModuls();
+            
         }
 
         private void initializeDataGrid()
         {
             _schedule = SchedulesOrm.Select().First();
+            modules = ModulesORM.Select();
+            int indexModule = -1;
+
+            foreach (modules module in modules)
+            {
+                modulesCodes.Add(module.code);
+            }
             
             List<lessons> hourLessonsList = new List<lessons>();
             foreach (DataGridViewRow row in dataGridViewSchedule.Rows)
@@ -60,22 +71,32 @@ namespace Libe_Escriptori.Forms.Groups
                         if (cell.ColumnIndex == 1)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 2)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 3)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 4)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 5)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                     }
 
@@ -89,26 +110,37 @@ namespace Libe_Escriptori.Forms.Groups
                         if (cell.ColumnIndex == 0)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex].starting_hour;
+                            
                         }
                         if (cell.ColumnIndex == 1)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 2)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 3)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 4)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 5)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                     }
 
@@ -122,26 +154,37 @@ namespace Libe_Escriptori.Forms.Groups
                         if (cell.ColumnIndex == 0)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex].starting_hour;
+                      
                         }
                         if (cell.ColumnIndex == 1)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 2)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 3)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 4)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 5)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                     }
 
@@ -160,22 +203,32 @@ namespace Libe_Escriptori.Forms.Groups
                         if (cell.ColumnIndex == 1)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 2)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 3)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 4)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 5)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                     }
 
@@ -194,22 +247,32 @@ namespace Libe_Escriptori.Forms.Groups
                         if (cell.ColumnIndex == 1)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 2)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 3)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 4)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 5)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                     }
 
