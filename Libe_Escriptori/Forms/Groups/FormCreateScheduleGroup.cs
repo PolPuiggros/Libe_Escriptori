@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Core.Common.CommandTrees;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,22 +20,201 @@ namespace Libe_Escriptori.Forms.Groups
         int indexItem = -1;
         List<string> moduls = new List<string>();
         List<Color> colors = new List<Color>();
+        schedules _schedule;
+        List<TimeSpan> hours = new List<TimeSpan>();
+
 
 
 
         public FormCreateScheduleGroup(Label ruta)
         {
             InitializeComponent();
-            AdjustRowHeight();
+            hours = LessonsOrm.SelectHours();
+            dataGridViewSchedule.RowCount = hours.Count;
             initializeDataGrid();
+            AdjustRowHeight();
             ruta.Text = "Gestionar Grups/Afegint Grup/Creant Horari";
             fillColors();
             fillModuls();
-
         }
 
         private void initializeDataGrid()
         {
+            _schedule = SchedulesOrm.Select().First();
+            
+            List<lessons> hourLessonsList = new List<lessons>();
+            foreach (DataGridViewRow row in dataGridViewSchedule.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    // 8:40
+                    if (row.Index == 0)
+                    {
+                        TimeSpan eightFourty = new TimeSpan(8, 40, 0);
+                        hourLessonsList = LessonsOrm.SelectLessonsAtHour(eightFourty);
+
+                        if (cell.ColumnIndex == 0)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex].starting_hour;
+                        }
+                        if (cell.ColumnIndex == 1)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                        }
+                        if (cell.ColumnIndex == 2)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                        }
+                        if (cell.ColumnIndex == 3)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                        }
+                        if (cell.ColumnIndex == 4)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                        }
+                        if (cell.ColumnIndex == 5)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                        }
+                    }
+
+
+                    //9:40
+                    if (row.Index == 1)
+                    {
+                        TimeSpan nineFourty = new TimeSpan(9, 40, 0);
+                        hourLessonsList = LessonsOrm.SelectLessonsAtHour(nineFourty);
+
+                        if (cell.ColumnIndex == 0)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex].starting_hour;
+                        }
+                        if (cell.ColumnIndex == 1)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                        }
+                        if (cell.ColumnIndex == 2)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                        }
+                        if (cell.ColumnIndex == 3)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                        }
+                        if (cell.ColumnIndex == 4)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                        }
+                        if (cell.ColumnIndex == 5)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                        }
+                    }
+
+
+                    //10:40
+                    if (row.Index == 2)
+                    {
+                        TimeSpan tenFourty = new TimeSpan(10, 40, 0);
+                        hourLessonsList = LessonsOrm.SelectLessonsAtHour(tenFourty);
+
+                        if (cell.ColumnIndex == 0)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex].starting_hour;
+                        }
+                        if (cell.ColumnIndex == 1)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                        }
+                        if (cell.ColumnIndex == 2)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                        }
+                        if (cell.ColumnIndex == 3)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                        }
+                        if (cell.ColumnIndex == 4)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                        }
+                        if (cell.ColumnIndex == 5)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                        }
+                    }
+
+
+
+                    //12:00
+                    if (row.Index == 3)
+                    {
+                        TimeSpan twelve = new TimeSpan(12, 0, 0);
+                        hourLessonsList = LessonsOrm.SelectLessonsAtHour(twelve);
+
+                        if (cell.ColumnIndex == 0)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex].starting_hour;
+                        }
+                        if (cell.ColumnIndex == 1)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                        }
+                        if (cell.ColumnIndex == 2)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                        }
+                        if (cell.ColumnIndex == 3)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                        }
+                        if (cell.ColumnIndex == 4)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                        }
+                        if (cell.ColumnIndex == 5)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                        }
+                    }
+
+
+
+                    //13:00
+                    if (row.Index == 4)
+                    {
+                        TimeSpan one = new TimeSpan(13, 0, 0);
+                        hourLessonsList = LessonsOrm.SelectLessonsAtHour(one);
+
+                        if (cell.ColumnIndex == 0)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex].starting_hour;
+                        }
+                        if (cell.ColumnIndex == 1)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                        }
+                        if (cell.ColumnIndex == 2)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                        }
+                        if (cell.ColumnIndex == 3)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                        }
+                        if (cell.ColumnIndex == 4)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                        }
+                        if (cell.ColumnIndex == 5)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                        }
+                    }
+
+                }
+            }
             
 
         }
@@ -45,7 +225,7 @@ namespace Libe_Escriptori.Forms.Groups
         {
             
             
-           
+            
         }
 
         private void listViewModuls_SelectedIndexChanged(object sender, EventArgs e)
@@ -63,7 +243,8 @@ namespace Libe_Escriptori.Forms.Groups
 
         private void AdjustRowHeight()
         {
-            int rowHeight = (this.dataGridViewSchedule.Size.Height - this.dataGridViewSchedule.ColumnHeadersHeight) / 6;
+            
+            int rowHeight = (this.dataGridViewSchedule.Size.Height - this.dataGridViewSchedule.ColumnHeadersHeight) / hours.Count;
             if (rowHeight > 0)
             {
                 this.dataGridViewSchedule.RowTemplate.Height = rowHeight;
@@ -136,8 +317,6 @@ namespace Libe_Escriptori.Forms.Groups
             colors.Add(Color.FromArgb(204, 226, 203));
             colors.Add(Color.FromArgb(182, 207, 182));
             colors.Add(Color.FromArgb(151, 193, 169));
-
-
         }
         private void fillModuls()
         {
@@ -161,6 +340,8 @@ namespace Libe_Escriptori.Forms.Groups
             moduls.Add("M18");
             moduls.Add("M19");
             moduls.Add("M20");
+
+
 
             foreach (string modul in moduls)
             {
@@ -219,18 +400,14 @@ namespace Libe_Escriptori.Forms.Groups
 
         private void dataGridViewSchedule_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.ColumnIndex== 0)
-            {
-                if (e.RowIndex== 0)
-                {
-                    
-                }
-            }
+            
         }
 
         private void FormCreateScheduleGroup_Load(object sender, EventArgs e)
         {
-            bindingSourceLessons.DataSource = LessonsOrm.Select();
+            
+            bindingSourceLessons.DataSource = LessonsOrm.Select(_schedule.id);
+            
         }
     }
 

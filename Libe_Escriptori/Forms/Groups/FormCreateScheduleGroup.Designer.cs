@@ -41,10 +41,10 @@ namespace Libe_Escriptori.Forms.Groups
             this.pictureBoxRightClick = new System.Windows.Forms.PictureBox();
             this.pictureBoxLeftClick = new System.Windows.Forms.PictureBox();
             this.dataGridViewSchedule = new System.Windows.Forms.DataGridView();
-            this.bindingSourceLessons = new System.Windows.Forms.BindingSource(this.components);
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.listViewModuls = new System.Windows.Forms.ListView();
+            this.bindingSourceLessons = new System.Windows.Forms.BindingSource(this.components);
             this.starting_hour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnMonday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTuesday = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -135,7 +135,6 @@ namespace Libe_Escriptori.Forms.Groups
             this.dataGridViewSchedule.AllowUserToDeleteRows = false;
             this.dataGridViewSchedule.AllowUserToResizeColumns = false;
             this.dataGridViewSchedule.AllowUserToResizeRows = false;
-            this.dataGridViewSchedule.AutoGenerateColumns = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
@@ -154,7 +153,6 @@ namespace Libe_Escriptori.Forms.Groups
             this.ColumnWednesday,
             this.ColumnThursday,
             this.ColumnFriday});
-            this.dataGridViewSchedule.DataSource = this.bindingSourceLessons;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 14.25F);
@@ -181,10 +179,6 @@ namespace Libe_Escriptori.Forms.Groups
             this.dataGridViewSchedule.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSchedule_CellDoubleClick);
             this.dataGridViewSchedule.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewSchedule_CellFormatting);
             this.dataGridViewSchedule.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewSchedule_CellMouseUp);
-            // 
-            // bindingSourceLessons
-            // 
-            this.bindingSourceLessons.DataSource = typeof(Libe_Escriptori.Models.lessons);
             // 
             // buttonSave
             // 
@@ -233,6 +227,10 @@ namespace Libe_Escriptori.Forms.Groups
             this.listViewModuls.UseCompatibleStateImageBehavior = false;
             this.listViewModuls.View = System.Windows.Forms.View.Tile;
             this.listViewModuls.SelectedIndexChanged += new System.EventHandler(this.listViewModuls_SelectedIndexChanged);
+            // 
+            // bindingSourceLessons
+            // 
+            this.bindingSourceLessons.DataSource = typeof(Libe_Escriptori.Models.lessons);
             // 
             // starting_hour
             // 
