@@ -27,7 +27,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
 
         private void GestionarUsuarisAlumnes_Load(object sender, EventArgs e)
         {
-            bindingSourceStudents.DataSource = AlumnesOrm.Select(false);
+            bindingSourceStudents.DataSource = AlumnesOrm.Select(true);
         }
 
         private void OpenChildForm(Form childForm)
@@ -45,11 +45,6 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             panelGestionarUsuaris.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-        }
-
-        private void buttonNew_Click_1(object sender, EventArgs e)
-        {
-            OpenChildForm(new GestionarUsuarisAlumnesAfegint(label));
         }
        
 
@@ -104,6 +99,11 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
                     }
                 }
             
+        }
+
+        private void buttonNew_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new GestionarUsuarisAlumnesAfegint(label));
         }
     }
 }

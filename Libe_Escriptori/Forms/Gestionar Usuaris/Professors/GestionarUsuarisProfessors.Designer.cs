@@ -30,19 +30,23 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelGestionarUsuarisProfessors = new System.Windows.Forms.Panel();
-            this.dataGridViewTeachers = new System.Windows.Forms.DataGridView();
-            this.ColumnNom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCognoms = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDepartament = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.buttonNew = new System.Windows.Forms.Button();
             this.textBoxFiltres = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.dataGridViewTeachers = new System.Windows.Forms.DataGridView();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.surname1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.surname2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phonenumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.bindingSourceProfesors = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonNew = new System.Windows.Forms.Button();
             this.panelGestionarUsuarisProfessors.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTeachers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProfesors)).BeginInit();
             this.SuspendLayout();
             // 
             // panelGestionarUsuarisProfessors
@@ -57,17 +61,42 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.panelGestionarUsuarisProfessors.Size = new System.Drawing.Size(1005, 650);
             this.panelGestionarUsuarisProfessors.TabIndex = 0;
             // 
+            // textBoxFiltres
+            // 
+            this.textBoxFiltres.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Italic);
+            this.textBoxFiltres.ForeColor = System.Drawing.Color.Gray;
+            this.textBoxFiltres.Location = new System.Drawing.Point(461, 43);
+            this.textBoxFiltres.MaximumSize = new System.Drawing.Size(711, 31);
+            this.textBoxFiltres.MinimumSize = new System.Drawing.Size(450, 31);
+            this.textBoxFiltres.Name = "textBoxFiltres";
+            this.textBoxFiltres.Size = new System.Drawing.Size(450, 27);
+            this.textBoxFiltres.TabIndex = 15;
+            this.textBoxFiltres.Text = " Introdueix dades clau del professor ex. DNI, Cognom...";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic);
+            this.label2.Location = new System.Drawing.Point(461, 77);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(155, 13);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "ex. Joan, Guardiola, 43129473F";
+            // 
             // dataGridViewTeachers
             // 
+            this.dataGridViewTeachers.AutoGenerateColumns = false;
             this.dataGridViewTeachers.BackgroundColor = System.Drawing.Color.DarkGray;
             this.dataGridViewTeachers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTeachers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnNom,
-            this.ColumnCognoms,
-            this.ColumnDNI,
-            this.ColumnDepartament,
+            this.nameDataGridViewTextBoxColumn,
+            this.surname1DataGridViewTextBoxColumn,
+            this.surname2DataGridViewTextBoxColumn,
+            this.emailDataGridViewTextBoxColumn,
+            this.phonenumberDataGridViewTextBoxColumn,
             this.ColumnEdit,
             this.ColumnDelete});
+            this.dataGridViewTeachers.DataSource = this.bindingSourceProfesors;
             this.dataGridViewTeachers.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGridViewTeachers.Location = new System.Drawing.Point(93, 99);
             this.dataGridViewTeachers.Name = "dataGridViewTeachers";
@@ -75,31 +104,43 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.dataGridViewTeachers.RowTemplate.Height = 25;
             this.dataGridViewTeachers.Size = new System.Drawing.Size(818, 503);
             this.dataGridViewTeachers.TabIndex = 13;
+            this.dataGridViewTeachers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTeachers_CellClick);
             this.dataGridViewTeachers.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridViewTeachers_CellPainting);
             // 
-            // ColumnNom
+            // nameDataGridViewTextBoxColumn
             // 
-            this.ColumnNom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnNom.HeaderText = "Nom";
-            this.ColumnNom.Name = "ColumnNom";
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "NOM";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             // 
-            // ColumnCognoms
+            // surname1DataGridViewTextBoxColumn
             // 
-            this.ColumnCognoms.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnCognoms.HeaderText = "Cognoms";
-            this.ColumnCognoms.Name = "ColumnCognoms";
+            this.surname1DataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.surname1DataGridViewTextBoxColumn.DataPropertyName = "surname1";
+            this.surname1DataGridViewTextBoxColumn.HeaderText = "1r COGNOM";
+            this.surname1DataGridViewTextBoxColumn.Name = "surname1DataGridViewTextBoxColumn";
             // 
-            // ColumnDNI
+            // surname2DataGridViewTextBoxColumn
             // 
-            this.ColumnDNI.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnDNI.HeaderText = "DNI";
-            this.ColumnDNI.Name = "ColumnDNI";
+            this.surname2DataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.surname2DataGridViewTextBoxColumn.DataPropertyName = "surname2";
+            this.surname2DataGridViewTextBoxColumn.HeaderText = "2n COGNOM";
+            this.surname2DataGridViewTextBoxColumn.Name = "surname2DataGridViewTextBoxColumn";
             // 
-            // ColumnDepartament
+            // emailDataGridViewTextBoxColumn
             // 
-            this.ColumnDepartament.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnDepartament.HeaderText = "Departament";
-            this.ColumnDepartament.Name = "ColumnDepartament";
+            this.emailDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "EMAIL";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            // 
+            // phonenumberDataGridViewTextBoxColumn
+            // 
+            this.phonenumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.phonenumberDataGridViewTextBoxColumn.DataPropertyName = "phone_number";
+            this.phonenumberDataGridViewTextBoxColumn.HeaderText = "TELEFON";
+            this.phonenumberDataGridViewTextBoxColumn.Name = "phonenumberDataGridViewTextBoxColumn";
             // 
             // ColumnEdit
             // 
@@ -117,55 +158,38 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.ColumnDelete.Name = "ColumnDelete";
             this.ColumnDelete.Width = 21;
             // 
+            // bindingSourceProfesors
+            // 
+            this.bindingSourceProfesors.DataSource = typeof(Libe_Escriptori.Models.profesors);
+            // 
             // buttonNew
             // 
             this.buttonNew.BackColor = System.Drawing.Color.White;
             this.buttonNew.FlatAppearance.BorderSize = 0;
             this.buttonNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.buttonNew.Location = new System.Drawing.Point(93, 43);
             this.buttonNew.Name = "buttonNew";
             this.buttonNew.Size = new System.Drawing.Size(137, 31);
             this.buttonNew.TabIndex = 10;
             this.buttonNew.Text = "Nou";
             this.buttonNew.UseVisualStyleBackColor = false;
-            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click_1);
-            // 
-            // textBoxFiltres
-            // 
-            this.textBoxFiltres.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.textBoxFiltres.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxFiltres.Location = new System.Drawing.Point(461, 43);
-            this.textBoxFiltres.MaximumSize = new System.Drawing.Size(829, 31);
-            this.textBoxFiltres.MinimumSize = new System.Drawing.Size(450, 31);
-            this.textBoxFiltres.Name = "textBoxFiltres";
-            this.textBoxFiltres.Size = new System.Drawing.Size(450, 31);
-            this.textBoxFiltres.TabIndex = 15;
-            this.textBoxFiltres.Text = " Introdueix dades clau del professor ex. DNI, Cognom...";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(461, 77);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 13);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "ex. Joan, Guardiola, 43129473F";
+            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
             // GestionarUsuarisProfessors
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 650);
             this.Controls.Add(this.panelGestionarUsuarisProfessors);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GestionarUsuarisProfessors";
             this.Text = "gestionarUsuarisProfessors";
+            this.Load += new System.EventHandler(this.GestionarUsuarisProfessors_Load);
             this.panelGestionarUsuarisProfessors.ResumeLayout(false);
             this.panelGestionarUsuarisProfessors.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTeachers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProfesors)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -175,13 +199,15 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
         private Panel panelGestionarUsuarisProfessors;
         private DataGridView dataGridViewTeachers;
         private Button buttonNew;
-        private DataGridViewTextBoxColumn ColumnNom;
-        private DataGridViewTextBoxColumn ColumnCognoms;
-        private DataGridViewTextBoxColumn ColumnDNI;
-        private DataGridViewTextBoxColumn ColumnDepartament;
-        private DataGridViewButtonColumn ColumnEdit;
-        private DataGridViewButtonColumn ColumnDelete;
         private TextBox textBoxFiltres;
         private Label label2;
+        private BindingSource bindingSourceProfesors;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn surname1DataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn surname2DataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn phonenumberDataGridViewTextBoxColumn;
+        private DataGridViewButtonColumn ColumnEdit;
+        private DataGridViewButtonColumn ColumnDelete;
     }
 }

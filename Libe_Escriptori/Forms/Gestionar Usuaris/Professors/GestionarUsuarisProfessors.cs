@@ -1,4 +1,7 @@
 ﻿using Libe_Escriptori.Forms.Gestionar_Usuaris.Professors;
+using Libe_Escriptori.Models.Usuaris.Alumnes;
+using Libe_Escriptori.Models;
+using Libe_Escriptori.Models.Usuaris.Profesors;
 using Libe_Escriptori.Properties;
 using System;
 using System.Collections.Generic;
@@ -22,6 +25,10 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             InitializeComponent();
             labeld = label;
         }
+        private void GestionarUsuarisProfessors_Load(object sender, EventArgs e)
+        {
+            bindingSourceProfesors.DataSource = ProfesorsOrm.Select(true);
+        }
         private void OpenChildForm(Form childForm)
         {
             if (activeForm != null)
@@ -39,18 +46,13 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             childForm.Show();
         }
 
-        private void buttonNew_Click_1(object sender, EventArgs e)
-        {
-            OpenChildForm(new GestionarUsuarisProfessorsAfegint(labeld));
-        }
-
         private void dataGridViewTeachers_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex < 0)
                 return;
 
             // Edit button column
-            if (e.ColumnIndex == 4)
+            if (e.ColumnIndex == 5)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
@@ -64,7 +66,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             }
 
             // Delete button column
-            if (e.ColumnIndex == 5)
+            if (e.ColumnIndex == 6)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
@@ -75,6 +77,29 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
 
                 e.Graphics.DrawImage(Resources.bin, new Rectangle(x, y, w, h));
                 e.Handled = true;
+            }
+        }
+
+        private void buttonNew_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new GestionarUsuarisProfessorsAfegint(labeld));
+        }
+
+        private void dataGridViewTeachers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 5)
+            {
+                OpenChildForm(new GestionarUsuarisProfessorsAfegint(labeld));
+            }
+            else if (e.ColumnIndex == 6)
+            {
+                DialogResult dialogResult = MessageBox.Show("Estas segur que vols borrar el professor?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (dialogResult == DialogResult.OK)
+                {
+                    dataGridViewTeachers.CurrentRow.Selected = true;
+                    ProfesorsOrm.Delete((profesors)dataGridViewTeachers.SelectedRows[0].DataBoundItem);
+                }
             }
         }
     }
