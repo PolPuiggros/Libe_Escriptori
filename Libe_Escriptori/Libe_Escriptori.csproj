@@ -226,6 +226,7 @@
     <Compile Include="Models\groups.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GroupsOrm.cs" />
     <Compile Include="Models\holidays.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
@@ -241,6 +242,7 @@
     <Compile Include="Models\lessons.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LessonsOrm.cs" />
     <Compile Include="Models\logs.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
@@ -269,6 +271,7 @@
     <Compile Include="Models\schedules.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SchedulesOrm.cs" />
     <Compile Include="Models\students.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
@@ -374,10 +377,18 @@
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\csproj.AssemblyReference.cache" />
+
     <None Include="Properties\DataSources\Libe_Escriptori.Models.departments.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.profesors.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.students.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.units.datasource" />
+
+
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.groups.datasource" />
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.GroupsOrm.datasource" />
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.lessons.datasource" />
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.schedules.datasource" />
+
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

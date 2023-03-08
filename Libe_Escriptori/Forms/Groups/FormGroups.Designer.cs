@@ -30,22 +30,32 @@ namespace Libe_Escriptori.Forms.Groups
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelGroups = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.buttonNewGroup = new System.Windows.Forms.Button();
-            this.comboBoxFilter = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.headerCicle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.headerPromotion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.headerClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.headerTutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.headerAlumnes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboBoxFilter = new System.Windows.Forms.ComboBox();
+            this.dataGridViewGroups = new System.Windows.Forms.DataGridView();
             this.headerEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.headerDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.buttonNewGroup = new System.Windows.Forms.Button();
+            this.courseidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gradeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupletterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tutoridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.scheduleidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coursesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.profesorsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.schedulesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSourceGroups = new System.Windows.Forms.BindingSource(this.components);
+            this.groupsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelGroups.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroups)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGroups)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelGroups
@@ -53,82 +63,38 @@ namespace Libe_Escriptori.Forms.Groups
             this.panelGroups.Controls.Add(this.comboBox3);
             this.panelGroups.Controls.Add(this.comboBox1);
             this.panelGroups.Controls.Add(this.comboBoxFilter);
-            this.panelGroups.Controls.Add(this.dataGridView1);
+            this.panelGroups.Controls.Add(this.dataGridViewGroups);
             this.panelGroups.Controls.Add(this.buttonNewGroup);
             this.panelGroups.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelGroups.Location = new System.Drawing.Point(0, 0);
             this.panelGroups.Name = "panelGroups";
-            this.panelGroups.Size = new System.Drawing.Size(1005, 650);
+            this.panelGroups.Size = new System.Drawing.Size(861, 563);
             this.panelGroups.TabIndex = 0;
             // 
-            // dataGridView1
+            // comboBox3
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeight = 35;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.headerCicle,
-            this.headerPromotion,
-            this.headerClass,
-            this.headerTutor,
-            this.headerAlumnes,
-            this.headerEdit,
-            this.headerDelete});
-            this.dataGridView1.Location = new System.Drawing.Point(61, 127);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(882, 464);
-            this.dataGridView1.TabIndex = 5;
-            this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
-            // 
-            // buttonNewGroup
-            // 
-            this.buttonNewGroup.BackColor = System.Drawing.Color.White;
-            this.buttonNewGroup.FlatAppearance.BorderSize = 0;
-            this.buttonNewGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNewGroup.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonNewGroup.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonNewGroup.Location = new System.Drawing.Point(61, 66);
-            this.buttonNewGroup.Name = "buttonNewGroup";
-            this.buttonNewGroup.Size = new System.Drawing.Size(137, 35);
-            this.buttonNewGroup.TabIndex = 4;
-            this.buttonNewGroup.Text = "Nou";
-            this.buttonNewGroup.UseVisualStyleBackColor = false;
-            this.buttonNewGroup.Click += new System.EventHandler(this.buttonNewGroup_Click_1);
-            // 
-            // comboBoxFilter
-            // 
-            this.comboBoxFilter.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBoxFilter.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBoxFilter.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.comboBoxFilter.FormattingEnabled = true;
-            this.comboBoxFilter.IntegralHeight = false;
-            this.comboBoxFilter.ItemHeight = 21;
-            this.comboBoxFilter.Items.AddRange(new object[] {
+            this.comboBox3.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBox3.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.comboBox3.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.IntegralHeight = false;
+            this.comboBox3.ItemHeight = 21;
+            this.comboBox3.Items.AddRange(new object[] {
             "Nom",
             "Cognom",
             "DNI"});
-            this.comboBoxFilter.Location = new System.Drawing.Point(384, 72);
-            this.comboBoxFilter.MaximumSize = new System.Drawing.Size(200, 0);
-            this.comboBoxFilter.MinimumSize = new System.Drawing.Size(121, 0);
-            this.comboBoxFilter.Name = "comboBoxFilter";
-            this.comboBoxFilter.Size = new System.Drawing.Size(168, 29);
-            this.comboBoxFilter.TabIndex = 9;
-            this.comboBoxFilter.Text = "Cicle";
+            this.comboBox3.Location = new System.Drawing.Point(497, 62);
+            this.comboBox3.MaximumSize = new System.Drawing.Size(172, 0);
+            this.comboBox3.MinimumSize = new System.Drawing.Size(104, 0);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(145, 29);
+            this.comboBox3.TabIndex = 11;
+            this.comboBox3.Text = "Classe";
             // 
             // comboBox1
             // 
             this.comboBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.comboBox1.ForeColor = System.Drawing.SystemColors.WindowText;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.IntegralHeight = false;
@@ -137,48 +103,78 @@ namespace Libe_Escriptori.Forms.Groups
             "Nom",
             "Cognom",
             "DNI"});
-            this.comboBox1.Location = new System.Drawing.Point(775, 72);
-            this.comboBox1.MaximumSize = new System.Drawing.Size(200, 0);
-            this.comboBox1.MinimumSize = new System.Drawing.Size(121, 0);
+            this.comboBox1.Location = new System.Drawing.Point(664, 62);
+            this.comboBox1.MaximumSize = new System.Drawing.Size(172, 0);
+            this.comboBox1.MinimumSize = new System.Drawing.Size(104, 0);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(168, 29);
+            this.comboBox1.Size = new System.Drawing.Size(145, 29);
             this.comboBox1.TabIndex = 10;
-            this.comboBox1.Text = "Promoció";
+            this.comboBox1.Text = "Any";
             // 
-            // headerCicle
+            // comboBoxFilter
             // 
-            this.headerCicle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.headerCicle.HeaderText = "Cicle";
-            this.headerCicle.Name = "headerCicle";
-            this.headerCicle.ReadOnly = true;
+            this.comboBoxFilter.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBoxFilter.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.comboBoxFilter.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.comboBoxFilter.FormattingEnabled = true;
+            this.comboBoxFilter.IntegralHeight = false;
+            this.comboBoxFilter.ItemHeight = 21;
+            this.comboBoxFilter.Items.AddRange(new object[] {
+            "Nom",
+            "Cognom",
+            "DNI"});
+            this.comboBoxFilter.Location = new System.Drawing.Point(329, 62);
+            this.comboBoxFilter.MaximumSize = new System.Drawing.Size(172, 0);
+            this.comboBoxFilter.MinimumSize = new System.Drawing.Size(104, 0);
+            this.comboBoxFilter.Name = "comboBoxFilter";
+            this.comboBoxFilter.Size = new System.Drawing.Size(145, 29);
+            this.comboBoxFilter.TabIndex = 9;
+            this.comboBoxFilter.Text = "Cicle";
             // 
-            // headerPromotion
+            // dataGridViewGroups
             // 
-            this.headerPromotion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.headerPromotion.HeaderText = "Promoció";
-            this.headerPromotion.Name = "headerPromotion";
-            this.headerPromotion.ReadOnly = true;
-            // 
-            // headerClass
-            // 
-            this.headerClass.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.headerClass.HeaderText = "Classe";
-            this.headerClass.Name = "headerClass";
-            this.headerClass.ReadOnly = true;
-            // 
-            // headerTutor
-            // 
-            this.headerTutor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.headerTutor.HeaderText = "Tutor";
-            this.headerTutor.Name = "headerTutor";
-            this.headerTutor.ReadOnly = true;
-            // 
-            // headerAlumnes
-            // 
-            this.headerAlumnes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.headerAlumnes.HeaderText = "Aula";
-            this.headerAlumnes.Name = "headerAlumnes";
-            this.headerAlumnes.ReadOnly = true;
+            this.dataGridViewGroups.AllowUserToAddRows = false;
+            this.dataGridViewGroups.AllowUserToDeleteRows = false;
+            this.dataGridViewGroups.AllowUserToResizeColumns = false;
+            this.dataGridViewGroups.AllowUserToResizeRows = false;
+            this.dataGridViewGroups.AutoGenerateColumns = false;
+            this.dataGridViewGroups.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGroups.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewGroups.ColumnHeadersHeight = 35;
+            this.dataGridViewGroups.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridViewGroups.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.courseidDataGridViewTextBoxColumn,
+            this.gradeDataGridViewTextBoxColumn,
+            this.groupletterDataGridViewTextBoxColumn,
+            this.tutoridDataGridViewTextBoxColumn,
+            this.studentsDataGridViewTextBoxColumn,
+            this.idDataGridViewTextBoxColumn,
+            this.scheduleidDataGridViewTextBoxColumn,
+            this.coursesDataGridViewTextBoxColumn,
+            this.profesorsDataGridViewTextBoxColumn,
+            this.schedulesDataGridViewTextBoxColumn,
+            this.headerEdit,
+            this.headerDelete});
+            this.dataGridViewGroups.DataSource = this.bindingSourceGroups;
+            this.dataGridViewGroups.Location = new System.Drawing.Point(53, 110);
+            this.dataGridViewGroups.Name = "dataGridViewGroups";
+            this.dataGridViewGroups.ReadOnly = true;
+            this.dataGridViewGroups.RowHeadersVisible = false;
+            this.dataGridViewGroups.RowTemplate.Height = 25;
+            this.dataGridViewGroups.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewGroups.Size = new System.Drawing.Size(756, 402);
+            this.dataGridViewGroups.TabIndex = 5;
+            this.dataGridViewGroups.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGroups_CellClick);
+            this.dataGridViewGroups.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            this.dataGridViewGroups.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
             // 
             // headerEdit
             // 
@@ -186,6 +182,7 @@ namespace Libe_Escriptori.Forms.Groups
             this.headerEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.headerEdit.HeaderText = "";
             this.headerEdit.Name = "headerEdit";
+            this.headerEdit.ReadOnly = true;
             this.headerEdit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.headerEdit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.headerEdit.Width = 29;
@@ -201,39 +198,125 @@ namespace Libe_Escriptori.Forms.Groups
             this.headerDelete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.headerDelete.Width = 29;
             // 
-            // comboBox3
+            // buttonNewGroup
             // 
-            this.comboBox3.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox3.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.IntegralHeight = false;
-            this.comboBox3.ItemHeight = 21;
-            this.comboBox3.Items.AddRange(new object[] {
-            "Nom",
-            "Cognom",
-            "DNI"});
-            this.comboBox3.Location = new System.Drawing.Point(580, 72);
-            this.comboBox3.MaximumSize = new System.Drawing.Size(200, 0);
-            this.comboBox3.MinimumSize = new System.Drawing.Size(121, 0);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(168, 29);
-            this.comboBox3.TabIndex = 11;
-            this.comboBox3.Text = "Classe";
+            this.buttonNewGroup.BackColor = System.Drawing.Color.White;
+            this.buttonNewGroup.FlatAppearance.BorderSize = 0;
+            this.buttonNewGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNewGroup.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.buttonNewGroup.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonNewGroup.Location = new System.Drawing.Point(52, 57);
+            this.buttonNewGroup.Name = "buttonNewGroup";
+            this.buttonNewGroup.Size = new System.Drawing.Size(117, 30);
+            this.buttonNewGroup.TabIndex = 4;
+            this.buttonNewGroup.Text = "Nou";
+            this.buttonNewGroup.UseVisualStyleBackColor = false;
+            this.buttonNewGroup.Click += new System.EventHandler(this.buttonNewGroup_Click_1);
+            // 
+            // courseidDataGridViewTextBoxColumn
+            // 
+            this.courseidDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.courseidDataGridViewTextBoxColumn.DataPropertyName = "course_id";
+            this.courseidDataGridViewTextBoxColumn.HeaderText = "course_id";
+            this.courseidDataGridViewTextBoxColumn.Name = "courseidDataGridViewTextBoxColumn";
+            this.courseidDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // gradeDataGridViewTextBoxColumn
+            // 
+            this.gradeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.gradeDataGridViewTextBoxColumn.DataPropertyName = "grade";
+            this.gradeDataGridViewTextBoxColumn.HeaderText = "grade";
+            this.gradeDataGridViewTextBoxColumn.Name = "gradeDataGridViewTextBoxColumn";
+            this.gradeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // groupletterDataGridViewTextBoxColumn
+            // 
+            this.groupletterDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.groupletterDataGridViewTextBoxColumn.DataPropertyName = "group_letter";
+            this.groupletterDataGridViewTextBoxColumn.HeaderText = "group_letter";
+            this.groupletterDataGridViewTextBoxColumn.Name = "groupletterDataGridViewTextBoxColumn";
+            this.groupletterDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tutoridDataGridViewTextBoxColumn
+            // 
+            this.tutoridDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tutoridDataGridViewTextBoxColumn.DataPropertyName = "tutor_id";
+            this.tutoridDataGridViewTextBoxColumn.HeaderText = "tutor_id";
+            this.tutoridDataGridViewTextBoxColumn.Name = "tutoridDataGridViewTextBoxColumn";
+            this.tutoridDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // studentsDataGridViewTextBoxColumn
+            // 
+            this.studentsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.studentsDataGridViewTextBoxColumn.DataPropertyName = "students";
+            this.studentsDataGridViewTextBoxColumn.HeaderText = "students";
+            this.studentsDataGridViewTextBoxColumn.Name = "studentsDataGridViewTextBoxColumn";
+            this.studentsDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // scheduleidDataGridViewTextBoxColumn
+            // 
+            this.scheduleidDataGridViewTextBoxColumn.DataPropertyName = "schedule_id";
+            this.scheduleidDataGridViewTextBoxColumn.HeaderText = "schedule_id";
+            this.scheduleidDataGridViewTextBoxColumn.Name = "scheduleidDataGridViewTextBoxColumn";
+            this.scheduleidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.scheduleidDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // coursesDataGridViewTextBoxColumn
+            // 
+            this.coursesDataGridViewTextBoxColumn.DataPropertyName = "courses";
+            this.coursesDataGridViewTextBoxColumn.HeaderText = "courses";
+            this.coursesDataGridViewTextBoxColumn.Name = "coursesDataGridViewTextBoxColumn";
+            this.coursesDataGridViewTextBoxColumn.ReadOnly = true;
+            this.coursesDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // profesorsDataGridViewTextBoxColumn
+            // 
+            this.profesorsDataGridViewTextBoxColumn.DataPropertyName = "profesors";
+            this.profesorsDataGridViewTextBoxColumn.HeaderText = "profesors";
+            this.profesorsDataGridViewTextBoxColumn.Name = "profesorsDataGridViewTextBoxColumn";
+            this.profesorsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.profesorsDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // schedulesDataGridViewTextBoxColumn
+            // 
+            this.schedulesDataGridViewTextBoxColumn.DataPropertyName = "schedules";
+            this.schedulesDataGridViewTextBoxColumn.HeaderText = "schedules";
+            this.schedulesDataGridViewTextBoxColumn.Name = "schedulesDataGridViewTextBoxColumn";
+            this.schedulesDataGridViewTextBoxColumn.ReadOnly = true;
+            this.schedulesDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // bindingSourceGroups
+            // 
+            this.bindingSourceGroups.DataSource = typeof(Libe_Escriptori.Models.groups);
+            // 
+            // groupsBindingSource
+            // 
+            this.groupsBindingSource.DataSource = typeof(Libe_Escriptori.Models.groups);
             // 
             // FormGroups
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(227)))), ((int)(((byte)(227)))));
-            this.ClientSize = new System.Drawing.Size(1005, 650);
+            this.ClientSize = new System.Drawing.Size(861, 563);
             this.Controls.Add(this.panelGroups);
             this.ForeColor = System.Drawing.SystemColors.Desktop;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormGroups";
             this.Text = "FormGroups";
+            this.Load += new System.EventHandler(this.FormGroups_Load);
             this.panelGroups.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroups)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGroups)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -241,17 +324,24 @@ namespace Libe_Escriptori.Forms.Groups
         #endregion
 
         private Panel panelGroups;
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewGroups;
         private Button buttonNewGroup;
         private ComboBox comboBoxFilter;
         private ComboBox comboBox1;
-        private DataGridViewTextBoxColumn headerCicle;
-        private DataGridViewTextBoxColumn headerPromotion;
-        private DataGridViewTextBoxColumn headerClass;
-        private DataGridViewTextBoxColumn headerTutor;
-        private DataGridViewTextBoxColumn headerAlumnes;
+        private ComboBox comboBox3;
+        private BindingSource groupsBindingSource;
+        private BindingSource bindingSourceGroups;
+        private DataGridViewTextBoxColumn courseidDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn gradeDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn groupletterDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn tutoridDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn studentsDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn scheduleidDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn coursesDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn profesorsDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn schedulesDataGridViewTextBoxColumn;
         private DataGridViewButtonColumn headerEdit;
         private DataGridViewButtonColumn headerDelete;
-        private ComboBox comboBox3;
     }
 }

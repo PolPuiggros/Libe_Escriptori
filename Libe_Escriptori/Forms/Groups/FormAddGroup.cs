@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Libe_Escriptori.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,11 +15,23 @@ namespace Libe_Escriptori.Forms.Groups
     {
         private Form activeForm;
         Label ruta;
+        groups group;
+        bool edit = false;
         public FormAddGroup(Label ruta)
         {
             InitializeComponent();
             ruta.Text = "Gestionar Grups/Afegint Grup";
             this.ruta = ruta;
+            this.edit = false;
+        }
+        public FormAddGroup(Label ruta,groups group)
+        {
+            InitializeComponent();
+            ruta.Text = "Gestionar Grups/Afegint Grup";
+            this.ruta = ruta;
+            this.group = group;
+            this.edit = true;
+            InitializeGroup();
         }
 
         private void buttonManageStudents_Click_1(object sender, EventArgs e)
@@ -53,6 +66,16 @@ namespace Libe_Escriptori.Forms.Groups
         {
             this.Close();
             ruta.Text = "Gestionar Grups";
+        }
+
+        private void InitializeGroup()
+        {
+            
+        }
+
+        private void FormAddGroup_Load(object sender, EventArgs e)
+        {
+            groupsBindingSource.DataSource = GroupsOrm.Select();
         }
     }
 }
