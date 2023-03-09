@@ -378,13 +378,10 @@
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\csproj.AssemblyReference.cache" />
-
     <None Include="Properties\DataSources\Libe_Escriptori.Models.departments.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.profesors.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.students.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.units.datasource" />
-
-
     <None Include="Properties\DataSources\Libe_Escriptori.Models.groups.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.GroupsOrm.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.lessons.datasource" />
@@ -435,6 +432,8 @@
     <Content Include="Resources\lines_yellow.jpg" />
     <None Include="Resources\mid_eraser.png" />
     <Content Include="Resources\minus.png" />
+    <None Include="Resources\pencil.png" />
+    <None Include="Resources\pencil %281%29.png" />
     <Content Include="Resources\profile_pic.png" />
     <Content Include="Resources\profile_pic_big.png" />
     <None Include="Resources\remove.png" />

@@ -28,6 +28,23 @@ namespace Libe_Escriptori.Models.Centre
 
             return _validables;
         }
+        public static int SelectClassrooms(int idZV)
+        {
+            List<classrooms> _classrooms = null;
+            try
+            {
+                _classrooms = Orm.db.classrooms
+                .Where(c => c.validable_zones.id == idZV)
+                .ToList();
+            }
+            catch (SqlException e)
+            {
+                Orm.MissatgeError(e);
+            }
+
+
+            return _classrooms.Count;
+        }
         public static string Insert(validable_zones zona)
         {
             String missatges = "";

@@ -39,8 +39,8 @@ namespace Libe_Escriptori.Forms.Centres
             this.dataGridViewDepartments = new System.Windows.Forms.DataGridView();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.profesorinchargeidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.bindingSourceDepartments = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCoordinator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDepartments)).BeginInit();
@@ -75,6 +75,7 @@ namespace Libe_Escriptori.Forms.Centres
             // 
             this.comboBoxCoordinador.DataSource = this.bindingSourceCoordinator;
             this.comboBoxCoordinador.DisplayMember = "name";
+            this.comboBoxCoordinador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCoordinador.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
             this.comboBoxCoordinador.ForeColor = System.Drawing.Color.Gray;
             this.comboBoxCoordinador.FormattingEnabled = true;
@@ -109,6 +110,7 @@ namespace Libe_Escriptori.Forms.Centres
             // 
             this.dataGridViewDepartments.AllowUserToAddRows = false;
             this.dataGridViewDepartments.AllowUserToDeleteRows = false;
+            this.dataGridViewDepartments.AllowUserToResizeRows = false;
             this.dataGridViewDepartments.AutoGenerateColumns = false;
             this.dataGridViewDepartments.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewDepartments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -121,11 +123,14 @@ namespace Libe_Escriptori.Forms.Centres
             this.dataGridViewDepartments.Location = new System.Drawing.Point(100, 255);
             this.dataGridViewDepartments.Name = "dataGridViewDepartments";
             this.dataGridViewDepartments.ReadOnly = true;
-            this.dataGridViewDepartments.RowTemplate.Height = 25;
+            this.dataGridViewDepartments.RowHeadersVisible = false;
+            this.dataGridViewDepartments.RowTemplate.Height = 30;
+            this.dataGridViewDepartments.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridViewDepartments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewDepartments.Size = new System.Drawing.Size(829, 292);
             this.dataGridViewDepartments.TabIndex = 8;
+            this.dataGridViewDepartments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDepartments_CellClick);
             this.dataGridViewDepartments.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewDepartments_CellFormatting);
-            this.dataGridViewDepartments.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridViewDepartments_CellPainting);
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -137,27 +142,32 @@ namespace Libe_Escriptori.Forms.Centres
             // 
             // profesorinchargeidDataGridViewTextBoxColumn
             // 
-            this.profesorinchargeidDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.profesorinchargeidDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.profesorinchargeidDataGridViewTextBoxColumn.DataPropertyName = "profesor_in_charge_id";
             this.profesorinchargeidDataGridViewTextBoxColumn.HeaderText = "COORDINADOR";
             this.profesorinchargeidDataGridViewTextBoxColumn.Name = "profesorinchargeidDataGridViewTextBoxColumn";
             this.profesorinchargeidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.profesorinchargeidDataGridViewTextBoxColumn.Width = 408;
             // 
             // Edit
             // 
-            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Edit.HeaderText = "";
+            this.Edit.Image = global::Libe_Escriptori.Properties.Resources.pencil__1_;
             this.Edit.Name = "Edit";
             this.Edit.ReadOnly = true;
-            this.Edit.Width = 5;
+            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Edit.Width = 40;
             // 
             // Delete
             // 
-            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Delete.HeaderText = "";
+            this.Delete.Image = global::Libe_Escriptori.Properties.Resources.close__1_;
             this.Delete.Name = "Delete";
             this.Delete.ReadOnly = true;
-            this.Delete.Width = 5;
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Delete.Width = 40;
             // 
             // bindingSourceDepartments
             // 
@@ -196,7 +206,7 @@ namespace Libe_Escriptori.Forms.Centres
         private BindingSource bindingSourceCoordinator;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn profesorinchargeidDataGridViewTextBoxColumn;
-        private DataGridViewButtonColumn Edit;
-        private DataGridViewButtonColumn Delete;
+        private DataGridViewImageColumn Edit;
+        private DataGridViewImageColumn Delete;
     }
 }
