@@ -292,6 +292,12 @@ namespace Libe_Escriptori.Forms.Centres
         {
             colorPicked = Color.FromArgb(255, 128, 255);
         }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            colorPicked = Color.FromKnownColor(KnownColor.White);
+        }
+
         private void panel20_Click(object sender, EventArgs e)
         {
             colorPicked = Color.FromArgb(255, 128, 255);

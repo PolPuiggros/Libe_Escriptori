@@ -30,40 +30,30 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBoxDni = new System.Windows.Forms.TextBox();
+            this.components = new System.ComponentModel.Container();
             this.textBoxPhone = new System.Windows.Forms.TextBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.textBoxSurname = new System.Windows.Forms.TextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.labelDepartmentTeacher = new System.Windows.Forms.Label();
             this.listBoxAllDepartments = new System.Windows.Forms.ListBox();
+            this.bindingSourceDepartments = new System.Windows.Forms.BindingSource(this.components);
             this.buttonAfegir = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.listBoxteacherDespartments = new System.Windows.Forms.ListBox();
             this.labelAllDepartments = new System.Windows.Forms.Label();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonDeleteDepartment = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDepartments)).BeginInit();
             this.SuspendLayout();
-            // 
-            // textBoxDni
-            // 
-            this.textBoxDni.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.textBoxDni.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxDni.Location = new System.Drawing.Point(543, 237);
-            this.textBoxDni.Name = "textBoxDni";
-            this.textBoxDni.Size = new System.Drawing.Size(366, 29);
-            this.textBoxDni.TabIndex = 9;
-            this.textBoxDni.Text = " DNI";
-            this.textBoxDni.Enter += new System.EventHandler(this.textBoxDni_Enter);
-            this.textBoxDni.Leave += new System.EventHandler(this.textBoxDni_Leave);
             // 
             // textBoxPhone
             // 
-            this.textBoxPhone.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.textBoxPhone.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
             this.textBoxPhone.ForeColor = System.Drawing.Color.Gray;
             this.textBoxPhone.Location = new System.Drawing.Point(99, 237);
             this.textBoxPhone.Name = "textBoxPhone";
-            this.textBoxPhone.Size = new System.Drawing.Size(366, 29);
+            this.textBoxPhone.Size = new System.Drawing.Size(810, 29);
             this.textBoxPhone.TabIndex = 8;
             this.textBoxPhone.Text = " Tel";
             this.textBoxPhone.Enter += new System.EventHandler(this.textBoxPhone_Enter);
@@ -71,7 +61,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.textBoxEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
             this.textBoxEmail.ForeColor = System.Drawing.Color.Gray;
             this.textBoxEmail.Location = new System.Drawing.Point(99, 156);
             this.textBoxEmail.Name = "textBoxEmail";
@@ -83,7 +73,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
             // 
             // textBoxSurname
             // 
-            this.textBoxSurname.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.textBoxSurname.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
             this.textBoxSurname.ForeColor = System.Drawing.Color.Gray;
             this.textBoxSurname.Location = new System.Drawing.Point(376, 79);
             this.textBoxSurname.Name = "textBoxSurname";
@@ -95,7 +85,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
             // 
             // textBoxName
             // 
-            this.textBoxName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.textBoxName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
             this.textBoxName.ForeColor = System.Drawing.Color.Gray;
             this.textBoxName.Location = new System.Drawing.Point(99, 79);
             this.textBoxName.Name = "textBoxName";
@@ -108,7 +98,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
             // labelDepartmentTeacher
             // 
             this.labelDepartmentTeacher.AutoSize = true;
-            this.labelDepartmentTeacher.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelDepartmentTeacher.Font = new System.Drawing.Font("Segoe UI", 12.75F);
             this.labelDepartmentTeacher.Location = new System.Drawing.Point(543, 315);
             this.labelDepartmentTeacher.Name = "labelDepartmentTeacher";
             this.labelDepartmentTeacher.Size = new System.Drawing.Size(221, 23);
@@ -117,39 +107,43 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
             // 
             // listBoxAllDepartments
             // 
-            this.listBoxAllDepartments.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.listBoxAllDepartments.DataSource = this.bindingSourceDepartments;
+            this.listBoxAllDepartments.DisplayMember = "name";
+            this.listBoxAllDepartments.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.listBoxAllDepartments.FormattingEnabled = true;
             this.listBoxAllDepartments.ItemHeight = 21;
-            this.listBoxAllDepartments.Items.AddRange(new object[] {
-            "Informàtica",
-            "Jardineria",
-            "Artistic"});
             this.listBoxAllDepartments.Location = new System.Drawing.Point(99, 346);
             this.listBoxAllDepartments.Name = "listBoxAllDepartments";
             this.listBoxAllDepartments.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listBoxAllDepartments.Size = new System.Drawing.Size(366, 151);
             this.listBoxAllDepartments.TabIndex = 12;
+            this.listBoxAllDepartments.ValueMember = "id";
+            // 
+            // bindingSourceDepartments
+            // 
+            this.bindingSourceDepartments.DataSource = typeof(Libe_Escriptori.Models.departments);
             // 
             // buttonAfegir
             // 
             this.buttonAfegir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(64)))), ((int)(((byte)(171)))));
             this.buttonAfegir.FlatAppearance.BorderSize = 0;
             this.buttonAfegir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAfegir.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonAfegir.Font = new System.Drawing.Font("Segoe UI", 12.75F);
             this.buttonAfegir.ForeColor = System.Drawing.Color.White;
             this.buttonAfegir.Location = new System.Drawing.Point(519, 540);
             this.buttonAfegir.Name = "buttonAfegir";
             this.buttonAfegir.Size = new System.Drawing.Size(145, 45);
             this.buttonAfegir.TabIndex = 14;
-            this.buttonAfegir.Text = "Afegir";
+            this.buttonAfegir.Text = "Guardar";
             this.buttonAfegir.UseVisualStyleBackColor = false;
+            this.buttonAfegir.Click += new System.EventHandler(this.buttonAfegir_Click);
             // 
             // buttonCancel
             // 
             this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(168)))), ((int)(((byte)(241)))));
             this.buttonCancel.FlatAppearance.BorderSize = 0;
             this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCancel.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonCancel.Font = new System.Drawing.Font("Segoe UI", 12.75F);
             this.buttonCancel.Location = new System.Drawing.Point(341, 540);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(145, 45);
@@ -159,7 +153,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
             // 
             // listBoxteacherDespartments
             // 
-            this.listBoxteacherDespartments.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.listBoxteacherDespartments.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.listBoxteacherDespartments.FormattingEnabled = true;
             this.listBoxteacherDespartments.ItemHeight = 21;
             this.listBoxteacherDespartments.Location = new System.Drawing.Point(543, 346);
@@ -171,7 +165,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
             // labelAllDepartments
             // 
             this.labelAllDepartments.AutoSize = true;
-            this.labelAllDepartments.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelAllDepartments.Font = new System.Drawing.Font("Segoe UI", 12.75F);
             this.labelAllDepartments.Location = new System.Drawing.Point(99, 316);
             this.labelAllDepartments.Name = "labelAllDepartments";
             this.labelAllDepartments.Size = new System.Drawing.Size(176, 23);
@@ -197,14 +191,14 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
             this.buttonDeleteDepartment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDeleteDepartment.Location = new System.Drawing.Point(885, 318);
             this.buttonDeleteDepartment.Name = "buttonDeleteDepartment";
-            this.buttonDeleteDepartment.Size = new System.Drawing.Size(24, 23);
+            this.buttonDeleteDepartment.Size = new System.Drawing.Size(21, 20);
             this.buttonDeleteDepartment.TabIndex = 18;
             this.buttonDeleteDepartment.UseVisualStyleBackColor = false;
             this.buttonDeleteDepartment.Click += new System.EventHandler(this.buttonDeleteDepartment_Click);
             // 
             // GestionarUsuarisProfessorsAfegint
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 650);
             this.Controls.Add(this.buttonDeleteDepartment);
@@ -215,7 +209,6 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.listBoxAllDepartments);
             this.Controls.Add(this.labelDepartmentTeacher);
-            this.Controls.Add(this.textBoxDni);
             this.Controls.Add(this.textBoxPhone);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.textBoxSurname);
@@ -223,14 +216,14 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GestionarUsuarisProfessorsAfegint";
             this.Text = "GestionarUsuarisProfessorsAfegint";
+            this.Load += new System.EventHandler(this.GestionarUsuarisProfessorsAfegint_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDepartments)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private TextBox textBoxDni;
         private TextBox textBoxPhone;
         private TextBox textBoxEmail;
         private TextBox textBoxSurname;
@@ -243,5 +236,6 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
         private Label labelAllDepartments;
         private Button buttonAdd;
         private Button buttonDeleteDepartment;
+        private BindingSource bindingSourceDepartments;
     }
 }

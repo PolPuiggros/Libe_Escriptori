@@ -51,6 +51,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.panelGestionarUsuaris.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceStudents)).BeginInit();
+
             this.SuspendLayout();
             // 
             // panelGestionarUsuaris
@@ -63,18 +64,20 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.panelGestionarUsuaris.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelGestionarUsuaris.Location = new System.Drawing.Point(0, 0);
             this.panelGestionarUsuaris.Name = "panelGestionarUsuaris";
-            this.panelGestionarUsuaris.Size = new System.Drawing.Size(1005, 650);
+            this.panelGestionarUsuaris.Size = new System.Drawing.Size(861, 563);
             this.panelGestionarUsuaris.TabIndex = 6;
             // 
             // textBoxFiltres
             // 
             this.textBoxFiltres.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Italic);
             this.textBoxFiltres.ForeColor = System.Drawing.Color.Gray;
+
             this.textBoxFiltres.Location = new System.Drawing.Point(313, 49);
             this.textBoxFiltres.MaximumSize = new System.Drawing.Size(711, 31);
             this.textBoxFiltres.MinimumSize = new System.Drawing.Size(450, 31);
             this.textBoxFiltres.Name = "textBoxFiltres";
             this.textBoxFiltres.Size = new System.Drawing.Size(450, 27);
+
             this.textBoxFiltres.TabIndex = 13;
             this.textBoxFiltres.Text = " Introdueix dades clau de l\'usuari ex. DNI, Cognom...";
             // 
@@ -82,7 +85,9 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Italic);
+
             this.label2.Location = new System.Drawing.Point(313, 83);
+
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(149, 13);
             this.label2.TabIndex = 12;
@@ -94,6 +99,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.dataGridView1.BackgroundColor = System.Drawing.Color.DarkGray;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+
             this.nameDataGridViewTextBoxColumn,
             this.surnameDataGridViewTextBoxColumn,
             this.surname2DataGridViewTextBoxColumn,
@@ -105,17 +111,21 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.ColumnEdit,
             this.ColumnDelete});
             this.dataGridView1.DataSource = this.bindingSourceStudents;
+
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridView1.Location = new System.Drawing.Point(91, 111);
+            this.dataGridView1.Location = new System.Drawing.Point(78, 96);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 25;
+
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(818, 474);
+
             this.dataGridView1.TabIndex = 11;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
             // 
+
             // email
             // 
             this.email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -123,6 +133,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.email.HeaderText = "EMAIL";
             this.email.Name = "email";
             this.email.ReadOnly = true;
+
             // 
             // ColumnEdit
             // 
@@ -140,6 +151,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.ColumnDelete.Name = "ColumnDelete";
             this.ColumnDelete.Width = 21;
             // 
+
             // comboBoxFilter
             // 
             this.comboBoxFilter.BackColor = System.Drawing.SystemColors.Window;
@@ -173,7 +185,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.buttonNew.TabIndex = 6;
             this.buttonNew.Text = "Nou";
             this.buttonNew.UseVisualStyleBackColor = false;
-            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click_1);
+            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -228,11 +240,12 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             // 
             this.bindingSourceStudents.DataSource = typeof(Libe_Escriptori.Models.students);
             // 
+
             // GestionarUsuarisAlumnes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1005, 650);
+            this.ClientSize = new System.Drawing.Size(861, 563);
             this.Controls.Add(this.panelGestionarUsuaris);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GestionarUsuarisAlumnes";
@@ -241,6 +254,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.panelGestionarUsuaris.ResumeLayout(false);
             this.panelGestionarUsuaris.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceStudents)).EndInit();
             this.ResumeLayout(false);
 
@@ -254,6 +268,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
         private Button buttonNew;
         private Label label2;
         private TextBox textBoxFiltres;
+
         private BindingSource bindingSourceStudents;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn surnameDataGridViewTextBoxColumn;
@@ -263,6 +278,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
         private DataGridViewTextBoxColumn phonenumberDataGridViewTextBoxColumn;
         private DataGridViewCheckBoxColumn autoregisterDataGridViewCheckBoxColumn;
         private DataGridViewCheckBoxColumn hasrepeatedDataGridViewCheckBoxColumn;
+
         private DataGridViewButtonColumn ColumnEdit;
         private DataGridViewButtonColumn ColumnDelete;
     }

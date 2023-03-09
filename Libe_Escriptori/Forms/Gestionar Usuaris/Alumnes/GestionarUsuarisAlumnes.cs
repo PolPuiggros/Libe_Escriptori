@@ -46,11 +46,6 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             childForm.BringToFront();
             childForm.Show();
         }
-
-        private void buttonNew_Click_1(object sender, EventArgs e)
-        {
-            OpenChildForm(new GestionarUsuarisAlumnesAfegint(label));
-        }
        
 
         private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -100,9 +95,15 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
                     {
                         dataGridView1.CurrentRow.Selected = true;
                         AlumnesOrm.Delete((students)dataGridView1.SelectedRows[0].DataBoundItem);
+                    //Recargar
                     }
                 }
             
+        }
+
+        private void buttonNew_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new GestionarUsuarisAlumnesAfegint(label));
         }
     }
 }
