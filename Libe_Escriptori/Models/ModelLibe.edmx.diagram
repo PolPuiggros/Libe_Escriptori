@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="08e827d7b4f9451d806635d89ff97626" Name="Diagram1">
+      <Diagram DiagramId="08e827d7b4f9451d806635d89ff97626" Name="Diagram1" ZoomLevel="67">
         <EntityTypeShape EntityType="libeModel.attendance" Width="1.5" PointX="7.5" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="libeModel.attendance_status" Width="1.5" PointX="5.25" PointY="14.25" IsExpanded="true" />
         <EntityTypeShape EntityType="libeModel.calendars" Width="1.5" PointX="7.75" PointY="1.125" IsExpanded="true" />
@@ -17,7 +17,6 @@
         <EntityTypeShape EntityType="libeModel.logs" Width="1.5" PointX="12.75" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="libeModel.schedules" Width="1.5" PointX="3" PointY="16.5" IsExpanded="true" />
         <EntityTypeShape EntityType="libeModel.user_type" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="libeModel.validable_zones" Width="1.5" PointX="0.75" PointY="13.5" IsExpanded="true" />
         <AssociationConnector Association="libeModel.FK_attendance_attendance_status" ManuallyRouted="false" />
         <AssociationConnector Association="libeModel.FK_attendance_justifications" ManuallyRouted="false" />
         <AssociationConnector Association="libeModel.FK_attendance_lessons" ManuallyRouted="false" />
@@ -44,7 +43,6 @@
         <EntityTypeShape EntityType="libeModel.groups" Width="1.5" PointX="2.375" PointY="6.625" />
         <EntityTypeShape EntityType="libeModel.modules" Width="1.5" PointX="2.75" PointY="10.875" />
         <AssociationConnector Association="libeModel.FK_classrooms_users" />
-        <AssociationConnector Association="libeModel.FK_classrooms1_validable_zones" />
         <AssociationConnector Association="libeModel.FK_lessons_classrooms" />
         <AssociationConnector Association="libeModel.FK_groups_groups" />
         <AssociationConnector Association="libeModel.FK_groups_profesors" />
@@ -54,6 +52,8 @@
         <AssociationConnector Association="libeModel.FK_units_units" />
         <AssociationConnector Association="libeModel.course_module" />
         <AssociationConnector Association="libeModel.profesor_module" />
+        <EntityTypeShape EntityType="libeModel.validable_zones" Width="1.5" PointX="14.375" PointY="7" />
+        <AssociationConnector Association="libeModel.FK_classrooms1_validable_zones" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

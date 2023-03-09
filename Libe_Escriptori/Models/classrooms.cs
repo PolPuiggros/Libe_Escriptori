@@ -25,13 +25,13 @@ namespace Libe_Escriptori.Models
         public int validable_zone_id { get; set; }
         public int user_id { get; set; }
         public bool active { get; set; }
-        public System.DateTime created_timestamp { get; set; }
+        public Nullable<System.DateTime> created_timestamp { get; set; }
         public Nullable<System.DateTime> updated_timestamp { get; set; }
         public Nullable<System.DateTime> deleted_timesatmp { get; set; }
     
         public virtual users users { get; set; }
-        public virtual validable_zones validable_zones { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<lessons> lessons { get; set; }
+        public virtual validable_zones validable_zones { get; set; }
     }
 }

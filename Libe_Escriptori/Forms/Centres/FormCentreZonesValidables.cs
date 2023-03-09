@@ -1,4 +1,5 @@
 ﻿using Libe_Escriptori.Forms.Groups;
+using Libe_Escriptori.Models;
 using Libe_Escriptori.Models.Centre;
 using Libe_Escriptori.Models.Usuaris.Alumnes;
 using System;
@@ -80,7 +81,104 @@ namespace Libe_Escriptori.Forms.Centres
 
         private void FormCentreZonesValidables_Load(object sender, EventArgs e)
         {
+            refreshDGV();   
+        }
+
+        private void buttonGuardarZona_Click(object sender, EventArgs e)
+        {
+            String missatge;
+            if (fieldsNotNull() && correctCoordinates())
+            {
+                String coordinates = textBoxZoneCoordinates.Text;
+                string latitude = coordinates.Split(',')[0];
+                string longitude = coordinates.Split(',')[1];
+                validable_zones vz = new validable_zones();
+                vz.name = textBoxZoneName.Text;
+                vz.latitude = Convert.ToDecimal(latitude);
+                vz.longitude = Convert.ToDecimal(longitude);
+                vz.radius = Convert.ToInt32(textBoxRange.Text);
+                vz.active = true;
+                missatge = ZonesValidablesOrm.Insert(vz);
+                if (missatge != "")
+                {
+                    MessageBox.Show(missatge, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else{
+                    MessageBox.Show("S'ha afegit la zona validable correctament", "Informació", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    textBoxZoneName.Text = "";
+                    textBoxRange.Text = "";
+                    textBoxZoneCoordinates.Text = "";
+                    TextBoxDesign.textBoxSearch_Leave(textBoxZoneName, textBoxHintZoneName);
+                    TextBoxDesign.textBoxSearch_Leave(textBoxZoneCoordinates, textBoxHintZoneCoordinates);
+                    TextBoxDesign.textBoxSearch_Leave(textBoxRange, textBoxHintRange);
+                    refreshDGV();
+                }
+
+            }
+        }
+
+        private void refreshDGV()
+        {
             bindingSourceZonesValidables.DataSource = ZonesValidablesOrm.Select(true);
+        }
+
+        private bool correctCoordinates()
+        {
+            bool correctFormat = true;
+            String coordinades = textBoxZoneCoordinates.Text;
+            if (!coordinades.Contains(","))
+            {
+                correctFormat = false;
+                MessageBox.Show("El format de les coordenades és incorrecte", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return correctFormat;
+        }
+
+        private bool fieldsNotNull()
+        {
+            bool fieldsNotNull = true;
+            if(textBoxZoneName.Text == "" || textBoxZoneName.Text == textBoxHintZoneName)
+            {
+                MessageBox.Show("El nom de la zona validable no pot estar buit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                fieldsNotNull = false;
+            }
+            else if (textBoxZoneCoordinates.Text == "" || textBoxZoneCoordinates.Text == textBoxHintZoneCoordinates)
+            {
+                MessageBox.Show("Les cordenades de la zona validable no poden estar buides", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                fieldsNotNull = false;
+            }
+            else if (textBoxRange.Text == "" || textBoxRange.Text == textBoxHintRange)
+            {
+                MessageBox.Show("El radi de la zona validable no pot estar buit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                fieldsNotNull = false;
+            }
+            return fieldsNotNull;
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 4)
+            {
+
+            }
+            if (e.ColumnIndex == 5)
+            {
+                validable_zones vz = (validable_zones)dataGridView1.Rows[e.RowIndex].DataBoundItem;
+                if (vz != null)
+                {
+                    DialogResult dia = MessageBox.Show("Estàs segur/a que vols esborrar la zona validable?", "Esborrar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (dia == DialogResult.OK)
+                    {
+                        ZonesValidablesOrm.Delete(vz);
+                        refreshDGV();
+                    }
+                }
+            }
         }
     }
 }

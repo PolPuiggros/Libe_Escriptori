@@ -28,7 +28,7 @@ namespace Libe_Escriptori.Models
         public string name { get; set; }
         public int total_hours { get; set; }
         public bool active { get; set; }
-        public System.DateTime created_timestamp { get; set; }
+        public Nullable<System.DateTime> created_timestamp { get; set; }
         public Nullable<System.DateTime> updated_timestamp { get; set; }
         public Nullable<System.DateTime> deleted_timestamp { get; set; }
     
