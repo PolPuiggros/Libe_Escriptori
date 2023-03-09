@@ -45,7 +45,7 @@ namespace Libe_Escriptori.Forms.Groups
         private void initializeDataGrid()
         {
             _schedule = SchedulesOrm.Select().First();
-            modules = ModulesORM.Select();
+            modules = ModulesORM.Select(1);
             int indexModule = -1;
 
             foreach (modules module in modules)
@@ -54,6 +54,7 @@ namespace Libe_Escriptori.Forms.Groups
             }
             
             List<lessons> hourLessonsList = new List<lessons>();
+            
             foreach (DataGridViewRow row in dataGridViewSchedule.Rows)
             {
                 foreach (DataGridViewCell cell in row.Cells)
@@ -383,32 +384,13 @@ namespace Libe_Escriptori.Forms.Groups
         }
         private void fillModuls()
         {
-            moduls.Add("M01");
-            moduls.Add("M02");
-            moduls.Add("M03");
-            moduls.Add("M04");
-            moduls.Add("M05");
-            moduls.Add("M06");
-            moduls.Add("M07");
-            moduls.Add("M08");
-            moduls.Add("M09");
-            moduls.Add("M10");
-            moduls.Add("M11");
-            moduls.Add("M12");
-            moduls.Add("M13");
-            moduls.Add("M14");
-            moduls.Add("M15");
-            moduls.Add("M16");
-            moduls.Add("M17");
-            moduls.Add("M18");
-            moduls.Add("M19");
-            moduls.Add("M20");
+            groups _group = GroupsOrm.SelectGroup(1);
 
+            List<modules> _modules = ModulesORM.Select(_group.course_id);
 
-
-            foreach (string modul in moduls)
+            foreach (modules modul in _modules)
             {
-                listViewModuls.Items.Add(modul);
+                listViewModuls.Items.Add(modul.code);
             }
             
         }
@@ -470,6 +452,70 @@ namespace Libe_Escriptori.Forms.Groups
         {
             
             bindingSourceLessons.DataSource = LessonsOrm.Select(_schedule.id);
+            
+        }
+
+        private void buttonSave_Click_1(object sender, EventArgs e)
+        {
+            _schedule = SchedulesOrm.Select().First();
+            modules = ModulesORM.Select(1);
+            List<lessons> allLessonsDay = LessonsOrm.Select(1);
+            List<modules> modulesList = ModulesORM.Select(1);
+            List<string> codeModule = new List<string>();
+
+            foreach (modules module in modulesList)
+            {
+                codeModule.Add(module.code);
+            }
+            
+            int indexModule = -1;
+            lessons actualLesson;
+            foreach (DataGridViewRow row in dataGridViewSchedule.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    List<lessons> hourLessonsList = new List<lessons>();
+                    // 8:40
+                    if (row.Index == 0)
+                    {
+                        TimeSpan eightFourty = new TimeSpan(8, 40, 0);
+                        hourLessonsList = LessonsOrm.SelectLessonsAtHour(eightFourty);
+
+                        if (cell.ColumnIndex == 0)
+                        {
+                            cell.Value = hourLessonsList[cell.ColumnIndex].starting_hour;
+                        }
+                        if (cell.ColumnIndex == 1)
+                        {
+                            foreach(lessons lesson in allLessonsDay){
+                                if (lesson.starting_hour == eightFourty && lesson.weekday.Equals("Mon       ") && lesson.schedule_id == _schedule.id)
+                                {
+                                    indexModule = codeModule.IndexOf(cell.Value.ToString());
+                                    lesson.module_id = indexModule+1;
+                                    LessonsOrm.Update(lesson);
+                                }
+                            }
+                        }
+                        if (cell.ColumnIndex == 2)
+                        {
+                            LessonsOrm.Update(hourLessonsList[1]);
+                        }
+                        if (cell.ColumnIndex == 3)
+                        {
+                            LessonsOrm.Update(hourLessonsList[2]);
+                        }
+                        if (cell.ColumnIndex == 4)
+                        {
+                            LessonsOrm.Update(hourLessonsList[3]);
+                        }
+                        if (cell.ColumnIndex == 5)
+                        {
+                            LessonsOrm.Update(hourLessonsList[4]);
+                        }
+                    }
+                }
+            }
+
             
         }
     }

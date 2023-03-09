@@ -14,5 +14,14 @@ namespace Libe_Escriptori.Models
 
             return _groups;
         }
+
+        public static groups SelectGroup(int id_group)
+        {
+            groups _group = Orm.db.groups
+                .Where(group => group.id == id_group)
+                .FirstOrDefault();
+
+            return _group;
+        }
     }
 }

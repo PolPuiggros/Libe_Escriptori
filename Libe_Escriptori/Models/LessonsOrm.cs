@@ -39,5 +39,27 @@ namespace Libe_Escriptori.Models
                                             .ToList();
             return _lessons;
         }
+
+        public static void Update(lessons _lesson)
+        {
+            lessons updateLesson = Orm.db.lessons
+                                .Where(lesson => lesson.id == _lesson.id)
+                                .ToList()
+                                .FirstOrDefault();
+
+            updateLesson.module_id = _lesson.module_id;
+            Orm.db.SaveChanges();
+        }
+
+        public static lessons SelectLessonsAtDayHour(TimeSpan hour, string weekday, int scheduleId)
+        {
+            lessons _lesson = Orm.db.lessons
+                                .Where(lesson => lesson.starting_hour == hour && lesson.weekday == weekday && lesson.schedule_id == scheduleId)
+                                .ToList()
+                                .FirstOrDefault();
+
+
+            return _lesson;
+        }
     }
 }
