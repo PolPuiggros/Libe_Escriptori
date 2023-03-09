@@ -17,17 +17,22 @@ namespace Libe_Escriptori.Forms.Courses
         private String textBoxHintAbreviation = " Abreviació";
         private String textBoxHintHours = " Hores";
         private String textBoxHintName = " Nom complert";
-        private int moduleId;
+        private modules _module;
         private bool addingNew = false;
-        public FormAddNewModule(Label label, int id)
+        public FormAddNewModule(Label label, modules _module)
         {
             InitializeComponent();
-            label.Text = "Gestionar Cursos/Afegint Curs/Nou Mòdul";
-            moduleId = id;
-            if (id < 0)
-            {
-                addingNew = true;
-            }
+            label.Text = label.Text + "/Editar Mòdul";
+            this._module = _module;
+            
+        }
+
+        public FormAddNewModule(Label label)
+        {
+            InitializeComponent();
+            label.Text = label.Text + "/Nou Mòdul";
+            addingNew = true;
+            
         }
 
         private void textBoxAbbreviation_Enter(object sender, EventArgs e)
@@ -69,12 +74,7 @@ namespace Libe_Escriptori.Forms.Courses
         {
             if (!addingNew)
             {
-                modules _module = ModulesORM.SelectModule(moduleId);
-                textBoxAbbreviation.Text = _module.code;
-                textBoxHours.Text = _module.total_hours.ToString();
-                textBoxName.Text = _module.name.ToString();
-
-                bindingSourceUnits.DataSource = UnitsORM.Select(moduleId);
+                bindingSourceUnits.DataSource = UnitsORM.Select(_module.id);
             }
             
         }

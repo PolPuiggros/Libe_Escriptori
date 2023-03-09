@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Libe_Escriptori.Models;
+using Libe_Escriptori.Models.Courses;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,14 +17,16 @@ namespace Libe_Escriptori.Forms.Courses
         private bool mouseDown;
         private Point lastLocation;
         public string test;
+        public List<modules> listModules = new List<modules>();
         Label labeld;
-        public FormAddExistingModuleDialog(Label ruta)
+        courses _course;
+        public FormAddExistingModuleDialog(Label ruta, courses _course)
         {
             //664; 495;
             InitializeComponent();
             ruta.Text = "Gestionar Cursos/Afegint Curs/Mòduls Existents";
             labeld = ruta;
-            test = "hola";
+            this._course = _course;
         }
 
         private void buttonOk_Click(object sender, EventArgs e)
@@ -30,6 +34,14 @@ namespace Libe_Escriptori.Forms.Courses
             // Your code that checks the form data and
             // eventually display an error message.
             this.DialogResult = DialogResult.OK;
+            foreach(DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                
+                listModules.Add((modules)row.DataBoundItem);
+
+            }
+           
+            
             this.Dispose();
         }
 
@@ -58,7 +70,13 @@ namespace Libe_Escriptori.Forms.Courses
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             labeld.Text = "Gestionar Cursos/Afegint Curs";
-            this.Close();
+            this.DialogResult = DialogResult.Cancel;
+            this.Dispose();
+        }
+
+        private void FormAddExistingModuleDialog_Load(object sender, EventArgs e)
+        {
+            bindingSourceAllModules.DataSource = ModulesORM.SelectAll(_course);
         }
     }
 }

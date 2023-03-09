@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,19 @@ namespace Libe_Escriptori.Models.Courses
             return _modules;
         }
 
+        public static List<modules> SelectAll(courses _courses)
+        {
+            List<int> ids = new List<int>();
+            foreach (var module in _courses.modules)
+            {
+                ids.Add(module.id);
+            }
+            
+            List<modules> modules = Orm.db.modules
+                .Where(c => c.active == true && ids.Contains(c.id))
+                .ToList();
+            return modules;
+        }
         public static List<modules> Select()
         {
             List<modules> modules = Orm.db.modules

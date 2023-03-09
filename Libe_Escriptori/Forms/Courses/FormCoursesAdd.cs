@@ -19,30 +19,35 @@ namespace Libe_Escriptori.Forms.Courses
         private String textBoxHintAbreviation = " Abreviació";
         private String textBoxHintName = " Nom Complert del curs";
         private Form activeForm;
-        private int courseId;
+        private courses _course;
         private bool addingNew = false;
-        public FormCoursesAdd(Label labelRuta, int courseId)
+        public FormCoursesAdd(Label labelRuta, courses _course)
         {
             InitializeComponent();
-            labelRuta.Text = "Gestionar Cursos/Afegint Curs";
+            labelRuta.Text = "Gestionar Cursos/Editar Curs";
             labeld = labelRuta;
-            this.courseId = courseId;
-            if (courseId < 0)
-            {
-                addingNew = true;
-            }
+            this._course = _course;
+            
+        }
+
+        public FormCoursesAdd(Label labelRuta)
+        {
+            InitializeComponent();
+            labelRuta.Text = "Gestionar Cursos/Afegir Curs";
+            labeld = labelRuta;
+            addingNew = true;
         }
 
        
 
         private void buttonExistent_Click(object sender, EventArgs e)
         {
-            using (FormAddExistingModuleDialog f = new FormAddExistingModuleDialog(labeld))
+            using (FormAddExistingModuleDialog f = new FormAddExistingModuleDialog(labeld, _course))
             {
                 DialogResult dr = f.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    string custName = f.test;
+                    List<modules> listModules = f.listModules;
                     
                 }
             }
@@ -86,7 +91,7 @@ namespace Libe_Escriptori.Forms.Courses
 
         private void buttonNew_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormAddNewModule(labeld, -1));
+            OpenChildForm(new FormAddNewModule(labeld));
         }
 
         private void dataGridViewModules_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -126,7 +131,7 @@ namespace Libe_Escriptori.Forms.Courses
         {
             if (!addingNew)
             {
-                bindingSourceModules.DataSource = ModulesORM.Select(courseId);
+                bindingSourceModules.DataSource = ModulesORM.Select(_course.id);
             }
 
             
@@ -155,7 +160,7 @@ namespace Libe_Escriptori.Forms.Courses
             if (e.ColumnIndex == 4)
             {
                 var selectedModule = (modules)dataGridViewModules.SelectedRows[0].DataBoundItem;
-                OpenChildForm(new FormAddNewModule(labeld, selectedModule.id));
+                OpenChildForm(new FormAddNewModule(labeld, selectedModule));
             }
             else if (e.ColumnIndex == 5)
             {
