@@ -210,6 +210,7 @@
     <Compile Include="Models\center_information.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Centre\ZonesValidablesOrm.cs" />
     <Compile Include="Models\classrooms.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
@@ -388,7 +389,7 @@
     <None Include="Properties\DataSources\Libe_Escriptori.Models.GroupsOrm.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.lessons.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.schedules.datasource" />
-
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.validable_zones.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -416,11 +417,13 @@
     </Content>
     <Content Include="Resources\bin.png" />
     <Content Include="Resources\books.png" />
+    <None Include="Resources\close %281%29.png" />
     <Content Include="Resources\close.png" />
     <Content Include="Resources\close1.png" />
     <None Include="Resources\eraser.png" />
     <None Include="Resources\eraser_small.png" />
     <None Include="Resources\eraser_smaller.png" />
+    <None Include="Resources\close2.png" />
     <Content Include="Resources\exit.png" />
     <Content Include="Resources\gradient.png" />
     <Content Include="Resources\home.png" />
@@ -434,6 +437,7 @@
     <Content Include="Resources\minus.png" />
     <Content Include="Resources\profile_pic.png" />
     <Content Include="Resources\profile_pic_big.png" />
+    <None Include="Resources\remove.png" />
     <Content Include="Resources\right-click.png" />
     <Content Include="Resources\schoolicon.png" />
     <Content Include="Resources\user %283%29.png" />

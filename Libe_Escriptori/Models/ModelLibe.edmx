@@ -51,7 +51,7 @@
           <Property Name="validable_zone_id" Type="int" Nullable="false" />
           <Property Name="user_id" Type="int" Nullable="false" />
           <Property Name="active" Type="bit" Nullable="false" />
-          <Property Name="created_timestamp" Type="datetime" Nullable="false" />
+          <Property Name="created_timestamp" Type="datetime" />
           <Property Name="updated_timestamp" Type="datetime" />
           <Property Name="deleted_timesatmp" Type="datetime" />
         </EntityType>
@@ -72,7 +72,7 @@
           <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="total_hours" Type="int" Nullable="false" />
           <Property Name="active" Type="bit" Nullable="false" />
-          <Property Name="created_timestamp" Type="datetime" Nullable="false" />
+          <Property Name="created_timestamp" Type="datetime" />
           <Property Name="updated_timestamp" Type="datetime" />
           <Property Name="deleted_timestamp" Type="datetime" />
         </EntityType>
@@ -84,7 +84,7 @@
           <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="profesor_in_charge_id" Type="int" Nullable="false" />
           <Property Name="active" Type="bit" Nullable="false" />
-          <Property Name="created_timestamp" Type="datetime" Nullable="false" />
+          <Property Name="created_timestamp" Type="datetime" />
           <Property Name="updated_timestamp" Type="datetime" />
           <Property Name="deleted_timestamp" Type="datetime" />
         </EntityType>
@@ -99,7 +99,7 @@
           <Property Name="tutor_id" Type="int" Nullable="false" />
           <Property Name="schedule_id" Type="int" Nullable="false" />
           <Property Name="active" Type="bit" Nullable="false" />
-          <Property Name="created_timestamp" Type="datetime" Nullable="false" />
+          <Property Name="created_timestamp" Type="datetime" />
           <Property Name="updated_timestamp" Type="datetime" />
           <Property Name="deleted_timestamp" Type="datetime" />
         </EntityType>
@@ -165,7 +165,7 @@
           <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="total_hours" Type="int" Nullable="false" />
           <Property Name="active" Type="bit" Nullable="false" />
-          <Property Name="created_timestamp" Type="datetime" Nullable="false" />
+          <Property Name="created_timestamp" Type="datetime" />
           <Property Name="updated_timestamp" Type="datetime" />
           <Property Name="deleted_timestamp" Type="datetime" />
         </EntityType>
@@ -205,7 +205,7 @@
           <Property Name="phone_number" Type="nchar" MaxLength="9" Nullable="false" />
           <Property Name="profile_picture" Type="varchar(max)" />
           <Property Name="active" Type="bit" Nullable="false" />
-          <Property Name="created_timestamp" Type="datetime" Nullable="false" />
+          <Property Name="created_timestamp" Type="datetime" />
           <Property Name="updated_timestamp" Type="datetime" />
           <Property Name="deleted_timestamp" Type="datetime" />
         </EntityType>
@@ -241,7 +241,7 @@
           <Property Name="complementary_group" Type="varchar" MaxLength="50" />
           <Property Name="group_id" Type="int" Nullable="false" />
           <Property Name="active" Type="bit" Nullable="false" />
-          <Property Name="created_timestamp" Type="datetime" Nullable="false" />
+          <Property Name="created_timestamp" Type="datetime" />
           <Property Name="updated_timestamp" Type="datetime" />
           <Property Name="deleted_timestamp" Type="datetime" />
         </EntityType>
@@ -255,7 +255,7 @@
           <Property Name="total_hours" Type="int" Nullable="false" />
           <Property Name="module_id" Type="int" Nullable="false" />
           <Property Name="active" Type="bit" Nullable="false" />
-          <Property Name="created_timestamp" Type="datetime" Nullable="false" />
+          <Property Name="created_timestamp" Type="datetime" />
           <Property Name="updated_timestamp" Type="datetime" />
           <Property Name="deleted_timestamp" Type="datetime" />
         </EntityType>
@@ -286,7 +286,7 @@
           <Property Name="latitude" Type="decimal" Precision="18" Scale="15" Nullable="false" />
           <Property Name="longitude" Type="decimal" Precision="18" Scale="15" Nullable="false" />
           <Property Name="active" Type="bit" Nullable="false" />
-          <Property Name="created_timestamp" Type="datetime" Nullable="false" />
+          <Property Name="created_timestamp" Type="datetime" />
           <Property Name="updated_timestamp" Type="datetime" />
           <Property Name="deleted_timestamp" Type="datetime" />
         </EntityType>
@@ -959,21 +959,6 @@
           <Property Name="type_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="users" Relationship="libeModel.FK_users_user_type" FromRole="user_type" ToRole="users" />
         </EntityType>
-        <EntityType Name="validable_zones">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="radius" Type="Int32" Nullable="false" />
-          <Property Name="latitude" Type="Decimal" Precision="18" Scale="15" Nullable="false" />
-          <Property Name="longitude" Type="Decimal" Precision="18" Scale="15" Nullable="false" />
-          <Property Name="active" Type="Boolean" Nullable="false" />
-          <Property Name="created_timestamp" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="updated_timestamp" Type="DateTime" Precision="3" />
-          <Property Name="deleted_timestamp" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="classrooms" Relationship="libeModel.FK_classrooms1_validable_zones" FromRole="validable_zones" ToRole="classrooms" />
-        </EntityType>
         <Association Name="FK_attendance_attendance_status">
           <End Role="attendance_status" Type="Self.attendance_status" Multiplicity="1" />
           <End Role="attendance" Type="Self.attendance" Multiplicity="*" />
@@ -1059,7 +1044,6 @@
           <EntitySet Name="logs" EntityType="Self.logs" />
           <EntitySet Name="schedules" EntityType="Self.schedules" />
           <EntitySet Name="user_type" EntityType="Self.user_type" />
-          <EntitySet Name="validable_zones" EntityType="Self.validable_zones" />
           <AssociationSet Name="FK_attendance_attendance_status" Association="Self.FK_attendance_attendance_status">
             <End Role="attendance_status" EntitySet="attendance_status" />
             <End Role="attendance" EntitySet="attendance" />
@@ -1137,10 +1121,6 @@
             <End Role="users" EntitySet="users" />
             <End Role="classrooms" EntitySet="classrooms" />
           </AssociationSet>
-          <AssociationSet Name="FK_classrooms1_validable_zones" Association="libeModel.FK_classrooms1_validable_zones">
-            <End Role="validable_zones" EntitySet="validable_zones" />
-            <End Role="classrooms" EntitySet="classrooms" />
-          </AssociationSet>
           <AssociationSet Name="FK_lessons_classrooms" Association="libeModel.FK_lessons_classrooms">
             <End Role="classrooms" EntitySet="classrooms" />
             <End Role="lessons" EntitySet="lessons" />
@@ -1176,6 +1156,11 @@
           <AssociationSet Name="profesor_module" Association="libeModel.profesor_module">
             <End Role="modules" EntitySet="modules" />
             <End Role="profesors" EntitySet="profesors" />
+          </AssociationSet>
+          <EntitySet Name="validable_zones" EntityType="libeModel.validable_zones" />
+          <AssociationSet Name="FK_classrooms1_validable_zones" Association="libeModel.FK_classrooms1_validable_zones">
+            <End Role="validable_zones" EntitySet="validable_zones" />
+            <End Role="classrooms" EntitySet="classrooms" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="users">
@@ -1221,7 +1206,7 @@
           <Property Name="complementary_group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="group_id" Type="Int32" Nullable="false" />
           <Property Name="active" Type="Boolean" Nullable="false" />
-          <Property Name="created_timestamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="created_timestamp" Type="DateTime" Precision="3" />
           <Property Name="updated_timestamp" Type="DateTime" Precision="3" />
           <Property Name="deleted_timestamp" Type="DateTime" Precision="3" />
           <NavigationProperty Name="attendance" Relationship="libeModel.FK_attendance_students" FromRole="students" ToRole="attendance" />
@@ -1261,7 +1246,7 @@
           <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="profesor_in_charge_id" Type="Int32" Nullable="false" />
           <Property Name="active" Type="Boolean" Nullable="false" />
-          <Property Name="created_timestamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="created_timestamp" Type="DateTime" Precision="3" />
           <Property Name="updated_timestamp" Type="DateTime" Precision="3" />
           <Property Name="deleted_timestamp" Type="DateTime" Precision="3" />
           <NavigationProperty Name="profesors" Relationship="libeModel.FK_departaments_profesors" FromRole="departments" ToRole="profesors" />
@@ -1279,7 +1264,7 @@
           <Property Name="phone_number" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="true" />
           <Property Name="profile_picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="active" Type="Boolean" Nullable="false" />
-          <Property Name="created_timestamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="created_timestamp" Type="DateTime" Precision="3" />
           <Property Name="updated_timestamp" Type="DateTime" Precision="3" />
           <Property Name="deleted_timestamp" Type="DateTime" Precision="3" />
           <NavigationProperty Name="departments" Relationship="libeModel.FK_departaments_profesors" FromRole="profesors" ToRole="departments" />
@@ -1300,7 +1285,7 @@
           <Property Name="total_hours" Type="Int32" Nullable="false" />
           <Property Name="module_id" Type="Int32" Nullable="false" />
           <Property Name="active" Type="Boolean" Nullable="false" />
-          <Property Name="created_timestamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="created_timestamp" Type="DateTime" Precision="3" />
           <Property Name="updated_timestamp" Type="DateTime" Precision="3" />
           <Property Name="deleted_timestamp" Type="DateTime" Precision="3" />
           <NavigationProperty Name="attendance" Relationship="libeModel.FK_attendance_units" FromRole="units" ToRole="attendance" />
@@ -1376,12 +1361,12 @@
           <Property Name="validable_zone_id" Type="Int32" Nullable="false" />
           <Property Name="user_id" Type="Int32" Nullable="false" />
           <Property Name="active" Type="Boolean" Nullable="false" />
-          <Property Name="created_timestamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="created_timestamp" Type="DateTime" Precision="3" />
           <Property Name="updated_timestamp" Type="DateTime" Precision="3" />
           <Property Name="deleted_timesatmp" Type="DateTime" Precision="3" />
           <NavigationProperty Name="users" Relationship="libeModel.FK_classrooms_users" FromRole="classrooms" ToRole="users" />
-          <NavigationProperty Name="validable_zones" Relationship="libeModel.FK_classrooms1_validable_zones" FromRole="classrooms" ToRole="validable_zones" />
           <NavigationProperty Name="lessons" Relationship="libeModel.FK_lessons_classrooms" FromRole="classrooms" ToRole="lessons" />
+          <NavigationProperty Name="validable_zones" Relationship="libeModel.FK_classrooms1_validable_zones" FromRole="classrooms" ToRole="validable_zones" />
         </EntityType>
         <EntityType Name="courses">
           <Key>
@@ -1392,7 +1377,7 @@
           <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="total_hours" Type="Int32" Nullable="false" />
           <Property Name="active" Type="Boolean" Nullable="false" />
-          <Property Name="created_timestamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="created_timestamp" Type="DateTime" Precision="3" />
           <Property Name="updated_timestamp" Type="DateTime" Precision="3" />
           <Property Name="deleted_timestamp" Type="DateTime" Precision="3" />
           <NavigationProperty Name="groups" Relationship="libeModel.FK_groups_groups" FromRole="courses" ToRole="groups" />
@@ -1409,7 +1394,7 @@
           <Property Name="tutor_id" Type="Int32" Nullable="false" />
           <Property Name="schedule_id" Type="Int32" Nullable="false" />
           <Property Name="active" Type="Boolean" Nullable="false" />
-          <Property Name="created_timestamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="created_timestamp" Type="DateTime" Precision="3" />
           <Property Name="updated_timestamp" Type="DateTime" Precision="3" />
           <Property Name="deleted_timestamp" Type="DateTime" Precision="3" />
           <NavigationProperty Name="courses" Relationship="libeModel.FK_groups_groups" FromRole="groups" ToRole="courses" />
@@ -1426,7 +1411,7 @@
           <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="total_hours" Type="Int32" Nullable="false" />
           <Property Name="active" Type="Boolean" Nullable="false" />
-          <Property Name="created_timestamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="created_timestamp" Type="DateTime" Precision="3" />
           <Property Name="updated_timestamp" Type="DateTime" Precision="3" />
           <Property Name="deleted_timestamp" Type="DateTime" Precision="3" />
           <NavigationProperty Name="lessons" Relationship="libeModel.FK_lessons_modules" FromRole="modules" ToRole="lessons" />
@@ -1443,18 +1428,6 @@
             </Principal>
             <Dependent Role="classrooms">
               <PropertyRef Name="user_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_classrooms1_validable_zones">
-          <End Type="libeModel.validable_zones" Role="validable_zones" Multiplicity="1" />
-          <End Type="libeModel.classrooms" Role="classrooms" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="validable_zones">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="classrooms">
-              <PropertyRef Name="validable_zone_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1549,6 +1522,33 @@
         <Association Name="profesor_module">
           <End Type="libeModel.modules" Role="modules" Multiplicity="*" />
           <End Type="libeModel.profesors" Role="profesors" Multiplicity="*" />
+        </Association>
+        <EntityType Name="validable_zones">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="radius" Type="Int32" Nullable="false" />
+          <Property Name="latitude" Type="Decimal" Nullable="false" Precision="18" Scale="15" />
+          <Property Name="longitude" Type="Decimal" Nullable="false" Precision="18" Scale="15" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <Property Name="created_timestamp" Type="DateTime" Precision="3" />
+          <Property Name="updated_timestamp" Type="DateTime" Precision="3" />
+          <Property Name="deleted_timestamp" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="classrooms" Relationship="libeModel.FK_classrooms1_validable_zones" FromRole="validable_zones" ToRole="classrooms" />
+        </EntityType>
+        <Association Name="FK_classrooms1_validable_zones">
+          <End Type="libeModel.validable_zones" Role="validable_zones" Multiplicity="1" />
+          <End Type="libeModel.classrooms" Role="classrooms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="validable_zones">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="classrooms">
+              <PropertyRef Name="validable_zone_id" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -1669,21 +1669,6 @@
               <MappingFragment StoreEntitySet="user_type">
                 <ScalarProperty Name="type" ColumnName="type" />
                 <ScalarProperty Name="type_name" ColumnName="type_name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="validable_zones">
-            <EntityTypeMapping TypeName="libeModel.validable_zones">
-              <MappingFragment StoreEntitySet="validable_zones">
-                <ScalarProperty Name="deleted_timestamp" ColumnName="deleted_timestamp" />
-                <ScalarProperty Name="updated_timestamp" ColumnName="updated_timestamp" />
-                <ScalarProperty Name="created_timestamp" ColumnName="created_timestamp" />
-                <ScalarProperty Name="active" ColumnName="active" />
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="radius" ColumnName="radius" />
-                <ScalarProperty Name="latitude" ColumnName="latitude" />
-                <ScalarProperty Name="longitude" ColumnName="longitude" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1863,6 +1848,21 @@
               <ScalarProperty Name="id" ColumnName="module_id" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="validable_zones">
+            <EntityTypeMapping TypeName="libeModel.validable_zones">
+              <MappingFragment StoreEntitySet="validable_zones">
+                <ScalarProperty Name="deleted_timestamp" ColumnName="deleted_timestamp" />
+                <ScalarProperty Name="updated_timestamp" ColumnName="updated_timestamp" />
+                <ScalarProperty Name="created_timestamp" ColumnName="created_timestamp" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="radius" ColumnName="radius" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
