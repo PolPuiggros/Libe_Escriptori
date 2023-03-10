@@ -27,5 +27,57 @@ namespace Libe_Escriptori.Models.Usuaris.Alumnes
             _students.deleted_timestamp = DateTime.Now;
             Orm.db.SaveChanges();
         }
+
+        public static void Insert(students _students)
+        {
+            Orm.db.students.Add(_students);
+            Orm.db.SaveChanges();
+        }
+
+        public static void Update(students _student, string name, string surname, string surname2, string email, string dni, string phone, bool autoregister, bool repiter, groups _group)
+        {
+            _student = Orm.db.students
+                .Where(c => c.id == _student.id)
+                .First();
+
+            if (!_student.name.Equals(name))
+            {
+                _student.name = name;
+            }
+            if (!_student.surname.Equals(surname))
+            {
+                _student.surname = surname;
+            }
+            if (!_student.surname2.Equals(surname2))
+            {
+                _student.surname2 = surname2;
+            }
+            if (!_student.email.Equals(email))
+            {
+                _student.email = email;
+            }
+            if (!_student.dni.Equals(dni))
+            {
+                _student.dni = dni;
+            }
+            if (!_student.phone_number.Equals(phone))
+            {
+                _student.phone_number = phone;
+            }
+            if (_student.autoregister != autoregister)
+            {
+                _student.autoregister = autoregister;
+            }
+            if (_student.has_repeated != repiter)
+            {
+                _student.has_repeated = repiter;
+            }
+            if (_student.group_id != _group.id)
+            {
+                _student.group_id = _group.id;
+            }
+            _student.updated_timestamp = DateTime.Now;
+            Orm.db.SaveChanges();
+        }
     }
 }

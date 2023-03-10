@@ -89,7 +89,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
         {
             if (e.ColumnIndex == 5)
             {
-                OpenChildForm(new GestionarUsuarisProfessorsAfegint(labeld));
+                OpenChildForm(new GestionarUsuarisProfessorsAfegint(labeld, (profesors)dataGridViewTeachers.SelectedRows[0].DataBoundItem));
             }
             else if (e.ColumnIndex == 6)
             {

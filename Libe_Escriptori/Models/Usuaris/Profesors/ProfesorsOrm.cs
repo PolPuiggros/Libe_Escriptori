@@ -34,5 +34,38 @@ namespace Libe_Escriptori.Models.Usuaris.Profesors
             _profesors.deleted_timestamp = DateTime.Now;
             Orm.db.SaveChanges();
         }
+        public static void Update(profesors _profesor, string name, string surname, string surname2, string email, string phone, List<departments> _departments)
+        {
+            _profesor = Orm.db.profesors
+                .Where(c => c.id == _profesor.id)
+                .First();
+
+            if (!_profesor.name.Equals(name))
+            {
+                _profesor.name = name;
+            }
+            if (!_profesor.surname1.Equals(surname))
+            {
+                _profesor.surname1 = surname;
+            }
+            if (!_profesor.surname2.Equals(surname2))
+            {
+                _profesor.surname2 = surname2;
+            }
+            if (!_profesor.email.Equals(email))
+            {
+                _profesor.email = email;
+            }
+            if (!_profesor.phone_number.Equals(phone))
+            {
+                _profesor.phone_number = phone;
+            }
+            if (_profesor.departments != _departments)
+            {
+                _profesor.departments = _departments;
+            }
+            _profesor.updated_timestamp = DateTime.Now;
+            Orm.db.SaveChanges();
+        }
     }
 }

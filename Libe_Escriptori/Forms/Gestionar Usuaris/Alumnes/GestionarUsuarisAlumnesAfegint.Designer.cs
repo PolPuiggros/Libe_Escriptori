@@ -51,9 +51,9 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             // 
             this.textBoxName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
             this.textBoxName.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxName.Location = new System.Drawing.Point(75, 55);
+            this.textBoxName.Location = new System.Drawing.Point(87, 64);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(204, 29);
+            this.textBoxName.Size = new System.Drawing.Size(237, 29);
             this.textBoxName.TabIndex = 0;
             this.textBoxName.Text = "Nom";
             this.textBoxName.Enter += new System.EventHandler(this.textBoxName_Enter);
@@ -63,9 +63,9 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             // 
             this.textBoxSurname.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
             this.textBoxSurname.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxSurname.Location = new System.Drawing.Point(312, 55);
+            this.textBoxSurname.Location = new System.Drawing.Point(364, 64);
             this.textBoxSurname.Name = "textBoxSurname";
-            this.textBoxSurname.Size = new System.Drawing.Size(457, 29);
+            this.textBoxSurname.Size = new System.Drawing.Size(533, 29);
             this.textBoxSurname.TabIndex = 1;
             this.textBoxSurname.Text = "Cognoms";
             this.textBoxSurname.Enter += new System.EventHandler(this.textBoxSurname_Enter);
@@ -75,9 +75,9 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             // 
             this.textBoxEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
             this.textBoxEmail.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxEmail.Location = new System.Drawing.Point(75, 122);
+            this.textBoxEmail.Location = new System.Drawing.Point(87, 141);
             this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(695, 29);
+            this.textBoxEmail.Size = new System.Drawing.Size(810, 29);
             this.textBoxEmail.TabIndex = 2;
             this.textBoxEmail.Text = "Email";
             this.textBoxEmail.Enter += new System.EventHandler(this.textBoxEmail_Enter);
@@ -87,9 +87,9 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             // 
             this.textBoxPhone.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
             this.textBoxPhone.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxPhone.Location = new System.Drawing.Point(75, 192);
+            this.textBoxPhone.Location = new System.Drawing.Point(87, 222);
             this.textBoxPhone.Name = "textBoxPhone";
-            this.textBoxPhone.Size = new System.Drawing.Size(314, 29);
+            this.textBoxPhone.Size = new System.Drawing.Size(366, 29);
             this.textBoxPhone.TabIndex = 3;
             this.textBoxPhone.Text = "Tel";
             this.textBoxPhone.Enter += new System.EventHandler(this.textBoxPhone_Enter);
@@ -99,7 +99,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             // 
             this.labelAddictionalInfo.AutoSize = true;
             this.labelAddictionalInfo.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.labelAddictionalInfo.Location = new System.Drawing.Point(77, 263);
+            this.labelAddictionalInfo.Location = new System.Drawing.Point(90, 303);
             this.labelAddictionalInfo.Name = "labelAddictionalInfo";
             this.labelAddictionalInfo.Size = new System.Drawing.Size(299, 25);
             this.labelAddictionalInfo.TabIndex = 5;
@@ -109,7 +109,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             // 
             this.checkBoxAutoregister.AutoSize = true;
             this.checkBoxAutoregister.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.checkBoxAutoregister.Location = new System.Drawing.Point(100, 314);
+            this.checkBoxAutoregister.Location = new System.Drawing.Point(117, 362);
             this.checkBoxAutoregister.Name = "checkBoxAutoregister";
             this.checkBoxAutoregister.Size = new System.Drawing.Size(115, 25);
             this.checkBoxAutoregister.TabIndex = 6;
@@ -120,7 +120,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             // 
             this.checkBoxRepeater.AutoSize = true;
             this.checkBoxRepeater.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.checkBoxRepeater.Location = new System.Drawing.Point(100, 356);
+            this.checkBoxRepeater.Location = new System.Drawing.Point(117, 411);
             this.checkBoxRepeater.Name = "checkBoxRepeater";
             this.checkBoxRepeater.Size = new System.Drawing.Size(97, 25);
             this.checkBoxRepeater.TabIndex = 7;
@@ -131,7 +131,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             // 
             this.labelGroupStudent.AutoSize = true;
             this.labelGroupStudent.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.labelGroupStudent.Location = new System.Drawing.Point(455, 263);
+            this.labelGroupStudent.Location = new System.Drawing.Point(531, 303);
             this.labelGroupStudent.Name = "labelGroupStudent";
             this.labelGroupStudent.Size = new System.Drawing.Size(157, 25);
             this.labelGroupStudent.TabIndex = 8;
@@ -144,9 +144,9 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.comboBoxGroups.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxGroups.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.comboBoxGroups.FormattingEnabled = true;
-            this.comboBoxGroups.Location = new System.Drawing.Point(455, 310);
+            this.comboBoxGroups.Location = new System.Drawing.Point(531, 358);
             this.comboBoxGroups.Name = "comboBoxGroups";
-            this.comboBoxGroups.Size = new System.Drawing.Size(192, 29);
+            this.comboBoxGroups.Size = new System.Drawing.Size(223, 29);
             this.comboBoxGroups.TabIndex = 9;
             this.comboBoxGroups.ValueMember = "id";
             // 
@@ -161,9 +161,9 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.buttonAfegir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAfegir.Font = new System.Drawing.Font("Segoe UI", 12.75F);
             this.buttonAfegir.ForeColor = System.Drawing.Color.White;
-            this.buttonAfegir.Location = new System.Drawing.Point(440, 457);
+            this.buttonAfegir.Location = new System.Drawing.Point(513, 527);
             this.buttonAfegir.Name = "buttonAfegir";
-            this.buttonAfegir.Size = new System.Drawing.Size(124, 39);
+            this.buttonAfegir.Size = new System.Drawing.Size(145, 45);
             this.buttonAfegir.TabIndex = 16;
             this.buttonAfegir.Text = "Afegir";
             this.buttonAfegir.UseVisualStyleBackColor = false;
@@ -175,9 +175,9 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.buttonCancelar.FlatAppearance.BorderSize = 0;
             this.buttonCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCancelar.Font = new System.Drawing.Font("Segoe UI", 12.75F);
-            this.buttonCancelar.Location = new System.Drawing.Point(287, 457);
+            this.buttonCancelar.Location = new System.Drawing.Point(335, 527);
             this.buttonCancelar.Name = "buttonCancelar";
-            this.buttonCancelar.Size = new System.Drawing.Size(124, 39);
+            this.buttonCancelar.Size = new System.Drawing.Size(145, 45);
             this.buttonCancelar.TabIndex = 15;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = false;
@@ -186,9 +186,9 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             // 
             this.textBoxDni.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
             this.textBoxDni.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxDni.Location = new System.Drawing.Point(455, 192);
+            this.textBoxDni.Location = new System.Drawing.Point(531, 222);
             this.textBoxDni.Name = "textBoxDni";
-            this.textBoxDni.Size = new System.Drawing.Size(314, 29);
+            this.textBoxDni.Size = new System.Drawing.Size(366, 29);
             this.textBoxDni.TabIndex = 4;
             this.textBoxDni.Text = "DNI";
             this.textBoxDni.Enter += new System.EventHandler(this.textBoxDni_Enter);
@@ -198,7 +198,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 563);
+            this.ClientSize = new System.Drawing.Size(1005, 650);
             this.Controls.Add(this.buttonAfegir);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.comboBoxGroups);
