@@ -102,6 +102,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.dataGridViewTeachers.Name = "dataGridViewTeachers";
             this.dataGridViewTeachers.RowHeadersVisible = false;
             this.dataGridViewTeachers.RowTemplate.Height = 25;
+            this.dataGridViewTeachers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewTeachers.Size = new System.Drawing.Size(818, 503);
             this.dataGridViewTeachers.TabIndex = 13;
             this.dataGridViewTeachers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTeachers_CellClick);

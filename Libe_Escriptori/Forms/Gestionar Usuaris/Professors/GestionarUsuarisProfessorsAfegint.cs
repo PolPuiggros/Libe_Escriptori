@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
 {
@@ -20,16 +21,44 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
         private String textBoxHintPhone = " Tel";
 
         BindingList<departments> listDepartaments = new BindingList<departments>();
+        private profesors _profesor;
+        bool adding;
 
         public GestionarUsuarisProfessorsAfegint(Label labelRuta)
         {
             InitializeComponent();
             labelRuta.Text = "Gestionar Usuaris/Gestionar Professors/Afegint";
+            adding = true;
+        }
+
+        public GestionarUsuarisProfessorsAfegint(Label labelRuta, profesors _profesor)
+        {
+            InitializeComponent();
+            labelRuta.Text = "Gestionar Usuaris/Gestionar Professors/Editant";
+            this._profesor = _profesor;
+            adding = false;
         }
 
         private void GestionarUsuarisProfessorsAfegint_Load(object sender, EventArgs e)
         {
             bindingSourceDepartments.DataSource = DepartmentsOrm.Select(true);
+            if (!adding)
+            {
+                textBoxName.Text = _profesor.name;
+                textBoxSurname.Text = _profesor.surname1 + " " + _profesor.surname2;
+                textBoxEmail.Text = _profesor.email;
+                textBoxPhone.Text = _profesor.phone_number;
+                foreach (departments department in _profesor.departments)
+                {
+                    if (listDepartaments.FirstOrDefault(d => d.id == department.id) == null)
+                    {
+                        listDepartaments.Add(department);
+                    }
+                }
+                listBoxteacherDespartments.ValueMember = "id";
+                listBoxteacherDespartments.DisplayMember = "name";
+                listBoxteacherDespartments.DataSource = listDepartaments;
+            }
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -102,26 +131,31 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
         private void buttonAfegir_Click(object sender, EventArgs e)
         {
             string[] surnames = textBoxSurname.Text.Split(' ', (char)2);
+            if (adding)
+            {
+                users _users = new users();
+                _users.username = textBoxName.Text.Substring(0, 1).ToLower() + surnames[0].ToLower() + surnames[1].Substring(0, 1).ToLower();
+                _users.password = Blowfish.encriptarContrasenya(textBoxName.Text + textBoxPhone.Text);
+                _users.type = 2;
+                _users.active = true;
+                UsersOrm.Insert(_users);
 
-            users _users = new users();
-            _users.username = textBoxName.Text.Substring(0,1).ToLower() + surnames[0].ToLower() + surnames[1].Substring(0,1).ToLower();
-            _users.password = Blowfish.encriptarContrasenya(textBoxName.Text + textBoxPhone.Text);
-            _users.type = 2;
-            _users.active = true;
-            UsersOrm.Insert(_users);
+                profesors _profesors = new profesors();
 
-            profesors _profesors = new profesors();
-
-            _profesors.id = UsersOrm.Select(_users.username);
-            _profesors.name = textBoxName.Text;
-            _profesors.surname1 = surnames[0];
-            _profesors.surname2 = surnames[1];
-            _profesors.email = textBoxEmail.Text;
-            _profesors.phone_number = textBoxPhone.Text;
-            _profesors.departments = listBoxteacherDespartments.Items.Cast<departments>().ToList();
-            _profesors.active = true;
-            _profesors.created_timestamp = DateTime.Now;
-            ProfesorsOrm.Insert(_profesors);
+                _profesors.id = UsersOrm.Select(_users.username);
+                _profesors.name = textBoxName.Text;
+                _profesors.surname1 = surnames[0];
+                _profesors.surname2 = surnames[1];
+                _profesors.email = textBoxEmail.Text;
+                _profesors.phone_number = textBoxPhone.Text;
+                _profesors.departments = listBoxteacherDespartments.Items.Cast<departments>().ToList();
+                _profesors.active = true;
+                _profesors.created_timestamp = DateTime.Now;
+                ProfesorsOrm.Insert(_profesors);
+            } else
+            {
+                ProfesorsOrm.Update(_profesor, textBoxName.Text, surnames[0], surnames[1], textBoxEmail.Text, textBoxPhone.Text, listBoxteacherDespartments.Items.Cast<departments>().ToList());
+            }
         }
     }
 }
