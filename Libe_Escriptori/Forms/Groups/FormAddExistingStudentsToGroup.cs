@@ -53,7 +53,7 @@ namespace Libe_Escriptori.Forms.Groups
 
         private void FormAddExistingStudentsToGroup_Load(object sender, EventArgs e)
         {
-            studentsBindingSource.DataSource = AlumnesOrm.Select(true);
+            studentsBindingSource.DataSource = AlumnesOrm.SelectStudentsCourses(true,1);
         }
     }
 }
