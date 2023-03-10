@@ -276,6 +276,23 @@
           <Property Name="type" Type="int" Nullable="false" />
           <Property Name="active" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="users_desktop">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar(max)" Nullable="false" />
+          <Property Name="type" Type="int" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="users_desktop_type">
+          <Key>
+            <PropertyRef Name="type" />
+          </Key>
+          <Property Name="type" Type="int" Nullable="false" />
+          <Property Name="type_name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="validable_zones">
           <Key>
             <PropertyRef Name="id" />
@@ -662,6 +679,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_users_desktop_users_desktop_type">
+          <End Role="users_desktop_type" Type="Self.users_desktop_type" Multiplicity="1" />
+          <End Role="users_desktop" Type="Self.users_desktop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users_desktop_type">
+              <PropertyRef Name="type" />
+            </Principal>
+            <Dependent Role="users_desktop">
+              <PropertyRef Name="type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_users_user_type">
           <End Role="user_type" Type="Self.user_type" Multiplicity="1" />
           <End Role="users" Type="Self.users" Multiplicity="*" />
@@ -701,6 +730,8 @@
           <EntitySet Name="units" EntityType="Self.units" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="user_type" EntityType="Self.user_type" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users_desktop" EntityType="Self.users_desktop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users_desktop_type" EntityType="Self.users_desktop_type" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="validable_zones" EntityType="Self.validable_zones" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_attendance_attendance_status" Association="Self.FK_attendance_attendance_status">
             <End Role="attendance_status" EntitySet="attendance_status" />
@@ -825,6 +856,10 @@
           <AssociationSet Name="FK_units_units" Association="Self.FK_units_units">
             <End Role="modules" EntitySet="modules" />
             <End Role="units" EntitySet="units" />
+          </AssociationSet>
+          <AssociationSet Name="FK_users_desktop_users_desktop_type" Association="Self.FK_users_desktop_users_desktop_type">
+            <End Role="users_desktop_type" EntitySet="users_desktop_type" />
+            <End Role="users_desktop" EntitySet="users_desktop" />
           </AssociationSet>
           <AssociationSet Name="FK_users_user_type" Association="Self.FK_users_user_type">
             <End Role="user_type" EntitySet="user_type" />
@@ -1161,6 +1196,12 @@
           <AssociationSet Name="FK_classrooms1_validable_zones" Association="libeModel.FK_classrooms1_validable_zones">
             <End Role="validable_zones" EntitySet="validable_zones" />
             <End Role="classrooms" EntitySet="classrooms" />
+          </AssociationSet>
+          <EntitySet Name="users_desktop" EntityType="libeModel.users_desktop" />
+          <EntitySet Name="users_desktop_type" EntityType="libeModel.users_desktop_type" />
+          <AssociationSet Name="FK_users_desktop_users_desktop_type" Association="libeModel.FK_users_desktop_users_desktop_type">
+            <End Role="users_desktop_type" EntitySet="users_desktop_type" />
+            <End Role="users_desktop" EntitySet="users_desktop" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="users">
@@ -1550,6 +1591,37 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="users_desktop">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="Int32" Nullable="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="users_desktop_type" Relationship="libeModel.FK_users_desktop_users_desktop_type" FromRole="users_desktop" ToRole="users_desktop_type" />
+        </EntityType>
+        <EntityType Name="users_desktop_type">
+          <Key>
+            <PropertyRef Name="type" />
+          </Key>
+          <Property Name="type" Type="Int32" Nullable="false" />
+          <Property Name="type_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="users_desktop" Relationship="libeModel.FK_users_desktop_users_desktop_type" FromRole="users_desktop_type" ToRole="users_desktop" />
+        </EntityType>
+        <Association Name="FK_users_desktop_users_desktop_type">
+          <End Type="libeModel.users_desktop_type" Role="users_desktop_type" Multiplicity="1" />
+          <End Type="libeModel.users_desktop" Role="users_desktop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users_desktop_type">
+              <PropertyRef Name="type" />
+            </Principal>
+            <Dependent Role="users_desktop">
+              <PropertyRef Name="type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1860,6 +1932,25 @@
                 <ScalarProperty Name="radius" ColumnName="radius" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users_desktop">
+            <EntityTypeMapping TypeName="libeModel.users_desktop">
+              <MappingFragment StoreEntitySet="users_desktop">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users_desktop_type">
+            <EntityTypeMapping TypeName="libeModel.users_desktop_type">
+              <MappingFragment StoreEntitySet="users_desktop_type">
+                <ScalarProperty Name="type_name" ColumnName="type_name" />
+                <ScalarProperty Name="type" ColumnName="type" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

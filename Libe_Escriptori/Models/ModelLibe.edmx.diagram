@@ -54,6 +54,9 @@
         <AssociationConnector Association="libeModel.profesor_module" />
         <EntityTypeShape EntityType="libeModel.validable_zones" Width="1.5" PointX="14.375" PointY="7" />
         <AssociationConnector Association="libeModel.FK_classrooms1_validable_zones" />
+        <EntityTypeShape EntityType="libeModel.users_desktop" Width="1.5" PointX="17.625" PointY="0.875" />
+        <EntityTypeShape EntityType="libeModel.users_desktop_type" Width="1.5" PointX="15.375" PointY="1.25" />
+        <AssociationConnector Association="libeModel.FK_users_desktop_users_desktop_type" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

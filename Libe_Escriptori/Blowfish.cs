@@ -12,13 +12,12 @@ namespace Libe_Escriptori
         public static String encriptarContrasenya(String contrasenya)
         {
             String contraEncriptada;
-            contraEncriptada = BCrypt.HashPassword(contrasenya);
-            return contraEncriptada;
+            return contraEncriptada = BCrypt.HashPassword(contrasenya);
         }
-        public static Boolean verificarContra(String contraEncriptada, String contraUser)
+        public static bool verificarContra(string contraEncriptada, string contraUser)
         {
-            Boolean validPass = BCrypt.Verify(contraEncriptada, contraUser);
-            return validPass;
+            bool validPass;
+            return validPass = BCrypt.Verify(contraUser, contraEncriptada);
         }
     }
 }

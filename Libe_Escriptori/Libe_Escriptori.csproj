@@ -244,6 +244,7 @@
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LessonsOrm.cs" />
+    <Compile Include="Models\Login\LoginOrm.cs" />
     <Compile Include="Models\logs.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
@@ -280,6 +281,12 @@
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\users.cs">
+      <DependentUpon>ModelLibe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\users_desktop.cs">
+      <DependentUpon>ModelLibe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\users_desktop_type.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\user_type.cs">
@@ -378,13 +385,10 @@
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\csproj.AssemblyReference.cache" />
-
     <None Include="Properties\DataSources\Libe_Escriptori.Models.departments.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.profesors.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.students.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.units.datasource" />
-
-
     <None Include="Properties\DataSources\Libe_Escriptori.Models.groups.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.GroupsOrm.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.lessons.datasource" />
