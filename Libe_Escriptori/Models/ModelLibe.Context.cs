@@ -37,7 +37,6 @@ namespace Libe_Escriptori.Models
         public virtual DbSet<logs> logs { get; set; }
         public virtual DbSet<schedules> schedules { get; set; }
         public virtual DbSet<user_type> user_type { get; set; }
-        public virtual DbSet<validable_zones> validable_zones { get; set; }
         public virtual DbSet<users> users { get; set; }
         public virtual DbSet<students> students { get; set; }
         public virtual DbSet<departments> departments { get; set; }
@@ -47,5 +46,8 @@ namespace Libe_Escriptori.Models
         public virtual DbSet<courses> courses { get; set; }
         public virtual DbSet<groups> groups { get; set; }
         public virtual DbSet<modules> modules { get; set; }
+        public virtual DbSet<validable_zones> validable_zones { get; set; }
+        public virtual DbSet<users_desktop> users_desktop { get; set; }
+        public virtual DbSet<users_desktop_type> users_desktop_type { get; set; }
     }
 }

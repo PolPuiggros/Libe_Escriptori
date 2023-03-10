@@ -12,27 +12,18 @@ namespace Libe_Escriptori.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class courses
+    public partial class users_desktop_type
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public courses()
+        public users_desktop_type()
         {
-            this.groups = new HashSet<groups>();
-            this.modules = new HashSet<modules>();
+            this.users_desktop = new HashSet<users_desktop>();
         }
     
-        public int id { get; set; }
-        public string abreviation { get; set; }
-        public string name { get; set; }
-        public int total_hours { get; set; }
-        public bool active { get; set; }
-        public Nullable<System.DateTime> created_timestamp { get; set; }
-        public Nullable<System.DateTime> updated_timestamp { get; set; }
-        public Nullable<System.DateTime> deleted_timestamp { get; set; }
+        public int type { get; set; }
+        public string type_name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<groups> groups { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<modules> modules { get; set; }
+        public virtual ICollection<users_desktop> users_desktop { get; set; }
     }
 }

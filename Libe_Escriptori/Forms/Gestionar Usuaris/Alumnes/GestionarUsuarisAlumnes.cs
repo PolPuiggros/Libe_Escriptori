@@ -86,7 +86,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             
                 if (e.ColumnIndex == 8)
                 {
-                    OpenChildForm(new GestionarUsuarisAlumnesAfegint(label));
+                    OpenChildForm(new GestionarUsuarisAlumnesAfegint(label, (students)dataGridView1.SelectedRows[0].DataBoundItem));
                 } else if(e.ColumnIndex == 9)
                 {
                     DialogResult dialogResult = MessageBox.Show("Estas segur que vols borrar l'alumne?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
