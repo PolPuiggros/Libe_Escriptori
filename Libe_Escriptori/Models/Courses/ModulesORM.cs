@@ -37,7 +37,7 @@ namespace Libe_Escriptori.Models.Courses
             }
             
             List<modules> modules = Orm.db.modules
-                .Where(c => c.active == true && ids.Contains(c.id))
+                .Where(c => c.active == true && !ids.Contains(c.id))
                 .ToList();
             return modules;
         }

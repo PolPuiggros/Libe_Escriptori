@@ -36,5 +36,11 @@ namespace Libe_Escriptori.Models.Courses
             Orm.db.SaveChanges();
         }
 
+        public static void Insert(courses _courses)
+        {
+            Orm.db.courses.Add(_courses);
+            Orm.db.SaveChanges();
+        }
+
     }
 }

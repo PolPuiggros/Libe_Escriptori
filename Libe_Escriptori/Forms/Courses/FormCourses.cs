@@ -48,6 +48,7 @@ namespace Libe_Escriptori.Forms.Courses
         private void buttonNew_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormCoursesAdd(labeld));
+            bindingSourceCourses.DataSource = CoursesORM.Select();
         }
 
         private void dataGridViewCourses_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)

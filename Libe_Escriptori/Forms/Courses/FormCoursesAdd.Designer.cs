@@ -35,22 +35,24 @@ namespace Libe_Escriptori.Forms.Courses
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.dataGridViewModules = new System.Windows.Forms.DataGridView();
+            this.bindingSourceModules = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonExistent = new System.Windows.Forms.Button();
+            this.buttonNew = new System.Windows.Forms.Button();
+            this.comboBoxDepartment = new System.Windows.Forms.ComboBox();
+            this.bindingSourceDepartments = new System.Windows.Forms.BindingSource(this.components);
+            this.textBoxCoordinator = new System.Windows.Forms.TextBox();
+            this.textBoxFullName = new System.Windows.Forms.TextBox();
+            this.textBoxAbbreviation = new System.Windows.Forms.TextBox();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalhoursDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.bindingSourceModules = new System.Windows.Forms.BindingSource(this.components);
-            this.buttonExistent = new System.Windows.Forms.Button();
-            this.buttonNew = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBoxFullName = new System.Windows.Forms.TextBox();
-            this.textBoxAbbreviation = new System.Windows.Forms.TextBox();
             this.panelCoursesAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewModules)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceModules)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDepartments)).BeginInit();
             this.SuspendLayout();
             // 
             // panelCoursesAdd
@@ -60,8 +62,8 @@ namespace Libe_Escriptori.Forms.Courses
             this.panelCoursesAdd.Controls.Add(this.dataGridViewModules);
             this.panelCoursesAdd.Controls.Add(this.buttonExistent);
             this.panelCoursesAdd.Controls.Add(this.buttonNew);
-            this.panelCoursesAdd.Controls.Add(this.comboBox1);
-            this.panelCoursesAdd.Controls.Add(this.textBox3);
+            this.panelCoursesAdd.Controls.Add(this.comboBoxDepartment);
+            this.panelCoursesAdd.Controls.Add(this.textBoxCoordinator);
             this.panelCoursesAdd.Controls.Add(this.textBoxFullName);
             this.panelCoursesAdd.Controls.Add(this.textBoxAbbreviation);
             this.panelCoursesAdd.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -97,6 +99,7 @@ namespace Libe_Escriptori.Forms.Courses
             this.buttonSave.TabIndex = 7;
             this.buttonSave.Text = "Guardar";
             this.buttonSave.UseVisualStyleBackColor = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // dataGridViewModules
             // 
@@ -123,52 +126,6 @@ namespace Libe_Escriptori.Forms.Courses
             this.dataGridViewModules.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewModules_CellClick);
             this.dataGridViewModules.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewModules_CellFormatting);
             this.dataGridViewModules.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridViewModules_CellPainting);
-            // 
-            // codeDataGridViewTextBoxColumn
-            // 
-            this.codeDataGridViewTextBoxColumn.DataPropertyName = "code";
-            this.codeDataGridViewTextBoxColumn.HeaderText = "Abreviació";
-            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
-            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Nom";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // totalhoursDataGridViewTextBoxColumn
-            // 
-            this.totalhoursDataGridViewTextBoxColumn.DataPropertyName = "total_hours";
-            this.totalhoursDataGridViewTextBoxColumn.HeaderText = "Hores ";
-            this.totalhoursDataGridViewTextBoxColumn.Name = "totalhoursDataGridViewTextBoxColumn";
-            this.totalhoursDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // unitsDataGridViewTextBoxColumn
-            // 
-            this.unitsDataGridViewTextBoxColumn.DataPropertyName = "units";
-            this.unitsDataGridViewTextBoxColumn.HeaderText = "Num UFs";
-            this.unitsDataGridViewTextBoxColumn.Name = "unitsDataGridViewTextBoxColumn";
-            this.unitsDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ColumnEdit
-            // 
-            this.ColumnEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColumnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnEdit.HeaderText = "";
-            this.ColumnEdit.Name = "ColumnEdit";
-            this.ColumnEdit.ReadOnly = true;
-            this.ColumnEdit.Width = 5;
-            // 
-            // ColumnDelete
-            // 
-            this.ColumnDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColumnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnDelete.HeaderText = "";
-            this.ColumnDelete.Name = "ColumnDelete";
-            this.ColumnDelete.ReadOnly = true;
-            this.ColumnDelete.Width = 5;
             // 
             // bindingSourceModules
             // 
@@ -203,31 +160,37 @@ namespace Libe_Escriptori.Forms.Courses
             this.buttonNew.UseVisualStyleBackColor = false;
             this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
-            // comboBox1
+            // comboBoxDepartment
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.IntegralHeight = false;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Departament"});
-            this.comboBox1.Location = new System.Drawing.Point(80, 147);
-            this.comboBox1.MaximumSize = new System.Drawing.Size(266, 0);
-            this.comboBox1.MinimumSize = new System.Drawing.Size(266, 0);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(266, 29);
-            this.comboBox1.TabIndex = 3;
+            this.comboBoxDepartment.DataSource = this.bindingSourceDepartments;
+            this.comboBoxDepartment.DisplayMember = "name";
+            this.comboBoxDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDepartment.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.comboBoxDepartment.FormattingEnabled = true;
+            this.comboBoxDepartment.IntegralHeight = false;
+            this.comboBoxDepartment.Location = new System.Drawing.Point(80, 147);
+            this.comboBoxDepartment.MaximumSize = new System.Drawing.Size(266, 0);
+            this.comboBoxDepartment.MinimumSize = new System.Drawing.Size(266, 0);
+            this.comboBoxDepartment.Name = "comboBoxDepartment";
+            this.comboBoxDepartment.Size = new System.Drawing.Size(266, 29);
+            this.comboBoxDepartment.TabIndex = 3;
+            this.comboBoxDepartment.ValueMember = "id";
             // 
-            // textBox3
+            // bindingSourceDepartments
             // 
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.textBox3.Location = new System.Drawing.Point(462, 145);
-            this.textBox3.MaximumSize = new System.Drawing.Size(403, 31);
-            this.textBox3.MinimumSize = new System.Drawing.Size(403, 31);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(403, 31);
-            this.textBox3.TabIndex = 2;
-            this.textBox3.Text = "Coordinador";
+            this.bindingSourceDepartments.DataSource = typeof(Libe_Escriptori.Models.departments);
+            // 
+            // textBoxCoordinator
+            // 
+            this.textBoxCoordinator.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.textBoxCoordinator.Location = new System.Drawing.Point(462, 145);
+            this.textBoxCoordinator.MaximumSize = new System.Drawing.Size(403, 31);
+            this.textBoxCoordinator.MinimumSize = new System.Drawing.Size(403, 31);
+            this.textBoxCoordinator.Name = "textBoxCoordinator";
+            this.textBoxCoordinator.ReadOnly = true;
+            this.textBoxCoordinator.Size = new System.Drawing.Size(403, 29);
+            this.textBoxCoordinator.TabIndex = 2;
+            this.textBoxCoordinator.Text = "Coordinador";
             // 
             // textBoxFullName
             // 
@@ -237,7 +200,7 @@ namespace Libe_Escriptori.Forms.Courses
             this.textBoxFullName.MaximumSize = new System.Drawing.Size(497, 31);
             this.textBoxFullName.MinimumSize = new System.Drawing.Size(497, 31);
             this.textBoxFullName.Name = "textBoxFullName";
-            this.textBoxFullName.Size = new System.Drawing.Size(497, 31);
+            this.textBoxFullName.Size = new System.Drawing.Size(497, 29);
             this.textBoxFullName.TabIndex = 1;
             this.textBoxFullName.Text = " Nom Complert del curs";
             this.textBoxFullName.Enter += new System.EventHandler(this.textBoxFullName_Enter);
@@ -251,11 +214,62 @@ namespace Libe_Escriptori.Forms.Courses
             this.textBoxAbbreviation.MaximumSize = new System.Drawing.Size(169, 31);
             this.textBoxAbbreviation.MinimumSize = new System.Drawing.Size(169, 31);
             this.textBoxAbbreviation.Name = "textBoxAbbreviation";
-            this.textBoxAbbreviation.Size = new System.Drawing.Size(169, 31);
+            this.textBoxAbbreviation.Size = new System.Drawing.Size(169, 29);
             this.textBoxAbbreviation.TabIndex = 0;
             this.textBoxAbbreviation.Text = " Abreviació";
             this.textBoxAbbreviation.Enter += new System.EventHandler(this.textBoxAbbreviation_Enter);
             this.textBoxAbbreviation.Leave += new System.EventHandler(this.textBoxAbbreviation_Leave);
+            // 
+            // codeDataGridViewTextBoxColumn
+            // 
+            this.codeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.codeDataGridViewTextBoxColumn.DataPropertyName = "code";
+            this.codeDataGridViewTextBoxColumn.HeaderText = "Abreviació";
+            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
+            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Nom";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // totalhoursDataGridViewTextBoxColumn
+            // 
+            this.totalhoursDataGridViewTextBoxColumn.DataPropertyName = "total_hours";
+            this.totalhoursDataGridViewTextBoxColumn.HeaderText = "Hores ";
+            this.totalhoursDataGridViewTextBoxColumn.Name = "totalhoursDataGridViewTextBoxColumn";
+            this.totalhoursDataGridViewTextBoxColumn.ReadOnly = true;
+            this.totalhoursDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // unitsDataGridViewTextBoxColumn
+            // 
+            this.unitsDataGridViewTextBoxColumn.DataPropertyName = "units";
+            this.unitsDataGridViewTextBoxColumn.HeaderText = "Num UFs";
+            this.unitsDataGridViewTextBoxColumn.Name = "unitsDataGridViewTextBoxColumn";
+            this.unitsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.unitsDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // ColumnEdit
+            // 
+            this.ColumnEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ColumnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnEdit.HeaderText = "";
+            this.ColumnEdit.MinimumWidth = 15;
+            this.ColumnEdit.Name = "ColumnEdit";
+            this.ColumnEdit.ReadOnly = true;
+            this.ColumnEdit.Width = 30;
+            // 
+            // ColumnDelete
+            // 
+            this.ColumnDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ColumnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnDelete.HeaderText = "";
+            this.ColumnDelete.Name = "ColumnDelete";
+            this.ColumnDelete.ReadOnly = true;
+            this.ColumnDelete.Width = 30;
             // 
             // FormCoursesAdd
             // 
@@ -271,6 +285,7 @@ namespace Libe_Escriptori.Forms.Courses
             this.panelCoursesAdd.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewModules)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceModules)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDepartments)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -279,8 +294,8 @@ namespace Libe_Escriptori.Forms.Courses
 
         private Panel panelCoursesAdd;
         private Button buttonNew;
-        private ComboBox comboBox1;
-        private TextBox textBox3;
+        private ComboBox comboBoxDepartment;
+        private TextBox textBoxCoordinator;
         private TextBox textBoxFullName;
         private TextBox textBoxAbbreviation;
         private Button buttonSave;
@@ -288,6 +303,7 @@ namespace Libe_Escriptori.Forms.Courses
         private Button buttonExistent;
         private Button buttonCancel;
         private BindingSource bindingSourceModules;
+        private BindingSource bindingSourceDepartments;
         private DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn totalhoursDataGridViewTextBoxColumn;

@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -134,7 +135,11 @@ namespace Libe_Escriptori.Forms.Courses
                 bindingSourceModules.DataSource = ModulesORM.Select(_course.id);
             }
 
+            bindingSourceDepartments.DataSource = DepartmentsOrm.Select(true);
             
+
+
+
         }
 
         private void bindingSourceModules_CurrentChanged(object sender, EventArgs e)
@@ -178,6 +183,19 @@ namespace Libe_Escriptori.Forms.Courses
         private void panelCoursesAdd_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            if (addingNew)
+            {
+                _course.abreviation = textBoxAbbreviation.Text;
+                _course.name = textBoxFullName.Text;
+                _course.department_id = (int)comboBoxDepartment.SelectedValue;
+                _course.active = true;
+                CoursesORM.Insert(_course);
+            }
+            
         }
     }
 }

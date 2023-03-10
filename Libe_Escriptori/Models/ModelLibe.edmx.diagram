@@ -40,20 +40,24 @@
         <AssociationConnector Association="libeModel.profesor_lesson" />
         <AssociationConnector Association="libeModel.student_unit" />
         <EntityTypeShape EntityType="libeModel.classrooms" Width="1.5" PointX="7.25" PointY="14.125" />
-        <EntityTypeShape EntityType="libeModel.courses" Width="1.5" PointX="0.5" PointY="9.625" />
         <EntityTypeShape EntityType="libeModel.groups" Width="1.5" PointX="2.375" PointY="6.625" />
         <EntityTypeShape EntityType="libeModel.modules" Width="1.5" PointX="2.75" PointY="10.875" />
         <AssociationConnector Association="libeModel.FK_classrooms_users" />
         <AssociationConnector Association="libeModel.FK_classrooms1_validable_zones" />
         <AssociationConnector Association="libeModel.FK_lessons_classrooms" />
-        <AssociationConnector Association="libeModel.FK_groups_groups" />
         <AssociationConnector Association="libeModel.FK_groups_profesors" />
         <AssociationConnector Association="libeModel.FK_groups_schedules" />
         <AssociationConnector Association="libeModel.FK_students_groups" />
         <AssociationConnector Association="libeModel.FK_lessons_modules" />
         <AssociationConnector Association="libeModel.FK_units_units" />
-        <AssociationConnector Association="libeModel.course_module" />
         <AssociationConnector Association="libeModel.profesor_module" />
+        <EntityTypeShape EntityType="libeModel.courses" Width="1.5" PointX="15" PointY="13.25" />
+        <EntityTypeShape EntityType="libeModel.users_desktop" Width="1.5" PointX="16.625" PointY="7" />
+        <EntityTypeShape EntityType="libeModel.users_desktop_type" Width="1.5" PointX="14.375" PointY="7.5" />
+        <AssociationConnector Association="libeModel.FK_courses_departments" />
+        <AssociationConnector Association="libeModel.FK_groups_groups" />
+        <AssociationConnector Association="libeModel.FK_users_desktop_users_desktop_type" />
+        <AssociationConnector Association="libeModel.course_module" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

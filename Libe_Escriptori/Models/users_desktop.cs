@@ -12,26 +12,17 @@ namespace Libe_Escriptori.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class classrooms
+    public partial class users_desktop
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public classrooms()
-        {
-            this.lessons = new HashSet<lessons>();
-        }
-    
         public int id { get; set; }
-        public string name { get; set; }
-        public int validable_zone_id { get; set; }
-        public int user_id { get; set; }
+        public string username { get; set; }
+        public string password { get; set; }
+        public int type { get; set; }
         public bool active { get; set; }
         public Nullable<System.DateTime> created_timestamp { get; set; }
         public Nullable<System.DateTime> updated_timestamp { get; set; }
-        public Nullable<System.DateTime> deleted_timesatmp { get; set; }
+        public Nullable<System.DateTime> deleted_timestamp { get; set; }
     
-        public virtual users users { get; set; }
-        public virtual validable_zones validable_zones { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<lessons> lessons { get; set; }
+        public virtual users_desktop_type users_desktop_type { get; set; }
     }
 }
