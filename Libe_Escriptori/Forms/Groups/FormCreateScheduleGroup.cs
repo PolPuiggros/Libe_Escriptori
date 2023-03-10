@@ -25,8 +25,9 @@ namespace Libe_Escriptori.Forms.Groups
         List<TimeSpan> hours = new List<TimeSpan>();
         List<modules> modules = new List<modules>();
         List<string> modulesCodes = new List<string>();
-
-
+        List<lessons> lessonsInit = new List<lessons>();
+        List<LessonsData> lessons = new List<LessonsData>();
+        
 
 
         public FormCreateScheduleGroup(Label ruta)
@@ -39,6 +40,21 @@ namespace Libe_Escriptori.Forms.Groups
             initializeDataGrid();
             AdjustRowHeight();
             ruta.Text = "Gestionar Grups/Afegint Grup/Creant Horari";
+            saveLessons();
+        }
+
+        private void saveLessons()
+        {
+            lessonsInit.Clear();
+            lessonsInit = LessonsOrm.Select(_schedule.id);
+           
+
+       
+            foreach (var a in lessonsInit)
+            {
+                lessons.Add(new LessonsData(a.id, a.module_id, a.classroom_id));
+            }
+
             
         }
 
@@ -434,8 +450,69 @@ namespace Libe_Escriptori.Forms.Groups
                 {
                     if (indexItem != -1)
                     {
+                        int row = dataGridViewSchedule.CurrentCell.RowIndex;
+                        int column = dataGridViewSchedule.CurrentCell.ColumnIndex;
+                        TimeSpan hour = TimeSpan.Parse(dataGridViewSchedule[0, row].Value.ToString());
+                   
+                        List<lessons> allLessonsDay = LessonsOrm.Select(_schedule.id);
+                        List<modules> modulesList = ModulesORM.Select(1);
+                        List<string> codeModule = new List<string>();
+                        bool found = false;
+                        int indexLesson = 0;
+                        lessons actualLesson;
+                        int indexModule = -1;
+                        string weekdayConsult = null;
+
+                        switch (column)
+                        {
+                            case 1:
+                                weekdayConsult = "Mon       ";
+                                break;
+                            case 2:
+                                weekdayConsult = "Tue       ";
+                                break;
+                            case 3:
+                                weekdayConsult = "Wed       ";
+                                break;
+                            case 4:
+                                weekdayConsult = "Thu       ";
+                                break;
+                            case 5:
+                                weekdayConsult = "Fri       ";
+                                break;
+                            default:
+                                break;
+                        }
+
+
+                        foreach (modules module in modulesList)
+                        {
+                            codeModule.Add(module.code);
+                        }
+
+                        do
+                        {
+                            actualLesson = allLessonsDay[indexLesson];
+
+                            if(actualLesson.starting_hour == hour && actualLesson.weekday.Equals(weekdayConsult) && actualLesson.schedule_id == _schedule.id)
+                            {
+                                found = true;
+                            }
+                            ++indexLesson;
+                        } while (!found || indexLesson > allLessonsDay.Count());
+
                         dataGridViewSchedule.CurrentCell.Value = actualSelectedModul;
                         dataGridViewSchedule.CurrentCell.Style.BackColor = colors[indexItem];
+
+
+                        if (found)
+                        {
+                            indexModule = codeModule.IndexOf(dataGridViewSchedule.CurrentCell.Value.ToString());
+                            actualLesson.module_id = indexModule + 1;
+                            LessonsOrm.Update(actualLesson);
+                        }
+
+
                     }
 
                 }
@@ -457,68 +534,45 @@ namespace Libe_Escriptori.Forms.Groups
 
         private void buttonSave_Click_1(object sender, EventArgs e)
         {
-            _schedule = SchedulesOrm.Select().First();
-            modules = ModulesORM.Select(1);
-            List<lessons> allLessonsDay = LessonsOrm.Select(1);
-            List<modules> modulesList = ModulesORM.Select(1);
-            List<string> codeModule = new List<string>();
+            this.Close();
+        }
 
-            foreach (modules module in modulesList)
+        private void buttonCancel_Click_1(object sender, EventArgs e)
+        {
+
+            DialogResult result = MessageBox.Show("Estàs segur que vols cancelar? \n Els canvis no es guardaran! ", "Cancelar canvis",MessageBoxButtons.OKCancel);
+
+            if(result == DialogResult.OK)
             {
-                codeModule.Add(module.code);
-            }
-            
-            int indexModule = -1;
-            lessons actualLesson;
-            foreach (DataGridViewRow row in dataGridViewSchedule.Rows)
-            {
-                foreach (DataGridViewCell cell in row.Cells)
+                foreach (lessons lesson in lessonsInit)
                 {
-                    List<lessons> hourLessonsList = new List<lessons>();
-                    // 8:40
-                    if (row.Index == 0)
-                    {
-                        TimeSpan eightFourty = new TimeSpan(8, 40, 0);
-                        hourLessonsList = LessonsOrm.SelectLessonsAtHour(eightFourty);
-
-                        if (cell.ColumnIndex == 0)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex].starting_hour;
-                        }
-                        if (cell.ColumnIndex == 1)
-                        {
-                            foreach(lessons lesson in allLessonsDay){
-                                if (lesson.starting_hour == eightFourty && lesson.weekday.Equals("Mon       ") && lesson.schedule_id == _schedule.id)
-                                {
-                                    indexModule = codeModule.IndexOf(cell.Value.ToString());
-                                    lesson.module_id = indexModule+1;
-                                    LessonsOrm.Update(lesson);
-                                }
-                            }
-                        }
-                        if (cell.ColumnIndex == 2)
-                        {
-                            LessonsOrm.Update(hourLessonsList[1]);
-                        }
-                        if (cell.ColumnIndex == 3)
-                        {
-                            LessonsOrm.Update(hourLessonsList[2]);
-                        }
-                        if (cell.ColumnIndex == 4)
-                        {
-                            LessonsOrm.Update(hourLessonsList[3]);
-                        }
-                        if (cell.ColumnIndex == 5)
-                        {
-                            LessonsOrm.Update(hourLessonsList[4]);
-                        }
-                    }
+                    LessonsData thisLesson = lessons.Find(l => l.Id == lesson.id);
+                    lesson.module_id = thisLesson.Modules;
+                    lesson.classroom_id = thisLesson.Classroom;
+                    LessonsOrm.Update(lesson);
                 }
+                
+                this.Close();
             }
-
             
         }
     }
+
+    class LessonsData
+    {
+        public int Id { get; set; }
+        public int Modules { get; set; }
+        public int Classroom { get; set; }
+
+        public LessonsData(int id, int module, int classroom)
+        {
+            Id = id;
+            Modules = module;
+            Classroom = classroom;
+        }
+
+    }
+
 
     
 }

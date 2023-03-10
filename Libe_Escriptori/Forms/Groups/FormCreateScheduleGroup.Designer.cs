@@ -253,6 +253,7 @@ namespace Libe_Escriptori.Forms.Groups
             this.buttonCancel.TabIndex = 13;
             this.buttonCancel.Text = "Cancelar";
             this.buttonCancel.UseVisualStyleBackColor = false;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click_1);
             // 
             // listViewModuls
             // 
