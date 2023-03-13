@@ -43,5 +43,24 @@ namespace Libe_Escriptori.Models
             }
             return missatges;
         }
+        public static string Update(int previousDeptId, departments deptartament)
+        {
+            string missatges = "";
+            try
+            {
+                departments dept = Orm.db.departments
+                    .Where(d => d.id == previousDeptId)
+                    .FirstOrDefault();
+                dept.name = deptartament.name;
+                dept.profesor_in_charge_id = deptartament.profesor_in_charge_id;
+                Orm.db.SaveChanges();
+            }
+            catch (DbUpdateException e)
+            {
+                SqlException sqlException = (SqlException)e.InnerException.InnerException;
+                missatges = Orm.MissatgeError(sqlException);
+            }
+            return missatges;
+        }
     }
 }

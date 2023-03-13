@@ -85,6 +85,16 @@ namespace Libe_Escriptori.Forms.Centres
                     }
                 }
             }
+            if (e.ColumnIndex == 2)
+            {
+                departments dept = (departments)dataGridViewDepartments.Rows[e.RowIndex].DataBoundItem;
+                if (dept != null)
+                {
+                    PopupDept popup = new PopupDept(dept);
+                    popup.Show();
+                    
+                }
+            }
         }
     }
 }

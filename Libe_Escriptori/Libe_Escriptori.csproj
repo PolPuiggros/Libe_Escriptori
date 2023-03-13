@@ -96,6 +96,12 @@
     <Compile Include="Forms\Centres\FormCentreZonesValidables.Designer.cs">
       <DependentUpon>FormCentreZonesValidables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Centres\PopupDept.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Centres\PopupDept.Designer.cs">
+      <DependentUpon>PopupDept.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Centres\UserControlBlank.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -314,6 +320,9 @@
     <EmbeddedResource Include="Forms\Centres\FormCentreZonesValidables.resx">
       <DependentUpon>FormCentreZonesValidables.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Centres\PopupDept.resx">
+      <DependentUpon>PopupDept.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Centres\UserControlBlank.resx">
       <DependentUpon>UserControlBlank.cs</DependentUpon>
     </EmbeddedResource>
@@ -385,8 +394,6 @@
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\csproj.AssemblyReference.cache" />
-
-
     <None Include="Properties\DataSources\Libe_Escriptori.Models.Courses.CoursesORM.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.courses.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.modules.datasource" />
@@ -400,7 +407,6 @@
     <None Include="Properties\DataSources\Libe_Escriptori.Models.lessons.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.schedules.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.validable_zones.datasource" />
-
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
