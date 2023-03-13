@@ -38,7 +38,6 @@ namespace Libe_Escriptori.Models.Usuaris.Alumnes
             List<students> _students = Orm.db.students
                 .Where(student => student.active == active && student.units.Any(unit => unit.modules.courses.Any(course => course.id == idCourse)))
                 .ToList();
-
             return _students;
         }
 
