@@ -62,6 +62,7 @@ namespace Libe_Escriptori.Forms.Centres
             _departments.created_timestamp = DateTime.Now;
 
             DepartmentsOrm.Insert(_departments);
+            refreshDGV();
         }
 
         private void refreshDGV()
