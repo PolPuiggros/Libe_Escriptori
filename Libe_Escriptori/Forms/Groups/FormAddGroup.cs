@@ -1,4 +1,6 @@
 ﻿using Libe_Escriptori.Models;
+using Libe_Escriptori.Models.Courses;
+using Libe_Escriptori.Models.Usuaris.Profesors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -76,6 +78,18 @@ namespace Libe_Escriptori.Forms.Groups
         private void FormAddGroup_Load(object sender, EventArgs e)
         {
             groupsBindingSource.DataSource = GroupsOrm.Select();
+            coursesBindingSource.DataSource = CoursesORM.Select();
+            profesorsBindingSource.DataSource = ProfesorsOrm.Select(true);
+        }
+
+        private void bindingSource1_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelAddGroup_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

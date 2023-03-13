@@ -49,11 +49,15 @@ namespace Libe_Escriptori.Forms.Groups
             this.groupsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBoxYearGroup = new System.Windows.Forms.ComboBox();
             this.comboBoxCicleGroup = new System.Windows.Forms.ComboBox();
+            this.coursesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.profesorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.panelAddGroup.SuspendLayout();
             this.panelManageSchedule.SuspendLayout();
             this.panelManageStudents.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profesorsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -83,6 +87,7 @@ namespace Libe_Escriptori.Forms.Groups
             this.panelAddGroup.Name = "panelAddGroup";
             this.panelAddGroup.Size = new System.Drawing.Size(861, 563);
             this.panelAddGroup.TabIndex = 1;
+            this.panelAddGroup.Paint += new System.Windows.Forms.PaintEventHandler(this.panelAddGroup_Paint);
             // 
             // buttonSave
             // 
@@ -216,13 +221,15 @@ namespace Libe_Escriptori.Forms.Groups
             // 
             // comboBoxTutorGroup
             // 
+            this.comboBoxTutorGroup.DataSource = this.profesorsBindingSource;
+            this.comboBoxTutorGroup.DisplayMember = "name";
             this.comboBoxTutorGroup.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.comboBoxTutorGroup.FormattingEnabled = true;
             this.comboBoxTutorGroup.Location = new System.Drawing.Point(51, 100);
             this.comboBoxTutorGroup.Name = "comboBoxTutorGroup";
             this.comboBoxTutorGroup.Size = new System.Drawing.Size(247, 29);
             this.comboBoxTutorGroup.TabIndex = 15;
-            this.comboBoxTutorGroup.Text = "Tutor";
+            this.comboBoxTutorGroup.ValueMember = "id";
             // 
             // comboBoxClassGroup
             // 
@@ -234,7 +241,6 @@ namespace Libe_Escriptori.Forms.Groups
             this.comboBoxClassGroup.Name = "comboBoxClassGroup";
             this.comboBoxClassGroup.Size = new System.Drawing.Size(166, 29);
             this.comboBoxClassGroup.TabIndex = 14;
-            this.comboBoxClassGroup.Text = "Classe";
             this.comboBoxClassGroup.ValueMember = "id";
             // 
             // groupsBindingSource
@@ -251,12 +257,12 @@ namespace Libe_Escriptori.Forms.Groups
             this.comboBoxYearGroup.Name = "comboBoxYearGroup";
             this.comboBoxYearGroup.Size = new System.Drawing.Size(139, 29);
             this.comboBoxYearGroup.TabIndex = 13;
-            this.comboBoxYearGroup.Text = "Any";
             this.comboBoxYearGroup.ValueMember = "id";
             // 
             // comboBoxCicleGroup
             // 
-            this.comboBoxCicleGroup.DataSource = this.groupsBindingSource;
+            this.comboBoxCicleGroup.DataSource = this.coursesBindingSource;
+            this.comboBoxCicleGroup.DisplayMember = "abreviation";
             this.comboBoxCicleGroup.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.comboBoxCicleGroup.FormattingEnabled = true;
             this.comboBoxCicleGroup.Location = new System.Drawing.Point(51, 54);
@@ -264,7 +270,16 @@ namespace Libe_Escriptori.Forms.Groups
             this.comboBoxCicleGroup.Name = "comboBoxCicleGroup";
             this.comboBoxCicleGroup.Size = new System.Drawing.Size(143, 29);
             this.comboBoxCicleGroup.TabIndex = 12;
-            this.comboBoxCicleGroup.Text = "Cicle";
+            this.comboBoxCicleGroup.ValueMember = "id";
+            // 
+            // coursesBindingSource
+            // 
+            this.coursesBindingSource.DataSource = typeof(Libe_Escriptori.Models.courses);
+            this.coursesBindingSource.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
+            // 
+            // profesorsBindingSource
+            // 
+            this.profesorsBindingSource.DataSource = typeof(Libe_Escriptori.Models.profesors);
             // 
             // FormAddGroup
             // 
@@ -283,6 +298,8 @@ namespace Libe_Escriptori.Forms.Groups
             this.panelManageStudents.ResumeLayout(false);
             this.panelManageStudents.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profesorsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -307,5 +324,7 @@ namespace Libe_Escriptori.Forms.Groups
         private ComboBox comboBoxYearGroup;
         private ComboBox comboBoxCicleGroup;
         private BindingSource groupsBindingSource;
+        private BindingSource coursesBindingSource;
+        private BindingSource profesorsBindingSource;
     }
 }

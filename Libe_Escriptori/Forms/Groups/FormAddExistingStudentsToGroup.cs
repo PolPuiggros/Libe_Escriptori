@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Libe_Escriptori.Models.Usuaris.Alumnes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -48,6 +49,11 @@ namespace Libe_Escriptori.Forms.Groups
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
+        }
+
+        private void FormAddExistingStudentsToGroup_Load(object sender, EventArgs e)
+        {
+            studentsBindingSource.DataSource = AlumnesOrm.SelectStudentsCourses(true,1);
         }
     }
 }

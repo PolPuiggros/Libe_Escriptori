@@ -41,16 +41,16 @@ namespace Libe_Escriptori.Forms.Groups
             this.pictureBoxRightClick = new System.Windows.Forms.PictureBox();
             this.pictureBoxLeftClick = new System.Windows.Forms.PictureBox();
             this.dataGridViewSchedule = new System.Windows.Forms.DataGridView();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonCancel = new System.Windows.Forms.Button();
-            this.listViewModuls = new System.Windows.Forms.ListView();
-            this.bindingSourceLessons = new System.Windows.Forms.BindingSource(this.components);
             this.starting_hour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnMonday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTuesday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnWednesday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnThursday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnFriday = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.listViewModuls = new System.Windows.Forms.ListView();
+            this.bindingSourceLessons = new System.Windows.Forms.BindingSource(this.components);
             this.panelSchedule.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRightClick)).BeginInit();
@@ -180,58 +180,6 @@ namespace Libe_Escriptori.Forms.Groups
             this.dataGridViewSchedule.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewSchedule_CellFormatting);
             this.dataGridViewSchedule.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewSchedule_CellMouseUp);
             // 
-            // buttonSave
-            // 
-            this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(64)))), ((int)(((byte)(171)))));
-            this.buttonSave.FlatAppearance.BorderSize = 0;
-            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSave.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.buttonSave.ForeColor = System.Drawing.Color.White;
-            this.buttonSave.Location = new System.Drawing.Point(464, 496);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(117, 35);
-            this.buttonSave.TabIndex = 14;
-            this.buttonSave.Text = "Guardar";
-            this.buttonSave.UseVisualStyleBackColor = false;
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(168)))), ((int)(((byte)(241)))));
-            this.buttonCancel.FlatAppearance.BorderSize = 0;
-            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCancel.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.buttonCancel.Location = new System.Drawing.Point(320, 496);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(117, 35);
-            this.buttonCancel.TabIndex = 13;
-            this.buttonCancel.Text = "Cancelar";
-            this.buttonCancel.UseVisualStyleBackColor = false;
-            // 
-            // listViewModuls
-            // 
-            this.listViewModuls.Alignment = System.Windows.Forms.ListViewAlignment.Default;
-            this.listViewModuls.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listViewModuls.AutoArrange = false;
-            this.listViewModuls.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listViewModuls.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.listViewModuls.FullRowSelect = true;
-            this.listViewModuls.HideSelection = false;
-            this.listViewModuls.Location = new System.Drawing.Point(713, 25);
-            this.listViewModuls.MultiSelect = false;
-            this.listViewModuls.Name = "listViewModuls";
-            this.listViewModuls.Size = new System.Drawing.Size(129, 310);
-            this.listViewModuls.TabIndex = 15;
-            this.listViewModuls.TileSize = new System.Drawing.Size(130, 30);
-            this.listViewModuls.UseCompatibleStateImageBehavior = false;
-            this.listViewModuls.View = System.Windows.Forms.View.Tile;
-            this.listViewModuls.SelectedIndexChanged += new System.EventHandler(this.listViewModuls_SelectedIndexChanged);
-            // 
-            // bindingSourceLessons
-            // 
-            this.bindingSourceLessons.DataSource = typeof(Libe_Escriptori.Models.lessons);
-            // 
             // starting_hour
             // 
             this.starting_hour.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -277,6 +225,60 @@ namespace Libe_Escriptori.Forms.Groups
             this.ColumnFriday.HeaderText = "Divendres";
             this.ColumnFriday.Name = "ColumnFriday";
             this.ColumnFriday.ReadOnly = true;
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(64)))), ((int)(((byte)(171)))));
+            this.buttonSave.FlatAppearance.BorderSize = 0;
+            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSave.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.buttonSave.ForeColor = System.Drawing.Color.White;
+            this.buttonSave.Location = new System.Drawing.Point(464, 496);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(117, 35);
+            this.buttonSave.TabIndex = 14;
+            this.buttonSave.Text = "Guardar";
+            this.buttonSave.UseVisualStyleBackColor = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click_1);
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(168)))), ((int)(((byte)(241)))));
+            this.buttonCancel.FlatAppearance.BorderSize = 0;
+            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCancel.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.buttonCancel.Location = new System.Drawing.Point(320, 496);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(117, 35);
+            this.buttonCancel.TabIndex = 13;
+            this.buttonCancel.Text = "Cancelar";
+            this.buttonCancel.UseVisualStyleBackColor = false;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click_1);
+            // 
+            // listViewModuls
+            // 
+            this.listViewModuls.Alignment = System.Windows.Forms.ListViewAlignment.Default;
+            this.listViewModuls.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listViewModuls.AutoArrange = false;
+            this.listViewModuls.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listViewModuls.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.listViewModuls.FullRowSelect = true;
+            this.listViewModuls.HideSelection = false;
+            this.listViewModuls.Location = new System.Drawing.Point(713, 25);
+            this.listViewModuls.MultiSelect = false;
+            this.listViewModuls.Name = "listViewModuls";
+            this.listViewModuls.Size = new System.Drawing.Size(129, 310);
+            this.listViewModuls.TabIndex = 15;
+            this.listViewModuls.TileSize = new System.Drawing.Size(130, 30);
+            this.listViewModuls.UseCompatibleStateImageBehavior = false;
+            this.listViewModuls.View = System.Windows.Forms.View.List;
+            this.listViewModuls.SelectedIndexChanged += new System.EventHandler(this.listViewModuls_SelectedIndexChanged);
+            // 
+            // bindingSourceLessons
+            // 
+            this.bindingSourceLessons.DataSource = typeof(Libe_Escriptori.Models.lessons);
             // 
             // FormCreateScheduleGroup
             // 

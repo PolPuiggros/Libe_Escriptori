@@ -33,6 +33,13 @@ namespace Libe_Escriptori.Models.Usuaris.Alumnes
             Orm.db.students.Add(_students);
             Orm.db.SaveChanges();
         }
+        public static List<students> SelectStudentsCourses(bool active, int idCourse)
+        {
+            List<students> _students = Orm.db.students
+                .Where(student => student.active == active && student.units.Any(unit => unit.modules.courses.Any(course => course.id == idCourse)))
+                .ToList();
+            return _students;
+        }
 
         public static void Update(students _student, string name, string surname, string surname2, string email, string dni, string phone, bool autoregister, bool repiter, groups _group)
         {
@@ -80,4 +87,5 @@ namespace Libe_Escriptori.Models.Usuaris.Alumnes
             Orm.db.SaveChanges();
         }
     }
+    
 }

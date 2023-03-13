@@ -30,19 +30,29 @@ namespace Libe_Escriptori.Forms.Groups
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewExistingStudents = new System.Windows.Forms.DataGridView();
             this.buttonSaveStudentsGroup = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.headerGroup = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.headerSurnames = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.headerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.surnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.surname2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExistingStudents)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewExistingStudents
             // 
+            this.dataGridViewExistingStudents.AllowUserToAddRows = false;
+            this.dataGridViewExistingStudents.AllowUserToDeleteRows = false;
+            this.dataGridViewExistingStudents.AllowUserToResizeColumns = false;
+            this.dataGridViewExistingStudents.AllowUserToResizeRows = false;
+            this.dataGridViewExistingStudents.AutoGenerateColumns = false;
             this.dataGridViewExistingStudents.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -55,9 +65,12 @@ namespace Libe_Escriptori.Forms.Groups
             this.dataGridViewExistingStudents.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewExistingStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewExistingStudents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.headerName,
-            this.headerSurnames,
+            this.nameDataGridViewTextBoxColumn,
+            this.surnameDataGridViewTextBoxColumn,
+            this.surname2DataGridViewTextBoxColumn,
+            this.groupidDataGridViewTextBoxColumn,
             this.headerGroup});
+            this.dataGridViewExistingStudents.DataSource = this.studentsBindingSource;
             this.dataGridViewExistingStudents.Location = new System.Drawing.Point(23, 50);
             this.dataGridViewExistingStudents.Name = "dataGridViewExistingStudents";
             this.dataGridViewExistingStudents.RowHeadersVisible = false;
@@ -110,24 +123,47 @@ namespace Libe_Escriptori.Forms.Groups
             // 
             // headerGroup
             // 
+            this.headerGroup.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.headerGroup.HeaderText = "DAM1A";
             this.headerGroup.Name = "headerGroup";
-            this.headerGroup.ReadOnly = true;
             this.headerGroup.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.headerGroup.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.headerGroup.Width = 84;
             // 
-            // headerSurnames
+            // nameDataGridViewTextBoxColumn
             // 
-            this.headerSurnames.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.headerSurnames.HeaderText = "Cognoms";
-            this.headerSurnames.Name = "headerSurnames";
-            this.headerSurnames.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // headerName
+            // surnameDataGridViewTextBoxColumn
             // 
-            this.headerName.HeaderText = "Nom";
-            this.headerName.Name = "headerName";
-            this.headerName.ReadOnly = true;
+            this.surnameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.surnameDataGridViewTextBoxColumn.DataPropertyName = "surname";
+            this.surnameDataGridViewTextBoxColumn.HeaderText = "surname";
+            this.surnameDataGridViewTextBoxColumn.Name = "surnameDataGridViewTextBoxColumn";
+            this.surnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // surname2DataGridViewTextBoxColumn
+            // 
+            this.surname2DataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.surname2DataGridViewTextBoxColumn.DataPropertyName = "surname2";
+            this.surname2DataGridViewTextBoxColumn.HeaderText = "surname2";
+            this.surname2DataGridViewTextBoxColumn.Name = "surname2DataGridViewTextBoxColumn";
+            this.surname2DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // groupidDataGridViewTextBoxColumn
+            // 
+            this.groupidDataGridViewTextBoxColumn.DataPropertyName = "group_id";
+            this.groupidDataGridViewTextBoxColumn.HeaderText = "group_id";
+            this.groupidDataGridViewTextBoxColumn.Name = "groupidDataGridViewTextBoxColumn";
+            this.groupidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.groupidDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // studentsBindingSource
+            // 
+            this.studentsBindingSource.DataSource = typeof(Libe_Escriptori.Models.students);
             // 
             // FormAddExistingStudentsToGroup
             // 
@@ -142,7 +178,9 @@ namespace Libe_Escriptori.Forms.Groups
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormAddExistingStudentsToGroup";
             this.Text = "FormAddExistingStudentsToGroup";
+            this.Load += new System.EventHandler(this.FormAddExistingStudentsToGroup_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExistingStudents)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -153,8 +191,11 @@ namespace Libe_Escriptori.Forms.Groups
         private Button buttonSaveStudentsGroup;
         private Button buttonClose;
         private Panel panel1;
-        private DataGridViewTextBoxColumn headerName;
-        private DataGridViewTextBoxColumn headerSurnames;
+        private BindingSource studentsBindingSource;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn surnameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn surname2DataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn groupidDataGridViewTextBoxColumn;
         private DataGridViewCheckBoxColumn headerGroup;
     }
 }

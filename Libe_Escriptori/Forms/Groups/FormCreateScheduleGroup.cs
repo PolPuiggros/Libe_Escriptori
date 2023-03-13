@@ -1,4 +1,5 @@
 ﻿using Libe_Escriptori.Models;
+using Libe_Escriptori.Models.Courses;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,27 +23,54 @@ namespace Libe_Escriptori.Forms.Groups
         List<Color> colors = new List<Color>();
         schedules _schedule;
         List<TimeSpan> hours = new List<TimeSpan>();
-
-
+        List<modules> modules = new List<modules>();
+        List<string> modulesCodes = new List<string>();
+        List<lessons> lessonsInit = new List<lessons>();
+        List<LessonsData> lessons = new List<LessonsData>();
+        
 
 
         public FormCreateScheduleGroup(Label ruta)
         {
             InitializeComponent();
+            fillColors();
+            fillModuls();
             hours = LessonsOrm.SelectHours();
             dataGridViewSchedule.RowCount = hours.Count;
             initializeDataGrid();
             AdjustRowHeight();
             ruta.Text = "Gestionar Grups/Afegint Grup/Creant Horari";
-            fillColors();
-            fillModuls();
+            saveLessons();
+        }
+
+        private void saveLessons()
+        {
+            lessonsInit.Clear();
+            lessonsInit = LessonsOrm.Select(_schedule.id);
+           
+
+       
+            foreach (var a in lessonsInit)
+            {
+                lessons.Add(new LessonsData(a.id, a.module_id, a.classroom_id));
+            }
+
+            
         }
 
         private void initializeDataGrid()
         {
             _schedule = SchedulesOrm.Select().First();
+            modules = ModulesORM.Select(1);
+            int indexModule = -1;
+
+            foreach (modules module in modules)
+            {
+                modulesCodes.Add(module.code);
+            }
             
             List<lessons> hourLessonsList = new List<lessons>();
+            
             foreach (DataGridViewRow row in dataGridViewSchedule.Rows)
             {
                 foreach (DataGridViewCell cell in row.Cells)
@@ -60,22 +88,32 @@ namespace Libe_Escriptori.Forms.Groups
                         if (cell.ColumnIndex == 1)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 2)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 3)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 4)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 5)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                     }
 
@@ -89,26 +127,37 @@ namespace Libe_Escriptori.Forms.Groups
                         if (cell.ColumnIndex == 0)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex].starting_hour;
+                            
                         }
                         if (cell.ColumnIndex == 1)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 2)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 3)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 4)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 5)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                     }
 
@@ -122,26 +171,37 @@ namespace Libe_Escriptori.Forms.Groups
                         if (cell.ColumnIndex == 0)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex].starting_hour;
+                      
                         }
                         if (cell.ColumnIndex == 1)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 2)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 3)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 4)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 5)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                     }
 
@@ -160,22 +220,32 @@ namespace Libe_Escriptori.Forms.Groups
                         if (cell.ColumnIndex == 1)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 2)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 3)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 4)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 5)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                     }
 
@@ -194,22 +264,32 @@ namespace Libe_Escriptori.Forms.Groups
                         if (cell.ColumnIndex == 1)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 2)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 3)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 4)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                         if (cell.ColumnIndex == 5)
                         {
                             cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                            cell.Style.BackColor = colors[indexModule];
                         }
                     }
 
@@ -320,32 +400,13 @@ namespace Libe_Escriptori.Forms.Groups
         }
         private void fillModuls()
         {
-            moduls.Add("M01");
-            moduls.Add("M02");
-            moduls.Add("M03");
-            moduls.Add("M04");
-            moduls.Add("M05");
-            moduls.Add("M06");
-            moduls.Add("M07");
-            moduls.Add("M08");
-            moduls.Add("M09");
-            moduls.Add("M10");
-            moduls.Add("M11");
-            moduls.Add("M12");
-            moduls.Add("M13");
-            moduls.Add("M14");
-            moduls.Add("M15");
-            moduls.Add("M16");
-            moduls.Add("M17");
-            moduls.Add("M18");
-            moduls.Add("M19");
-            moduls.Add("M20");
+            groups _group = GroupsOrm.SelectGroup(1);
 
+            List<modules> _modules = ModulesORM.Select(_group.course_id);
 
-
-            foreach (string modul in moduls)
+            foreach (modules modul in _modules)
             {
-                listViewModuls.Items.Add(modul);
+                listViewModuls.Items.Add(modul.code);
             }
             
         }
@@ -389,8 +450,69 @@ namespace Libe_Escriptori.Forms.Groups
                 {
                     if (indexItem != -1)
                     {
+                        int row = dataGridViewSchedule.CurrentCell.RowIndex;
+                        int column = dataGridViewSchedule.CurrentCell.ColumnIndex;
+                        TimeSpan hour = TimeSpan.Parse(dataGridViewSchedule[0, row].Value.ToString());
+                   
+                        List<lessons> allLessonsDay = LessonsOrm.Select(_schedule.id);
+                        List<modules> modulesList = ModulesORM.Select(1);
+                        List<string> codeModule = new List<string>();
+                        bool found = false;
+                        int indexLesson = 0;
+                        lessons actualLesson;
+                        int indexModule = -1;
+                        string weekdayConsult = null;
+
+                        switch (column)
+                        {
+                            case 1:
+                                weekdayConsult = "Mon       ";
+                                break;
+                            case 2:
+                                weekdayConsult = "Tue       ";
+                                break;
+                            case 3:
+                                weekdayConsult = "Wed       ";
+                                break;
+                            case 4:
+                                weekdayConsult = "Thu       ";
+                                break;
+                            case 5:
+                                weekdayConsult = "Fri       ";
+                                break;
+                            default:
+                                break;
+                        }
+
+
+                        foreach (modules module in modulesList)
+                        {
+                            codeModule.Add(module.code);
+                        }
+
+                        do
+                        {
+                            actualLesson = allLessonsDay[indexLesson];
+
+                            if(actualLesson.starting_hour == hour && actualLesson.weekday.Equals(weekdayConsult) && actualLesson.schedule_id == _schedule.id)
+                            {
+                                found = true;
+                            }
+                            ++indexLesson;
+                        } while (!found || indexLesson > allLessonsDay.Count());
+
                         dataGridViewSchedule.CurrentCell.Value = actualSelectedModul;
                         dataGridViewSchedule.CurrentCell.Style.BackColor = colors[indexItem];
+
+
+                        if (found)
+                        {
+                            indexModule = codeModule.IndexOf(dataGridViewSchedule.CurrentCell.Value.ToString());
+                            actualLesson.module_id = indexModule + 1;
+                            LessonsOrm.Update(actualLesson);
+                        }
+
+
                     }
 
                 }
@@ -409,7 +531,48 @@ namespace Libe_Escriptori.Forms.Groups
             bindingSourceLessons.DataSource = LessonsOrm.Select(_schedule.id);
             
         }
+
+        private void buttonSave_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonCancel_Click_1(object sender, EventArgs e)
+        {
+
+            DialogResult result = MessageBox.Show("Estàs segur que vols cancelar? \n Els canvis no es guardaran! ", "Cancelar canvis",MessageBoxButtons.OKCancel);
+
+            if(result == DialogResult.OK)
+            {
+                foreach (lessons lesson in lessonsInit)
+                {
+                    LessonsData thisLesson = lessons.Find(l => l.Id == lesson.id);
+                    lesson.module_id = thisLesson.Modules;
+                    lesson.classroom_id = thisLesson.Classroom;
+                    LessonsOrm.Update(lesson);
+                }
+                
+                this.Close();
+            }
+            
+        }
     }
+
+    class LessonsData
+    {
+        public int Id { get; set; }
+        public int Modules { get; set; }
+        public int Classroom { get; set; }
+
+        public LessonsData(int id, int module, int classroom)
+        {
+            Id = id;
+            Modules = module;
+            Classroom = classroom;
+        }
+
+    }
+
 
     
 }

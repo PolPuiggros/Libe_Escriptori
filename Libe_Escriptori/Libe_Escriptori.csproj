@@ -386,9 +386,12 @@
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\csproj.AssemblyReference.cache" />
 
+
     <None Include="Properties\DataSources\Libe_Escriptori.Models.Courses.CoursesORM.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.courses.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.modules.datasource" />
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.courses1.datasource" />
+
     <None Include="Properties\DataSources\Libe_Escriptori.Models.departments.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.profesors.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.students.datasource" />
