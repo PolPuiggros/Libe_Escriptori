@@ -1,4 +1,5 @@
 ﻿using Libe_Escriptori.Models;
+using Libe_Escriptori.Models.Centre;
 using Libe_Escriptori.Models.Usuaris.Profesors;
 using Libe_Escriptori.Properties;
 using System;
@@ -23,7 +24,7 @@ namespace Libe_Escriptori.Forms.Centres
 
         private void FormCentreDepartaments_Load(object sender, EventArgs e)
         {
-            bindingSourceDepartments.DataSource = DepartmentsOrm.Select(true);
+            refreshDGV();
             bindingSourceCoordinator.DataSource = ProfesorsOrm.Select(true);
         }
 
@@ -36,6 +37,7 @@ namespace Libe_Escriptori.Forms.Centres
         {
             TextBoxDesign.textBoxSearch_Leave(textBoxNomDepartament, textBoxHintNameDepartment);
         }
+
 
         private void dataGridViewDepartments_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -50,40 +52,6 @@ namespace Libe_Escriptori.Forms.Centres
             }
         }
 
-        private void dataGridViewDepartments_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
-        {
-            if (e.RowIndex < 0)
-                return;
-
-            // Edit button column
-            if (e.ColumnIndex == 2)
-            {
-                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-
-                var w = 15;
-                var h = 15;
-                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
-                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
-
-                e.Graphics.DrawImage(Resources.bin, new Rectangle(x, y, w, h));
-                e.Handled = true;
-            }
-
-            // Delete button column
-            if (e.ColumnIndex == 3)
-            {
-                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-
-                var w = 15;
-                var h = 15;
-                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
-                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
-
-                e.Graphics.DrawImage(Resources.bin, new Rectangle(x, y, w, h));
-                e.Handled = true;
-            }
-        }
-
         private void buttonGuardarDepartament_Click(object sender, EventArgs e)
         {
             departments _departments = new departments();
@@ -94,6 +62,29 @@ namespace Libe_Escriptori.Forms.Centres
             _departments.created_timestamp = DateTime.Now;
 
             DepartmentsOrm.Insert(_departments);
+            refreshDGV();
+        }
+
+        private void refreshDGV()
+        {
+            bindingSourceDepartments.DataSource = DepartmentsOrm.Select(true);
+        }
+
+        private void dataGridViewDepartments_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 3)
+            {
+                departments dept = (departments)dataGridViewDepartments.Rows[e.RowIndex].DataBoundItem;
+                if (dept != null)
+                {
+                    DialogResult dia = MessageBox.Show("Estàs segur/a que vols esborrar el departament?", "Esborrar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (dia == DialogResult.OK)
+                    {
+                        DepartmentsOrm.Delete(dept);
+                        refreshDGV();
+                    }
+                }
+            }
         }
     }
 }

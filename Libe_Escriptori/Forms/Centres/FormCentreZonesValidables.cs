@@ -157,15 +157,17 @@ namespace Libe_Escriptori.Forms.Centres
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            
+            if (e.ColumnIndex == 4)
+            {
+                validable_zones vz = (validable_zones)dataGridView1.Rows[e.RowIndex].DataBoundItem;
+                int numAules = ZonesValidablesOrm.SelectClassrooms(vz.id);
+                e.Value = numAules.ToString();
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 4)
-            {
-
-            }
+            
             if (e.ColumnIndex == 5)
             {
                 validable_zones vz = (validable_zones)dataGridView1.Rows[e.RowIndex].DataBoundItem;

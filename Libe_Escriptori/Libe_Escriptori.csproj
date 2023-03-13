@@ -391,7 +391,6 @@
     <None Include="Properties\DataSources\Libe_Escriptori.Models.courses.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.modules.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.courses1.datasource" />
-
     <None Include="Properties\DataSources\Libe_Escriptori.Models.departments.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.profesors.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.students.datasource" />
@@ -447,6 +446,8 @@
     <Content Include="Resources\lines_yellow.jpg" />
     <None Include="Resources\mid_eraser.png" />
     <Content Include="Resources\minus.png" />
+    <None Include="Resources\pencil.png" />
+    <None Include="Resources\pencil %281%29.png" />
     <Content Include="Resources\profile_pic.png" />
     <Content Include="Resources\profile_pic_big.png" />
     <None Include="Resources\remove.png" />
