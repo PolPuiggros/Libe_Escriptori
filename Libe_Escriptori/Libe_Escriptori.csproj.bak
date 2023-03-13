@@ -12,7 +12,6 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,10 +36,17 @@
     <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
       <HintPath>packages\BCrypt.Net-Next.4.0.3\lib\net472\BCrypt.Net-Next.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
@@ -52,6 +58,8 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -190,6 +198,98 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\attendance.cs">
+      <DependentUpon>ModelLibe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\attendance_status.cs">
+      <DependentUpon>ModelLibe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\calendars.cs">
+      <DependentUpon>ModelLibe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\center_information.cs">
+      <DependentUpon>ModelLibe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\classrooms.cs">
+      <DependentUpon>ModelLibe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\courses.cs">
+      <DependentUpon>ModelLibe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Courses\UnitsORM.cs" />
+    <Compile Include="Models\Courses\ModulesORM.cs" />
+    <Compile Include="Models\Courses\CoursesORM.cs" />
+    <Compile Include="Models\departments.cs">
+      <DependentUpon>ModelLibe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DepartmentsOrm.cs" />
+    <Compile Include="Models\groups.cs">
+      <DependentUpon>ModelLibe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GroupsOrm.cs" />
+    <Compile Include="Models\holidays.cs">
+      <DependentUpon>ModelLibe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\holiday_type.cs">
+      <DependentUpon>ModelLibe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\justifications.cs">
+      <DependentUpon>ModelLibe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\justification_status.cs">
+      <DependentUpon>ModelLibe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\lessons.cs">
+      <DependentUpon>ModelLibe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LessonsOrm.cs" />
+    <Compile Include="Models\logs.cs">
+      <DependentUpon>ModelLibe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelLibe.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelLibe.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelLibe.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelLibe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelLibe.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelLibe.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\modules.cs">
+      <DependentUpon>ModelLibe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Orm.cs" />
+    <Compile Include="Models\profesors.cs">
+      <DependentUpon>ModelLibe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\schedules.cs">
+      <DependentUpon>ModelLibe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SchedulesOrm.cs" />
+    <Compile Include="Models\students.cs">
+      <DependentUpon>ModelLibe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\units.cs">
+      <DependentUpon>ModelLibe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\users.cs">
+      <DependentUpon>ModelLibe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user_type.cs">
+      <DependentUpon>ModelLibe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Usuaris\Alumnes\AlumnesOrm.cs" />
+    <Compile Include="Models\Usuaris\Profesors\ProfesorsOrm.cs" />
+    <Compile Include="Models\Usuaris\UsersOrm.cs" />
+    <Compile Include="Models\validable_zones.cs">
+      <DependentUpon>ModelLibe.tt</DependentUpon>
+    </Compile>
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -267,9 +367,36 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EntityDeploy Include="Models\ModelLibe.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelLibe.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\ModelLibe.edmx.diagram">
+      <DependentUpon>ModelLibe.edmx</DependentUpon>
+    </None>
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\csproj.AssemblyReference.cache" />
+<<<<<<< HEAD
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.Courses.CoursesORM.datasource" />
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.courses.datasource" />
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.modules.datasource" />
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.students.datasource" />
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.units.datasource" />
+=======
+
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.departments.datasource" />
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.profesors.datasource" />
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.students.datasource" />
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.units.datasource" />
+
+
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.groups.datasource" />
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.GroupsOrm.datasource" />
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.lessons.datasource" />
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.schedules.datasource" />
+
+>>>>>>> main
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -285,13 +412,23 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include=".gitattributes" />
-    <Content Include=".gitignore" />
-    <Content Include="csproj.user" />
+    <Content Include="Models\ModelLibe.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelLibe.Context.cs</LastGenOutput>
+      <DependentUpon>ModelLibe.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\ModelLibe.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelLibe.edmx</DependentUpon>
+      <LastGenOutput>ModelLibe.cs</LastGenOutput>
+    </Content>
     <Content Include="Resources\bin.png" />
     <Content Include="Resources\books.png" />
     <Content Include="Resources\close.png" />
     <Content Include="Resources\close1.png" />
+    <None Include="Resources\eraser.png" />
+    <None Include="Resources\eraser_small.png" />
+    <None Include="Resources\eraser_smaller.png" />
     <Content Include="Resources\exit.png" />
     <Content Include="Resources\gradient.png" />
     <Content Include="Resources\home.png" />
@@ -301,6 +438,7 @@
     <Content Include="Resources\inbox.png" />
     <Content Include="Resources\left-click.png" />
     <Content Include="Resources\lines_yellow.jpg" />
+    <None Include="Resources\mid_eraser.png" />
     <Content Include="Resources\minus.png" />
     <Content Include="Resources\profile_pic.png" />
     <Content Include="Resources\profile_pic_big.png" />
@@ -311,7 +449,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

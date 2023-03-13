@@ -19,6 +19,10 @@ namespace Libe_Escriptori.Models
         public string password { get; set; }
         public int type { get; set; }
         public bool active { get; set; }
+        public Nullable<System.DateTime> created_timestamp { get; set; }
+        public Nullable<System.DateTime> updated_timestamp { get; set; }
+        public Nullable<System.DateTime> deleted_timestamp { get; set; }
+
     
         public virtual users_desktop_type users_desktop_type { get; set; }
     }

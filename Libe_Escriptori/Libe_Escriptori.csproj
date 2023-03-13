@@ -385,6 +385,10 @@
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\csproj.AssemblyReference.cache" />
+
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.Courses.CoursesORM.datasource" />
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.courses.datasource" />
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.modules.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.departments.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.profesors.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.students.datasource" />
@@ -394,6 +398,7 @@
     <None Include="Properties\DataSources\Libe_Escriptori.Models.lessons.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.schedules.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.validable_zones.datasource" />
+
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

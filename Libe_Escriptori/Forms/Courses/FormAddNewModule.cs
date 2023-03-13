@@ -17,17 +17,28 @@ namespace Libe_Escriptori.Forms.Courses
         private String textBoxHintAbreviation = " Abreviació";
         private String textBoxHintHours = " Hores";
         private String textBoxHintName = " Nom complert";
-        private int moduleId;
+        private String textBoxHintAbreviationUF = " Abreviació UF";
+        private String textBoxHintHoursUF = " Hores UF";
+        private String textBoxHintNameUF = " Nom complert UF";
+        private modules _module;
+        private courses _course;
+        private List<units> listUnits;
         private bool addingNew = false;
-        public FormAddNewModule(Label label, int id)
+        public FormAddNewModule(Label label, modules _module)
         {
             InitializeComponent();
-            label.Text = "Gestionar Cursos/Afegint Curs/Nou Mòdul";
-            moduleId = id;
-            if (id < 0)
-            {
-                addingNew = true;
-            }
+            label.Text = label.Text + "/Editar Mòdul";
+            this._module = _module;
+            
+        }
+
+        public FormAddNewModule(Label label)
+        {
+            InitializeComponent();
+            label.Text = label.Text + "/Nou Mòdul";
+            addingNew = true;
+            listUnits = new List<units>();
+            
         }
 
         private void textBoxAbbreviation_Enter(object sender, EventArgs e)
@@ -69,19 +80,92 @@ namespace Libe_Escriptori.Forms.Courses
         {
             if (!addingNew)
             {
-                modules _module = ModulesORM.SelectModule(moduleId);
-                textBoxAbbreviation.Text = _module.code;
-                textBoxHours.Text = _module.total_hours.ToString();
-                textBoxName.Text = _module.name.ToString();
-
-                bindingSourceUnits.DataSource = UnitsORM.Select(moduleId);
+                listUnits = UnitsORM.Select(_module.id);
+                bindingSourceUnits.DataSource = UnitsORM.Select(_module.id);
             }
             
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            Orm.db.SaveChanges();
+            if (addingNew)
+            {
+                modules _newModule = new modules();
+                _newModule.name = textBoxName.Text;
+                _newModule.code = textBoxAbbreviation.Text;
+                _newModule.total_hours = int.Parse(textBoxHours.Text);
+                _newModule.active = true;
+                ModulesORM.InsertWithUnits(_newModule, listUnits);
+            }
+            else
+            {
+                _module.name = textBoxName.Text;
+                _module.code = textBoxAbbreviation.Text;
+                _module.total_hours = int.Parse(textBoxHours.Text);
+                _module.active = true;
+                ModulesORM.Update(_module);
+            }
+        }
+
+        private void textBoxAbbrebiationUF_Enter(object sender, EventArgs e)
+        {
+            
+            TextBoxDesign.textBoxSearch_Enter(textBoxAbbrebiationUF, textBoxHintAbreviationUF);
+        }
+
+        private void textBoxAbbrebiationUF_Leave(object sender, EventArgs e)
+        {
+            TextBoxDesign.textBoxSearch_Leave(textBoxAbbrebiationUF, textBoxHintAbreviationUF);
+        }
+
+        private void textBoxNameUF_Enter(object sender, EventArgs e)
+        {
+            TextBoxDesign.textBoxSearch_Enter(textBoxNameUF, textBoxHintNameUF);
+        }
+
+        private void textBoxNameUF_Leave(object sender, EventArgs e)
+        {
+            TextBoxDesign.textBoxSearch_Leave(textBoxNameUF, textBoxHintNameUF);
+        }
+
+        private void textBoxHoursUF_Enter(object sender, EventArgs e)
+        {
+            TextBoxDesign.textBoxSearch_Enter(textBoxHoursUF, textBoxHintHoursUF);
+        }
+
+        private void textBoxHoursUF_Leave(object sender, EventArgs e)
+        {
+            TextBoxDesign.textBoxSearch_Leave(textBoxHoursUF, textBoxHintHoursUF);
+        }
+
+        private void buttonSaveUf_Click(object sender, EventArgs e)
+        {
+            units u = new units();
+            u.abreviation = textBoxAbbrebiationUF.Text;
+            u.total_hours = int.Parse(textBoxHoursUF.Text);
+            u.name = textBoxNameUF.Text;
+            
+            u.active = true;
+            if (addingNew)
+            {
+                
+                u.module_id = -1;
+                listUnits.Add(u);
+                bindingSourceUnits.DataSource = null;
+                bindingSourceUnits.DataSource = listUnits;
+            }
+            else
+            {
+                u.module_id = _module.id;
+                UnitsORM.Insert(u);
+                
+            }
+            
+        }
+
+        private void buttonCancel_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

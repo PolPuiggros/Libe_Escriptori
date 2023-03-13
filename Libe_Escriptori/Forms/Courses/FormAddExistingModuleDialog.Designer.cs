@@ -30,30 +30,82 @@ namespace Libe_Escriptori.Forms.Courses
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.components = new System.ComponentModel.Container();
+            this.dataGridViewModules = new System.Windows.Forms.DataGridView();
+            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalhoursDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSourceAllModules = new System.Windows.Forms.BindingSource(this.components);
             this.buttonOk = new System.Windows.Forms.Button();
             this.labelModuleName = new System.Windows.Forms.Label();
             this.labelAddModule = new System.Windows.Forms.Label();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewModules)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceAllModules)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridViewModules
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(51, 114);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(567, 288);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridViewModules.AllowUserToAddRows = false;
+            this.dataGridViewModules.AllowUserToDeleteRows = false;
+            this.dataGridViewModules.AllowUserToResizeColumns = false;
+            this.dataGridViewModules.AllowUserToResizeRows = false;
+            this.dataGridViewModules.AutoGenerateColumns = false;
+            this.dataGridViewModules.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewModules.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.codeDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.totalhoursDataGridViewTextBoxColumn,
+            this.unitsDataGridViewTextBoxColumn});
+            this.dataGridViewModules.DataSource = this.bindingSourceAllModules;
+            this.dataGridViewModules.Location = new System.Drawing.Point(51, 114);
+            this.dataGridViewModules.Name = "dataGridViewModules";
+            this.dataGridViewModules.ReadOnly = true;
+            this.dataGridViewModules.RowTemplate.Height = 25;
+            this.dataGridViewModules.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewModules.Size = new System.Drawing.Size(567, 288);
+            this.dataGridViewModules.TabIndex = 0;
+            // 
+            // codeDataGridViewTextBoxColumn
+            // 
+            this.codeDataGridViewTextBoxColumn.DataPropertyName = "code";
+            this.codeDataGridViewTextBoxColumn.HeaderText = "code";
+            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
+            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // totalhoursDataGridViewTextBoxColumn
+            // 
+            this.totalhoursDataGridViewTextBoxColumn.DataPropertyName = "total_hours";
+            this.totalhoursDataGridViewTextBoxColumn.HeaderText = "total_hours";
+            this.totalhoursDataGridViewTextBoxColumn.Name = "totalhoursDataGridViewTextBoxColumn";
+            this.totalhoursDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // unitsDataGridViewTextBoxColumn
+            // 
+            this.unitsDataGridViewTextBoxColumn.DataPropertyName = "units";
+            this.unitsDataGridViewTextBoxColumn.HeaderText = "units";
+            this.unitsDataGridViewTextBoxColumn.Name = "unitsDataGridViewTextBoxColumn";
+            this.unitsDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bindingSourceAllModules
+            // 
+            this.bindingSourceAllModules.DataSource = typeof(Libe_Escriptori.Models.modules);
             // 
             // buttonOk
             // 
             this.buttonOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(64)))), ((int)(((byte)(171)))));
             this.buttonOk.FlatAppearance.BorderSize = 0;
             this.buttonOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonOk.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonOk.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.buttonOk.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonOk.Location = new System.Drawing.Point(354, 422);
             this.buttonOk.Name = "buttonOk";
@@ -66,7 +118,7 @@ namespace Libe_Escriptori.Forms.Courses
             // labelModuleName
             // 
             this.labelModuleName.AutoSize = true;
-            this.labelModuleName.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelModuleName.Font = new System.Drawing.Font("Segoe UI", 20.25F);
             this.labelModuleName.Location = new System.Drawing.Point(299, 25);
             this.labelModuleName.Name = "labelModuleName";
             this.labelModuleName.Size = new System.Drawing.Size(76, 37);
@@ -76,7 +128,7 @@ namespace Libe_Escriptori.Forms.Courses
             // labelAddModule
             // 
             this.labelAddModule.AutoSize = true;
-            this.labelAddModule.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelAddModule.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.labelAddModule.Location = new System.Drawing.Point(236, 69);
             this.labelAddModule.Name = "labelAddModule";
             this.labelAddModule.Size = new System.Drawing.Size(192, 25);
@@ -88,7 +140,7 @@ namespace Libe_Escriptori.Forms.Courses
             this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(168)))), ((int)(((byte)(241)))));
             this.buttonCancel.FlatAppearance.BorderSize = 0;
             this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCancel.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonCancel.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.buttonCancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.buttonCancel.Location = new System.Drawing.Point(195, 422);
             this.buttonCancel.Name = "buttonCancel";
@@ -103,7 +155,7 @@ namespace Libe_Escriptori.Forms.Courses
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(664, 27);
+            this.panel1.Size = new System.Drawing.Size(664, 23);
             this.panel1.TabIndex = 7;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
@@ -111,7 +163,7 @@ namespace Libe_Escriptori.Forms.Courses
             // 
             // FormAddExistingModuleDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(664, 495);
@@ -120,11 +172,13 @@ namespace Libe_Escriptori.Forms.Courses
             this.Controls.Add(this.labelAddModule);
             this.Controls.Add(this.labelModuleName);
             this.Controls.Add(this.buttonOk);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewModules);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormAddExistingModuleDialog";
             this.Text = "FormAddModuleDialog";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.FormAddExistingModuleDialog_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewModules)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceAllModules)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,11 +186,16 @@ namespace Libe_Escriptori.Forms.Courses
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewModules;
         private Button buttonOk;
         private Label labelModuleName;
         private Label labelAddModule;
         private Button buttonCancel;
         private Panel panel1;
+        private DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn totalhoursDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn unitsDataGridViewTextBoxColumn;
+        private BindingSource bindingSourceAllModules;
     }
 }

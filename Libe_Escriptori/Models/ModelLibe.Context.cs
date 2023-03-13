@@ -43,10 +43,11 @@ namespace Libe_Escriptori.Models
         public virtual DbSet<profesors> profesors { get; set; }
         public virtual DbSet<units> units { get; set; }
         public virtual DbSet<classrooms> classrooms { get; set; }
-        public virtual DbSet<courses> courses { get; set; }
         public virtual DbSet<groups> groups { get; set; }
         public virtual DbSet<modules> modules { get; set; }
         public virtual DbSet<validable_zones> validable_zones { get; set; }
+        public virtual DbSet<courses> courses { get; set; }
+
         public virtual DbSet<users_desktop> users_desktop { get; set; }
         public virtual DbSet<users_desktop_type> users_desktop_type { get; set; }
     }

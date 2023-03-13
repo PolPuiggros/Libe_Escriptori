@@ -36,5 +36,25 @@ namespace Libe_Escriptori.Models.Courses
             Orm.db.SaveChanges();
         }
 
+        public static void Insert(courses _courses)
+        {
+            Orm.db.courses.Add(_courses);
+            Orm.db.SaveChanges();
+        }
+
+        public static void Update(courses _courses)
+        {
+            courses course = Orm.db.courses
+                .Where(c => c.id == _courses.id)
+                .First();
+
+            course.abreviation = _courses.abreviation;
+            course.name = _courses.name;
+            course.total_hours = _courses.total_hours;
+            course.department_id = _courses.department_id;
+            course.modules = _courses.modules;
+            Orm.db.SaveChanges();
+        }
+
     }
 }

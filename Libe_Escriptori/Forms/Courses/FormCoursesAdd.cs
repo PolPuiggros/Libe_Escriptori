@@ -1,5 +1,6 @@
 ﻿using Libe_Escriptori.Models;
 using Libe_Escriptori.Models.Courses;
+using Libe_Escriptori.Models.Usuaris.Profesors;
 using Libe_Escriptori.Properties;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,31 +21,47 @@ namespace Libe_Escriptori.Forms.Courses
         private String textBoxHintAbreviation = " Abreviació";
         private String textBoxHintName = " Nom Complert del curs";
         private Form activeForm;
-        private int courseId;
+        private courses _course;
         private bool addingNew = false;
-        public FormCoursesAdd(Label labelRuta, int courseId)
+        private List<departments> listDepartments;
+        public FormCoursesAdd(Label labelRuta, courses _course)
         {
             InitializeComponent();
-            labelRuta.Text = "Gestionar Cursos/Afegint Curs";
+            labelRuta.Text = "Gestionar Cursos/Editar Curs";
             labeld = labelRuta;
-            this.courseId = courseId;
-            if (courseId < 0)
-            {
-                addingNew = true;
-            }
+            this._course = _course;
+            
+        }
+
+        public FormCoursesAdd(Label labelRuta)
+        {
+            InitializeComponent();
+            labelRuta.Text = "Gestionar Cursos/Afegir Curs";
+            labeld = labelRuta;
+            addingNew = true;
+            this._course = new courses();
         }
 
        
 
         private void buttonExistent_Click(object sender, EventArgs e)
         {
-            using (FormAddExistingModuleDialog f = new FormAddExistingModuleDialog(labeld))
+            using (FormAddExistingModuleDialog f = new FormAddExistingModuleDialog(labeld, _course))
             {
                 DialogResult dr = f.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    string custName = f.test;
+                    List<modules> listModules = f.listModules;
                     
+                    foreach (modules module in listModules)
+                    {
+                        _course.modules.Add(module);
+                    }
+                    if (addingNew)
+                    {
+                        bindingSourceModules.DataSource = _course.modules;
+                    }
+                                        
                 }
             }
         }
@@ -86,7 +104,7 @@ namespace Libe_Escriptori.Forms.Courses
 
         private void buttonNew_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormAddNewModule(labeld, -1));
+            OpenChildForm(new FormAddNewModule(labeld));
         }
 
         private void dataGridViewModules_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -126,14 +144,13 @@ namespace Libe_Escriptori.Forms.Courses
         {
             if (!addingNew)
             {
-                bindingSourceModules.DataSource = ModulesORM.Select(courseId);
+                bindingSourceModules.DataSource = ModulesORM.Select(_course.id);
             }
-
+            listDepartments = DepartmentsOrm.Select(true);
+            bindingSourceDepartments.DataSource = DepartmentsOrm.Select(true);
             
-        }
 
-        private void bindingSourceModules_CurrentChanged(object sender, EventArgs e)
-        {
+
 
         }
 
@@ -155,7 +172,7 @@ namespace Libe_Escriptori.Forms.Courses
             if (e.ColumnIndex == 4)
             {
                 var selectedModule = (modules)dataGridViewModules.SelectedRows[0].DataBoundItem;
-                OpenChildForm(new FormAddNewModule(labeld, selectedModule.id));
+                OpenChildForm(new FormAddNewModule(labeld, selectedModule));
             }
             else if (e.ColumnIndex == 5)
             {
@@ -170,9 +187,47 @@ namespace Libe_Escriptori.Forms.Courses
             }
         }
 
-        private void panelCoursesAdd_Paint(object sender, PaintEventArgs e)
+        private void buttonSave_Click(object sender, EventArgs e)
         {
 
+            int hours = 0;
+
+            _course.abreviation = textBoxAbbreviation.Text;
+            _course.name = textBoxFullName.Text;
+            _course.department_id = (int)comboBoxDepartment.SelectedValue;
+            _course.active = true;
+
+            foreach (modules m in _course.modules)
+            {
+                hours += m.total_hours;
+            }
+
+            _course.total_hours = hours;
+
+            if (addingNew)
+            {
+                CoursesORM.Insert(_course);
+            }
+            else
+            {
+                CoursesORM.Update(_course);
+            }
+            this.Close();
+
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void comboBoxDepartment_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (comboBoxDepartment.SelectedValue != null)
+            {
+                //textBoxCoordinator.Text = ProfesorsOrm.SelectFromId(listDepartments.Find(c => c.id == (int)comboBoxDepartment.SelectedValue).profesor_in_charge_id);
+            }
+        
         }
     }
 }

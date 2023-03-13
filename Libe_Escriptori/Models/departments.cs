@@ -18,6 +18,7 @@ namespace Libe_Escriptori.Models
         public departments()
         {
             this.profesors1 = new HashSet<profesors>();
+            this.courses = new HashSet<courses>();
         }
     
         public int id { get; set; }
@@ -31,5 +32,7 @@ namespace Libe_Escriptori.Models
         public virtual profesors profesors { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<profesors> profesors1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<courses> courses { get; set; }
     }
 }

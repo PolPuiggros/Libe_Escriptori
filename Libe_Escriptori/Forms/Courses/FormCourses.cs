@@ -47,7 +47,8 @@ namespace Libe_Escriptori.Forms.Courses
 
         private void buttonNew_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormCoursesAdd(labeld, -1));
+            OpenChildForm(new FormCoursesAdd(labeld));
+            bindingSourceCourses.DataSource = CoursesORM.Select();
         }
 
         private void dataGridViewCourses_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -93,7 +94,7 @@ namespace Libe_Escriptori.Forms.Courses
             if (e.ColumnIndex == 3)
             {
                 var selectedCourse = (courses)dataGridViewCourses.SelectedRows[0].DataBoundItem;
-                OpenChildForm(new FormCoursesAdd(labeld, selectedCourse.id));
+                OpenChildForm(new FormCoursesAdd(labeld, selectedCourse));
             }
             else if (e.ColumnIndex == 4)
             {
