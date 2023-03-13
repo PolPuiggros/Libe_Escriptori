@@ -31,16 +31,12 @@ namespace Libe_Escriptori.Forms.Courses
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            // Your code that checks the form data and
-            // eventually display an error message.
+            
             this.DialogResult = DialogResult.OK;
-            foreach(DataGridViewRow row in dataGridView1.SelectedRows)
+            foreach(DataGridViewRow row in dataGridViewModules.SelectedRows)
             {
-                
                 listModules.Add((modules)row.DataBoundItem);
-
             }
-           
             
             this.Dispose();
         }

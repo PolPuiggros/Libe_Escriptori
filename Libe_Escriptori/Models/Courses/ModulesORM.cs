@@ -30,15 +30,24 @@ namespace Libe_Escriptori.Models.Courses
 
         public static List<modules> SelectAll(courses _courses)
         {
-            List<int> ids = new List<int>();
-            foreach (var module in _courses.modules)
+            List<modules> modules;
+            if (_courses != null)
             {
-                ids.Add(module.id);
+                List<int> ids = new List<int>();
+                foreach (var module in _courses.modules)
+                {
+                    ids.Add(module.id);
+                }
+            
+                 modules = Orm.db.modules
+                    .Where(c => c.active == true && !ids.Contains(c.id))
+                    .ToList();
+            }
+            else
+            {
+                modules = Orm.db.modules.ToList();
             }
             
-            List<modules> modules = Orm.db.modules
-                .Where(c => c.active == true && !ids.Contains(c.id))
-                .ToList();
             return modules;
         }
         public static List<modules> Select()
@@ -60,7 +69,31 @@ namespace Libe_Escriptori.Models.Courses
             Orm.db.SaveChanges();
         }
 
-        public static void Update(modules _modules) { 
+        public static void Update(modules _modules) {
+            modules module = Orm.db.modules
+                .Where(c => c.id == _modules.id)
+                .First();
+
+            module.code = _modules.code;
+            module.name = _modules.name;
+            module.total_hours = _modules.total_hours;
+            module.active = _modules.active;
+            Orm.db.SaveChanges();
+        }
+
+        public static void InsertWithUnits(modules _modules, List<units> listUnits)
+        {
+            Orm.db.modules.Add(_modules);
+            Orm.db.SaveChanges();
+            var lastModules = Orm.db.modules
+               .ToList()
+               .Last();
+            foreach(units u in listUnits)
+            {
+                u.module_id = lastModules.id;
+                UnitsORM.Insert(u);
+            }
+
         }
 
     }

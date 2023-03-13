@@ -38,7 +38,24 @@ namespace Libe_Escriptori.Models.Courses
             Orm.db.SaveChanges();
         }
 
-        public static void Update(modules _modules) { 
+        public static void Update(units _units) {
+            units unit = Orm.db.units
+                .Where(c => c.id == _units.id)
+                .First();
+
+            unit.abreviation = _units.abreviation;
+            unit.name = _units.name;
+            unit.total_hours = _units.total_hours;
+            unit.active = _units.active;
+            unit.module_id = _units.module_id;
+
+            Orm.db.SaveChanges();
+        }
+
+        public static void Insert(units _units)
+        {
+            Orm.db.units.Add(_units);
+            Orm.db.SaveChanges();
         }
 
     }

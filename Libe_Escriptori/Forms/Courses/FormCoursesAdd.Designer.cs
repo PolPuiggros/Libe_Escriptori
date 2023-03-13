@@ -35,6 +35,12 @@ namespace Libe_Escriptori.Forms.Courses
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.dataGridViewModules = new System.Windows.Forms.DataGridView();
+            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalhoursDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.bindingSourceModules = new System.Windows.Forms.BindingSource(this.components);
             this.buttonExistent = new System.Windows.Forms.Button();
             this.buttonNew = new System.Windows.Forms.Button();
@@ -43,12 +49,6 @@ namespace Libe_Escriptori.Forms.Courses
             this.textBoxCoordinator = new System.Windows.Forms.TextBox();
             this.textBoxFullName = new System.Windows.Forms.TextBox();
             this.textBoxAbbreviation = new System.Windows.Forms.TextBox();
-            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalhoursDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panelCoursesAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewModules)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceModules)).BeginInit();
@@ -71,7 +71,6 @@ namespace Libe_Escriptori.Forms.Courses
             this.panelCoursesAdd.Name = "panelCoursesAdd";
             this.panelCoursesAdd.Size = new System.Drawing.Size(1005, 650);
             this.panelCoursesAdd.TabIndex = 0;
-            this.panelCoursesAdd.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCoursesAdd_Paint);
             // 
             // buttonCancel
             // 
@@ -85,6 +84,7 @@ namespace Libe_Escriptori.Forms.Courses
             this.buttonCancel.TabIndex = 8;
             this.buttonCancel.Text = "Cancelar";
             this.buttonCancel.UseVisualStyleBackColor = false;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonSave
             // 
@@ -105,6 +105,8 @@ namespace Libe_Escriptori.Forms.Courses
             // 
             this.dataGridViewModules.AllowUserToAddRows = false;
             this.dataGridViewModules.AllowUserToDeleteRows = false;
+            this.dataGridViewModules.AllowUserToResizeColumns = false;
+            this.dataGridViewModules.AllowUserToResizeRows = false;
             this.dataGridViewModules.AutoGenerateColumns = false;
             this.dataGridViewModules.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewModules.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -126,99 +128,6 @@ namespace Libe_Escriptori.Forms.Courses
             this.dataGridViewModules.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewModules_CellClick);
             this.dataGridViewModules.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewModules_CellFormatting);
             this.dataGridViewModules.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridViewModules_CellPainting);
-            // 
-            // bindingSourceModules
-            // 
-            this.bindingSourceModules.DataSource = typeof(Libe_Escriptori.Models.modules);
-            this.bindingSourceModules.CurrentChanged += new System.EventHandler(this.bindingSourceModules_CurrentChanged);
-            // 
-            // buttonExistent
-            // 
-            this.buttonExistent.BackColor = System.Drawing.Color.White;
-            this.buttonExistent.FlatAppearance.BorderSize = 0;
-            this.buttonExistent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonExistent.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.buttonExistent.Location = new System.Drawing.Point(236, 206);
-            this.buttonExistent.Name = "buttonExistent";
-            this.buttonExistent.Size = new System.Drawing.Size(137, 31);
-            this.buttonExistent.TabIndex = 5;
-            this.buttonExistent.Text = "Mòdul Existent";
-            this.buttonExistent.UseVisualStyleBackColor = false;
-            this.buttonExistent.Click += new System.EventHandler(this.buttonExistent_Click);
-            // 
-            // buttonNew
-            // 
-            this.buttonNew.BackColor = System.Drawing.Color.White;
-            this.buttonNew.FlatAppearance.BorderSize = 0;
-            this.buttonNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.buttonNew.Location = new System.Drawing.Point(80, 206);
-            this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(137, 31);
-            this.buttonNew.TabIndex = 4;
-            this.buttonNew.Text = "Nou Mòdul";
-            this.buttonNew.UseVisualStyleBackColor = false;
-            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
-            // 
-            // comboBoxDepartment
-            // 
-            this.comboBoxDepartment.DataSource = this.bindingSourceDepartments;
-            this.comboBoxDepartment.DisplayMember = "name";
-            this.comboBoxDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxDepartment.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.comboBoxDepartment.FormattingEnabled = true;
-            this.comboBoxDepartment.IntegralHeight = false;
-            this.comboBoxDepartment.Location = new System.Drawing.Point(80, 147);
-            this.comboBoxDepartment.MaximumSize = new System.Drawing.Size(266, 0);
-            this.comboBoxDepartment.MinimumSize = new System.Drawing.Size(266, 0);
-            this.comboBoxDepartment.Name = "comboBoxDepartment";
-            this.comboBoxDepartment.Size = new System.Drawing.Size(266, 29);
-            this.comboBoxDepartment.TabIndex = 3;
-            this.comboBoxDepartment.ValueMember = "id";
-            // 
-            // bindingSourceDepartments
-            // 
-            this.bindingSourceDepartments.DataSource = typeof(Libe_Escriptori.Models.departments);
-            // 
-            // textBoxCoordinator
-            // 
-            this.textBoxCoordinator.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.textBoxCoordinator.Location = new System.Drawing.Point(462, 145);
-            this.textBoxCoordinator.MaximumSize = new System.Drawing.Size(403, 31);
-            this.textBoxCoordinator.MinimumSize = new System.Drawing.Size(403, 31);
-            this.textBoxCoordinator.Name = "textBoxCoordinator";
-            this.textBoxCoordinator.ReadOnly = true;
-            this.textBoxCoordinator.Size = new System.Drawing.Size(403, 29);
-            this.textBoxCoordinator.TabIndex = 2;
-            this.textBoxCoordinator.Text = "Coordinador";
-            // 
-            // textBoxFullName
-            // 
-            this.textBoxFullName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
-            this.textBoxFullName.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxFullName.Location = new System.Drawing.Point(352, 75);
-            this.textBoxFullName.MaximumSize = new System.Drawing.Size(497, 31);
-            this.textBoxFullName.MinimumSize = new System.Drawing.Size(497, 31);
-            this.textBoxFullName.Name = "textBoxFullName";
-            this.textBoxFullName.Size = new System.Drawing.Size(497, 29);
-            this.textBoxFullName.TabIndex = 1;
-            this.textBoxFullName.Text = " Nom Complert del curs";
-            this.textBoxFullName.Enter += new System.EventHandler(this.textBoxFullName_Enter);
-            this.textBoxFullName.Leave += new System.EventHandler(this.textBoxFullName_Leave);
-            // 
-            // textBoxAbbreviation
-            // 
-            this.textBoxAbbreviation.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
-            this.textBoxAbbreviation.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxAbbreviation.Location = new System.Drawing.Point(80, 75);
-            this.textBoxAbbreviation.MaximumSize = new System.Drawing.Size(169, 31);
-            this.textBoxAbbreviation.MinimumSize = new System.Drawing.Size(169, 31);
-            this.textBoxAbbreviation.Name = "textBoxAbbreviation";
-            this.textBoxAbbreviation.Size = new System.Drawing.Size(169, 29);
-            this.textBoxAbbreviation.TabIndex = 0;
-            this.textBoxAbbreviation.Text = " Abreviació";
-            this.textBoxAbbreviation.Enter += new System.EventHandler(this.textBoxAbbreviation_Enter);
-            this.textBoxAbbreviation.Leave += new System.EventHandler(this.textBoxAbbreviation_Leave);
             // 
             // codeDataGridViewTextBoxColumn
             // 
@@ -270,6 +179,99 @@ namespace Libe_Escriptori.Forms.Courses
             this.ColumnDelete.Name = "ColumnDelete";
             this.ColumnDelete.ReadOnly = true;
             this.ColumnDelete.Width = 30;
+            // 
+            // bindingSourceModules
+            // 
+            this.bindingSourceModules.DataSource = typeof(Libe_Escriptori.Models.modules);
+            // 
+            // buttonExistent
+            // 
+            this.buttonExistent.BackColor = System.Drawing.Color.White;
+            this.buttonExistent.FlatAppearance.BorderSize = 0;
+            this.buttonExistent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExistent.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.buttonExistent.Location = new System.Drawing.Point(236, 206);
+            this.buttonExistent.Name = "buttonExistent";
+            this.buttonExistent.Size = new System.Drawing.Size(137, 31);
+            this.buttonExistent.TabIndex = 5;
+            this.buttonExistent.Text = "Mòdul Existent";
+            this.buttonExistent.UseVisualStyleBackColor = false;
+            this.buttonExistent.Click += new System.EventHandler(this.buttonExistent_Click);
+            // 
+            // buttonNew
+            // 
+            this.buttonNew.BackColor = System.Drawing.Color.White;
+            this.buttonNew.FlatAppearance.BorderSize = 0;
+            this.buttonNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.buttonNew.Location = new System.Drawing.Point(80, 206);
+            this.buttonNew.Name = "buttonNew";
+            this.buttonNew.Size = new System.Drawing.Size(137, 31);
+            this.buttonNew.TabIndex = 4;
+            this.buttonNew.Text = "Nou Mòdul";
+            this.buttonNew.UseVisualStyleBackColor = false;
+            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
+            // 
+            // comboBoxDepartment
+            // 
+            this.comboBoxDepartment.DataSource = this.bindingSourceDepartments;
+            this.comboBoxDepartment.DisplayMember = "name";
+            this.comboBoxDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDepartment.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.comboBoxDepartment.FormattingEnabled = true;
+            this.comboBoxDepartment.IntegralHeight = false;
+            this.comboBoxDepartment.Location = new System.Drawing.Point(80, 147);
+            this.comboBoxDepartment.MaximumSize = new System.Drawing.Size(266, 0);
+            this.comboBoxDepartment.MinimumSize = new System.Drawing.Size(266, 0);
+            this.comboBoxDepartment.Name = "comboBoxDepartment";
+            this.comboBoxDepartment.Size = new System.Drawing.Size(266, 29);
+            this.comboBoxDepartment.TabIndex = 3;
+            this.comboBoxDepartment.ValueMember = "id";
+            this.comboBoxDepartment.SelectedValueChanged += new System.EventHandler(this.comboBoxDepartment_SelectedValueChanged);
+            // 
+            // bindingSourceDepartments
+            // 
+            this.bindingSourceDepartments.DataSource = typeof(Libe_Escriptori.Models.departments);
+            // 
+            // textBoxCoordinator
+            // 
+            this.textBoxCoordinator.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.textBoxCoordinator.Location = new System.Drawing.Point(462, 145);
+            this.textBoxCoordinator.MaximumSize = new System.Drawing.Size(403, 31);
+            this.textBoxCoordinator.MinimumSize = new System.Drawing.Size(403, 31);
+            this.textBoxCoordinator.Name = "textBoxCoordinator";
+            this.textBoxCoordinator.ReadOnly = true;
+            this.textBoxCoordinator.Size = new System.Drawing.Size(403, 29);
+            this.textBoxCoordinator.TabIndex = 2;
+            this.textBoxCoordinator.Text = "Coordinador";
+            // 
+            // textBoxFullName
+            // 
+            this.textBoxFullName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
+            this.textBoxFullName.ForeColor = System.Drawing.Color.Gray;
+            this.textBoxFullName.Location = new System.Drawing.Point(352, 75);
+            this.textBoxFullName.MaximumSize = new System.Drawing.Size(497, 31);
+            this.textBoxFullName.MinimumSize = new System.Drawing.Size(497, 31);
+            this.textBoxFullName.Name = "textBoxFullName";
+            this.textBoxFullName.Size = new System.Drawing.Size(497, 29);
+            this.textBoxFullName.TabIndex = 1;
+            this.textBoxFullName.Text = " Nom Complert del curs";
+            this.textBoxFullName.Enter += new System.EventHandler(this.textBoxFullName_Enter);
+            this.textBoxFullName.Leave += new System.EventHandler(this.textBoxFullName_Leave);
+            // 
+            // textBoxAbbreviation
+            // 
+            this.textBoxAbbreviation.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
+            this.textBoxAbbreviation.ForeColor = System.Drawing.Color.Gray;
+            this.textBoxAbbreviation.Location = new System.Drawing.Point(80, 75);
+            this.textBoxAbbreviation.MaximumSize = new System.Drawing.Size(169, 31);
+            this.textBoxAbbreviation.MinimumSize = new System.Drawing.Size(169, 31);
+            this.textBoxAbbreviation.Name = "textBoxAbbreviation";
+            this.textBoxAbbreviation.Size = new System.Drawing.Size(169, 29);
+            this.textBoxAbbreviation.TabIndex = 0;
+            this.textBoxAbbreviation.Text = " Abreviació";
+            this.textBoxAbbreviation.Enter += new System.EventHandler(this.textBoxAbbreviation_Enter);
+            this.textBoxAbbreviation.Leave += new System.EventHandler(this.textBoxAbbreviation_Leave);
             // 
             // FormCoursesAdd
             // 

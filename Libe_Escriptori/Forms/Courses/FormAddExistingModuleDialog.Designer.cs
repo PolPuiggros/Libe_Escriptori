@@ -31,39 +31,74 @@ namespace Libe_Escriptori.Forms.Courses
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewModules = new System.Windows.Forms.DataGridView();
+            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalhoursDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSourceAllModules = new System.Windows.Forms.BindingSource(this.components);
             this.buttonOk = new System.Windows.Forms.Button();
             this.labelModuleName = new System.Windows.Forms.Label();
             this.labelAddModule = new System.Windows.Forms.Label();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.bindingSourceAllModules = new System.Windows.Forms.BindingSource(this.components);
-            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalhoursDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewModules)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceAllModules)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridViewModules
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewModules.AllowUserToAddRows = false;
+            this.dataGridViewModules.AllowUserToDeleteRows = false;
+            this.dataGridViewModules.AllowUserToResizeColumns = false;
+            this.dataGridViewModules.AllowUserToResizeRows = false;
+            this.dataGridViewModules.AutoGenerateColumns = false;
+            this.dataGridViewModules.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewModules.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codeDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn,
             this.totalhoursDataGridViewTextBoxColumn,
             this.unitsDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.bindingSourceAllModules;
-            this.dataGridView1.Location = new System.Drawing.Point(51, 114);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(567, 288);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridViewModules.DataSource = this.bindingSourceAllModules;
+            this.dataGridViewModules.Location = new System.Drawing.Point(51, 114);
+            this.dataGridViewModules.Name = "dataGridViewModules";
+            this.dataGridViewModules.ReadOnly = true;
+            this.dataGridViewModules.RowTemplate.Height = 25;
+            this.dataGridViewModules.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewModules.Size = new System.Drawing.Size(567, 288);
+            this.dataGridViewModules.TabIndex = 0;
+            // 
+            // codeDataGridViewTextBoxColumn
+            // 
+            this.codeDataGridViewTextBoxColumn.DataPropertyName = "code";
+            this.codeDataGridViewTextBoxColumn.HeaderText = "code";
+            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
+            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // totalhoursDataGridViewTextBoxColumn
+            // 
+            this.totalhoursDataGridViewTextBoxColumn.DataPropertyName = "total_hours";
+            this.totalhoursDataGridViewTextBoxColumn.HeaderText = "total_hours";
+            this.totalhoursDataGridViewTextBoxColumn.Name = "totalhoursDataGridViewTextBoxColumn";
+            this.totalhoursDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // unitsDataGridViewTextBoxColumn
+            // 
+            this.unitsDataGridViewTextBoxColumn.DataPropertyName = "units";
+            this.unitsDataGridViewTextBoxColumn.HeaderText = "units";
+            this.unitsDataGridViewTextBoxColumn.Name = "unitsDataGridViewTextBoxColumn";
+            this.unitsDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bindingSourceAllModules
+            // 
+            this.bindingSourceAllModules.DataSource = typeof(Libe_Escriptori.Models.modules);
             // 
             // buttonOk
             // 
@@ -126,38 +161,6 @@ namespace Libe_Escriptori.Forms.Courses
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
             // 
-            // bindingSourceAllModules
-            // 
-            this.bindingSourceAllModules.DataSource = typeof(Libe_Escriptori.Models.modules);
-            // 
-            // codeDataGridViewTextBoxColumn
-            // 
-            this.codeDataGridViewTextBoxColumn.DataPropertyName = "code";
-            this.codeDataGridViewTextBoxColumn.HeaderText = "code";
-            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
-            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // totalhoursDataGridViewTextBoxColumn
-            // 
-            this.totalhoursDataGridViewTextBoxColumn.DataPropertyName = "total_hours";
-            this.totalhoursDataGridViewTextBoxColumn.HeaderText = "total_hours";
-            this.totalhoursDataGridViewTextBoxColumn.Name = "totalhoursDataGridViewTextBoxColumn";
-            this.totalhoursDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // unitsDataGridViewTextBoxColumn
-            // 
-            this.unitsDataGridViewTextBoxColumn.DataPropertyName = "units";
-            this.unitsDataGridViewTextBoxColumn.HeaderText = "units";
-            this.unitsDataGridViewTextBoxColumn.Name = "unitsDataGridViewTextBoxColumn";
-            this.unitsDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // FormAddExistingModuleDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -169,12 +172,12 @@ namespace Libe_Escriptori.Forms.Courses
             this.Controls.Add(this.labelAddModule);
             this.Controls.Add(this.labelModuleName);
             this.Controls.Add(this.buttonOk);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewModules);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormAddExistingModuleDialog";
             this.Text = "FormAddModuleDialog";
             this.Load += new System.EventHandler(this.FormAddExistingModuleDialog_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewModules)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceAllModules)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -183,7 +186,7 @@ namespace Libe_Escriptori.Forms.Courses
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewModules;
         private Button buttonOk;
         private Label labelModuleName;
         private Label labelAddModule;
