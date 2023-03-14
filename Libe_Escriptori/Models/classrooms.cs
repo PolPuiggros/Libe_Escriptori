@@ -30,8 +30,8 @@ namespace Libe_Escriptori.Models
         public Nullable<System.DateTime> deleted_timesatmp { get; set; }
     
         public virtual users users { get; set; }
+        public virtual validable_zones validable_zones { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<lessons> lessons { get; set; }
-        public virtual validable_zones validable_zones { get; set; }
     }
 }

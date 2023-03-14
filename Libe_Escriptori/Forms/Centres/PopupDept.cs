@@ -21,11 +21,10 @@ namespace Libe_Escriptori.Forms.Centres
         {
             InitializeComponent();
             department = dept;
-            fillFields();
         }
-
-        private void fillFields()
+        private void PopupDept_Load(object sender, EventArgs e)
         {
+            bindingSourceProfes.DataSource = ProfesorsOrm.Select(true);
             textBox1.Text = department.name;
             comboBox1.SelectedValue = department.profesor_in_charge_id;
         }
@@ -35,10 +34,6 @@ namespace Libe_Escriptori.Forms.Centres
             this.Close();
         }
 
-        private void PopupDept_Load(object sender, EventArgs e)
-        {
-            bindingSourceProfes.DataSource = ProfesorsOrm.Select(true);
-        }
         private void panelMove_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true;

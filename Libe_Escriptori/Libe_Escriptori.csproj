@@ -216,6 +216,7 @@
     <Compile Include="Models\center_information.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Centre\AulesOrm.cs" />
     <Compile Include="Models\Centre\ZonesValidablesOrm.cs" />
     <Compile Include="Models\classrooms.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
@@ -394,6 +395,7 @@
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\csproj.AssemblyReference.cache" />
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.classrooms.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.Courses.CoursesORM.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.courses.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.modules.datasource" />

@@ -21,6 +21,9 @@ namespace Libe_Escriptori.Forms.Centres
         private String textBoxHintRange = " Radi";
         private Form activeForm;
         Label ruta;
+        validable_zones vz;
+
+
         public FormCentreZonesValidables(Label ruta)
         {
             InitializeComponent();
@@ -75,13 +78,14 @@ namespace Libe_Escriptori.Forms.Centres
      
         private void buttonAfegirAules_Click_1(object sender, EventArgs e)
         {
-            FormCentreZonesAfegirAules f = new FormCentreZonesAfegirAules(ruta);
+            FormCentreZonesAfegirAules f = new FormCentreZonesAfegirAules(ruta, vz);
             f.ShowDialog();
         }
 
         private void FormCentreZonesValidables_Load(object sender, EventArgs e)
         {
-            refreshDGV();   
+            refreshDGV();
+            vz = (validable_zones)dataGridView1.Rows[1].DataBoundItem;
         }
 
         private void buttonGuardarZona_Click(object sender, EventArgs e)
@@ -159,18 +163,18 @@ namespace Libe_Escriptori.Forms.Centres
         {
             if (e.ColumnIndex == 4)
             {
-                validable_zones vz = (validable_zones)dataGridView1.Rows[e.RowIndex].DataBoundItem;
+                vz = (validable_zones)dataGridView1.Rows[e.RowIndex].DataBoundItem;
                 int numAules = ZonesValidablesOrm.SelectClassrooms(vz.id);
                 e.Value = numAules.ToString();
             }
+
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            vz = (validable_zones)dataGridView1.Rows[e.RowIndex].DataBoundItem;
             if (e.ColumnIndex == 5)
             {
-                validable_zones vz = (validable_zones)dataGridView1.Rows[e.RowIndex].DataBoundItem;
                 if (vz != null)
                 {
                     DialogResult dia = MessageBox.Show("Estàs segur/a que vols esborrar la zona validable?", "Esborrar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);

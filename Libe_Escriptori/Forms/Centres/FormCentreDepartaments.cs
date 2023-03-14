@@ -91,7 +91,7 @@ namespace Libe_Escriptori.Forms.Centres
                 if (dept != null)
                 {
                     PopupDept popup = new PopupDept(dept);
-                    popup.Show();
+                    popup.ShowDialog();
                     
                 }
             }
