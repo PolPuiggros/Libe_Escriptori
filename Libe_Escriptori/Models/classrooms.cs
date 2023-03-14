@@ -17,13 +17,13 @@ namespace Libe_Escriptori.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public classrooms()
         {
+            this.groups = new HashSet<groups>();
             this.lessons = new HashSet<lessons>();
         }
     
         public int id { get; set; }
         public string name { get; set; }
         public int validable_zone_id { get; set; }
-        public int user_id { get; set; }
         public bool active { get; set; }
         public Nullable<System.DateTime> created_timestamp { get; set; }
         public Nullable<System.DateTime> updated_timestamp { get; set; }
@@ -31,6 +31,8 @@ namespace Libe_Escriptori.Models
     
         public virtual users users { get; set; }
         public virtual validable_zones validable_zones { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<groups> groups { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<lessons> lessons { get; set; }
     }
