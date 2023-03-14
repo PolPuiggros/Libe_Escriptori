@@ -106,9 +106,9 @@
         </EntityType>
         <EntityType Name="holiday_type">
           <Key>
-            <PropertyRef Name="type_char" />
+            <PropertyRef Name="type_number" />
           </Key>
-          <Property Name="type_char" Type="int" Nullable="false" />
+          <Property Name="type_number" Type="int" Nullable="false" />
           <Property Name="description" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="holidays">
@@ -240,7 +240,7 @@
           <Property Name="autoregister" Type="bit" Nullable="false" />
           <Property Name="has_repeated" Type="bit" Nullable="false" />
           <Property Name="complementary_group" Type="varchar" MaxLength="50" />
-          <Property Name="group_id" Type="int" Nullable="false" />
+          <Property Name="group_id" Type="int" />
           <Property Name="active" Type="bit" Nullable="false" />
           <Property Name="created_timestamp" Type="datetime" />
           <Property Name="updated_timestamp" Type="datetime" />
@@ -491,6 +491,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_holidays_holiday_type">
+          <End Role="holiday_type" Type="Self.holiday_type" Multiplicity="0..1" />
+          <End Role="holidays" Type="Self.holidays" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="holiday_type">
+              <PropertyRef Name="type_number" />
+            </Principal>
+            <Dependent Role="holidays">
+              <PropertyRef Name="type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_justifications_justification_status">
           <End Role="justification_status" Type="Self.justification_status" Multiplicity="1" />
           <End Role="justifications" Type="Self.justifications" Multiplicity="*" />
@@ -660,7 +672,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_students_groups">
-          <End Role="groups" Type="Self.groups" Multiplicity="1" />
+          <End Role="groups" Type="Self.groups" Multiplicity="0..1" />
           <End Role="students" Type="Self.students" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="groups">
@@ -809,6 +821,10 @@
             <End Role="calendars" EntitySet="calendars" />
             <End Role="holidays" EntitySet="holidays" />
           </AssociationSet>
+          <AssociationSet Name="FK_holidays_holiday_type" Association="Self.FK_holidays_holiday_type">
+            <End Role="holiday_type" EntitySet="holiday_type" />
+            <End Role="holidays" EntitySet="holidays" />
+          </AssociationSet>
           <AssociationSet Name="FK_justifications_justification_status" Association="Self.FK_justifications_justification_status">
             <End Role="justification_status" EntitySet="justification_status" />
             <End Role="justifications" EntitySet="justifications" />
@@ -904,8 +920,8 @@
 					<NavigationProperty Name="attendance_status" Relationship="Self.FK_attendance_attendance_status" FromRole="attendance" ToRole="attendance_status" />
 					<NavigationProperty Name="justifications" Relationship="Self.FK_attendance_justifications" FromRole="attendance" ToRole="justifications" />
 					<NavigationProperty Name="lessons" Relationship="Self.FK_attendance_lessons" FromRole="attendance" ToRole="lessons" />
-					<NavigationProperty Name="students" Relationship="libeModel.FK_attendance_students" FromRole="attendance" ToRole="students" />
 					<NavigationProperty Name="units" Relationship="libeModel.FK_attendance_units" FromRole="attendance" ToRole="units" />
+          <NavigationProperty Name="students" Relationship="libeModel.FK_attendance_students" FromRole="attendance" ToRole="students" />
 				</EntityType>
 				<EntityType Name="attendance_status">
 					<Key>
@@ -922,7 +938,7 @@
 					<Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
 					<Property Name="starting_date" Type="DateTime" Nullable="false" Precision="0" />
 					<Property Name="ending_date" Type="DateTime" Nullable="false" Precision="0" />
-					<NavigationProperty Name="holidays" Relationship="Self.FK_holidays_calendars" FromRole="calendars" ToRole="holidays" />
+          <NavigationProperty Name="holidays" Relationship="libeModel.FK_holidays_calendars" FromRole="calendars" ToRole="holidays" />
 				</EntityType>
 				<EntityType Name="center_information">
 					<Key>
@@ -933,22 +949,6 @@
 					<Property Name="director" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
 					<Property Name="telf" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
 					<Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-				</EntityType>
-				<EntityType Name="holiday_type">
-					<Key>
-						<PropertyRef Name="type_char" />
-					</Key>
-					<Property Name="type_char" Type="Int32" Nullable="false" />
-					<Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-				</EntityType>
-				<EntityType Name="holidays">
-					<Key>
-						<PropertyRef Name="festive_day" />
-					</Key>
-					<Property Name="festive_day" Type="DateTime" Nullable="false" Precision="0" />
-					<Property Name="calendar_id" Type="Int32" Nullable="false" />
-					<Property Name="type" Type="Int32" />
-					<NavigationProperty Name="calendars" Relationship="Self.FK_holidays_calendars" FromRole="holidays" ToRole="calendars" />
 				</EntityType>
 				<EntityType Name="justification_status">
 					<Key>
@@ -1050,18 +1050,6 @@
 						</Dependent>
 					</ReferentialConstraint>
 				</Association>
-				<Association Name="FK_holidays_calendars">
-					<End Role="calendars" Type="Self.calendars" Multiplicity="1" />
-					<End Role="holidays" Type="Self.holidays" Multiplicity="*" />
-					<ReferentialConstraint>
-						<Principal Role="calendars">
-							<PropertyRef Name="id" />
-						</Principal>
-						<Dependent Role="holidays">
-							<PropertyRef Name="calendar_id" />
-						</Dependent>
-					</ReferentialConstraint>
-				</Association>
 				<Association Name="FK_justifications_justification_status">
 					<End Role="justification_status" Type="Self.justification_status" Multiplicity="1" />
 					<End Role="justifications" Type="Self.justifications" Multiplicity="*" />
@@ -1091,8 +1079,6 @@
 					<EntitySet Name="attendance_status" EntityType="Self.attendance_status" />
 					<EntitySet Name="calendars" EntityType="Self.calendars" />
 					<EntitySet Name="center_information" EntityType="Self.center_information" />
-					<EntitySet Name="holiday_type" EntityType="Self.holiday_type" />
-					<EntitySet Name="holidays" EntityType="Self.holidays" />
 					<EntitySet Name="justification_status" EntityType="Self.justification_status" />
 					<EntitySet Name="justifications" EntityType="Self.justifications" />
 					<EntitySet Name="lessons" EntityType="Self.lessons" />
@@ -1111,10 +1097,6 @@
 						<End Role="lessons" EntitySet="lessons" />
 						<End Role="attendance" EntitySet="attendance" />
 					</AssociationSet>
-					<AssociationSet Name="FK_holidays_calendars" Association="Self.FK_holidays_calendars">
-						<End Role="calendars" EntitySet="calendars" />
-						<End Role="holidays" EntitySet="holidays" />
-					</AssociationSet>
 					<AssociationSet Name="FK_justifications_justification_status" Association="Self.FK_justifications_justification_status">
 						<End Role="justification_status" EntitySet="justification_status" />
 						<End Role="justifications" EntitySet="justifications" />
@@ -1127,15 +1109,6 @@
 					<AssociationSet Name="FK_users_user_type" Association="libeModel.FK_users_user_type">
 						<End Role="user_type" EntitySet="user_type" />
 						<End Role="users" EntitySet="users" />
-					</AssociationSet>
-					<EntitySet Name="students" EntityType="libeModel.students" />
-					<AssociationSet Name="FK_attendance_students" Association="libeModel.FK_attendance_students">
-						<End Role="students" EntitySet="students" />
-						<End Role="attendance" EntitySet="attendance" />
-					</AssociationSet>
-					<AssociationSet Name="FK_students_users1" Association="libeModel.FK_students_users1">
-						<End Role="users" EntitySet="users" />
-						<End Role="students" EntitySet="students" />
 					</AssociationSet>
 					<EntitySet Name="departments" EntityType="libeModel.departments" />
 					<EntitySet Name="profesors" EntityType="libeModel.profesors" />
@@ -1164,10 +1137,6 @@
 						<End Role="lessons" EntitySet="lessons" />
 						<End Role="profesors" EntitySet="profesors" />
 					</AssociationSet>
-					<AssociationSet Name="student_unit" Association="libeModel.student_unit">
-						<End Role="students" EntitySet="students" />
-						<End Role="units" EntitySet="units" />
-					</AssociationSet>
 					<EntitySet Name="classrooms" EntityType="libeModel.classrooms" />
 					<EntitySet Name="groups" EntityType="libeModel.groups" />
 					<EntitySet Name="modules" EntityType="libeModel.modules" />
@@ -1186,10 +1155,6 @@
 					<AssociationSet Name="FK_groups_schedules" Association="libeModel.FK_groups_schedules">
 						<End Role="schedules" EntitySet="schedules" />
 						<End Role="groups" EntitySet="groups" />
-					</AssociationSet>
-					<AssociationSet Name="FK_students_groups" Association="libeModel.FK_students_groups">
-						<End Role="groups" EntitySet="groups" />
-						<End Role="students" EntitySet="students" />
 					</AssociationSet>
 					<AssociationSet Name="FK_lessons_modules" Association="libeModel.FK_lessons_modules">
 						<End Role="modules" EntitySet="modules" />
@@ -1227,6 +1192,33 @@
             <End Role="courses" EntitySet="courses" />
             <End Role="modules" EntitySet="modules" />
           </AssociationSet>
+          <EntitySet Name="holiday_type" EntityType="libeModel.holiday_type" />
+          <EntitySet Name="holidays" EntityType="libeModel.holidays" />
+          <EntitySet Name="students" EntityType="libeModel.students" />
+          <AssociationSet Name="FK_attendance_students" Association="libeModel.FK_attendance_students">
+            <End Role="students" EntitySet="students" />
+            <End Role="attendance" EntitySet="attendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_holidays_calendars" Association="libeModel.FK_holidays_calendars">
+            <End Role="calendars" EntitySet="calendars" />
+            <End Role="holidays" EntitySet="holidays" />
+          </AssociationSet>
+          <AssociationSet Name="FK_students_groups" Association="libeModel.FK_students_groups">
+            <End Role="groups" EntitySet="groups" />
+            <End Role="students" EntitySet="students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_holidays_holiday_type" Association="libeModel.FK_holidays_holiday_type">
+            <End Role="holiday_type" EntitySet="holiday_type" />
+            <End Role="holidays" EntitySet="holidays" />
+          </AssociationSet>
+          <AssociationSet Name="FK_students_users1" Association="libeModel.FK_students_users1">
+            <End Role="users" EntitySet="users" />
+            <End Role="students" EntitySet="students" />
+          </AssociationSet>
+          <AssociationSet Name="student_unit" Association="libeModel.student_unit">
+            <End Role="students" EntitySet="students" />
+            <End Role="units" EntitySet="units" />
+          </AssociationSet>
 				</EntityContainer>
 				<EntityType Name="users">
 					<Key>
@@ -1238,9 +1230,9 @@
 					<Property Name="type" Type="Int32" Nullable="false" />
 					<Property Name="active" Type="Boolean" Nullable="false" />
 					<NavigationProperty Name="user_type" Relationship="libeModel.FK_users_user_type" FromRole="users" ToRole="user_type" />
-					<NavigationProperty Name="students" Relationship="libeModel.FK_students_users1" FromRole="users" ToRole="students" />
 					<NavigationProperty Name="profesors" Relationship="libeModel.FK_profesors_users" FromRole="users" ToRole="profesors" />
 					<NavigationProperty Name="classrooms" Relationship="libeModel.FK_classrooms_users" FromRole="users" ToRole="classrooms" />
+          <NavigationProperty Name="students" Relationship="libeModel.FK_students_users1" FromRole="users" ToRole="students" />
 				</EntityType>
 				<Association Name="FK_users_user_type">
 					<End Type="libeModel.user_type" Role="user_type" Multiplicity="1" />
@@ -1251,55 +1243,6 @@
 						</Principal>
 						<Dependent Role="users">
 							<PropertyRef Name="type" />
-						</Dependent>
-					</ReferentialConstraint>
-				</Association>
-				<EntityType Name="students">
-					<Key>
-						<PropertyRef Name="id" />
-					</Key>
-					<Property Name="id" Type="Int32" Nullable="false" />
-					<Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-					<Property Name="surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-					<Property Name="surname2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-					<Property Name="dni" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-					<Property Name="email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-					<Property Name="profile_picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-					<Property Name="phone_number" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="true" />
-					<Property Name="autoregister" Type="Boolean" Nullable="false" />
-					<Property Name="has_repeated" Type="Boolean" Nullable="false" />
-					<Property Name="complementary_group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-					<Property Name="group_id" Type="Int32" Nullable="false" />
-					<Property Name="active" Type="Boolean" Nullable="false" />
-					<Property Name="created_timestamp" Type="DateTime" Precision="3" />
-					<Property Name="updated_timestamp" Type="DateTime" Precision="3" />
-					<Property Name="deleted_timestamp" Type="DateTime" Precision="3" />
-					<NavigationProperty Name="attendance" Relationship="libeModel.FK_attendance_students" FromRole="students" ToRole="attendance" />
-					<NavigationProperty Name="users" Relationship="libeModel.FK_students_users1" FromRole="students" ToRole="users" />
-					<NavigationProperty Name="units" Relationship="libeModel.student_unit" FromRole="students" ToRole="units" />
-					<NavigationProperty Name="groups" Relationship="libeModel.FK_students_groups" FromRole="students" ToRole="groups" />
-				</EntityType>
-				<Association Name="FK_attendance_students">
-					<End Type="libeModel.students" Role="students" Multiplicity="1" />
-					<End Type="libeModel.attendance" Role="attendance" Multiplicity="*" />
-					<ReferentialConstraint>
-						<Principal Role="students">
-							<PropertyRef Name="id" />
-						</Principal>
-						<Dependent Role="attendance">
-							<PropertyRef Name="student_id" />
-						</Dependent>
-					</ReferentialConstraint>
-				</Association>
-				<Association Name="FK_students_users1">
-					<End Type="libeModel.users" Role="users" Multiplicity="1" />
-					<End Type="libeModel.students" Role="students" Multiplicity="0..1" />
-					<ReferentialConstraint>
-						<Principal Role="users">
-							<PropertyRef Name="id" />
-						</Principal>
-						<Dependent Role="students">
-							<PropertyRef Name="id" />
 						</Dependent>
 					</ReferentialConstraint>
 				</Association>
@@ -1355,8 +1298,8 @@
 					<Property Name="updated_timestamp" Type="DateTime" Precision="3" />
 					<Property Name="deleted_timestamp" Type="DateTime" Precision="3" />
 					<NavigationProperty Name="attendance" Relationship="libeModel.FK_attendance_units" FromRole="units" ToRole="attendance" />
-					<NavigationProperty Name="students" Relationship="libeModel.student_unit" FromRole="units" ToRole="students" />
 					<NavigationProperty Name="modules" Relationship="libeModel.FK_units_units" FromRole="units" ToRole="modules" />
+          <NavigationProperty Name="students" Relationship="libeModel.student_unit" FromRole="units" ToRole="students" />
 				</EntityType>
 				<Association Name="FK_attendance_units">
 					<End Type="libeModel.units" Role="units" Multiplicity="1" />
@@ -1414,10 +1357,6 @@
 					<End Type="libeModel.lessons" Role="lessons" Multiplicity="*" />
 					<End Type="libeModel.profesors" Role="profesors" Multiplicity="*" />
 				</Association>
-				<Association Name="student_unit">
-					<End Type="libeModel.students" Role="students" Multiplicity="*" />
-					<End Type="libeModel.units" Role="units" Multiplicity="*" />
-				</Association>
 				<EntityType Name="classrooms">
 					<Key>
 						<PropertyRef Name="id" />
@@ -1450,8 +1389,8 @@
 					<Property Name="deleted_timestamp" Type="DateTime" Precision="3" />
 					<NavigationProperty Name="profesors" Relationship="libeModel.FK_groups_profesors" FromRole="groups" ToRole="profesors" />
 					<NavigationProperty Name="schedules" Relationship="libeModel.FK_groups_schedules" FromRole="groups" ToRole="schedules" />
-					<NavigationProperty Name="students" Relationship="libeModel.FK_students_groups" FromRole="groups" ToRole="students" />
           <NavigationProperty Name="courses" Relationship="libeModel.FK_groups_groups" FromRole="groups" ToRole="courses" />
+          <NavigationProperty Name="students" Relationship="libeModel.FK_students_groups" FromRole="groups" ToRole="students" />
 				</EntityType>
 				<EntityType Name="modules">
 					<Key>
@@ -1515,18 +1454,6 @@
 						</Principal>
 						<Dependent Role="groups">
 							<PropertyRef Name="schedule_id" />
-						</Dependent>
-					</ReferentialConstraint>
-				</Association>
-				<Association Name="FK_students_groups">
-					<End Type="libeModel.groups" Role="groups" Multiplicity="1" />
-					<End Type="libeModel.students" Role="students" Multiplicity="*" />
-					<ReferentialConstraint>
-						<Principal Role="groups">
-							<PropertyRef Name="id" />
-						</Principal>
-						<Dependent Role="students">
-							<PropertyRef Name="group_id" />
 						</Dependent>
 					</ReferentialConstraint>
 				</Association>
@@ -1664,6 +1591,113 @@
           <End Type="libeModel.courses" Role="courses" Multiplicity="*" />
           <End Type="libeModel.modules" Role="modules" Multiplicity="*" />
         </Association>
+        <EntityType Name="holiday_type">
+          <Key>
+            <PropertyRef Name="type_number" />
+          </Key>
+          <Property Name="type_number" Type="Int32" Nullable="false" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="holidays" Relationship="libeModel.FK_holidays_holiday_type" FromRole="holiday_type" ToRole="holidays" />
+        </EntityType>
+        <EntityType Name="holidays">
+          <Key>
+            <PropertyRef Name="festive_day" />
+          </Key>
+          <Property Name="festive_day" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="calendar_id" Type="Int32" Nullable="false" />
+          <Property Name="type" Type="Int32" />
+          <NavigationProperty Name="calendars" Relationship="libeModel.FK_holidays_calendars" FromRole="holidays" ToRole="calendars" />
+          <NavigationProperty Name="holiday_type" Relationship="libeModel.FK_holidays_holiday_type" FromRole="holidays" ToRole="holiday_type" />
+        </EntityType>
+        <EntityType Name="students">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="surname2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dni" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="profile_picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="phone_number" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="true" />
+          <Property Name="autoregister" Type="Boolean" Nullable="false" />
+          <Property Name="has_repeated" Type="Boolean" Nullable="false" />
+          <Property Name="complementary_group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="group_id" Type="Int32" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <Property Name="created_timestamp" Type="DateTime" Precision="3" />
+          <Property Name="updated_timestamp" Type="DateTime" Precision="3" />
+          <Property Name="deleted_timestamp" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="attendance" Relationship="libeModel.FK_attendance_students" FromRole="students" ToRole="attendance" />
+          <NavigationProperty Name="groups" Relationship="libeModel.FK_students_groups" FromRole="students" ToRole="groups" />
+          <NavigationProperty Name="users" Relationship="libeModel.FK_students_users1" FromRole="students" ToRole="users" />
+          <NavigationProperty Name="units" Relationship="libeModel.student_unit" FromRole="students" ToRole="units" />
+        </EntityType>
+        <Association Name="FK_attendance_students">
+          <End Type="libeModel.students" Role="students" Multiplicity="1" />
+          <End Type="libeModel.attendance" Role="attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="students">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="attendance">
+              <PropertyRef Name="student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_holidays_calendars">
+          <End Type="libeModel.calendars" Role="calendars" Multiplicity="1" />
+          <End Type="libeModel.holidays" Role="holidays" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="calendars">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="holidays">
+              <PropertyRef Name="calendar_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_students_groups">
+          <End Type="libeModel.groups" Role="groups" Multiplicity="0..1" />
+          <End Type="libeModel.students" Role="students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="groups">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="students">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_holidays_holiday_type">
+          <End Type="libeModel.holiday_type" Role="holiday_type" Multiplicity="0..1" />
+          <End Type="libeModel.holidays" Role="holidays" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="holiday_type">
+              <PropertyRef Name="type_number" />
+            </Principal>
+            <Dependent Role="holidays">
+              <PropertyRef Name="type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_students_users1">
+          <End Type="libeModel.users" Role="users" Multiplicity="1" />
+          <End Type="libeModel.students" Role="students" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="students">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="student_unit">
+          <End Type="libeModel.students" Role="students" Multiplicity="*" />
+          <End Type="libeModel.units" Role="units" Multiplicity="*" />
+        </Association>
 			</Schema>
 		</edmx:ConceptualModels>
 		<!-- C-S mapping content -->
@@ -1708,23 +1742,6 @@
 								<ScalarProperty Name="director" ColumnName="director" />
 								<ScalarProperty Name="telf" ColumnName="telf" />
 								<ScalarProperty Name="email" ColumnName="email" />
-							</MappingFragment>
-						</EntityTypeMapping>
-					</EntitySetMapping>
-					<EntitySetMapping Name="holiday_type">
-						<EntityTypeMapping TypeName="libeModel.holiday_type">
-							<MappingFragment StoreEntitySet="holiday_type">
-								<ScalarProperty Name="type_char" ColumnName="type_char" />
-								<ScalarProperty Name="description" ColumnName="description" />
-							</MappingFragment>
-						</EntityTypeMapping>
-					</EntitySetMapping>
-					<EntitySetMapping Name="holidays">
-						<EntityTypeMapping TypeName="libeModel.holidays">
-							<MappingFragment StoreEntitySet="holidays">
-								<ScalarProperty Name="festive_day" ColumnName="festive_day" />
-								<ScalarProperty Name="calendar_id" ColumnName="calendar_id" />
-								<ScalarProperty Name="type" ColumnName="type" />
 							</MappingFragment>
 						</EntityTypeMapping>
 					</EntitySetMapping>
@@ -1797,28 +1814,6 @@
 							</MappingFragment>
 						</EntityTypeMapping>
 					</EntitySetMapping>
-					<EntitySetMapping Name="students">
-						<EntityTypeMapping TypeName="libeModel.students">
-							<MappingFragment StoreEntitySet="students">
-								<ScalarProperty Name="deleted_timestamp" ColumnName="deleted_timestamp" />
-								<ScalarProperty Name="updated_timestamp" ColumnName="updated_timestamp" />
-								<ScalarProperty Name="created_timestamp" ColumnName="created_timestamp" />
-								<ScalarProperty Name="active" ColumnName="active" />
-								<ScalarProperty Name="group_id" ColumnName="group_id" />
-								<ScalarProperty Name="complementary_group" ColumnName="complementary_group" />
-								<ScalarProperty Name="has_repeated" ColumnName="has_repeated" />
-								<ScalarProperty Name="autoregister" ColumnName="autoregister" />
-								<ScalarProperty Name="phone_number" ColumnName="phone_number" />
-								<ScalarProperty Name="profile_picture" ColumnName="profile_picture" />
-								<ScalarProperty Name="email" ColumnName="email" />
-								<ScalarProperty Name="dni" ColumnName="dni" />
-								<ScalarProperty Name="surname2" ColumnName="surname2" />
-								<ScalarProperty Name="surname" ColumnName="surname" />
-								<ScalarProperty Name="name" ColumnName="name" />
-								<ScalarProperty Name="id" ColumnName="id" />
-							</MappingFragment>
-						</EntityTypeMapping>
-					</EntitySetMapping>
 					<EntitySetMapping Name="departments">
 						<EntityTypeMapping TypeName="libeModel.departments">
 							<MappingFragment StoreEntitySet="departments">
@@ -1878,14 +1873,6 @@
 						</EndProperty>
 						<EndProperty Name="lessons">
 							<ScalarProperty Name="id" ColumnName="lesson_id" />
-						</EndProperty>
-					</AssociationSetMapping>
-					<AssociationSetMapping Name="student_unit" TypeName="libeModel.student_unit" StoreEntitySet="student_unit">
-						<EndProperty Name="units">
-							<ScalarProperty Name="id" ColumnName="unit_id" />
-						</EndProperty>
-						<EndProperty Name="students">
-							<ScalarProperty Name="id" ColumnName="student_id" />
 						</EndProperty>
 					</AssociationSetMapping>
 					<EntitySetMapping Name="classrooms">
@@ -1998,6 +1985,53 @@
             </EndProperty>
             <EndProperty Name="courses">
               <ScalarProperty Name="id" ColumnName="course_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="holiday_type">
+            <EntityTypeMapping TypeName="libeModel.holiday_type">
+              <MappingFragment StoreEntitySet="holiday_type">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="type_number" ColumnName="type_number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="holidays">
+            <EntityTypeMapping TypeName="libeModel.holidays">
+              <MappingFragment StoreEntitySet="holidays">
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="calendar_id" ColumnName="calendar_id" />
+                <ScalarProperty Name="festive_day" ColumnName="festive_day" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="students">
+            <EntityTypeMapping TypeName="libeModel.students">
+              <MappingFragment StoreEntitySet="students">
+                <ScalarProperty Name="deleted_timestamp" ColumnName="deleted_timestamp" />
+                <ScalarProperty Name="updated_timestamp" ColumnName="updated_timestamp" />
+                <ScalarProperty Name="created_timestamp" ColumnName="created_timestamp" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="group_id" ColumnName="group_id" />
+                <ScalarProperty Name="complementary_group" ColumnName="complementary_group" />
+                <ScalarProperty Name="has_repeated" ColumnName="has_repeated" />
+                <ScalarProperty Name="autoregister" ColumnName="autoregister" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="profile_picture" ColumnName="profile_picture" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="dni" ColumnName="dni" />
+                <ScalarProperty Name="surname2" ColumnName="surname2" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="student_unit" TypeName="libeModel.student_unit" StoreEntitySet="student_unit">
+            <EndProperty Name="units">
+              <ScalarProperty Name="id" ColumnName="unit_id" />
+            </EndProperty>
+            <EndProperty Name="students">
+              <ScalarProperty Name="id" ColumnName="student_id" />
             </EndProperty>
           </AssociationSetMapping>
 				</EntityContainerMapping>
