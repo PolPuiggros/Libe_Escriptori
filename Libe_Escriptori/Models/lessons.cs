@@ -36,7 +36,7 @@ namespace Libe_Escriptori.Models
         public virtual profesors profesors { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<profesors> profesors1 { get; set; }
-        public virtual classrooms classrooms { get; set; }
         public virtual modules modules { get; set; }
+        public virtual classrooms classrooms { get; set; }
     }
 }

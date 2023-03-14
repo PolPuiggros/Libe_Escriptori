@@ -2037,7 +2037,6 @@
         <EntityTypeShape EntityType="libeModel.departments" Width="1.5" PointX="10.5" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="libeModel.profesors" Width="1.5" PointX="8.25" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="libeModel.units" Width="1.5" PointX="19.5" PointY="10.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="libeModel.classrooms" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="libeModel.groups" Width="1.5" PointX="15" PointY="8.125" IsExpanded="true" />
         <EntityTypeShape EntityType="libeModel.modules" Width="1.5" PointX="15" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="libeModel.validable_zones" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
@@ -2056,14 +2055,11 @@
         <AssociationConnector Association="libeModel.FK_profesors_users" ManuallyRouted="false" />
         <AssociationConnector Association="libeModel.profesor_department" ManuallyRouted="false" />
         <AssociationConnector Association="libeModel.profesor_lesson" ManuallyRouted="false" />
-        <AssociationConnector Association="libeModel.FK_classrooms_users" ManuallyRouted="false" />
-        <AssociationConnector Association="libeModel.FK_lessons_classrooms" ManuallyRouted="false" />
         <AssociationConnector Association="libeModel.FK_groups_profesors" ManuallyRouted="false" />
         <AssociationConnector Association="libeModel.FK_groups_schedules" ManuallyRouted="false" />
         <AssociationConnector Association="libeModel.FK_lessons_modules" ManuallyRouted="false" />
         <AssociationConnector Association="libeModel.FK_units_units" ManuallyRouted="false" />
         <AssociationConnector Association="libeModel.profesor_module" ManuallyRouted="false" />
-        <AssociationConnector Association="libeModel.FK_classrooms1_validable_zones" ManuallyRouted="false" />
         <AssociationConnector Association="libeModel.FK_users_desktop_users_desktop_type" ManuallyRouted="false" />
         <AssociationConnector Association="libeModel.FK_courses_departments" ManuallyRouted="false" />
         <AssociationConnector Association="libeModel.FK_groups_groups" ManuallyRouted="false" />
@@ -2077,6 +2073,11 @@
         <AssociationConnector Association="libeModel.FK_holidays_holiday_type" />
         <AssociationConnector Association="libeModel.FK_students_users1" />
         <AssociationConnector Association="libeModel.student_unit" />
+        <EntityTypeShape EntityType="libeModel.classrooms" Width="1.5" PointX="1.25" PointY="4.625" />
+        <AssociationConnector Association="libeModel.FK_classrooms_users" />
+        <AssociationConnector Association="libeModel.FK_classrooms1_validable_zones" />
+        <AssociationConnector Association="libeModel.FK_groups_classrooms" />
+        <AssociationConnector Association="libeModel.FK_lessons_classrooms" />
       </Diagram>
     </Diagrams>
 	</Designer>
