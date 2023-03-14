@@ -27,20 +27,30 @@ namespace Libe_Escriptori.Forms.Groups
         List<string> modulesCodes = new List<string>();
         List<lessons> lessonsInit = new List<lessons>();
         List<LessonsData> lessons = new List<LessonsData>();
+        bool adding;
         
 
 
-        public FormCreateScheduleGroup(Label ruta)
+        public FormCreateScheduleGroup(Label ruta, bool adding)
         {
             InitializeComponent();
+            this.adding = adding;
             fillColors();
             fillModuls();
             hours = LessonsOrm.SelectHours();
             dataGridViewSchedule.RowCount = hours.Count;
             initializeDataGrid();
             AdjustRowHeight();
-            ruta.Text = "Gestionar Grups/Afegint Grup/Creant Horari";
-            saveLessons();
+            if (adding)
+            {
+                ruta.Text = "Gestionar Grups/Afegint Grup/Creant Horari";
+            }
+            else
+            {
+                ruta.Text = "Gestionar Grups/Afegint Grup/Editant Horari";
+                saveLessons();
+            }
+            
         }
 
         private void saveLessons()
@@ -60,242 +70,248 @@ namespace Libe_Escriptori.Forms.Groups
 
         private void initializeDataGrid()
         {
-            _schedule = SchedulesOrm.Select().First();
-            modules = ModulesORM.Select(1);
-            int indexModule = -1;
+            if (!adding)
+            {
 
-            foreach (modules module in modules)
-            {
-                modulesCodes.Add(module.code);
-            }
-            
-            List<lessons> hourLessonsList = new List<lessons>();
-            
-            foreach (DataGridViewRow row in dataGridViewSchedule.Rows)
-            {
-                foreach (DataGridViewCell cell in row.Cells)
+
+                _schedule = SchedulesOrm.Select().First();
+                modules = ModulesORM.Select(1);
+                int indexModule = -1;
+
+                foreach (modules module in modules)
                 {
-                    // 8:40
-                    if (row.Index == 0)
+                    modulesCodes.Add(module.code);
+                }
+
+                List<lessons> hourLessonsList = new List<lessons>();
+
+                foreach (DataGridViewRow row in dataGridViewSchedule.Rows)
+                {
+                    foreach (DataGridViewCell cell in row.Cells)
                     {
-                        TimeSpan eightFourty = new TimeSpan(8, 40, 0);
-                        hourLessonsList = LessonsOrm.SelectLessonsAtHour(eightFourty);
+                        // 8:40
+                        if (row.Index == 0)
+                        {
+                            TimeSpan eightFourty = new TimeSpan(8, 40, 0);
+                            hourLessonsList = LessonsOrm.SelectLessonsAtHour(eightFourty);
 
-                        if (cell.ColumnIndex == 0)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex].starting_hour;
+                            if (cell.ColumnIndex == 0)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex].starting_hour;
+                            }
+                            if (cell.ColumnIndex == 1)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                                indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                cell.Style.BackColor = colors[indexModule];
+                            }
+                            if (cell.ColumnIndex == 2)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                                indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                cell.Style.BackColor = colors[indexModule];
+                            }
+                            if (cell.ColumnIndex == 3)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                                indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                cell.Style.BackColor = colors[indexModule];
+                            }
+                            if (cell.ColumnIndex == 4)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                                indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                cell.Style.BackColor = colors[indexModule];
+                            }
+                            if (cell.ColumnIndex == 5)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                                indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                cell.Style.BackColor = colors[indexModule];
+                            }
                         }
-                        if (cell.ColumnIndex == 1)
+
+
+                        //9:40
+                        if (row.Index == 1)
                         {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
+                            TimeSpan nineFourty = new TimeSpan(9, 40, 0);
+                            hourLessonsList = LessonsOrm.SelectLessonsAtHour(nineFourty);
+
+                            if (cell.ColumnIndex == 0)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex].starting_hour;
+
+                            }
+                            if (cell.ColumnIndex == 1)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                                indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                cell.Style.BackColor = colors[indexModule];
+                            }
+                            if (cell.ColumnIndex == 2)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                                indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                cell.Style.BackColor = colors[indexModule];
+                            }
+                            if (cell.ColumnIndex == 3)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                                indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                cell.Style.BackColor = colors[indexModule];
+                            }
+                            if (cell.ColumnIndex == 4)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                                indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                cell.Style.BackColor = colors[indexModule];
+                            }
+                            if (cell.ColumnIndex == 5)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                                indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                cell.Style.BackColor = colors[indexModule];
+                            }
                         }
-                        if (cell.ColumnIndex == 2)
+
+
+                        //10:40
+                        if (row.Index == 2)
                         {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
+                            TimeSpan tenFourty = new TimeSpan(10, 40, 0);
+                            hourLessonsList = LessonsOrm.SelectLessonsAtHour(tenFourty);
+
+                            if (cell.ColumnIndex == 0)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex].starting_hour;
+
+                            }
+                            if (cell.ColumnIndex == 1)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                                indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                cell.Style.BackColor = colors[indexModule];
+                            }
+                            if (cell.ColumnIndex == 2)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                                indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                cell.Style.BackColor = colors[indexModule];
+                            }
+                            if (cell.ColumnIndex == 3)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                                indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                cell.Style.BackColor = colors[indexModule];
+                            }
+                            if (cell.ColumnIndex == 4)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                                indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                cell.Style.BackColor = colors[indexModule];
+                            }
+                            if (cell.ColumnIndex == 5)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                                indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                cell.Style.BackColor = colors[indexModule];
+                            }
                         }
-                        if (cell.ColumnIndex == 3)
+
+
+
+                        //12:00
+                        if (row.Index == 3)
                         {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
+                            TimeSpan twelve = new TimeSpan(12, 0, 0);
+                            hourLessonsList = LessonsOrm.SelectLessonsAtHour(twelve);
+
+                            if (cell.ColumnIndex == 0)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex].starting_hour;
+                            }
+                            if (cell.ColumnIndex == 1)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                                indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                cell.Style.BackColor = colors[indexModule];
+                            }
+                            if (cell.ColumnIndex == 2)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                                indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                cell.Style.BackColor = colors[indexModule];
+                            }
+                            if (cell.ColumnIndex == 3)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                                indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                cell.Style.BackColor = colors[indexModule];
+                            }
+                            if (cell.ColumnIndex == 4)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                                indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                cell.Style.BackColor = colors[indexModule];
+                            }
+                            if (cell.ColumnIndex == 5)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                                indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                cell.Style.BackColor = colors[indexModule];
+                            }
                         }
-                        if (cell.ColumnIndex == 4)
+
+
+
+                        //13:00
+                        if (row.Index == 4)
                         {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
+                            TimeSpan one = new TimeSpan(13, 0, 0);
+                            hourLessonsList = LessonsOrm.SelectLessonsAtHour(one);
+
+                            if (cell.ColumnIndex == 0)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex].starting_hour;
+                            }
+                            if (cell.ColumnIndex == 1)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                                indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                cell.Style.BackColor = colors[indexModule];
+                            }
+                            if (cell.ColumnIndex == 2)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                                indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                cell.Style.BackColor = colors[indexModule];
+                            }
+                            if (cell.ColumnIndex == 3)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                                indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                cell.Style.BackColor = colors[indexModule];
+                            }
+                            if (cell.ColumnIndex == 4)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                                indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                cell.Style.BackColor = colors[indexModule];
+                            }
+                            if (cell.ColumnIndex == 5)
+                            {
+                                cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
+                                indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                cell.Style.BackColor = colors[indexModule];
+                            }
                         }
-                        if (cell.ColumnIndex == 5)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
+
                     }
-
-
-                    //9:40
-                    if (row.Index == 1)
-                    {
-                        TimeSpan nineFourty = new TimeSpan(9, 40, 0);
-                        hourLessonsList = LessonsOrm.SelectLessonsAtHour(nineFourty);
-
-                        if (cell.ColumnIndex == 0)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex].starting_hour;
-                            
-                        }
-                        if (cell.ColumnIndex == 1)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 2)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 3)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 4)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 5)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                    }
-
-
-                    //10:40
-                    if (row.Index == 2)
-                    {
-                        TimeSpan tenFourty = new TimeSpan(10, 40, 0);
-                        hourLessonsList = LessonsOrm.SelectLessonsAtHour(tenFourty);
-
-                        if (cell.ColumnIndex == 0)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex].starting_hour;
-                      
-                        }
-                        if (cell.ColumnIndex == 1)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 2)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 3)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 4)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 5)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                    }
-
-
-
-                    //12:00
-                    if (row.Index == 3)
-                    {
-                        TimeSpan twelve = new TimeSpan(12, 0, 0);
-                        hourLessonsList = LessonsOrm.SelectLessonsAtHour(twelve);
-
-                        if (cell.ColumnIndex == 0)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex].starting_hour;
-                        }
-                        if (cell.ColumnIndex == 1)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 2)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 3)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 4)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 5)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                    }
-
-
-
-                    //13:00
-                    if (row.Index == 4)
-                    {
-                        TimeSpan one = new TimeSpan(13, 0, 0);
-                        hourLessonsList = LessonsOrm.SelectLessonsAtHour(one);
-
-                        if (cell.ColumnIndex == 0)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex].starting_hour;
-                        }
-                        if (cell.ColumnIndex == 1)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 2)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 3)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 4)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 5)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                    }
-
                 }
             }
-            
+
+
 
         }
 

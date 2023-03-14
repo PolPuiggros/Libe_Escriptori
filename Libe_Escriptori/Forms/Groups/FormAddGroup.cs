@@ -18,6 +18,7 @@ namespace Libe_Escriptori.Forms.Groups
         private Form activeForm;
         Label ruta;
         groups group;
+        schedules schedule;
         bool adding = true;
        
         public FormAddGroup(Label ruta)
@@ -41,6 +42,9 @@ namespace Libe_Escriptori.Forms.Groups
             else
             {
                 ruta.Text = "Gestionar Grups/Afegint Grup";
+                schedule = new schedules();
+                schedule.name = "Horari DAW1A";
+                SchedulesOrm.Insert(schedule);
             }
         }
 
@@ -69,7 +73,7 @@ namespace Libe_Escriptori.Forms.Groups
 
         private void buttonGestionarHorari_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormCreateScheduleGroup(ruta));
+            OpenChildForm(new FormCreateScheduleGroup(ruta, adding));
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

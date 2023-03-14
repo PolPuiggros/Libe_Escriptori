@@ -14,6 +14,12 @@ namespace Libe_Escriptori.Models
             return _schedules;
         }
 
+        public static void Insert(schedules _schedule)
+        {
+            Orm.db.schedules.Add(_schedule);
+            Orm.db.SaveChanges();
+        }
+
     }
 
 
