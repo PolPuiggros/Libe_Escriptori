@@ -14,7 +14,16 @@ namespace Libe_Escriptori.Models
     
     public partial class holiday_type
     {
-        public int type_char { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public holiday_type()
+        {
+            this.holidays = new HashSet<holidays>();
+        }
+    
+        public int type_number { get; set; }
         public string description { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<holidays> holidays { get; set; }
     }
 }

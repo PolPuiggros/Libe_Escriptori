@@ -32,7 +32,7 @@ namespace Libe_Escriptori.Models
         public bool autoregister { get; set; }
         public bool has_repeated { get; set; }
         public string complementary_group { get; set; }
-        public int group_id { get; set; }
+        public Nullable<int> group_id { get; set; }
         public bool active { get; set; }
         public Nullable<System.DateTime> created_timestamp { get; set; }
         public Nullable<System.DateTime> updated_timestamp { get; set; }
@@ -40,9 +40,9 @@ namespace Libe_Escriptori.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<attendance> attendance { get; set; }
+        public virtual groups groups { get; set; }
         public virtual users users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<units> units { get; set; }
-        public virtual groups groups { get; set; }
     }
 }

@@ -19,5 +19,6 @@ namespace Libe_Escriptori.Models
         public Nullable<int> type { get; set; }
     
         public virtual calendars calendars { get; set; }
+        public virtual holiday_type holiday_type { get; set; }
     }
 }

@@ -33,8 +33,8 @@ namespace Libe_Escriptori.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<attendance> attendance { get; set; }
+        public virtual modules modules { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<students> students { get; set; }
-        public virtual modules modules { get; set; }
     }
 }

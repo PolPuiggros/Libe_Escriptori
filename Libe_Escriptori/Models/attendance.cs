@@ -25,7 +25,7 @@ namespace Libe_Escriptori.Models
         public virtual attendance_status attendance_status { get; set; }
         public virtual justifications justifications { get; set; }
         public virtual lessons lessons { get; set; }
-        public virtual students students { get; set; }
         public virtual units units { get; set; }
+        public virtual students students { get; set; }
     }
 }
