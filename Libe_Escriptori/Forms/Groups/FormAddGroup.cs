@@ -18,22 +18,30 @@ namespace Libe_Escriptori.Forms.Groups
         private Form activeForm;
         Label ruta;
         groups group;
-        bool edit = false;
+        bool adding = true;
+       
         public FormAddGroup(Label ruta)
         {
             InitializeComponent();
             ruta.Text = "Gestionar Grups/Afegint Grup";
             this.ruta = ruta;
-            this.edit = false;
         }
-        public FormAddGroup(Label ruta,groups group)
+        public FormAddGroup(Label ruta,groups group, bool add)
         {
             InitializeComponent();
-            ruta.Text = "Gestionar Grups/Afegint Grup";
+            
             this.ruta = ruta;
             this.group = group;
-            this.edit = true;
-            InitializeGroup();
+            this.adding = add;
+            //Edit
+            if (!adding)
+            {
+                ruta.Text = "Gestionar Grups/Editant Grup";
+            }
+            else
+            {
+                ruta.Text = "Gestionar Grups/Afegint Grup";
+            }
         }
 
         private void buttonManageStudents_Click_1(object sender, EventArgs e)
@@ -72,7 +80,18 @@ namespace Libe_Escriptori.Forms.Groups
 
         private void InitializeGroup()
         {
-            
+            comboBoxCicleGroup.SelectedItem = comboBoxCicleGroup.FindString(group.courses.abreviation.ToString());
+            comboBoxClassGroup.SelectedItem = group.group_letter;
+            comboBoxYearGroup.SelectedItem = group.grade;
+            comboBoxTutorGroup.SelectedItem = group.profesors.name;
+        }
+
+        private void InitializeComboBoxesNull()
+        {
+            comboBoxCicleGroup.SelectedItem = null;
+            comboBoxClassGroup.SelectedItem = null;
+            comboBoxYearGroup.SelectedItem = null;
+            comboBoxTutorGroup.SelectedItem = null;
         }
 
         private void FormAddGroup_Load(object sender, EventArgs e)
@@ -80,6 +99,16 @@ namespace Libe_Escriptori.Forms.Groups
             groupsBindingSource.DataSource = GroupsOrm.Select();
             coursesBindingSource.DataSource = CoursesORM.Select();
             profesorsBindingSource.DataSource = ProfesorsOrm.Select(true);
+
+            if (!adding)
+            {
+                InitializeGroup();
+            }
+            else
+            {
+                InitializeComboBoxesNull();
+            }
+
         }
 
         private void bindingSource1_CurrentChanged(object sender, EventArgs e)

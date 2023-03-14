@@ -17,6 +17,7 @@ namespace Libe_Escriptori.Forms.Groups
     {
         Form activeForm;
         Label ruta;
+        bool add = false;
         public FormGroups(Label ruta)
         {
             InitializeComponent();
@@ -106,7 +107,7 @@ namespace Libe_Escriptori.Forms.Groups
             groups _groups = (groups)dataGridViewGroups.Rows[e.RowIndex].DataBoundItem;
             if (dataGridViewGroups.Columns[e.ColumnIndex].Name == "headerEdit")
             {
-                OpenChildForm(new FormAddGroup(ruta,_groups));
+                OpenChildForm(new FormAddGroup(ruta,_groups,false));
             }
         }
     }
