@@ -32,7 +32,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
         {
             this.components = new System.ComponentModel.Container();
             this.textBoxName = new System.Windows.Forms.TextBox();
-            this.textBoxSurname = new System.Windows.Forms.TextBox();
+            this.textBoxSurname1 = new System.Windows.Forms.TextBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.textBoxPhone = new System.Windows.Forms.TextBox();
             this.labelAddictionalInfo = new System.Windows.Forms.Label();
@@ -44,6 +44,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.buttonAfegir = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.textBoxDni = new System.Windows.Forms.TextBox();
+            this.textBoxSurname2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGroups)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,17 +60,17 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.textBoxName.Enter += new System.EventHandler(this.textBoxName_Enter);
             this.textBoxName.Leave += new System.EventHandler(this.textBoxName_Leave);
             // 
-            // textBoxSurname
+            // textBoxSurname1
             // 
-            this.textBoxSurname.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
-            this.textBoxSurname.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxSurname.Location = new System.Drawing.Point(364, 64);
-            this.textBoxSurname.Name = "textBoxSurname";
-            this.textBoxSurname.Size = new System.Drawing.Size(533, 29);
-            this.textBoxSurname.TabIndex = 1;
-            this.textBoxSurname.Text = "Cognoms";
-            this.textBoxSurname.Enter += new System.EventHandler(this.textBoxSurname_Enter);
-            this.textBoxSurname.Leave += new System.EventHandler(this.textBoxSurname_Leave);
+            this.textBoxSurname1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
+            this.textBoxSurname1.ForeColor = System.Drawing.Color.Gray;
+            this.textBoxSurname1.Location = new System.Drawing.Point(364, 64);
+            this.textBoxSurname1.Name = "textBoxSurname1";
+            this.textBoxSurname1.Size = new System.Drawing.Size(255, 29);
+            this.textBoxSurname1.TabIndex = 1;
+            this.textBoxSurname1.Text = "1r Cognom";
+            this.textBoxSurname1.Enter += new System.EventHandler(this.textBoxSurname_Enter);
+            this.textBoxSurname1.Leave += new System.EventHandler(this.textBoxSurname_Leave);
             // 
             // textBoxEmail
             // 
@@ -165,7 +166,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.buttonAfegir.Name = "buttonAfegir";
             this.buttonAfegir.Size = new System.Drawing.Size(145, 45);
             this.buttonAfegir.TabIndex = 16;
-            this.buttonAfegir.Text = "Afegir";
+            this.buttonAfegir.Text = "Guardar";
             this.buttonAfegir.UseVisualStyleBackColor = false;
             this.buttonAfegir.Click += new System.EventHandler(this.buttonAfegir_Click);
             // 
@@ -181,6 +182,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.buttonCancelar.TabIndex = 15;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = false;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // textBoxDni
             // 
@@ -194,11 +196,24 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.textBoxDni.Enter += new System.EventHandler(this.textBoxDni_Enter);
             this.textBoxDni.Leave += new System.EventHandler(this.textBoxDni_Leave);
             // 
+            // textBoxSurname2
+            // 
+            this.textBoxSurname2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
+            this.textBoxSurname2.ForeColor = System.Drawing.Color.Gray;
+            this.textBoxSurname2.Location = new System.Drawing.Point(642, 64);
+            this.textBoxSurname2.Name = "textBoxSurname2";
+            this.textBoxSurname2.Size = new System.Drawing.Size(255, 29);
+            this.textBoxSurname2.TabIndex = 17;
+            this.textBoxSurname2.Text = "2n Cognom";
+            this.textBoxSurname2.Enter += new System.EventHandler(this.textBoxSurname2_Enter);
+            this.textBoxSurname2.Leave += new System.EventHandler(this.textBoxSurname2_Leave);
+            // 
             // GestionarUsuarisAlumnesAfegint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 650);
+            this.Controls.Add(this.textBoxSurname2);
             this.Controls.Add(this.buttonAfegir);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.comboBoxGroups);
@@ -209,7 +224,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.Controls.Add(this.textBoxDni);
             this.Controls.Add(this.textBoxPhone);
             this.Controls.Add(this.textBoxEmail);
-            this.Controls.Add(this.textBoxSurname);
+            this.Controls.Add(this.textBoxSurname1);
             this.Controls.Add(this.textBoxName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GestionarUsuarisAlumnesAfegint";
@@ -224,7 +239,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
         #endregion
 
         private TextBox textBoxName;
-        private TextBox textBoxSurname;
+        private TextBox textBoxSurname1;
         private TextBox textBoxEmail;
         private TextBox textBoxPhone;
         private Label labelAddictionalInfo;
@@ -236,5 +251,6 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
         private Button buttonCancelar;
         private BindingSource bindingSourceGroups;
         private TextBox textBoxDni;
+        private TextBox textBoxSurname2;
     }
 }

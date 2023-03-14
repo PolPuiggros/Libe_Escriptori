@@ -16,10 +16,11 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
     public partial class GestionarUsuarisProfessorsAfegint : Form
     {
         private String textBoxHintName = " Nom";
-        private String textBoxHintSurnname = " Cognoms";
+        private String textBoxHintSurnname1 = " 1r Cognom";
+        private String textBoxHintSurnname2 = " 2n Cognom";
         private String textBoxHintEmail = " Email";
         private String textBoxHintPhone = " Tel";
-
+        Label ruta;
         BindingList<departments> listDepartaments = new BindingList<departments>();
         private profesors _profesor;
         bool adding;
@@ -28,6 +29,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
         {
             InitializeComponent();
             labelRuta.Text = "Gestionar Usuaris/Gestionar Professors/Afegint";
+            this.ruta = labelRuta;
             adding = true;
         }
 
@@ -35,6 +37,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
         {
             InitializeComponent();
             labelRuta.Text = "Gestionar Usuaris/Gestionar Professors/Editant";
+            this.ruta = labelRuta;
             this._profesor = _profesor;
             adding = false;
         }
@@ -45,9 +48,15 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
             if (!adding)
             {
                 textBoxName.Text = _profesor.name;
-                textBoxSurname.Text = _profesor.surname1 + " " + _profesor.surname2;
+                textBoxName.ForeColor = Color.Black;
+                textBoxSurname1.Text = _profesor.surname1;
+                textBoxSurname1.ForeColor = Color.Black;
+                textBoxSurname2.Text = _profesor.surname2;
+                textBoxSurname2.ForeColor = Color.Black;
                 textBoxEmail.Text = _profesor.email;
+                textBoxEmail.ForeColor = Color.Black;
                 textBoxPhone.Text = _profesor.phone_number;
+                textBoxPhone.ForeColor = Color.Black;
                 foreach (departments department in _profesor.departments)
                 {
                     if (listDepartaments.FirstOrDefault(d => d.id == department.id) == null)
@@ -98,14 +107,24 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
             TextBoxDesign.textBoxSearch_Leave(textBoxName, textBoxHintName);
         }
 
-        private void textBoxSurname_Enter(object sender, EventArgs e)
+        private void textBoxSurname1_Enter(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Enter(textBoxSurname, textBoxHintSurnname);
+            TextBoxDesign.textBoxSearch_Enter(textBoxSurname1, textBoxHintSurnname1);
         }
 
-        private void textBoxSurname_Leave(object sender, EventArgs e)
+        private void textBoxSurname1_Leave(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Leave(textBoxSurname, textBoxHintSurnname);
+            TextBoxDesign.textBoxSearch_Leave(textBoxSurname1, textBoxHintSurnname1);
+        }
+
+        private void textBoxSurname2_Enter(object sender, EventArgs e)
+        {
+            TextBoxDesign.textBoxSearch_Enter(textBoxSurname2, textBoxHintSurnname2);
+        }
+
+        private void textBoxSurname2_Leave(object sender, EventArgs e)
+        {
+            TextBoxDesign.textBoxSearch_Leave(textBoxSurname2, textBoxHintSurnname2);
         }
 
         private void textBoxEmail_Enter(object sender, EventArgs e)
@@ -130,7 +149,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
 
         private void buttonAfegir_Click(object sender, EventArgs e)
         {
-            string[] surnames = textBoxSurname.Text.Split(' ', (char)2);
+            string[] surnames = textBoxSurname1.Text.Split(' ', (char)2);
             if (adding)
             {
                 users _users = new users();
@@ -156,6 +175,12 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
             {
                 ProfesorsOrm.Update(_profesor, textBoxName.Text, surnames[0], surnames[1], textBoxEmail.Text, textBoxPhone.Text, listBoxteacherDespartments.Items.Cast<departments>().ToList());
             }
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            ruta.Text = "Gestionar Usuaris/Gestionar Professors";
         }
     }
 }
