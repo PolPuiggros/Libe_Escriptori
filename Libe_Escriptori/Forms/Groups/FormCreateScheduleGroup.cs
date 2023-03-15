@@ -31,10 +31,11 @@ namespace Libe_Escriptori.Forms.Groups
         
 
 
-        public FormCreateScheduleGroup(Label ruta, bool adding)
+        public FormCreateScheduleGroup(Label ruta, bool adding, schedules schedule)
         {
             InitializeComponent();
             this.adding = adding;
+            this._schedule = schedule;
             fillColors();
             fillModuls();
             hours = LessonsOrm.SelectHours();
@@ -72,8 +73,6 @@ namespace Libe_Escriptori.Forms.Groups
         {
             if (!adding)
             {
-
-
                 _schedule = SchedulesOrm.Select().First();
                 modules = ModulesORM.Select(1);
                 int indexModule = -1;
@@ -310,6 +309,15 @@ namespace Libe_Escriptori.Forms.Groups
                     }
                 }
             }
+            else
+            {
+                dataGridViewSchedule[0, 0].Value = "8:40";
+                dataGridViewSchedule[0, 1].Value = "9:40";
+                dataGridViewSchedule[0, 2].Value = "10:40";
+                dataGridViewSchedule[0, 3].Value = "12:00";
+                dataGridViewSchedule[0, 4].Value = "13:00";
+
+            }
 
 
 
@@ -461,6 +469,72 @@ namespace Libe_Escriptori.Forms.Groups
                 if (dataGridViewSchedule.CurrentCell.ColumnIndex == 0)
                 {
                     MessageBox.Show("No pots modificar les hores");
+                }
+                else if (dataGridViewSchedule.CurrentCell.Value == null)
+                {
+
+                    int row = dataGridViewSchedule.CurrentCell.RowIndex;
+                    int column = dataGridViewSchedule.CurrentCell.ColumnIndex;
+                    TimeSpan hour = TimeSpan.Parse(dataGridViewSchedule[0, row].Value.ToString());
+
+                    TimeSpan endHour = new TimeSpan(hour.Hours + 1, hour.Minutes, hour.Seconds);
+                    List<modules> modulesList = ModulesORM.Select(1);
+                    List<string> codeModule = new List<string>();
+                    string weekdayConsult = null;
+                    bool found = false;
+                    modules actualModule = new Models.modules();
+
+
+                    foreach (modules module in modulesList)
+                    {
+                        codeModule.Add(module.code);
+                    }
+
+                    switch (column)
+                    {
+                        case 1:
+                            weekdayConsult = "Mon       ";
+                            break;
+                        case 2:
+                            weekdayConsult = "Tue       ";
+                            break;
+                        case 3:
+                            weekdayConsult = "Wed       ";
+                            break;
+                        case 4:
+                            weekdayConsult = "Thu       ";
+                            break;
+                        case 5:
+                            weekdayConsult = "Fri       ";
+                            break;
+                        default:
+                            break;
+                    }
+
+                    string selectedModule = listViewModuls.SelectedItems[0].ToString();
+                    int index = 0;
+                    do
+                    {
+                        if (selectedModule.Equals(modulesList[index].code))
+                        {
+                            actualModule = modulesList[index];
+                            found = true;
+                        }
+                    } while (!found || index >= modulesList.Count());
+                    lessons newLesson = new lessons();
+
+                   
+                    newLesson.starting_hour = hour;
+                    newLesson.ending_hour = endHour;
+                    newLesson.weekday = weekdayConsult;
+                    newLesson.schedule_id = _schedule.id;
+                    newLesson.module_id = actualModule.id;
+                    newLesson.classroom_id = 2;
+                    newLesson.profesor_id = 7;
+
+                    
+                   
+                    
                 }
                 else
                 {
