@@ -22,6 +22,7 @@ namespace Libe_Escriptori.Forms.Groups
         List<string> moduls = new List<string>();
         List<Color> colors = new List<Color>();
         schedules _schedule;
+        profesors tutor;
         List<TimeSpan> hours = new List<TimeSpan>();
         List<modules> modules = new List<modules>();
         List<string> modulesCodes = new List<string>();
@@ -31,11 +32,12 @@ namespace Libe_Escriptori.Forms.Groups
         
 
 
-        public FormCreateScheduleGroup(Label ruta, bool adding, schedules schedule)
+        public FormCreateScheduleGroup(Label ruta, bool adding, schedules schedule, profesors tutor)
         {
             InitializeComponent();
             this.adding = adding;
             this._schedule = schedule;
+            this.tutor = tutor;
             fillColors();
             fillModuls();
             hours = LessonsOrm.SelectHours();
@@ -511,7 +513,7 @@ namespace Libe_Escriptori.Forms.Groups
                             break;
                     }
 
-                    string selectedModule = listViewModuls.SelectedItems[0].ToString();
+                    string selectedModule = listViewModuls.SelectedItems[0].Text;
                     int index = 0;
                     do
                     {
@@ -520,7 +522,8 @@ namespace Libe_Escriptori.Forms.Groups
                             actualModule = modulesList[index];
                             found = true;
                         }
-                    } while (!found || index >= modulesList.Count());
+                        ++index;
+                    } while (!found || index > modulesList.Count());
                     lessons newLesson = new lessons();
 
                    
@@ -530,11 +533,16 @@ namespace Libe_Escriptori.Forms.Groups
                     newLesson.schedule_id = _schedule.id;
                     newLesson.module_id = actualModule.id;
                     newLesson.classroom_id = 2;
-                    newLesson.profesor_id = 7;
+                    newLesson.profesor_id = tutor.id;
 
-                    
-                   
-                    
+                    LessonsOrm.Insert(newLesson);
+
+                    dataGridViewSchedule.CurrentCell.Value = actualModule.code;
+                    dataGridViewSchedule.CurrentCell.Style.BackColor = colors[indexItem];
+
+
+
+
                 }
                 else
                 {

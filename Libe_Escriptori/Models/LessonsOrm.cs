@@ -61,5 +61,11 @@ namespace Libe_Escriptori.Models
 
             return _lesson;
         }
+
+        public static void Insert(lessons _lesson)
+        {
+            Orm.db.lessons.Add(_lesson);
+            Orm.db.SaveChanges();
+        }
     }
 }

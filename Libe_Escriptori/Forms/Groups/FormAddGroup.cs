@@ -20,6 +20,7 @@ namespace Libe_Escriptori.Forms.Groups
         groups group;
         schedules _schedule;
         bool adding = true;
+        profesors tutor;
        
         public FormAddGroup(Label ruta)
         {
@@ -48,8 +49,15 @@ namespace Libe_Escriptori.Forms.Groups
 
         private void buttonManageStudents_Click_1(object sender, EventArgs e)
         {
-            FormAddExistingStudentsToGroup faetg = new FormAddExistingStudentsToGroup(ruta);
-            faetg.ShowDialog();
+            if (SelectedsComboBox())
+            {
+                FormAddExistingStudentsToGroup faetg = new FormAddExistingStudentsToGroup(ruta);
+                faetg.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Has de seleccionar tots els comboBox abans d'afegir alumnes al grup");
+            }
         }
 
         private void OpenChildForm(Form childForm)
@@ -74,16 +82,37 @@ namespace Libe_Escriptori.Forms.Groups
             
             if (adding)
             {
-                schedules schedule = new schedules();
-            schedule.name = "Horari de ";
-            SchedulesOrm.Insert(schedule);
-                OpenChildForm(new FormCreateScheduleGroup(ruta, adding, schedule));
+                if (SelectedsComboBox())
+                {
+                    schedules schedule = new schedules();
+                    schedule.name = "Horari de ";
+                    SchedulesOrm.Insert(schedule);
+                    tutor = (profesors)comboBoxTutorGroup.SelectedItem;
+                    OpenChildForm(new FormCreateScheduleGroup(ruta, adding, schedule,tutor));
+                }
+                else
+                {
+                    MessageBox.Show("Has de seleccionar tots els comboBox abans de crear l'horari");
+                }
+                
             }
             else
             {
-                OpenChildForm(new FormCreateScheduleGroup(ruta, adding, group.schedules));
+                OpenChildForm(new FormCreateScheduleGroup(ruta, adding, group.schedules,tutor));
             }
             
+        }
+
+        private bool SelectedsComboBox()
+        {
+            bool allComboBoxSelecteds = false;
+
+            if (comboBoxCicleGroup.SelectedItem != null && comboBoxClassGroup.SelectedItem != null && comboBoxYearGroup.SelectedItem != null)
+            {
+                allComboBoxSelecteds = true;
+            }
+
+            return allComboBoxSelecteds;
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -98,6 +127,7 @@ namespace Libe_Escriptori.Forms.Groups
             comboBoxClassGroup.SelectedItem = group.group_letter;
             comboBoxYearGroup.SelectedItem = group.grade;
             comboBoxTutorGroup.SelectedItem = group.profesors.name;
+            //comboBoxMainClassGroup.SelectedItem = group.
         }
 
         private void InitializeComboBoxesNull()
@@ -106,6 +136,7 @@ namespace Libe_Escriptori.Forms.Groups
             comboBoxClassGroup.SelectedItem = null;
             comboBoxYearGroup.SelectedItem = null;
             comboBoxTutorGroup.SelectedItem = null;
+            comboBoxMainClassGroup.SelectedItem = null;
         }
 
         private void FormAddGroup_Load(object sender, EventArgs e)
