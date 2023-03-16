@@ -88,6 +88,18 @@ namespace Libe_Escriptori.Forms.Groups
                     schedule.name = "Horari de ";
                     SchedulesOrm.Insert(schedule);
                     tutor = (profesors)comboBoxTutorGroup.SelectedItem;
+                    groups newGroup = new groups();
+                    groups groupGrade = (groups)comboBoxYearGroup.SelectedItem;
+                    newGroup.grade = groupGrade.grade;
+                    newGroup.group_letter = comboBoxClassGroup.SelectedItem.ToString();
+                    courses _course = (courses)comboBoxCicleGroup.SelectedItem;
+                    newGroup.course_id = _course.id;
+                    profesors _tutor = (profesors)comboBoxTutorGroup.SelectedItem;
+                    newGroup.tutor_id = _tutor.id;
+                    newGroup.schedule_id = schedule.id;
+                    newGroup.active = true;
+                    newGroup.classroom_id = 2;
+                    GroupsOrm.Insert(newGroup);
                     OpenChildForm(new FormCreateScheduleGroup(ruta, adding, schedule,tutor));
                 }
                 else

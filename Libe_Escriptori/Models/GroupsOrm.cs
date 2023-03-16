@@ -23,5 +23,11 @@ namespace Libe_Escriptori.Models
 
             return _group;
         }
+
+        public static void Insert(groups _group)
+        {
+            Orm.db.groups.Add(_group);
+            Orm.db.SaveChanges();
+        }
     }
 }

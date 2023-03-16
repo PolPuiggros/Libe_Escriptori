@@ -21,8 +21,8 @@ namespace Libe_Escriptori.Models
             this.lessons = new HashSet<lessons>();
             this.departments1 = new HashSet<departments>();
             this.lessons1 = new HashSet<lessons>();
-            this.groups = new HashSet<groups>();
             this.modules = new HashSet<modules>();
+            this.groups = new HashSet<groups>();
         }
     
         public int id { get; set; }
@@ -47,8 +47,8 @@ namespace Libe_Escriptori.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<lessons> lessons1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<groups> groups { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<modules> modules { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<groups> groups { get; set; }
     }
 }
