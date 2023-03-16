@@ -233,6 +233,16 @@ namespace Libe_Escriptori.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logo {
+            get {
+                object obj = ResourceManager.GetObject("logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mid_eraser {
             get {
                 object obj = ResourceManager.GetObject("mid_eraser", resourceCulture);
@@ -266,6 +276,16 @@ namespace Libe_Escriptori.Properties {
         internal static System.Drawing.Bitmap pencil__1_ {
             get {
                 object obj = ResourceManager.GetObject("pencil (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap popupp {
+            get {
+                object obj = ResourceManager.GetObject("popupp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

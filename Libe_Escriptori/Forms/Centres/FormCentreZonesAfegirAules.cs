@@ -90,8 +90,8 @@ namespace Libe_Escriptori.Forms.Centres
             TextBoxDesign.textBoxSearch_Leave(textBoxName, textBoxHintNameDepartment);
             users user = new users();
             user.username = textBoxName.Text;
-            user.password = "12345";
-            user.type = 2;
+            user.password = Blowfish.encriptarContrasenya("12345");
+            user.type = 3;
             user.active = true;
             UsersOrm.Insert(user);
 

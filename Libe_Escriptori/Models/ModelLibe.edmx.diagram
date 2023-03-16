@@ -2022,7 +2022,7 @@
 		</Options>
 		<!-- Diagram content (shape and connector positions) -->
 		<Diagrams>
-      <Diagram DiagramId="bcdad82879c4417cb64f0424bdb14d2c" Name="Diagram1" ZoomLevel="74">
+      <Diagram DiagramId="bcdad82879c4417cb64f0424bdb14d2c" Name="Diagram1" ZoomLevel="69">
         <EntityTypeShape EntityType="libeModel.attendance" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="libeModel.attendance_status" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="libeModel.calendars" Width="1.5" PointX="5.75" PointY="13.875" IsExpanded="true" />

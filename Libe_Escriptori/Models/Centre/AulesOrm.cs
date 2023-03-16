@@ -23,7 +23,6 @@ namespace Libe_Escriptori.Models.Centre
 
         public static void Insert(classrooms aula)
         {
-
             Orm.db.classrooms.Add(aula);
             Orm.db.SaveChanges();
         }

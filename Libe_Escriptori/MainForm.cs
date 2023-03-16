@@ -19,6 +19,7 @@ namespace Libe_Escriptori
             InitializeComponent();
             customDesign();
             previousButton = buttonInici;
+            panelLogs.Visible = false;
         }
         private void customDesign()
         {
@@ -227,6 +228,30 @@ namespace Libe_Escriptori
                 login.Show();
                 this.Close();
             }
+        }
+
+        private void buttonInbox_Click(object sender, EventArgs e)
+        {
+            if(panelLogs.Visible == true)
+            {
+                panelLogs.Visible = false;
+            }
+            else
+            {
+                OpenLogsForm(new popupLog(), sender);
+            }
+            
+        }
+
+        private void OpenLogsForm(popupLog popupLog, object sender)
+        {
+            panelLogs.Visible = true;
+            popupLog.TopLevel = false;
+            popupLog.Dock = DockStyle.Fill;
+            panelLogs.Controls.Add(popupLog);
+            panelLogs.Tag = popupLog;
+            popupLog.BringToFront();
+            popupLog.Show();
         }
     }
 }
