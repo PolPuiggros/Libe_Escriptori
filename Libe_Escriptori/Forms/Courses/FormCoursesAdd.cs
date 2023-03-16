@@ -181,8 +181,12 @@ namespace Libe_Escriptori.Forms.Courses
                 if (dialogResult == DialogResult.OK)
                 {
                     dataGridViewModules.CurrentRow.Selected = true;
-                    ModulesORM.Delete((modules)dataGridViewModules.SelectedRows[0].DataBoundItem);
-                    dataGridViewModules.DataSource = CoursesORM.Select();
+                    _course.modules.Remove((modules)dataGridViewModules.SelectedRows[0].DataBoundItem);
+                    CoursesORM.Update(_course);
+
+                    bindingSourceModules.DataSource = null;
+                    bindingSourceModules.DataSource = ModulesORM.Select(_course.id);
+                    
                 }
             }
         }
@@ -196,6 +200,7 @@ namespace Libe_Escriptori.Forms.Courses
             _course.name = textBoxFullName.Text;
             _course.department_id = (int)comboBoxDepartment.SelectedValue;
             _course.active = true;
+            
 
             foreach (modules m in _course.modules)
             {
@@ -225,7 +230,9 @@ namespace Libe_Escriptori.Forms.Courses
         {
             if (comboBoxDepartment.SelectedValue != null)
             {
-                //textBoxCoordinator.Text = ProfesorsOrm.SelectFromId(listDepartments.Find(c => c.id == (int)comboBoxDepartment.SelectedValue).profesor_in_charge_id);
+                int professorId = listDepartments.Find(c => c.id == (int)comboBoxDepartment.SelectedValue).profesor_in_charge_id;
+                
+                textBoxCoordinator.Text = ProfesorsOrm.SelectFromId(professorId).name;
             }
         
         }
