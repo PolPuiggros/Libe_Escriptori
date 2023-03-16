@@ -245,6 +245,10 @@ namespace Libe_Escriptori
 
         private void OpenLogsForm(popupLog popupLog, object sender)
         {
+            if (activeForm != null)
+            {
+                activeForm.SendToBack();
+            }
             panelLogs.Visible = true;
             popupLog.TopLevel = false;
             popupLog.Dock = DockStyle.Fill;

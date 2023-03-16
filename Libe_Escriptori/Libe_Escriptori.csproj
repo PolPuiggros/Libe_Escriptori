@@ -467,6 +467,7 @@
     <None Include="Resources\pencil.png" />
     <None Include="Resources\pencil %281%29.png" />
     <None Include="Resources\popupp.png" />
+    <None Include="Resources\popupdef.png" />
     <Content Include="Resources\profile_pic.png" />
     <Content Include="Resources\profile_pic_big.png" />
     <None Include="Resources\remove.png" />

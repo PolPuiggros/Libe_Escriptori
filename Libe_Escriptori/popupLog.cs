@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Libe_Escriptori.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,20 @@ namespace Libe_Escriptori
 {
     public partial class popupLog : Form
     {
+        List<logs> logList = new List<logs>();
         public popupLog()
         {
-            InitializeComponent();
-            this.Location = new Point(821, 3);
+            InitializeComponent();    
+            panelAllLogs.HorizontalScroll.Enabled = false;
+            panelAllLogs.HorizontalScroll.Visible = false;
+            panelAllLogs.HorizontalScroll.Maximum = 0;
+            panelAllLogs.AutoScroll = true;
+            getLogs();
+        }
+
+        private void getLogs()
+        {
+            logList = LogsOrm.Select();
         }
     }
 }
