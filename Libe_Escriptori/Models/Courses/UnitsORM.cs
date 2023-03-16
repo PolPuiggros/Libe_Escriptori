@@ -28,13 +28,13 @@ namespace Libe_Escriptori.Models.Courses
             return modules;
         }
 
-        public static void Delete(modules _modules)
+        public static void Delete(units _units)
         {
-            _modules = Orm.db.modules
-                .Where(c => c.id == _modules.id)
+            _units = Orm.db.units
+                .Where(c => c.id == _units.id)
                 .First();
-            _modules.active = false;
-            _modules.deleted_timestamp = DateTime.Now;
+            _units.active = false;
+            _units.deleted_timestamp = DateTime.Now;
             Orm.db.SaveChanges();
         }
 

@@ -4,13 +4,7 @@ using Libe_Escriptori.Models.Usuaris.Profesors;
 using Libe_Escriptori.Properties;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Libe_Escriptori.Forms.Courses
@@ -104,7 +98,20 @@ namespace Libe_Escriptori.Forms.Courses
 
         private void buttonNew_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormAddNewModule(labeld));
+            if (addingNew)
+            {
+                
+                if (addNewCourse())
+                {
+                    addingNew = false;
+                    OpenChildForm(new FormAddNewModule(labeld, _course));
+                }
+            }
+            else
+            {
+                OpenChildForm(new FormAddNewModule(labeld, _course));
+            }
+            
         }
 
         private void dataGridViewModules_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -142,15 +149,16 @@ namespace Libe_Escriptori.Forms.Courses
 
         private void FormCoursesAdd_Load(object sender, EventArgs e)
         {
+            listDepartments = DepartmentsOrm.Select(true);
+            bindingSourceDepartments.DataSource = DepartmentsOrm.Select(true);
+
             if (!addingNew)
             {
                 bindingSourceModules.DataSource = ModulesORM.Select(_course.id);
+                textBoxFullName.Text = _course.name;
+                textBoxAbbreviation.Text = _course.abreviation;
+                comboBoxDepartment.SelectedValue = _course.department_id;
             }
-            listDepartments = DepartmentsOrm.Select(true);
-            bindingSourceDepartments.DataSource = DepartmentsOrm.Select(true);
-            
-
-
 
         }
 
@@ -172,7 +180,7 @@ namespace Libe_Escriptori.Forms.Courses
             if (e.ColumnIndex == 4)
             {
                 var selectedModule = (modules)dataGridViewModules.SelectedRows[0].DataBoundItem;
-                OpenChildForm(new FormAddNewModule(labeld, selectedModule));
+                OpenChildForm(new FormAddNewModule(labeld, _course, selectedModule));
             }
             else if (e.ColumnIndex == 5)
             {
@@ -194,31 +202,8 @@ namespace Libe_Escriptori.Forms.Courses
         private void buttonSave_Click(object sender, EventArgs e)
         {
 
-            int hours = 0;
-
-            _course.abreviation = textBoxAbbreviation.Text;
-            _course.name = textBoxFullName.Text;
-            _course.department_id = (int)comboBoxDepartment.SelectedValue;
-            _course.active = true;
-            
-
-            foreach (modules m in _course.modules)
-            {
-                hours += m.total_hours;
-            }
-
-            _course.total_hours = hours;
-
-            if (addingNew)
-            {
-                CoursesORM.Insert(_course);
-            }
-            else
-            {
-                CoursesORM.Update(_course);
-            }
+            addNewCourse();
             this.Close();
-
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -235,6 +220,46 @@ namespace Libe_Escriptori.Forms.Courses
                 textBoxCoordinator.Text = ProfesorsOrm.SelectFromId(professorId).name;
             }
         
+        }
+
+        private bool addNewCourse()
+        {
+
+            //TODO: Validations
+            //TODO: If inserted return true, else false
+
+
+            int hours = 0;
+
+            _course.abreviation = textBoxAbbreviation.Text;
+            _course.name = textBoxFullName.Text;
+            _course.department_id = (int)comboBoxDepartment.SelectedValue;
+            _course.active = true;
+
+
+            foreach (modules m in _course.modules)
+            {
+                hours += m.total_hours;
+            }
+
+            _course.total_hours = hours;
+
+            if (addingNew)
+            {
+                CoursesORM.Insert(_course);
+            }
+            else
+            {
+                CoursesORM.Update(_course);
+            }
+
+            return true;
+            
+        }
+
+        private void panelCoursesAdd_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
