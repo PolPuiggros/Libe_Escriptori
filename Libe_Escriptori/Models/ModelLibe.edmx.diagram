@@ -2023,7 +2023,7 @@
 		<!-- Diagram content (shape and connector positions) -->
 		<Diagrams>
 
-      <Diagram DiagramId="bcdad82879c4417cb64f0424bdb14d2c" Name="Diagram1" ZoomLevel="64">
+      <Diagram DiagramId="bcdad82879c4417cb64f0424bdb14d2c" Name="Diagram1" ZoomLevel="95">
 
         <EntityTypeShape EntityType="libeModel.attendance" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="libeModel.attendance_status" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
@@ -2082,11 +2082,7 @@
         <AssociationConnector Association="libeModel.FK_holidays_holiday_type" />
         <AssociationConnector Association="libeModel.FK_students_users1" />
         <AssociationConnector Association="libeModel.student_unit" />
-
-        <EntityTypeShape EntityType="libeModel.groups" Width="1.5" PointX="15" PointY="6.375" />
         <AssociationConnector Association="libeModel.FK_groups_groups" />
-        <AssociationConnector Association="libeModel.FK_groups_profesors" />
-        <AssociationConnector Association="libeModel.FK_groups_schedules" />
         <AssociationConnector Association="libeModel.FK_students_groups" />
         <EntityTypeShape EntityType="libeModel.classrooms" Width="1.5" PointX="1.375" PointY="4.75" />
 
