@@ -1,6 +1,5 @@
 ﻿using Libe_Escriptori.Models;
 using Libe_Escriptori.Models.Usuaris.Profesors;
-using Libe_Escriptori.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,11 +16,10 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
     public partial class GestionarUsuarisProfessorsAfegint : Form
     {
         private String textBoxHintName = " Nom";
-        private String textBoxHintSurnname1 = " 1r Cognom";
-        private String textBoxHintSurnname2 = " 2n Cognom";
+        private String textBoxHintSurnname = " Cognoms";
         private String textBoxHintEmail = " Email";
         private String textBoxHintPhone = " Tel";
-        Label ruta;
+
         BindingList<departments> listDepartaments = new BindingList<departments>();
         private profesors _profesor;
         bool adding;
@@ -30,7 +28,6 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
         {
             InitializeComponent();
             labelRuta.Text = "Gestionar Usuaris/Gestionar Professors/Afegint";
-            this.ruta = labelRuta;
             adding = true;
         }
 
@@ -38,7 +35,6 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
         {
             InitializeComponent();
             labelRuta.Text = "Gestionar Usuaris/Gestionar Professors/Editant";
-            this.ruta = labelRuta;
             this._profesor = _profesor;
             adding = false;
         }
@@ -49,15 +45,9 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
             if (!adding)
             {
                 textBoxName.Text = _profesor.name;
-                textBoxName.ForeColor = Color.Black;
-                textBoxSurname1.Text = _profesor.surname1;
-                textBoxSurname1.ForeColor = Color.Black;
-                textBoxSurname2.Text = _profesor.surname2;
-                textBoxSurname2.ForeColor = Color.Black;
+                textBoxSurname.Text = _profesor.surname1 + " " + _profesor.surname2;
                 textBoxEmail.Text = _profesor.email;
-                textBoxEmail.ForeColor = Color.Black;
                 textBoxPhone.Text = _profesor.phone_number;
-                textBoxPhone.ForeColor = Color.Black;
                 foreach (departments department in _profesor.departments)
                 {
                     if (listDepartaments.FirstOrDefault(d => d.id == department.id) == null)
@@ -108,24 +98,14 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
             TextBoxDesign.textBoxSearch_Leave(textBoxName, textBoxHintName);
         }
 
-        private void textBoxSurname1_Enter(object sender, EventArgs e)
+        private void textBoxSurname_Enter(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Enter(textBoxSurname1, textBoxHintSurnname1);
+            TextBoxDesign.textBoxSearch_Enter(textBoxSurname, textBoxHintSurnname);
         }
 
-        private void textBoxSurname1_Leave(object sender, EventArgs e)
+        private void textBoxSurname_Leave(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Leave(textBoxSurname1, textBoxHintSurnname1);
-        }
-
-        private void textBoxSurname2_Enter(object sender, EventArgs e)
-        {
-            TextBoxDesign.textBoxSearch_Enter(textBoxSurname2, textBoxHintSurnname2);
-        }
-
-        private void textBoxSurname2_Leave(object sender, EventArgs e)
-        {
-            TextBoxDesign.textBoxSearch_Leave(textBoxSurname2, textBoxHintSurnname2);
+            TextBoxDesign.textBoxSearch_Leave(textBoxSurname, textBoxHintSurnname);
         }
 
         private void textBoxEmail_Enter(object sender, EventArgs e)
@@ -150,62 +130,32 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
 
         private void buttonAfegir_Click(object sender, EventArgs e)
         {
-            if (Validations.CheckEmail(textBoxEmail.Text))
+            string[] surnames = textBoxSurname.Text.Split(' ', (char)2);
+            if (adding)
             {
-                if (Validations.CheckPhone(textBoxPhone.Text))
-                {
-                    if (adding)
-                    {
-                        users _users = new users();
-                        _users.username = textBoxName.Text.Substring(0, 1).ToLower() + textBoxSurname1.Text.ToLower() + textBoxSurname2.Text.Substring(0, 1).ToLower();
-                        int id_user;
-                        int autoincrement = 1;
-                        do
-                        {
-                            id_user = UsersOrm.Select(_users.username);
-                            if (id_user != 0)
-                            {
-                                _users.username = textBoxName.Text.Substring(0, 1).ToLower() + textBoxSurname1.Text.ToLower() + textBoxSurname2.Text.Substring(0, 1).ToLower() + autoincrement;
-                            }
-                            autoincrement++;
-                        } while (id_user != 0);
-                        _users.password = Blowfish.encriptarContrasenya(textBoxName.Text + textBoxPhone.Text);
-                        _users.type = 2;
-                        _users.active = true;
-                        UsersOrm.Insert(_users);
+                users _users = new users();
+                _users.username = textBoxName.Text.Substring(0, 1).ToLower() + surnames[0].ToLower() + surnames[1].Substring(0, 1).ToLower();
+                _users.password = Blowfish.encriptarContrasenya(textBoxName.Text + textBoxPhone.Text);
+                _users.type = 2;
+                _users.active = true;
+                UsersOrm.Insert(_users);
 
-                        profesors _profesors = new profesors();
+                profesors _profesors = new profesors();
 
-                        _profesors.id = UsersOrm.Select(_users.username);
-                        _profesors.name = textBoxName.Text;
-                        _profesors.surname1 = textBoxSurname1.Text;
-                        _profesors.surname2 = textBoxSurname2.Text;
-                        _profesors.email = textBoxEmail.Text;
-                        _profesors.phone_number = textBoxPhone.Text;
-                        _profesors.departments = listBoxteacherDespartments.Items.Cast<departments>().ToList();
-                        _profesors.active = true;
-                        _profesors.created_timestamp = DateTime.Now;
-                        ProfesorsOrm.Insert(_profesors);
-                    }
-                    else
-                    {
-                        ProfesorsOrm.Update(_profesor, textBoxName.Text, textBoxSurname1.Text, textBoxSurname2.Text, textBoxEmail.Text, textBoxPhone.Text, listBoxteacherDespartments.Items.Cast<departments>().ToList());
-                    }
-                    this.Close();
-                } else
-                {
-                    MessageBox.Show("Format del Telefon incorrecte", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }  
+                _profesors.id = UsersOrm.Select(_users.username);
+                _profesors.name = textBoxName.Text;
+                _profesors.surname1 = surnames[0];
+                _profesors.surname2 = surnames[1];
+                _profesors.email = textBoxEmail.Text;
+                _profesors.phone_number = textBoxPhone.Text;
+                _profesors.departments = listBoxteacherDespartments.Items.Cast<departments>().ToList();
+                _profesors.active = true;
+                _profesors.created_timestamp = DateTime.Now;
+                ProfesorsOrm.Insert(_profesors);
             } else
             {
-                MessageBox.Show("Format de l'Email incorrecte", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ProfesorsOrm.Update(_profesor, textBoxName.Text, surnames[0], surnames[1], textBoxEmail.Text, textBoxPhone.Text, listBoxteacherDespartments.Items.Cast<departments>().ToList());
             }
-        }
-
-        private void buttonCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            ruta.Text = "Gestionar Usuaris/Gestionar Professors";
         }
     }
 }

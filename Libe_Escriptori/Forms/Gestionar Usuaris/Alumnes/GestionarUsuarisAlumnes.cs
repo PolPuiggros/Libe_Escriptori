@@ -1,5 +1,4 @@
 ﻿using Libe_Escriptori.Models;
-using Libe_Escriptori.Models.Centre;
 using Libe_Escriptori.Models.Usuaris.Alumnes;
 using Libe_Escriptori.Properties;
 using System;
@@ -16,7 +15,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
 {
     public partial class GestionarUsuarisAlumnes : Form
     {
-        private String textBoxHint = " Introdueix dades clau de l'usuari ex. DNI, Cognom...";
+        private String textBoxHint = "  Búsqueda...";
         Form activeForm;
         Label label;
         public GestionarUsuarisAlumnes(Label labelRuta)
@@ -84,40 +83,27 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 8)
-            {
-                OpenChildForm(new GestionarUsuarisAlumnesAfegint(label, (students)dataGridView1.SelectedRows[0].DataBoundItem));
-            } else if(e.ColumnIndex == 9)
-            {
-                DialogResult dialogResult = MessageBox.Show("Estas segur que vols borrar l'alumne?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-                if (dialogResult == DialogResult.OK)
+            
+                if (e.ColumnIndex == 8)
                 {
-                    dataGridView1.CurrentRow.Selected = true;
-                    AlumnesOrm.Delete((students)dataGridView1.SelectedRows[0].DataBoundItem);
-                    refreshDGV();
-                }
-            }
-        }
+                    OpenChildForm(new GestionarUsuarisAlumnesAfegint(label, (students)dataGridView1.SelectedRows[0].DataBoundItem));
+                } else if(e.ColumnIndex == 9)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Estas segur que vols borrar l'alumne?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
-        private void refreshDGV()
-        {
-            bindingSourceStudents.DataSource = AlumnesOrm.Select(true);
+                    if (dialogResult == DialogResult.OK)
+                    {
+                        dataGridView1.CurrentRow.Selected = true;
+                        AlumnesOrm.Delete((students)dataGridView1.SelectedRows[0].DataBoundItem);
+                    //Recargar
+                    }
+                }
+            
         }
 
         private void buttonNew_Click(object sender, EventArgs e)
         {
             OpenChildForm(new GestionarUsuarisAlumnesAfegint(label));
-        }
-
-        private void textBoxFiltres_Enter(object sender, EventArgs e)
-        {
-            TextBoxDesign.textBoxSearch_Enter(textBoxFiltres, textBoxHint);
-        }
-
-        private void textBoxFiltres_Leave(object sender, EventArgs e)
-        {
-            TextBoxDesign.textBoxSearch_Leave(textBoxFiltres, textBoxHint);
         }
     }
 }

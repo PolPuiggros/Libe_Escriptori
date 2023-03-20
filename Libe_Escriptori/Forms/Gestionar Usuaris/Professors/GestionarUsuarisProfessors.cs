@@ -17,7 +17,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
 {
     public partial class GestionarUsuarisProfessors : Form
     {
-        private String textBoxHint = " Introdueix dades clau del professor ex. DNI, Cognom...";
+        private String textBoxHint = "  Búsqueda...";
         Form activeForm;
         Label labeld;
         public GestionarUsuarisProfessors(Label label)
@@ -99,24 +99,8 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
                 {
                     dataGridViewTeachers.CurrentRow.Selected = true;
                     ProfesorsOrm.Delete((profesors)dataGridViewTeachers.SelectedRows[0].DataBoundItem);
-                    refreshDGV();
                 }
             }
-        }
-
-        private void refreshDGV()
-        {
-            bindingSourceProfesors.DataSource = ProfesorsOrm.Select(true);
-        }
-
-        private void textBoxFiltres_Enter(object sender, EventArgs e)
-        {
-            TextBoxDesign.textBoxSearch_Enter(textBoxFiltres, textBoxHint);
-        }
-
-        private void textBoxFiltres_Leave(object sender, EventArgs e)
-        {
-            TextBoxDesign.textBoxSearch_Leave(textBoxFiltres, textBoxHint);
         }
     }
 }

@@ -308,7 +308,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextBoxDesign.cs" />
-    <Compile Include="Utilities\Validations.cs" />
     <EmbeddedResource Include="Forms\Centres\FormCalendari.resx">
       <DependentUpon>FormCalendari.cs</DependentUpon>
     </EmbeddedResource>

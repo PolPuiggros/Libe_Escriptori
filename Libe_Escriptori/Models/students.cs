@@ -40,9 +40,9 @@ namespace Libe_Escriptori.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<attendance> attendance { get; set; }
-        public virtual groups groups { get; set; }
         public virtual users users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<units> units { get; set; }
+        public virtual groups groups { get; set; }
     }
 }
