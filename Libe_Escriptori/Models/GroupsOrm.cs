@@ -10,7 +10,9 @@ namespace Libe_Escriptori.Models
     {
         public static List<groups> Select()
         {
-            List<groups> _groups = Orm.db.groups.ToList();
+            List<groups> _groups = Orm.db.groups
+                .Where(group => group.active == true)
+                .ToList();
 
             return _groups;
         }
@@ -22,6 +24,28 @@ namespace Libe_Escriptori.Models
                 .FirstOrDefault();
 
             return _group;
+        }
+
+        public static void Insert(groups _group)
+        {
+            Orm.db.groups.Add(_group);
+            Orm.db.SaveChanges();
+        }
+
+        public static void Delete(groups _group)
+        {
+            _group = Orm.db.groups
+                .Where(group => group.id == _group.id)
+                .FirstOrDefault();
+            _group.active = false;
+            _group.deleted_timestamp = DateTime.Now;
+            Orm.db.SaveChanges();
+
+        }
+        public static void DeleteGroup(groups _group)
+        {
+            Orm.db.groups.Remove(_group);
+            Orm.db.SaveChanges();
         }
     }
 }

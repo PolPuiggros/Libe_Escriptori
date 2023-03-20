@@ -32,9 +32,9 @@ namespace Libe_Escriptori.Models
         public Nullable<System.DateTime> deleted_timestamp { get; set; }
         public int classroom_id { get; set; }
     
+        public virtual courses courses { get; set; }
         public virtual profesors profesors { get; set; }
         public virtual schedules schedules { get; set; }
-        public virtual courses courses { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<students> students { get; set; }
         public virtual classrooms classrooms { get; set; }

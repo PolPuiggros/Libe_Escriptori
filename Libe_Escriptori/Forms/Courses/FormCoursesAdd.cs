@@ -223,11 +223,7 @@ namespace Libe_Escriptori.Forms.Courses
 
         private void comboBoxDepartment_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (comboBoxDepartment.SelectedValue != null)
-            {
-                //textBoxCoordinator.Text = ProfesorsOrm.SelectFromId(listDepartments.Find(c => c.id == (int)comboBoxDepartment.SelectedValue).profesor_in_charge_id);
-            }
-        
+
         }
     }
 }

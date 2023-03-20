@@ -22,31 +22,44 @@ namespace Libe_Escriptori.Forms.Groups
         List<string> moduls = new List<string>();
         List<Color> colors = new List<Color>();
         schedules _schedule;
+        profesors tutor;
+        groups _group;
         List<TimeSpan> hours = new List<TimeSpan>();
         List<modules> modules = new List<modules>();
         List<string> modulesCodes = new List<string>();
         List<lessons> lessonsInit = new List<lessons>();
         List<LessonsData> lessons = new List<LessonsData>();
+        bool adding;
         
 
 
-        public FormCreateScheduleGroup(Label ruta)
+        public FormCreateScheduleGroup(Label ruta, bool adding, groups group)
         {
             InitializeComponent();
+            this.adding = adding;
+            this._group = group;
             fillColors();
             fillModuls();
             hours = LessonsOrm.SelectHours();
             dataGridViewSchedule.RowCount = hours.Count;
             initializeDataGrid();
             AdjustRowHeight();
-            ruta.Text = "Gestionar Grups/Afegint Grup/Creant Horari";
-            saveLessons();
+            if (adding)
+            {
+                ruta.Text = "Gestionar Grups/Afegint Grup/Creant Horari";
+            }
+            else
+            {
+                ruta.Text = "Gestionar Grups/Afegint Grup/Editant Horari";
+                saveLessons();
+            }
+            
         }
 
         private void saveLessons()
         {
             lessonsInit.Clear();
-            lessonsInit = LessonsOrm.Select(_schedule.id);
+            lessonsInit = LessonsOrm.Select(_group.schedule_id);
            
 
        
@@ -60,242 +73,358 @@ namespace Libe_Escriptori.Forms.Groups
 
         private void initializeDataGrid()
         {
-            _schedule = SchedulesOrm.Select().First();
-            modules = ModulesORM.Select(1);
-            int indexModule = -1;
+            if (!adding)
+            {
+                _schedule = SchedulesOrm.SelectSchedule(_group.schedule_id);
+                modules = ModulesORM.Select(_group.courses.id);
+                int indexModule = -1;
 
-            foreach (modules module in modules)
-            {
-                modulesCodes.Add(module.code);
-            }
-            
-            List<lessons> hourLessonsList = new List<lessons>();
-            
-            foreach (DataGridViewRow row in dataGridViewSchedule.Rows)
-            {
-                foreach (DataGridViewCell cell in row.Cells)
+                foreach (modules module in modules)
                 {
-                    // 8:40
-                    if (row.Index == 0)
+                    modulesCodes.Add(module.code);
+                }
+
+                List<lessons> hourLessonsList = new List<lessons>();
+
+                foreach (DataGridViewRow row in dataGridViewSchedule.Rows)
+                {
+                    int indexHour = 0;
+                    foreach (DataGridViewCell cell in row.Cells)
                     {
-                        TimeSpan eightFourty = new TimeSpan(8, 40, 0);
-                        hourLessonsList = LessonsOrm.SelectLessonsAtHour(eightFourty);
+                        // 8:40
+                        if (row.Index == 0)
+                        {
+                            TimeSpan eightFourty = new TimeSpan(8, 40, 0);
+                            hourLessonsList = LessonsOrm.SelectLessonsAtHour(eightFourty,_group.schedule_id);
 
-                        if (cell.ColumnIndex == 0)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex].starting_hour;
+                            if (cell.ColumnIndex == 0)
+                            {
+                                cell.Value = eightFourty;
+                            }
+                            if (cell.ColumnIndex == 1)
+                            {
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Mon       "))
+                                {
+                                    cell.Value = hourLessonsList[indexHour].modules.code;
+                                    indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                    cell.Style.BackColor = colors[indexModule];
+                                    ++indexHour;
+                                }
+                            }
+                            if (cell.ColumnIndex == 2)
+                            {
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Tue       "))
+                                {
+                                    cell.Value = hourLessonsList[indexHour].modules.code;
+                                    indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                    cell.Style.BackColor = colors[indexModule];
+                                    ++indexHour;
+                                }
+                                
+                            }
+                            if (cell.ColumnIndex == 3)
+                            {
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Wed       "))
+                                {
+                                    cell.Value = hourLessonsList[indexHour].modules.code;
+                                    indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                    cell.Style.BackColor = colors[indexModule];
+                                    ++indexHour;
+                                }
+                            }
+                            if (cell.ColumnIndex == 4)
+                            {
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Thu       "))
+                                {
+                                    cell.Value = hourLessonsList[indexHour].modules.code;
+                                    indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                    cell.Style.BackColor = colors[indexModule];
+                                    ++indexHour;
+                                }
+                            }
+                            if (cell.ColumnIndex == 5)
+                            {
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Fri       "))
+                                {
+                                    cell.Value = hourLessonsList[indexHour].modules.code;
+                                    indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                    cell.Style.BackColor = colors[indexModule];
+                                    ++indexHour;
+                                }
+                            }
                         }
-                        if (cell.ColumnIndex == 1)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 2)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 3)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 4)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 5)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                    }
 
 
-                    //9:40
-                    if (row.Index == 1)
-                    {
-                        TimeSpan nineFourty = new TimeSpan(9, 40, 0);
-                        hourLessonsList = LessonsOrm.SelectLessonsAtHour(nineFourty);
-
-                        if (cell.ColumnIndex == 0)
+                        //9:40
+                        if (row.Index == 1)
                         {
-                            cell.Value = hourLessonsList[cell.ColumnIndex].starting_hour;
+                            TimeSpan nineFourty = new TimeSpan(9, 40, 0);
+                            hourLessonsList = LessonsOrm.SelectLessonsAtHour(nineFourty, _group.schedule_id);
+
+                            if (cell.ColumnIndex == 0)
+                            {
+                                cell.Value = nineFourty;
+
+                            }
+                            if (cell.ColumnIndex == 1)
+                            {
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Mon       "))
+                                {
+                                    cell.Value = hourLessonsList[indexHour].modules.code;
+                                    indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                    cell.Style.BackColor = colors[indexModule];
+                                    ++indexHour;
+                                }
+                            }
+                            if (cell.ColumnIndex == 2)
+                            {
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Tue       "))
+                                {
+                                    cell.Value = hourLessonsList[indexHour].modules.code;
+                                    indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                    cell.Style.BackColor = colors[indexModule];
+                                    ++indexHour;
+                                }
+                            }
+                            if (cell.ColumnIndex == 3)
+                            {
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Wed       "))
+                                {
+                                    cell.Value = hourLessonsList[indexHour].modules.code;
+                                    indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                    cell.Style.BackColor = colors[indexModule];
+                                    ++indexHour;
+                                }
+                            }
+                            if (cell.ColumnIndex == 4)
+                            {
+                                if (indexHour < hourLessonsList.Count  && hourLessonsList[indexHour].weekday.Equals("Thu       "))
+                                {
+                                    cell.Value = hourLessonsList[indexHour].modules.code;
+                                    indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                    cell.Style.BackColor = colors[indexModule];
+                                    ++indexHour;
+                                }
+                            }
+                            if (cell.ColumnIndex == 5)
+                            {
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Fri       "))
+                                {
+                                    cell.Value = hourLessonsList[indexHour].modules.code;
+                                    indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                    cell.Style.BackColor = colors[indexModule];
+                                    ++indexHour;
+                                }
+                            }
+                        }
+
+
+                        //10:40
+                        if (row.Index == 2)
+                        {
+                            TimeSpan tenFourty = new TimeSpan(10, 40, 0);
+                            hourLessonsList = LessonsOrm.SelectLessonsAtHour(tenFourty, _group.schedule_id);
                             
+
+                            if (cell.ColumnIndex == 0)
+                            {
+                                cell.Value = tenFourty;
+
+                            }
+                            if (cell.ColumnIndex == 1)
+                            {
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Mon       "))
+                                {
+                                    cell.Value = hourLessonsList[indexHour].modules.code;
+                                    indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                    cell.Style.BackColor = colors[indexModule];
+                                    ++indexHour;
+                                }
+                            }
+                            if (cell.ColumnIndex == 2)
+                            {
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Tue       "))
+                                {
+                                    cell.Value = hourLessonsList[indexHour].modules.code;
+                                    indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                    cell.Style.BackColor = colors[indexModule];
+                                    ++indexHour;
+                                }
+                            }
+                            if (cell.ColumnIndex == 3)
+                            {
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Wed       "))
+                                {
+                                    cell.Value = hourLessonsList[indexHour].modules.code;
+                                    indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                    cell.Style.BackColor = colors[indexModule];
+                                    ++indexHour;
+                                }
+                            }
+                            if (cell.ColumnIndex == 4)
+                            {
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Thu       "))
+                                {
+                                    cell.Value = hourLessonsList[indexHour].modules.code;
+                                    indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                    cell.Style.BackColor = colors[indexModule];
+                                    ++indexHour;
+                                }
+                            }
+                            if (cell.ColumnIndex == 5)
+                            {
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Fri       "))
+                                {
+                                    cell.Value = hourLessonsList[indexHour].modules.code;
+                                    indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                    cell.Style.BackColor = colors[indexModule];
+                                    ++indexHour;
+                                }
+                            }
                         }
-                        if (cell.ColumnIndex == 1)
+
+
+
+                        //12:00
+                        if (row.Index == 3)
                         {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
+                            TimeSpan twelve = new TimeSpan(12, 0, 0);
+                            hourLessonsList = LessonsOrm.SelectLessonsAtHour(twelve, _group.schedule_id);
+
+                            if (cell.ColumnIndex == 0)
+                            {
+                                cell.Value = twelve;
+                            }
+                            if (cell.ColumnIndex == 1)
+                            {
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Mon       "))
+                                {
+                                    cell.Value = hourLessonsList[indexHour].modules.code;
+                                    indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                    cell.Style.BackColor = colors[indexModule];
+                                    ++indexHour;
+                                }
+                            }
+                            if (cell.ColumnIndex == 2)
+                            {
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Tue       "))
+                                {
+                                    cell.Value = hourLessonsList[indexHour].modules.code;
+                                    indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                    cell.Style.BackColor = colors[indexModule];
+                                    ++indexHour;
+                                }
+                            }
+                            if (cell.ColumnIndex == 3)
+                            {
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Wed       "))
+                                {
+                                    cell.Value = hourLessonsList[indexHour].modules.code;
+                                    indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                    cell.Style.BackColor = colors[indexModule];
+                                    ++indexHour;
+                                }
+                            }
+                            if (cell.ColumnIndex == 4)
+                            {
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Thu       "))
+                                {
+                                    cell.Value = hourLessonsList[indexHour].modules.code;
+                                    indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                    cell.Style.BackColor = colors[indexModule];
+                                    ++indexHour;
+                                }
+                            }
+                            if (cell.ColumnIndex == 5)
+                            {
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Fri       "))
+                                {
+                                    cell.Value = hourLessonsList[indexHour].modules.code;
+                                    indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                    cell.Style.BackColor = colors[indexModule];
+                                    ++indexHour;
+                                }
+                            }
                         }
-                        if (cell.ColumnIndex == 2)
+
+
+
+                        //13:00
+                        if (row.Index == 4)
                         {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
+                            TimeSpan one = new TimeSpan(13, 0, 0);
+                            hourLessonsList = LessonsOrm.SelectLessonsAtHour(one, _group.schedule_id);
+
+                            if (cell.ColumnIndex == 0)
+                            {
+                                cell.Value = one;
+                            }
+                            if (cell.ColumnIndex == 1)
+                            {
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Mon       "))
+                                {
+                                    cell.Value = hourLessonsList[indexHour].modules.code;
+                                    indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                    cell.Style.BackColor = colors[indexModule];
+                                    ++indexHour;
+                                }
+                            }
+                            if (cell.ColumnIndex == 2)
+                            {
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Tue       "))
+                                {
+                                    cell.Value = hourLessonsList[indexHour].modules.code;
+                                    indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                    cell.Style.BackColor = colors[indexModule];
+                                    ++indexHour;
+                                }
+                            }
+                            if (cell.ColumnIndex == 3)
+                            {
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Wed       "))
+                                {
+                                    cell.Value = hourLessonsList[indexHour].modules.code;
+                                    indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                    cell.Style.BackColor = colors[indexModule];
+                                    ++indexHour;
+                                }
+                            }
+                            if (cell.ColumnIndex == 4)
+                            {
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Thu       "))
+                                {
+                                    cell.Value = hourLessonsList[indexHour].modules.code;
+                                    indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                    cell.Style.BackColor = colors[indexModule];
+                                    ++indexHour;
+                                }
+                            }
+                            if (cell.ColumnIndex == 5)
+                            {
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Fri       "))
+                                {
+                                    cell.Value = hourLessonsList[indexHour].modules.code;
+                                    indexModule = modulesCodes.IndexOf(cell.Value.ToString());
+                                    cell.Style.BackColor = colors[indexModule];
+                                    ++indexHour;
+                                }
+                            }
                         }
-                        if (cell.ColumnIndex == 3)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 4)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 5)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
+
                     }
-
-
-                    //10:40
-                    if (row.Index == 2)
-                    {
-                        TimeSpan tenFourty = new TimeSpan(10, 40, 0);
-                        hourLessonsList = LessonsOrm.SelectLessonsAtHour(tenFourty);
-
-                        if (cell.ColumnIndex == 0)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex].starting_hour;
-                      
-                        }
-                        if (cell.ColumnIndex == 1)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 2)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 3)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 4)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 5)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                    }
-
-
-
-                    //12:00
-                    if (row.Index == 3)
-                    {
-                        TimeSpan twelve = new TimeSpan(12, 0, 0);
-                        hourLessonsList = LessonsOrm.SelectLessonsAtHour(twelve);
-
-                        if (cell.ColumnIndex == 0)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex].starting_hour;
-                        }
-                        if (cell.ColumnIndex == 1)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 2)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 3)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 4)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 5)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                    }
-
-
-
-                    //13:00
-                    if (row.Index == 4)
-                    {
-                        TimeSpan one = new TimeSpan(13, 0, 0);
-                        hourLessonsList = LessonsOrm.SelectLessonsAtHour(one);
-
-                        if (cell.ColumnIndex == 0)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex].starting_hour;
-                        }
-                        if (cell.ColumnIndex == 1)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 2)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 3)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 4)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                        if (cell.ColumnIndex == 5)
-                        {
-                            cell.Value = hourLessonsList[cell.ColumnIndex - 1].modules.code;
-                            indexModule = modulesCodes.IndexOf(cell.Value.ToString());
-                            cell.Style.BackColor = colors[indexModule];
-                        }
-                    }
-
                 }
             }
-            
+            else
+            {
+                dataGridViewSchedule[0, 0].Value = "8:40";
+                dataGridViewSchedule[0, 1].Value = "9:40";
+                dataGridViewSchedule[0, 2].Value = "10:40";
+                dataGridViewSchedule[0, 3].Value = "12:00";
+                dataGridViewSchedule[0, 4].Value = "13:00";
+
+            }
+
+
 
         }
 
@@ -324,7 +453,7 @@ namespace Libe_Escriptori.Forms.Groups
         private void AdjustRowHeight()
         {
             
-            int rowHeight = (this.dataGridViewSchedule.Size.Height - this.dataGridViewSchedule.ColumnHeadersHeight) / hours.Count;
+            int rowHeight = (this.dataGridViewSchedule.Size.Height - this.dataGridViewSchedule.ColumnHeadersHeight) /5;
             if (rowHeight > 0)
             {
                 this.dataGridViewSchedule.RowTemplate.Height = rowHeight;
@@ -400,7 +529,6 @@ namespace Libe_Escriptori.Forms.Groups
         }
         private void fillModuls()
         {
-            groups _group = GroupsOrm.SelectGroup(1);
 
             List<modules> _modules = ModulesORM.Select(_group.course_id);
 
@@ -445,6 +573,78 @@ namespace Libe_Escriptori.Forms.Groups
                 if (dataGridViewSchedule.CurrentCell.ColumnIndex == 0)
                 {
                     MessageBox.Show("No pots modificar les hores");
+                }
+                else if (dataGridViewSchedule.CurrentCell.Value == null && listViewModuls.SelectedItems.Count > 0)
+                {
+
+                    int row = dataGridViewSchedule.CurrentCell.RowIndex;
+                    int column = dataGridViewSchedule.CurrentCell.ColumnIndex;
+                    TimeSpan hour = TimeSpan.Parse(dataGridViewSchedule[0, row].Value.ToString());
+
+                    TimeSpan endHour = new TimeSpan(hour.Hours + 1, hour.Minutes, hour.Seconds);
+                    List<modules> modulesList = ModulesORM.Select(1);
+                    List<string> codeModule = new List<string>();
+                    string weekdayConsult = null;
+                    bool found = false;
+                    modules actualModule = new Models.modules();
+
+
+                    foreach (modules module in modulesList)
+                    {
+                        codeModule.Add(module.code);
+                    }
+
+                    switch (column)
+                    {
+                        case 1:
+                            weekdayConsult = "Mon       ";
+                            break;
+                        case 2:
+                            weekdayConsult = "Tue       ";
+                            break;
+                        case 3:
+                            weekdayConsult = "Wed       ";
+                            break;
+                        case 4:
+                            weekdayConsult = "Thu       ";
+                            break;
+                        case 5:
+                            weekdayConsult = "Fri       ";
+                            break;
+                        default:
+                            break;
+                    }
+
+                    string selectedModule = listViewModuls.SelectedItems[0].Text;
+                    int index = 0;
+                    do
+                    {
+                        if (selectedModule.Equals(modulesList[index].code))
+                        {
+                            actualModule = modulesList[index];
+                            found = true;
+                        }
+                        ++index;
+                    } while (!found || index > modulesList.Count());
+                    lessons newLesson = new lessons();
+
+                   
+                    newLesson.starting_hour = hour;
+                    newLesson.ending_hour = endHour;
+                    newLesson.weekday = weekdayConsult;
+                    newLesson.schedule_id = _group.schedule_id;
+                    newLesson.module_id = actualModule.id;
+                    newLesson.classroom_id = 2;
+                    newLesson.profesor_id = _group.tutor_id;
+
+                    LessonsOrm.Insert(newLesson);
+
+                    dataGridViewSchedule.CurrentCell.Value = actualModule.code;
+                    dataGridViewSchedule.CurrentCell.Style.BackColor = colors[indexItem];
+
+
+
+
                 }
                 else
                 {
@@ -528,8 +728,9 @@ namespace Libe_Escriptori.Forms.Groups
         private void FormCreateScheduleGroup_Load(object sender, EventArgs e)
         {
             
-            bindingSourceLessons.DataSource = LessonsOrm.Select(_schedule.id);
+            bindingSourceLessons.DataSource = LessonsOrm.Select(_group.schedule_id);
             
+
         }
 
         private void buttonSave_Click_1(object sender, EventArgs e)
