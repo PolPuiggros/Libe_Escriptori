@@ -21,7 +21,32 @@ namespace Libe_Escriptori
             panelAllLogs.HorizontalScroll.Visible = false;
             panelAllLogs.HorizontalScroll.Maximum = 0;
             panelAllLogs.AutoScroll = true;
+            
             getLogs();
+            refreshLogs();
+            //panelAllLogs.AutoScroll = false;
+            //panelAllLogs.VerticalScroll.Enabled = true;
+            //panelAllLogs.VerticalScroll.Visible = false;
+            panelAllLogs.AutoScroll = true;
+            panelAllLogs.VerticalScroll.Enabled = false;
+            panelAllLogs.VerticalScroll.Visible = false;
+        }
+
+        private void refreshLogs()
+        {
+            foreach (logs log in logList)
+            {
+                if(panelAllLogs.Controls.Count > 300)
+                {
+                    panelAllLogs.Controls.Clear();
+                }
+                else
+                {
+                    Log ucLog = new Log(log);
+                    panelAllLogs.Controls.Add(ucLog);
+                }
+                
+            }
         }
 
         private void getLogs()

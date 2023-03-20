@@ -192,6 +192,12 @@
     <Compile Include="Forms\Groups\FormScheduleCellInfo.Designer.cs">
       <DependentUpon>FormScheduleCellInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Log.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Log.Designer.cs">
+      <DependentUpon>Log.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,6 +261,7 @@
     <Compile Include="Models\logs.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LogsOrm.cs" />
     <Compile Include="Models\ModelLibe.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -374,6 +381,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Groups\FormScheduleCellInfo.resx">
       <DependentUpon>FormScheduleCellInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Log.resx">
+      <DependentUpon>Log.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
