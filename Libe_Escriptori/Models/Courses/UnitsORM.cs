@@ -19,13 +19,13 @@ namespace Libe_Escriptori.Models.Courses
 
         }
 
-        public static List<modules> Select()
+        public static units Select(string name)
         {
-            List<modules> modules = Orm.db.modules
-                .Where(c => c.active == true)
-                .ToList();
+            units _units = Orm.db.units
+                .Where(c => c.active == true && c.name == name)
+                .FirstOrDefault();
 
-            return modules;
+            return _units;
         }
 
         public static void Delete(units _units)
