@@ -31,6 +31,9 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelGestionarUsuaris = new System.Windows.Forms.Panel();
             this.textBoxFiltres = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -77,6 +80,9 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.textBoxFiltres.Size = new System.Drawing.Size(450, 27);
             this.textBoxFiltres.TabIndex = 13;
             this.textBoxFiltres.Text = " Introdueix dades clau de l\'usuari ex. DNI, Cognom...";
+            this.textBoxFiltres.Enter += new System.EventHandler(this.textBoxFiltres_Enter);
+            this.textBoxFiltres.Leave += new System.EventHandler(this.textBoxFiltres_Leave);
+
             // 
             // label2
             // 
@@ -90,8 +96,19 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
@@ -105,9 +122,26 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.ColumnEdit,
             this.ColumnDelete});
             this.dataGridView1.DataSource = this.bindingSourceStudents;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGridView1.Location = new System.Drawing.Point(91, 111);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -120,35 +154,39 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             // 
             this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "NOM";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Nom";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // surnameDataGridViewTextBoxColumn
             // 
             this.surnameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.surnameDataGridViewTextBoxColumn.DataPropertyName = "surname";
-            this.surnameDataGridViewTextBoxColumn.HeaderText = "1r COGNOM";
+            this.surnameDataGridViewTextBoxColumn.HeaderText = "1r cognom";
             this.surnameDataGridViewTextBoxColumn.Name = "surnameDataGridViewTextBoxColumn";
+            this.surnameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // surname2DataGridViewTextBoxColumn
             // 
             this.surname2DataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.surname2DataGridViewTextBoxColumn.DataPropertyName = "surname2";
-            this.surname2DataGridViewTextBoxColumn.HeaderText = "2n COGNOM";
+            this.surname2DataGridViewTextBoxColumn.HeaderText = "2n cognom";
             this.surname2DataGridViewTextBoxColumn.Name = "surname2DataGridViewTextBoxColumn";
+            this.surname2DataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dniDataGridViewTextBoxColumn
             // 
             this.dniDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dniDataGridViewTextBoxColumn.DataPropertyName = "dni";
-            this.dniDataGridViewTextBoxColumn.HeaderText = "DNI";
+            this.dniDataGridViewTextBoxColumn.HeaderText = "Dni";
             this.dniDataGridViewTextBoxColumn.Name = "dniDataGridViewTextBoxColumn";
+            this.dniDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // email
             // 
             this.email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.email.DataPropertyName = "email";
-            this.email.HeaderText = "EMAIL";
+            this.email.HeaderText = "Email";
             this.email.Name = "email";
             this.email.ReadOnly = true;
             // 
@@ -156,22 +194,25 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             // 
             this.phonenumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.phonenumberDataGridViewTextBoxColumn.DataPropertyName = "phone_number";
-            this.phonenumberDataGridViewTextBoxColumn.HeaderText = "TELEFON";
+            this.phonenumberDataGridViewTextBoxColumn.HeaderText = "Telefon";
             this.phonenumberDataGridViewTextBoxColumn.Name = "phonenumberDataGridViewTextBoxColumn";
+            this.phonenumberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // autoregisterDataGridViewCheckBoxColumn
             // 
             this.autoregisterDataGridViewCheckBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.autoregisterDataGridViewCheckBoxColumn.DataPropertyName = "autoregister";
-            this.autoregisterDataGridViewCheckBoxColumn.HeaderText = "AUTOREGISTRE";
+            this.autoregisterDataGridViewCheckBoxColumn.HeaderText = "Autoregistre";
             this.autoregisterDataGridViewCheckBoxColumn.Name = "autoregisterDataGridViewCheckBoxColumn";
+            this.autoregisterDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
             // hasrepeatedDataGridViewCheckBoxColumn
             // 
             this.hasrepeatedDataGridViewCheckBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.hasrepeatedDataGridViewCheckBoxColumn.DataPropertyName = "has_repeated";
-            this.hasrepeatedDataGridViewCheckBoxColumn.HeaderText = "REPETIDOR";
+            this.hasrepeatedDataGridViewCheckBoxColumn.HeaderText = "Repetidor";
             this.hasrepeatedDataGridViewCheckBoxColumn.Name = "hasrepeatedDataGridViewCheckBoxColumn";
+            this.hasrepeatedDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
             // ColumnEdit
             // 
@@ -179,7 +220,8 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.ColumnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ColumnEdit.HeaderText = "";
             this.ColumnEdit.Name = "ColumnEdit";
-            this.ColumnEdit.Width = 21;
+            this.ColumnEdit.ReadOnly = true;
+            this.ColumnEdit.Width = 5;
             // 
             // ColumnDelete
             // 
@@ -187,7 +229,8 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.ColumnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ColumnDelete.HeaderText = "";
             this.ColumnDelete.Name = "ColumnDelete";
-            this.ColumnDelete.Width = 21;
+            this.ColumnDelete.ReadOnly = true;
+            this.ColumnDelete.Width = 5;
             // 
             // bindingSourceStudents
             // 
@@ -207,7 +250,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             "DAW",
             "SMIX",
             "..."});
-            this.comboBoxFilter.Location = new System.Drawing.Point(777, 51);
+            this.comboBoxFilter.Location = new System.Drawing.Point(777, 48);
             this.comboBoxFilter.MaximumSize = new System.Drawing.Size(150, 0);
             this.comboBoxFilter.MinimumSize = new System.Drawing.Size(121, 0);
             this.comboBoxFilter.Name = "comboBoxFilter";
@@ -222,7 +265,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.buttonNew.Location = new System.Drawing.Point(91, 49);
             this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(125, 31);
+            this.buttonNew.Size = new System.Drawing.Size(125, 27);
             this.buttonNew.TabIndex = 6;
             this.buttonNew.Text = "Nou";
             this.buttonNew.UseVisualStyleBackColor = false;
@@ -264,7 +307,6 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
         private DataGridViewTextBoxColumn phonenumberDataGridViewTextBoxColumn;
         private DataGridViewCheckBoxColumn autoregisterDataGridViewCheckBoxColumn;
         private DataGridViewCheckBoxColumn hasrepeatedDataGridViewCheckBoxColumn;
-
         private DataGridViewButtonColumn ColumnEdit;
         private DataGridViewButtonColumn ColumnDelete;
     }

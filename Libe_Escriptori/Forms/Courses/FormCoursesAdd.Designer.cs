@@ -72,6 +72,7 @@ namespace Libe_Escriptori.Forms.Courses
             this.panelCoursesAdd.Name = "panelCoursesAdd";
             this.panelCoursesAdd.Size = new System.Drawing.Size(1340, 800);
             this.panelCoursesAdd.TabIndex = 0;
+            this.panelCoursesAdd.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCoursesAdd_Paint);
             // 
             // buttonCancel
             // 

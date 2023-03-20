@@ -33,7 +33,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
             this.components = new System.ComponentModel.Container();
             this.textBoxPhone = new System.Windows.Forms.TextBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
-            this.textBoxSurname = new System.Windows.Forms.TextBox();
+            this.textBoxSurname1 = new System.Windows.Forms.TextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.labelDepartmentTeacher = new System.Windows.Forms.Label();
             this.listBoxAllDepartments = new System.Windows.Forms.ListBox();
@@ -44,6 +44,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
             this.labelAllDepartments = new System.Windows.Forms.Label();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonDeleteDepartment = new System.Windows.Forms.Button();
+            this.textBoxSurname2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDepartments)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,17 +72,17 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
             this.textBoxEmail.Enter += new System.EventHandler(this.textBoxEmail_Enter);
             this.textBoxEmail.Leave += new System.EventHandler(this.textBoxEmail_Leave);
             // 
-            // textBoxSurname
+            // textBoxSurname1
             // 
-            this.textBoxSurname.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
-            this.textBoxSurname.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxSurname.Location = new System.Drawing.Point(376, 79);
-            this.textBoxSurname.Name = "textBoxSurname";
-            this.textBoxSurname.Size = new System.Drawing.Size(533, 29);
-            this.textBoxSurname.TabIndex = 6;
-            this.textBoxSurname.Text = " Cognoms";
-            this.textBoxSurname.Enter += new System.EventHandler(this.textBoxSurname_Enter);
-            this.textBoxSurname.Leave += new System.EventHandler(this.textBoxSurname_Leave);
+            this.textBoxSurname1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
+            this.textBoxSurname1.ForeColor = System.Drawing.Color.Gray;
+            this.textBoxSurname1.Location = new System.Drawing.Point(376, 79);
+            this.textBoxSurname1.Name = "textBoxSurname1";
+            this.textBoxSurname1.Size = new System.Drawing.Size(247, 29);
+            this.textBoxSurname1.TabIndex = 6;
+            this.textBoxSurname1.Text = " 1r Cognom";
+            this.textBoxSurname1.Enter += new System.EventHandler(this.textBoxSurname1_Enter);
+            this.textBoxSurname1.Leave += new System.EventHandler(this.textBoxSurname1_Leave);
             // 
             // textBoxName
             // 
@@ -150,6 +151,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
             this.buttonCancel.TabIndex = 13;
             this.buttonCancel.Text = "Cancelar";
             this.buttonCancel.UseVisualStyleBackColor = false;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // listBoxteacherDespartments
             // 
@@ -174,6 +176,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
             // 
             // buttonAdd
             // 
+            this.buttonAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonAdd.Location = new System.Drawing.Point(483, 414);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(40, 23);
@@ -187,6 +190,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
             this.buttonDeleteDepartment.BackColor = System.Drawing.Color.Transparent;
             this.buttonDeleteDepartment.BackgroundImage = global::Libe_Escriptori.Properties.Resources.bin;
             this.buttonDeleteDepartment.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonDeleteDepartment.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonDeleteDepartment.FlatAppearance.BorderSize = 0;
             this.buttonDeleteDepartment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDeleteDepartment.Location = new System.Drawing.Point(885, 318);
@@ -196,11 +200,24 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
             this.buttonDeleteDepartment.UseVisualStyleBackColor = false;
             this.buttonDeleteDepartment.Click += new System.EventHandler(this.buttonDeleteDepartment_Click);
             // 
+            // textBoxSurname2
+            // 
+            this.textBoxSurname2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
+            this.textBoxSurname2.ForeColor = System.Drawing.Color.Gray;
+            this.textBoxSurname2.Location = new System.Drawing.Point(662, 79);
+            this.textBoxSurname2.Name = "textBoxSurname2";
+            this.textBoxSurname2.Size = new System.Drawing.Size(247, 29);
+            this.textBoxSurname2.TabIndex = 19;
+            this.textBoxSurname2.Text = " 2n Cognom";
+            this.textBoxSurname2.Enter += new System.EventHandler(this.textBoxSurname2_Enter);
+            this.textBoxSurname2.Leave += new System.EventHandler(this.textBoxSurname2_Leave);
+            // 
             // GestionarUsuarisProfessorsAfegint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 650);
+            this.Controls.Add(this.textBoxSurname2);
             this.Controls.Add(this.buttonDeleteDepartment);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.labelAllDepartments);
@@ -211,7 +228,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
             this.Controls.Add(this.labelDepartmentTeacher);
             this.Controls.Add(this.textBoxPhone);
             this.Controls.Add(this.textBoxEmail);
-            this.Controls.Add(this.textBoxSurname);
+            this.Controls.Add(this.textBoxSurname1);
             this.Controls.Add(this.textBoxName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GestionarUsuarisProfessorsAfegint";
@@ -226,7 +243,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
         #endregion
         private TextBox textBoxPhone;
         private TextBox textBoxEmail;
-        private TextBox textBoxSurname;
+        private TextBox textBoxSurname1;
         private TextBox textBoxName;
         private Label labelDepartmentTeacher;
         private ListBox listBoxAllDepartments;
@@ -237,5 +254,6 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
         private Button buttonAdd;
         private Button buttonDeleteDepartment;
         private BindingSource bindingSourceDepartments;
+        private TextBox textBoxSurname2;
     }
 }

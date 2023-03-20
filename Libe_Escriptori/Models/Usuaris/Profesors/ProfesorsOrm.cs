@@ -18,6 +18,16 @@ namespace Libe_Escriptori.Models.Usuaris.Profesors
             return _profesors;
         }
 
+        public static profesors SelectFromId(int id)
+        {
+            profesors _profesors = Orm.db.profesors
+                .Where(c => c.id == id)
+                .FirstOrDefault();
+
+
+            return _profesors;
+        }
+
         public static void Insert(profesors _profesors)
         {
             Orm.db.profesors.Add(_profesors);

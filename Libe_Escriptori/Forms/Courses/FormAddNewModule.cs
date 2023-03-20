@@ -24,19 +24,21 @@ namespace Libe_Escriptori.Forms.Courses
         private courses _course;
         private List<units> listUnits;
         private bool addingNew = false;
-        public FormAddNewModule(Label label, modules _module)
+        public FormAddNewModule(Label label, courses _course, modules _module)
         {
             InitializeComponent();
             label.Text = label.Text + "/Editar Mòdul";
             this._module = _module;
-            
+            this._course = _course;
+
         }
 
-        public FormAddNewModule(Label label)
+        public FormAddNewModule(Label label, courses _course)
         {
             InitializeComponent();
             label.Text = label.Text + "/Nou Mòdul";
             addingNew = true;
+            this._course = _course;
             listUnits = new List<units>();
             
         }
@@ -82,6 +84,9 @@ namespace Libe_Escriptori.Forms.Courses
             {
                 listUnits = UnitsORM.Select(_module.id);
                 bindingSourceUnits.DataSource = UnitsORM.Select(_module.id);
+                textBoxAbbreviation.Text = _module.code;
+                textBoxHours.Text = _module.total_hours.ToString();
+                textBoxName.Text = _module.name;
             }
             
         }
@@ -96,6 +101,8 @@ namespace Libe_Escriptori.Forms.Courses
                 _newModule.total_hours = int.Parse(textBoxHours.Text);
                 _newModule.active = true;
                 ModulesORM.InsertWithUnits(_newModule, listUnits);
+                _course.modules.Add(_newModule);
+                CoursesORM.Update(_course);
             }
             else
             {
@@ -104,7 +111,10 @@ namespace Libe_Escriptori.Forms.Courses
                 _module.total_hours = int.Parse(textBoxHours.Text);
                 _module.active = true;
                 ModulesORM.Update(_module);
+                _course.modules.Add(_module);
+                CoursesORM.Update(_course);
             }
+            this.Close();
         }
 
         private void textBoxAbbrebiationUF_Enter(object sender, EventArgs e)
@@ -165,6 +175,13 @@ namespace Libe_Escriptori.Forms.Courses
 
         private void buttonCancel_Click_1(object sender, EventArgs e)
         {
+            if (addingNew)
+            {
+                foreach (units u in listUnits)
+                {
+                    UnitsORM.Delete(u);
+                }
+            }
             this.Close();
         }
     }
