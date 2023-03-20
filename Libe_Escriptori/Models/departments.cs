@@ -17,8 +17,8 @@ namespace Libe_Escriptori.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public departments()
         {
-            this.profesors1 = new HashSet<profesors>();
             this.courses = new HashSet<courses>();
+            this.profesors1 = new HashSet<profesors>();
         }
     
         public int id { get; set; }
@@ -29,10 +29,10 @@ namespace Libe_Escriptori.Models
         public Nullable<System.DateTime> updated_timestamp { get; set; }
         public Nullable<System.DateTime> deleted_timestamp { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<courses> courses { get; set; }
         public virtual profesors profesors { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<profesors> profesors1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<courses> courses { get; set; }
     }
 }

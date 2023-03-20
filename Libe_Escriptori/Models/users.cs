@@ -19,10 +19,11 @@ namespace Libe_Escriptori.Models
         public string password { get; set; }
         public int type { get; set; }
         public bool active { get; set; }
-    
+
         public virtual user_type user_type { get; set; }
         public virtual profesors profesors { get; set; }
         public virtual students students { get; set; }
         public virtual classrooms classrooms { get; set; }
+
     }
 }

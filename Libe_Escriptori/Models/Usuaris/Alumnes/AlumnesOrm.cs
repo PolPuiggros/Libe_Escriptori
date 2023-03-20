@@ -41,7 +41,7 @@ namespace Libe_Escriptori.Models.Usuaris.Alumnes
             return _students;
         }
 
-        public static void Update(students _student, string name, string surname, string surname2, string email, string dni, string phone, bool autoregister, bool repiter, groups _group)
+        public static void Update(students _student, string name, string surname, string surname2, string email, string dni, string phone, bool autoregister, bool repiter, List<units> _units)
         {
             _student = Orm.db.students
                 .Where(c => c.id == _student.id)
@@ -79,9 +79,9 @@ namespace Libe_Escriptori.Models.Usuaris.Alumnes
             {
                 _student.has_repeated = repiter;
             }
-            if (_student.group_id != _group.id)
+            if (_student.units != _units)
             {
-                _student.group_id = _group.id;
+                _student.units = _units;
             }
             _student.updated_timestamp = DateTime.Now;
             Orm.db.SaveChanges();
