@@ -2021,6 +2021,64 @@
 			</DesignerInfoPropertySet>
 		</Options>
 		<!-- Diagram content (shape and connector positions) -->
-		<Diagrams></Diagrams>
+		<Diagrams>
+      <Diagram DiagramId="8a00e98f5418400894ec29f940df6988" Name="Diagram1" ZoomLevel="53">
+        <EntityTypeShape EntityType="libeModel.attendance" Width="1.5" PointX="10.5" PointY="7.375" />
+        <EntityTypeShape EntityType="libeModel.attendance_status" Width="1.5" PointX="8.25" PointY="16.875" />
+        <EntityTypeShape EntityType="libeModel.calendars" Width="1.5" PointX="9.75" PointY="2.25" />
+        <EntityTypeShape EntityType="libeModel.center_information" Width="1.5" PointX="0.75" PointY="2" />
+        <EntityTypeShape EntityType="libeModel.classrooms" Width="1.5" PointX="3.75" PointY="13.375" />
+        <EntityTypeShape EntityType="libeModel.courses" Width="1.5" PointX="9.75" PointY="12.375" />
+        <EntityTypeShape EntityType="libeModel.departments" Width="1.5" PointX="7.5" PointY="1.875" />
+        <EntityTypeShape EntityType="libeModel.groups" Width="1.5" PointX="6" PointY="7" />
+        <EntityTypeShape EntityType="libeModel.holiday_type" Width="1.5" PointX="9.75" PointY="22.375" />
+        <EntityTypeShape EntityType="libeModel.holidays" Width="1.5" PointX="12" PointY="2.125" />
+        <EntityTypeShape EntityType="libeModel.justification_status" Width="1.5" PointX="6" PointY="19.375" />
+        <EntityTypeShape EntityType="libeModel.justifications" Width="1.5" PointX="8.25" PointY="19.125" />
+        <EntityTypeShape EntityType="libeModel.lessons" Width="1.5" PointX="3" PointY="7.125" />
+        <EntityTypeShape EntityType="libeModel.logs" Width="1.5" PointX="5.75" PointY="13" />
+        <EntityTypeShape EntityType="libeModel.modules" Width="1.5" PointX="12" PointY="12.375" />
+        <EntityTypeShape EntityType="libeModel.profesors" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="libeModel.schedules" Width="1.5" PointX="0.75" PointY="8.125" />
+        <EntityTypeShape EntityType="libeModel.students" Width="1.5" PointX="8.25" PointY="6.5" />
+        <EntityTypeShape EntityType="libeModel.units" Width="1.5" PointX="14.25" PointY="9.5" />
+        <EntityTypeShape EntityType="libeModel.user_type" Width="1.5" PointX="1.5" PointY="15.375" />
+        <EntityTypeShape EntityType="libeModel.users" Width="1.5" PointX="1.5" PointY="11.75" />
+        <EntityTypeShape EntityType="libeModel.users_desktop" Width="1.5" PointX="15" PointY="5.125" />
+        <EntityTypeShape EntityType="libeModel.users_desktop_type" Width="1.5" PointX="12.75" PointY="5.75" />
+        <EntityTypeShape EntityType="libeModel.validable_zones" Width="1.5" PointX="1.5" PointY="18.25" />
+        <AssociationConnector Association="libeModel.FK_attendance_attendance_status" />
+        <AssociationConnector Association="libeModel.FK_attendance_justifications" />
+        <AssociationConnector Association="libeModel.FK_attendance_lessons" />
+        <AssociationConnector Association="libeModel.FK_attendance_students" />
+        <AssociationConnector Association="libeModel.FK_attendance_units" />
+        <AssociationConnector Association="libeModel.FK_holidays_calendars" />
+        <AssociationConnector Association="libeModel.FK_classrooms_users" />
+        <AssociationConnector Association="libeModel.FK_classrooms1_validable_zones" />
+        <AssociationConnector Association="libeModel.FK_groups_classrooms" />
+        <AssociationConnector Association="libeModel.FK_lessons_classrooms" />
+        <AssociationConnector Association="libeModel.FK_courses_departments" />
+        <AssociationConnector Association="libeModel.FK_groups_groups" />
+        <AssociationConnector Association="libeModel.FK_departaments_profesors" />
+        <AssociationConnector Association="libeModel.FK_groups_profesors" />
+        <AssociationConnector Association="libeModel.FK_groups_schedules" />
+        <AssociationConnector Association="libeModel.FK_students_groups" />
+        <AssociationConnector Association="libeModel.FK_holidays_holiday_type" />
+        <AssociationConnector Association="libeModel.FK_justifications_justification_status" />
+        <AssociationConnector Association="libeModel.FK_lessons_modules" />
+        <AssociationConnector Association="libeModel.FK_lessons_profesors" />
+        <AssociationConnector Association="libeModel.FK_lessons_schedules" />
+        <AssociationConnector Association="libeModel.FK_units_units" />
+        <AssociationConnector Association="libeModel.FK_profesors_users" />
+        <AssociationConnector Association="libeModel.FK_students_users1" />
+        <AssociationConnector Association="libeModel.FK_users_user_type" />
+        <AssociationConnector Association="libeModel.FK_users_desktop_users_desktop_type" />
+        <AssociationConnector Association="libeModel.course_module" />
+        <AssociationConnector Association="libeModel.profesor_department" />
+        <AssociationConnector Association="libeModel.profesor_lesson" />
+        <AssociationConnector Association="libeModel.profesor_module" />
+        <AssociationConnector Association="libeModel.student_unit" />
+      </Diagram>
+    </Diagrams>
 	</Designer>
 </edmx:Edmx>

@@ -176,6 +176,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
             // 
             // buttonAdd
             // 
+            this.buttonAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonAdd.Location = new System.Drawing.Point(483, 414);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(40, 23);
@@ -189,6 +190,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
             this.buttonDeleteDepartment.BackColor = System.Drawing.Color.Transparent;
             this.buttonDeleteDepartment.BackgroundImage = global::Libe_Escriptori.Properties.Resources.bin;
             this.buttonDeleteDepartment.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonDeleteDepartment.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonDeleteDepartment.FlatAppearance.BorderSize = 0;
             this.buttonDeleteDepartment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDeleteDepartment.Location = new System.Drawing.Point(885, 318);

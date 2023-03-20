@@ -1,5 +1,6 @@
 ﻿using Libe_Escriptori.Models;
 using Libe_Escriptori.Models.Usuaris.Profesors;
+using Libe_Escriptori.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -149,31 +150,55 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
 
         private void buttonAfegir_Click(object sender, EventArgs e)
         {
-            string[] surnames = textBoxSurname1.Text.Split(' ', (char)2);
-            if (adding)
+            if (Validations.CheckEmail(textBoxEmail.Text))
             {
-                users _users = new users();
-                _users.username = textBoxName.Text.Substring(0, 1).ToLower() + surnames[0].ToLower() + surnames[1].Substring(0, 1).ToLower();
-                _users.password = Blowfish.encriptarContrasenya(textBoxName.Text + textBoxPhone.Text);
-                _users.type = 2;
-                _users.active = true;
-                UsersOrm.Insert(_users);
+                if (Validations.CheckPhone(textBoxPhone.Text))
+                {
+                    if (adding)
+                    {
+                        users _users = new users();
+                        _users.username = textBoxName.Text.Substring(0, 1).ToLower() + textBoxSurname1.Text.ToLower() + textBoxSurname2.Text.Substring(0, 1).ToLower();
+                        int id_user;
+                        int autoincrement = 1;
+                        do
+                        {
+                            id_user = UsersOrm.Select(_users.username);
+                            if (id_user != 0)
+                            {
+                                _users.username = textBoxName.Text.Substring(0, 1).ToLower() + textBoxSurname1.Text.ToLower() + textBoxSurname2.Text.Substring(0, 1).ToLower() + autoincrement;
+                            }
+                            autoincrement++;
+                        } while (id_user != 0);
+                        _users.password = Blowfish.encriptarContrasenya(textBoxName.Text + textBoxPhone.Text);
+                        _users.type = 2;
+                        _users.active = true;
+                        UsersOrm.Insert(_users);
 
-                profesors _profesors = new profesors();
+                        profesors _profesors = new profesors();
 
-                _profesors.id = UsersOrm.Select(_users.username);
-                _profesors.name = textBoxName.Text;
-                _profesors.surname1 = surnames[0];
-                _profesors.surname2 = surnames[1];
-                _profesors.email = textBoxEmail.Text;
-                _profesors.phone_number = textBoxPhone.Text;
-                _profesors.departments = listBoxteacherDespartments.Items.Cast<departments>().ToList();
-                _profesors.active = true;
-                _profesors.created_timestamp = DateTime.Now;
-                ProfesorsOrm.Insert(_profesors);
+                        _profesors.id = UsersOrm.Select(_users.username);
+                        _profesors.name = textBoxName.Text;
+                        _profesors.surname1 = textBoxSurname1.Text;
+                        _profesors.surname2 = textBoxSurname2.Text;
+                        _profesors.email = textBoxEmail.Text;
+                        _profesors.phone_number = textBoxPhone.Text;
+                        _profesors.departments = listBoxteacherDespartments.Items.Cast<departments>().ToList();
+                        _profesors.active = true;
+                        _profesors.created_timestamp = DateTime.Now;
+                        ProfesorsOrm.Insert(_profesors);
+                    }
+                    else
+                    {
+                        ProfesorsOrm.Update(_profesor, textBoxName.Text, textBoxSurname1.Text, textBoxSurname2.Text, textBoxEmail.Text, textBoxPhone.Text, listBoxteacherDespartments.Items.Cast<departments>().ToList());
+                    }
+                    this.Close();
+                } else
+                {
+                    MessageBox.Show("Format del Telefon incorrecte", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }  
             } else
             {
-                ProfesorsOrm.Update(_profesor, textBoxName.Text, surnames[0], surnames[1], textBoxEmail.Text, textBoxPhone.Text, listBoxteacherDespartments.Items.Cast<departments>().ToList());
+                MessageBox.Show("Format de l'Email incorrecte", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

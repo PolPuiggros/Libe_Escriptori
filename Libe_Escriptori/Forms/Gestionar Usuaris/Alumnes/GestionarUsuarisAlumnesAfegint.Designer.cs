@@ -38,14 +38,22 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.labelAddictionalInfo = new System.Windows.Forms.Label();
             this.checkBoxAutoregister = new System.Windows.Forms.CheckBox();
             this.checkBoxRepeater = new System.Windows.Forms.CheckBox();
-            this.labelGroupStudent = new System.Windows.Forms.Label();
-            this.comboBoxGroups = new System.Windows.Forms.ComboBox();
-            this.bindingSourceGroups = new System.Windows.Forms.BindingSource(this.components);
+            this.labelCourseStudent = new System.Windows.Forms.Label();
+            this.comboBoxCourse = new System.Windows.Forms.ComboBox();
+            this.bindingSourceCourses = new System.Windows.Forms.BindingSource(this.components);
             this.buttonAfegir = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.textBoxDni = new System.Windows.Forms.TextBox();
             this.textBoxSurname2 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGroups)).BeginInit();
+            this.listBoxAllUnits = new System.Windows.Forms.ListBox();
+            this.bindingSourceUnits = new System.Windows.Forms.BindingSource(this.components);
+            this.listBoxStudentUnits = new System.Windows.Forms.ListBox();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonDeleteUnit = new System.Windows.Forms.Button();
+            this.labelAllUnits = new System.Windows.Forms.Label();
+            this.labelUnitsStudent = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCourses)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUnits)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxName
@@ -76,7 +84,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             // 
             this.textBoxEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
             this.textBoxEmail.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxEmail.Location = new System.Drawing.Point(87, 141);
+            this.textBoxEmail.Location = new System.Drawing.Point(87, 121);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(810, 29);
             this.textBoxEmail.TabIndex = 2;
@@ -88,7 +96,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             // 
             this.textBoxPhone.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
             this.textBoxPhone.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxPhone.Location = new System.Drawing.Point(87, 222);
+            this.textBoxPhone.Location = new System.Drawing.Point(87, 183);
             this.textBoxPhone.Name = "textBoxPhone";
             this.textBoxPhone.Size = new System.Drawing.Size(366, 29);
             this.textBoxPhone.TabIndex = 3;
@@ -100,7 +108,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             // 
             this.labelAddictionalInfo.AutoSize = true;
             this.labelAddictionalInfo.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.labelAddictionalInfo.Location = new System.Drawing.Point(90, 303);
+            this.labelAddictionalInfo.Location = new System.Drawing.Point(83, 252);
             this.labelAddictionalInfo.Name = "labelAddictionalInfo";
             this.labelAddictionalInfo.Size = new System.Drawing.Size(299, 25);
             this.labelAddictionalInfo.TabIndex = 5;
@@ -110,7 +118,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             // 
             this.checkBoxAutoregister.AutoSize = true;
             this.checkBoxAutoregister.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.checkBoxAutoregister.Location = new System.Drawing.Point(117, 362);
+            this.checkBoxAutoregister.Location = new System.Drawing.Point(444, 252);
             this.checkBoxAutoregister.Name = "checkBoxAutoregister";
             this.checkBoxAutoregister.Size = new System.Drawing.Size(115, 25);
             this.checkBoxAutoregister.TabIndex = 6;
@@ -121,39 +129,40 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             // 
             this.checkBoxRepeater.AutoSize = true;
             this.checkBoxRepeater.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.checkBoxRepeater.Location = new System.Drawing.Point(117, 411);
+            this.checkBoxRepeater.Location = new System.Drawing.Point(643, 252);
             this.checkBoxRepeater.Name = "checkBoxRepeater";
             this.checkBoxRepeater.Size = new System.Drawing.Size(97, 25);
             this.checkBoxRepeater.TabIndex = 7;
             this.checkBoxRepeater.Text = "Repetidor";
             this.checkBoxRepeater.UseVisualStyleBackColor = true;
             // 
-            // labelGroupStudent
+            // labelCourseStudent
             // 
-            this.labelGroupStudent.AutoSize = true;
-            this.labelGroupStudent.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.labelGroupStudent.Location = new System.Drawing.Point(531, 303);
-            this.labelGroupStudent.Name = "labelGroupStudent";
-            this.labelGroupStudent.Size = new System.Drawing.Size(157, 25);
-            this.labelGroupStudent.TabIndex = 8;
-            this.labelGroupStudent.Text = "Grup de l\'alumne";
+            this.labelCourseStudent.AutoSize = true;
+            this.labelCourseStudent.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.labelCourseStudent.Location = new System.Drawing.Point(87, 313);
+            this.labelCourseStudent.Name = "labelCourseStudent";
+            this.labelCourseStudent.Size = new System.Drawing.Size(153, 25);
+            this.labelCourseStudent.TabIndex = 8;
+            this.labelCourseStudent.Text = "Curs de l\'alumne";
             // 
-            // comboBoxGroups
+            // comboBoxCourse
             // 
-            this.comboBoxGroups.DataSource = this.bindingSourceGroups;
-            this.comboBoxGroups.DisplayMember = "id";
-            this.comboBoxGroups.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxGroups.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.comboBoxGroups.FormattingEnabled = true;
-            this.comboBoxGroups.Location = new System.Drawing.Point(531, 358);
-            this.comboBoxGroups.Name = "comboBoxGroups";
-            this.comboBoxGroups.Size = new System.Drawing.Size(223, 29);
-            this.comboBoxGroups.TabIndex = 9;
-            this.comboBoxGroups.ValueMember = "id";
+            this.comboBoxCourse.DataSource = this.bindingSourceCourses;
+            this.comboBoxCourse.DisplayMember = "abreviation";
+            this.comboBoxCourse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCourse.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.comboBoxCourse.FormattingEnabled = true;
+            this.comboBoxCourse.Location = new System.Drawing.Point(246, 309);
+            this.comboBoxCourse.Name = "comboBoxCourse";
+            this.comboBoxCourse.Size = new System.Drawing.Size(223, 29);
+            this.comboBoxCourse.TabIndex = 9;
+            this.comboBoxCourse.ValueMember = "id";
+            this.comboBoxCourse.SelectedIndexChanged += new System.EventHandler(this.comboBoxCourse_SelectedIndexChanged);
             // 
-            // bindingSourceGroups
+            // bindingSourceCourses
             // 
-            this.bindingSourceGroups.DataSource = typeof(Libe_Escriptori.Models.groups);
+            this.bindingSourceCourses.DataSource = typeof(Libe_Escriptori.Models.courses);
             // 
             // buttonAfegir
             // 
@@ -188,7 +197,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             // 
             this.textBoxDni.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
             this.textBoxDni.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxDni.Location = new System.Drawing.Point(531, 222);
+            this.textBoxDni.Location = new System.Drawing.Point(531, 183);
             this.textBoxDni.Name = "textBoxDni";
             this.textBoxDni.Size = new System.Drawing.Size(366, 29);
             this.textBoxDni.TabIndex = 4;
@@ -208,16 +217,97 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.textBoxSurname2.Enter += new System.EventHandler(this.textBoxSurname2_Enter);
             this.textBoxSurname2.Leave += new System.EventHandler(this.textBoxSurname2_Leave);
             // 
+            // listBoxAllUnits
+            // 
+            this.listBoxAllUnits.DataSource = this.bindingSourceUnits;
+            this.listBoxAllUnits.DisplayMember = "id";
+            this.listBoxAllUnits.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxAllUnits.FormattingEnabled = true;
+            this.listBoxAllUnits.ItemHeight = 21;
+            this.listBoxAllUnits.Location = new System.Drawing.Point(92, 381);
+            this.listBoxAllUnits.Name = "listBoxAllUnits";
+            this.listBoxAllUnits.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.listBoxAllUnits.Size = new System.Drawing.Size(377, 109);
+            this.listBoxAllUnits.TabIndex = 18;
+            this.listBoxAllUnits.ValueMember = "id";
+            // 
+            // bindingSourceUnits
+            // 
+            this.bindingSourceUnits.DataSource = typeof(Libe_Escriptori.Models.units);
+            // 
+            // listBoxStudentUnits
+            // 
+            this.listBoxStudentUnits.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxStudentUnits.FormattingEnabled = true;
+            this.listBoxStudentUnits.ItemHeight = 21;
+            this.listBoxStudentUnits.Location = new System.Drawing.Point(531, 381);
+            this.listBoxStudentUnits.Name = "listBoxStudentUnits";
+            this.listBoxStudentUnits.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.listBoxStudentUnits.Size = new System.Drawing.Size(366, 109);
+            this.listBoxStudentUnits.TabIndex = 19;
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAdd.Location = new System.Drawing.Point(480, 423);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(40, 23);
+            this.buttonAdd.TabIndex = 20;
+            this.buttonAdd.Text = ">>";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // buttonDeleteUnit
+            // 
+            this.buttonDeleteUnit.BackColor = System.Drawing.Color.Transparent;
+            this.buttonDeleteUnit.BackgroundImage = global::Libe_Escriptori.Properties.Resources.bin;
+            this.buttonDeleteUnit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonDeleteUnit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonDeleteUnit.FlatAppearance.BorderSize = 0;
+            this.buttonDeleteUnit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDeleteUnit.Location = new System.Drawing.Point(866, 355);
+            this.buttonDeleteUnit.Name = "buttonDeleteUnit";
+            this.buttonDeleteUnit.Size = new System.Drawing.Size(21, 20);
+            this.buttonDeleteUnit.TabIndex = 21;
+            this.buttonDeleteUnit.UseVisualStyleBackColor = false;
+            this.buttonDeleteUnit.Click += new System.EventHandler(this.buttonDeleteUnit_Click);
+            // 
+            // labelAllUnits
+            // 
+            this.labelAllUnits.AutoSize = true;
+            this.labelAllUnits.Font = new System.Drawing.Font("Segoe UI", 12.75F);
+            this.labelAllUnits.Location = new System.Drawing.Point(88, 355);
+            this.labelAllUnits.Name = "labelAllUnits";
+            this.labelAllUnits.Size = new System.Drawing.Size(108, 23);
+            this.labelAllUnits.TabIndex = 23;
+            this.labelAllUnits.Text = "Totes les UFS";
+            // 
+            // labelUnitsStudent
+            // 
+            this.labelUnitsStudent.AutoSize = true;
+            this.labelUnitsStudent.Font = new System.Drawing.Font("Segoe UI", 12.75F);
+            this.labelUnitsStudent.Location = new System.Drawing.Point(532, 354);
+            this.labelUnitsStudent.Name = "labelUnitsStudent";
+            this.labelUnitsStudent.Size = new System.Drawing.Size(133, 23);
+            this.labelUnitsStudent.TabIndex = 22;
+            this.labelUnitsStudent.Text = "UFS de l\'alumne";
+            // 
             // GestionarUsuarisAlumnesAfegint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 650);
+            this.Controls.Add(this.labelAllUnits);
+            this.Controls.Add(this.labelUnitsStudent);
+            this.Controls.Add(this.buttonDeleteUnit);
+            this.Controls.Add(this.buttonAdd);
+            this.Controls.Add(this.listBoxStudentUnits);
+            this.Controls.Add(this.listBoxAllUnits);
             this.Controls.Add(this.textBoxSurname2);
             this.Controls.Add(this.buttonAfegir);
             this.Controls.Add(this.buttonCancelar);
-            this.Controls.Add(this.comboBoxGroups);
-            this.Controls.Add(this.labelGroupStudent);
+            this.Controls.Add(this.comboBoxCourse);
+            this.Controls.Add(this.labelCourseStudent);
             this.Controls.Add(this.checkBoxRepeater);
             this.Controls.Add(this.checkBoxAutoregister);
             this.Controls.Add(this.labelAddictionalInfo);
@@ -230,7 +320,8 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.Name = "GestionarUsuarisAlumnesAfegint";
             this.Text = "GestionarUsuarisAlumnesAfegint";
             this.Load += new System.EventHandler(this.GestionarUsuarisAlumnesAfegint_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGroups)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCourses)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUnits)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -245,12 +336,19 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
         private Label labelAddictionalInfo;
         private CheckBox checkBoxAutoregister;
         private CheckBox checkBoxRepeater;
-        private Label labelGroupStudent;
-        private ComboBox comboBoxGroups;
+        private Label labelCourseStudent;
+        private ComboBox comboBoxCourse;
         private Button buttonAfegir;
         private Button buttonCancelar;
-        private BindingSource bindingSourceGroups;
+        private BindingSource bindingSourceCourses;
         private TextBox textBoxDni;
         private TextBox textBoxSurname2;
+        private ListBox listBoxAllUnits;
+        private ListBox listBoxStudentUnits;
+        private BindingSource bindingSourceUnits;
+        private Button buttonAdd;
+        private Button buttonDeleteUnit;
+        private Label labelAllUnits;
+        private Label labelUnitsStudent;
     }
 }
