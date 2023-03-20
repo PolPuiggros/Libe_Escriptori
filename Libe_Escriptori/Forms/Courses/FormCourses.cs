@@ -86,6 +86,7 @@ namespace Libe_Escriptori.Forms.Courses
 
         private void FormCourses_Load(object sender, EventArgs e)
         {
+            //load
             bindingSourceCourses.DataSource = CoursesORM.Select();
         }
 
