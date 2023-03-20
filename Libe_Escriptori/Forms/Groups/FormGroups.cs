@@ -109,6 +109,10 @@ namespace Libe_Escriptori.Forms.Groups
             {
                 OpenChildForm(new FormAddGroup(ruta,_groups,false));
             }
+            else if (dataGridViewGroups.Columns[e.ColumnIndex].Name == "headerDelete")
+            {
+                GroupsOrm.Delete(_groups);
+            }
         }
     }
 }

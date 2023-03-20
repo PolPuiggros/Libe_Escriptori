@@ -32,10 +32,10 @@ namespace Libe_Escriptori.Models
             return _hours;
         }
 
-        public static List<lessons> SelectLessonsAtHour(TimeSpan hour)
+        public static List<lessons> SelectLessonsAtHour(TimeSpan hour, int scheduleId)
         {
             List<lessons> _lessons = Orm.db.lessons
-                                            .Where(lesson => lesson.starting_hour == hour)
+                                            .Where(lesson => lesson.starting_hour == hour && lesson.schedule_id == scheduleId)
                                             .ToList();
             return _lessons;
         }

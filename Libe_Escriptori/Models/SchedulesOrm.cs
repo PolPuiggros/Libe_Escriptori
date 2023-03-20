@@ -14,6 +14,15 @@ namespace Libe_Escriptori.Models
             return _schedules;
         }
 
+        public static schedules SelectSchedule(int scheduleId)
+        {
+            schedules _schedule = Orm.db.schedules
+                                    .Where(schedule => schedule.id == scheduleId)
+                                    .FirstOrDefault();
+
+            return _schedule;
+        }
+
         public static void Insert(schedules _schedule)
         {
             Orm.db.schedules.Add(_schedule);

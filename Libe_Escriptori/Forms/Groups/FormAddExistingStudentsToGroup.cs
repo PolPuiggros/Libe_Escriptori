@@ -1,4 +1,5 @@
-﻿using Libe_Escriptori.Models.Usuaris.Alumnes;
+﻿using Libe_Escriptori.Models;
+using Libe_Escriptori.Models.Usuaris.Alumnes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,11 +17,13 @@ namespace Libe_Escriptori.Forms.Groups
         private bool mouseDown;
         private Point lastLocation;
         Label ruta;
-        public FormAddExistingStudentsToGroup(Label ruta)
+        groups group;
+        public FormAddExistingStudentsToGroup(Label ruta, groups group)
         {
             InitializeComponent();
             ruta.Text = "Gestionar Grups/Afegint Grup/Afegint Estudiants Existents";
             this.ruta = ruta;
+            this.group = group;
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
@@ -53,7 +56,35 @@ namespace Libe_Escriptori.Forms.Groups
 
         private void FormAddExistingStudentsToGroup_Load(object sender, EventArgs e)
         {
-            studentsBindingSource.DataSource = AlumnesOrm.SelectStudentsCourses(true,1);
+            studentsBindingSource.DataSource = AlumnesOrm.SelectStudentsCourses(true,group.course_id);
+        }
+
+        private void buttonSaveStudentsGroup_Click(object sender, EventArgs e)
+        {
+            students _student = new students(); 
+            foreach (DataGridViewRow row in dataGridViewExistingStudents.Rows)
+            {
+                _student = (students)row.DataBoundItem;
+                if (Convert.ToBoolean(row.Cells[3].Value))
+                {
+                    _student.group_id = group.id;
+                }
+            }
+            this.Close();
+        }
+
+        private void dataGridViewExistingStudents_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            students _student = (students)dataGridViewExistingStudents.Rows[e.RowIndex].DataBoundItem;
+            switch (dataGridViewExistingStudents[e.RowIndex,3].Value)
+            {
+                case "True":
+                    dataGridViewExistingStudents[e.RowIndex, 3].Value = false;
+                    break;
+                case "False":
+                    dataGridViewExistingStudents[e.RowIndex, 3].Value = true;
+                    break;
+            }
         }
     }
 }

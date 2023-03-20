@@ -21,6 +21,7 @@ namespace Libe_Escriptori.Forms.Groups
         schedules _schedule;
         bool adding = true;
         profesors tutor;
+        bool createdSchedule = false;
        
         public FormAddGroup(Label ruta)
         {
@@ -39,6 +40,7 @@ namespace Libe_Escriptori.Forms.Groups
             if (!adding)
             {
                 ruta.Text = "Gestionar Grups/Editant Grup";
+                createdSchedule = true;
             }
             else
             {
@@ -49,14 +51,14 @@ namespace Libe_Escriptori.Forms.Groups
 
         private void buttonManageStudents_Click_1(object sender, EventArgs e)
         {
-            if (SelectedsComboBox())
+            if (SelectedsComboBox() && createdSchedule)
             {
-                FormAddExistingStudentsToGroup faetg = new FormAddExistingStudentsToGroup(ruta);
+                FormAddExistingStudentsToGroup faetg = new FormAddExistingStudentsToGroup(ruta,group);
                 faetg.ShowDialog();
             }
             else
             {
-                MessageBox.Show("Has de seleccionar tots els comboBox abans d'afegir alumnes al grup");
+                MessageBox.Show("Has de seleccionar tots els comboBox i afegir un horari abans d'afegir alumnes al grup");
             }
         }
 
@@ -84,13 +86,13 @@ namespace Libe_Escriptori.Forms.Groups
             {
                 if (SelectedsComboBox())
                 {
+                    
                     schedules schedule = new schedules();
                     schedule.name = "Horari de ";
                     SchedulesOrm.Insert(schedule);
                     tutor = (profesors)comboBoxTutorGroup.SelectedItem;
                     groups newGroup = new groups();
-                    groups groupGrade = (groups)comboBoxYearGroup.SelectedItem;
-                    newGroup.grade = groupGrade.grade;
+                    newGroup.grade = Int32.Parse(comboBoxYearGroup.SelectedItem.ToString());
                     newGroup.group_letter = comboBoxClassGroup.SelectedItem.ToString();
                     courses _course = (courses)comboBoxCicleGroup.SelectedItem;
                     newGroup.course_id = _course.id;
@@ -100,7 +102,10 @@ namespace Libe_Escriptori.Forms.Groups
                     newGroup.active = true;
                     newGroup.classroom_id = 2;
                     GroupsOrm.Insert(newGroup);
-                    OpenChildForm(new FormCreateScheduleGroup(ruta, adding, schedule,tutor));
+                    OpenChildForm(new FormCreateScheduleGroup(ruta, adding, newGroup));
+                    adding = false;
+                    group = newGroup;
+                    createdSchedule = true;
                 }
                 else
                 {
@@ -110,7 +115,7 @@ namespace Libe_Escriptori.Forms.Groups
             }
             else
             {
-                OpenChildForm(new FormCreateScheduleGroup(ruta, adding, group.schedules,tutor));
+                OpenChildForm(new FormCreateScheduleGroup(ruta, adding, group));
             }
             
         }
@@ -130,15 +135,20 @@ namespace Libe_Escriptori.Forms.Groups
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+            if (adding && group != null )
+            {
+                GroupsOrm.Delete(group);
+            }
             ruta.Text = "Gestionar Grups";
         }
 
         private void InitializeGroup()
         {
-            comboBoxCicleGroup.SelectedItem = comboBoxCicleGroup.FindString(group.courses.abreviation.ToString());
-            comboBoxClassGroup.SelectedItem = group.group_letter;
-            comboBoxYearGroup.SelectedItem = group.grade;
-            comboBoxTutorGroup.SelectedItem = group.profesors.name;
+            //comboBoxCicleGroup.SelectedItem = comboBoxCicleGroup.FindString(group.courses.abreviation.ToString());
+            comboBoxCicleGroup.SelectedValue = group.courses.id;
+            comboBoxClassGroup.SelectedIndex = comboBoxClassGroup.FindStringExact(group.group_letter.ToString());
+            comboBoxYearGroup.SelectedIndex = comboBoxYearGroup.FindStringExact(group.grade.ToString());
+            comboBoxTutorGroup.SelectedValue = group.profesors.id;
             //comboBoxMainClassGroup.SelectedItem = group.
         }
 
@@ -176,6 +186,11 @@ namespace Libe_Escriptori.Forms.Groups
         private void panelAddGroup_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
