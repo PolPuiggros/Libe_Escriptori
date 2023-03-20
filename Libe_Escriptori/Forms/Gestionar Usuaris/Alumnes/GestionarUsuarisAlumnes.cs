@@ -104,6 +104,33 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
         private void buttonNew_Click(object sender, EventArgs e)
         {
             OpenChildForm(new GestionarUsuarisAlumnesAfegint(label));
+        }   
+
+        private void textBoxFiltres_TextChanged(object sender, EventArgs e)
+        {
+            string dni = "";
+            //string value = "%" + textBoxFiltres.Text + "%";
+            string value = textBoxFiltres.Text;
+            string filter = "name LIKE '%" + value + "%'"; //+ " OR surname LIKE " + value + " OR dni LIKE " + dni;
+            if (textBoxFiltres.Text.Contains(","))
+            {
+                var values = textBoxFiltres.Text.Split(',');
+                foreach(string v in values)
+                {
+                    if (v.Contains("1"))
+                    {
+                        dni = v;
+                    }
+                    filter += "OR name LIKE %" + v + "% OR surname LIKE %" + v + "%";
+                }
+            }
+            
+            bindingSourceStudents.Filter = filter;
+           
+            bindingSourceStudents.ResetBindings(false);
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = bindingSourceStudents;
+            
         }
     }
 }

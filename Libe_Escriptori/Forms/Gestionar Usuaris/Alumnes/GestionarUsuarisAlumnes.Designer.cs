@@ -77,6 +77,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.textBoxFiltres.Size = new System.Drawing.Size(450, 27);
             this.textBoxFiltres.TabIndex = 13;
             this.textBoxFiltres.Text = " Introdueix dades clau de l\'usuari ex. DNI, Cognom...";
+            this.textBoxFiltres.TextChanged += new System.EventHandler(this.textBoxFiltres_TextChanged);
             // 
             // label2
             // 
