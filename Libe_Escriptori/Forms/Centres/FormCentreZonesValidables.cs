@@ -34,32 +34,32 @@ namespace Libe_Escriptori.Forms.Centres
 
         private void textBoxZoneName_Enter(object sender, EventArgs e)
         {
-            Utilities.textBoxSearch_Enter(textBoxZoneName, textBoxHintZoneName);
+            UtilitiesDesign.textBoxSearch_Enter(textBoxZoneName, textBoxHintZoneName);
         }
 
         private void textBoxZoneName_Leave(object sender, EventArgs e)
         {
-            Utilities.textBoxSearch_Leave(textBoxZoneName, textBoxHintZoneName);
+            UtilitiesDesign.textBoxSearch_Leave(textBoxZoneName, textBoxHintZoneName);
         }
 
         private void textBoxZoneCoordinates_Enter(object sender, EventArgs e)
         {
-            Utilities.textBoxSearch_Enter(textBoxZoneCoordinates, textBoxHintZoneCoordinates);
+            UtilitiesDesign.textBoxSearch_Enter(textBoxZoneCoordinates, textBoxHintZoneCoordinates);
         }
 
         private void textBoxZoneCoordinates_Leave(object sender, EventArgs e)
         {
-            Utilities.textBoxSearch_Leave(textBoxZoneCoordinates, textBoxHintZoneCoordinates);
+            UtilitiesDesign.textBoxSearch_Leave(textBoxZoneCoordinates, textBoxHintZoneCoordinates);
         }
 
         private void textBoxRange_Enter(object sender, EventArgs e)
         {
-            Utilities.textBoxSearch_Enter(textBoxRange, textBoxHintRange);
+            UtilitiesDesign.textBoxSearch_Enter(textBoxRange, textBoxHintRange);
         }
 
         private void textBoxRange_Leave(object sender, EventArgs e)
         {
-            Utilities.textBoxSearch_Leave(textBoxRange, textBoxHintRange);
+            UtilitiesDesign.textBoxSearch_Leave(textBoxRange, textBoxHintRange);
         }
      
         private void buttonAfegirAules_Click_1(object sender, EventArgs e)
@@ -104,9 +104,9 @@ namespace Libe_Escriptori.Forms.Centres
                     textBoxZoneName.Text = "";
                     textBoxRange.Text = "";
                     textBoxZoneCoordinates.Text = "";
-                    Utilities.textBoxSearch_Leave(textBoxZoneName, textBoxHintZoneName);
-                    Utilities.textBoxSearch_Leave(textBoxZoneCoordinates, textBoxHintZoneCoordinates);
-                    Utilities.textBoxSearch_Leave(textBoxRange, textBoxHintRange);
+                    UtilitiesDesign.textBoxSearch_Leave(textBoxZoneName, textBoxHintZoneName);
+                    UtilitiesDesign.textBoxSearch_Leave(textBoxZoneCoordinates, textBoxHintZoneCoordinates);
+                    UtilitiesDesign.textBoxSearch_Leave(textBoxRange, textBoxHintRange);
                     refreshDGV();
                     this.addPoint();
                     

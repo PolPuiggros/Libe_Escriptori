@@ -60,12 +60,12 @@ namespace Libe_Escriptori.Forms.Centres
 
         private void textBoxName_Enter(object sender, EventArgs e)
         {
-            Utilities.textBoxSearch_Enter(textBoxName, textBoxHintNameDepartment);
+            UtilitiesDesign.textBoxSearch_Enter(textBoxName, textBoxHintNameDepartment);
         }
 
         private void textBoxName_Leave(object sender, EventArgs e)
         {
-            Utilities.textBoxSearch_Leave(textBoxName, textBoxHintNameDepartment);
+            UtilitiesDesign.textBoxSearch_Leave(textBoxName, textBoxHintNameDepartment);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -87,7 +87,7 @@ namespace Libe_Escriptori.Forms.Centres
 
         private void buttonGuardarZona_Click(object sender, EventArgs e)
         {
-            Utilities.textBoxSearch_Leave(textBoxName, textBoxHintNameDepartment);
+            UtilitiesDesign.textBoxSearch_Leave(textBoxName, textBoxHintNameDepartment);
             users user = new users();
             user.username = textBoxName.Text;
             user.password = Blowfish.encriptarContrasenya("12345");

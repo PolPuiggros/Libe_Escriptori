@@ -61,22 +61,22 @@ namespace Libe_Escriptori.Forms.Courses
 
         private void textBoxAbbreviation_Enter(object sender, EventArgs e)
         {
-            Utilities.textBoxSearch_Enter(textBoxAbbreviation, textBoxHintAbreviation);
+            UtilitiesDesign.textBoxSearch_Enter(textBoxAbbreviation, textBoxHintAbreviation);
         }
 
         private void textBoxAbbreviation_Leave(object sender, EventArgs e)
         {
-            Utilities.textBoxSearch_Leave(textBoxAbbreviation, textBoxHintAbreviation);
+            UtilitiesDesign.textBoxSearch_Leave(textBoxAbbreviation, textBoxHintAbreviation);
         }
 
         private void textBoxFullName_Enter(object sender, EventArgs e)
         {
-            Utilities.textBoxSearch_Enter(textBoxFullName, textBoxHintName);
+            UtilitiesDesign.textBoxSearch_Enter(textBoxFullName, textBoxHintName);
         }
 
         private void textBoxFullName_Leave(object sender, EventArgs e)
         {
-            Utilities.textBoxSearch_Leave(textBoxFullName, textBoxHintName);
+            UtilitiesDesign.textBoxSearch_Leave(textBoxFullName, textBoxHintName);
         }
         private void OpenChildForm(Form childForm)
         {
@@ -178,7 +178,7 @@ namespace Libe_Escriptori.Forms.Courses
             if (e.ColumnIndex == 4)
             {
                 var selectedModule = (modules)dataGridViewModules.SelectedRows[0].DataBoundItem;
-                FormAddNewModule add = new FormAddNewModule(labeld, selectedModule);
+                FormAddNewModule add = new FormAddNewModule(labeld, _course, selectedModule);
                 OpenChildForm(add);
             }
             else if (e.ColumnIndex == 5)

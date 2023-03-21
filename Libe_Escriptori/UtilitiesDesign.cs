@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Libe_Escriptori
 {
-    public static class Utilities
+    public static class UtilitiesDesign
     {
         /**
         * TEXT BOX ACTION -- Delete the written text inside the text box when you select it

@@ -37,11 +37,11 @@ namespace Libe_Escriptori.Forms.Centres
             this.bindingSourceCoordinator = new System.Windows.Forms.BindingSource(this.components);
             this.buttonGuardarDepartament = new System.Windows.Forms.Button();
             this.dataGridViewDepartments = new System.Windows.Forms.DataGridView();
+            this.bindingSourceDepartments = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.profesorinchargeidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.bindingSourceDepartments = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCoordinator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDepartments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDepartments)).BeginInit();
@@ -132,11 +132,15 @@ namespace Libe_Escriptori.Forms.Centres
             this.dataGridViewDepartments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDepartments_CellClick);
             this.dataGridViewDepartments.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewDepartments_CellFormatting);
             // 
+            // bindingSourceDepartments
+            // 
+            this.bindingSourceDepartments.DataSource = typeof(Libe_Escriptori.Models.departments);
+            // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "NAME";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Nom";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -144,7 +148,7 @@ namespace Libe_Escriptori.Forms.Centres
             // 
             this.profesorinchargeidDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.profesorinchargeidDataGridViewTextBoxColumn.DataPropertyName = "profesor_in_charge_id";
-            this.profesorinchargeidDataGridViewTextBoxColumn.HeaderText = "COORDINADOR";
+            this.profesorinchargeidDataGridViewTextBoxColumn.HeaderText = "Coordinador";
             this.profesorinchargeidDataGridViewTextBoxColumn.Name = "profesorinchargeidDataGridViewTextBoxColumn";
             this.profesorinchargeidDataGridViewTextBoxColumn.ReadOnly = true;
             this.profesorinchargeidDataGridViewTextBoxColumn.Width = 408;
@@ -168,10 +172,6 @@ namespace Libe_Escriptori.Forms.Centres
             this.Delete.ReadOnly = true;
             this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Delete.Width = 40;
-            // 
-            // bindingSourceDepartments
-            // 
-            this.bindingSourceDepartments.DataSource = typeof(Libe_Escriptori.Models.departments);
             // 
             // FormCentreDepartaments
             // 

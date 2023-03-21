@@ -100,52 +100,52 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris.Professors
 
         private void textBoxName_Enter(object sender, EventArgs e)
         {
-            Utilities.textBoxSearch_Enter(textBoxName, textBoxHintName);
+            UtilitiesDesign.textBoxSearch_Enter(textBoxName, textBoxHintName);
         }
 
         private void textBoxName_Leave(object sender, EventArgs e)
         {
-            Utilities.textBoxSearch_Leave(textBoxName, textBoxHintName);
+            UtilitiesDesign.textBoxSearch_Leave(textBoxName, textBoxHintName);
         }
 
         private void textBoxSurname1_Enter(object sender, EventArgs e)
         {
-            Utilities.textBoxSearch_Enter(textBoxSurname, textBoxHintSurnname);
+            UtilitiesDesign.textBoxSearch_Enter(textBoxSurname1, textBoxHintSurnname1);
         }
 
         private void textBoxSurname1_Leave(object sender, EventArgs e)
         {
-            Utilities.textBoxSearch_Leave(textBoxSurname1, textBoxHintSurnname1);
+            UtilitiesDesign.textBoxSearch_Leave(textBoxSurname1, textBoxHintSurnname1);
         }
 
         private void textBoxSurname2_Enter(object sender, EventArgs e)
         {
-            Utilities.textBoxSearch_Enter(textBoxSurname2, textBoxHintSurnname2);
+            UtilitiesDesign.textBoxSearch_Enter(textBoxSurname2, textBoxHintSurnname2);
         }
 
         private void textBoxSurname2_Leave(object sender, EventArgs e)
         {
-            Utilities.textBoxSearch_Leave(textBoxSurname2, textBoxHintSurnname2);
+            UtilitiesDesign.textBoxSearch_Leave(textBoxSurname2, textBoxHintSurnname2);
         }
 
         private void textBoxEmail_Enter(object sender, EventArgs e)
         {
-            Utilities.textBoxSearch_Enter(textBoxEmail, textBoxHintEmail);
+            UtilitiesDesign.textBoxSearch_Enter(textBoxEmail, textBoxHintEmail);
         }
 
         private void textBoxEmail_Leave(object sender, EventArgs e)
         {
-            Utilities.textBoxSearch_Leave(textBoxEmail, textBoxHintEmail);
+            UtilitiesDesign.textBoxSearch_Leave(textBoxEmail, textBoxHintEmail);
         }
 
         private void textBoxPhone_Enter(object sender, EventArgs e)
         {
-            Utilities.textBoxSearch_Enter(textBoxPhone, textBoxHintPhone);
+            UtilitiesDesign.textBoxSearch_Enter(textBoxPhone, textBoxHintPhone);
         }
 
         private void textBoxPhone_Leave(object sender, EventArgs e)
         {
-            Utilities.textBoxSearch_Leave(textBoxPhone, textBoxHintPhone);
+            UtilitiesDesign.textBoxSearch_Leave(textBoxPhone, textBoxHintPhone);
         }
 
         private void buttonAfegir_Click(object sender, EventArgs e)

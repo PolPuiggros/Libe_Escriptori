@@ -32,12 +32,12 @@ namespace Libe_Escriptori.Forms.Centres
 
         private void textBoxNomDepartament_Enter(object sender, EventArgs e)
         {
-            Utilities.textBoxSearch_Enter(textBoxNomDepartament, textBoxHintNameDepartment);
+            UtilitiesDesign.textBoxSearch_Enter(textBoxNomDepartament, textBoxHintNameDepartment);
         }
 
         private void textBoxNomDepartament_Leave(object sender, EventArgs e)
         {
-            Utilities.textBoxSearch_Leave(textBoxNomDepartament, textBoxHintNameDepartment);
+            UtilitiesDesign.textBoxSearch_Leave(textBoxNomDepartament, textBoxHintNameDepartment);
         }
 
 

@@ -114,12 +114,12 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
 
         private void textBoxFiltres_Enter(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Enter(textBoxFiltres, textBoxHint);
+            UtilitiesDesign.textBoxSearch_Enter(textBoxFiltres, textBoxHint);
         }
 
         private void textBoxFiltres_Leave(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Leave(textBoxFiltres, textBoxHint);
+            UtilitiesDesign.textBoxSearch_Leave(textBoxFiltres, textBoxHint);
         }
     }
 }
