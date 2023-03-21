@@ -60,30 +60,29 @@ namespace Libe_Escriptori.Forms.Courses
                     if (addingNew)
                     {
                         bindingSourceModules.DataSource = _course.modules;
-                    }
-                                        
+                    }                 
                 }
             }
         }
 
         private void textBoxAbbreviation_Enter(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Enter(textBoxAbbreviation, textBoxHintAbreviation);
+            Utilities.textBoxSearch_Enter(textBoxAbbreviation, textBoxHintAbreviation);
         }
 
         private void textBoxAbbreviation_Leave(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Leave(textBoxAbbreviation, textBoxHintAbreviation);
+            Utilities.textBoxSearch_Leave(textBoxAbbreviation, textBoxHintAbreviation);
         }
 
         private void textBoxFullName_Enter(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Enter(textBoxFullName, textBoxHintName);
+            Utilities.textBoxSearch_Enter(textBoxFullName, textBoxHintName);
         }
 
         private void textBoxFullName_Leave(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Leave(textBoxFullName, textBoxHintName);
+            Utilities.textBoxSearch_Leave(textBoxFullName, textBoxHintName);
         }
         private void OpenChildForm(Form childForm)
         {
@@ -104,7 +103,8 @@ namespace Libe_Escriptori.Forms.Courses
 
         private void buttonNew_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormAddNewModule(labeld));
+            FormAddNewModule form = new FormAddNewModule(labeld);
+            OpenChildForm(form);
         }
 
         private void dataGridViewModules_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -172,7 +172,8 @@ namespace Libe_Escriptori.Forms.Courses
             if (e.ColumnIndex == 4)
             {
                 var selectedModule = (modules)dataGridViewModules.SelectedRows[0].DataBoundItem;
-                OpenChildForm(new FormAddNewModule(labeld, selectedModule));
+                FormAddNewModule add = new FormAddNewModule(labeld, selectedModule);
+                OpenChildForm(add);
             }
             else if (e.ColumnIndex == 5)
             {

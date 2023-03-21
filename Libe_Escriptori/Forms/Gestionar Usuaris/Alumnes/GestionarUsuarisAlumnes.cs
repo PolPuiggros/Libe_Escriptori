@@ -18,6 +18,8 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
         private String textBoxHint = "  Búsqueda...";
         Form activeForm;
         Label label;
+        public delegate void DoEvent();
+        public event DoEvent addPoint;
         public GestionarUsuarisAlumnes(Label labelRuta)
         {
             InitializeComponent();
@@ -87,14 +89,15 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
                 if (e.ColumnIndex == 8)
                 {
                     OpenChildForm(new GestionarUsuarisAlumnesAfegint(label, (students)dataGridView1.SelectedRows[0].DataBoundItem));
-                } else if(e.ColumnIndex == 9)
-                {
+                } 
+                else if(e.ColumnIndex == 9){
                     DialogResult dialogResult = MessageBox.Show("Estas segur que vols borrar l'alumne?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
                     if (dialogResult == DialogResult.OK)
                     {
                         dataGridView1.CurrentRow.Selected = true;
                         AlumnesOrm.Delete((students)dataGridView1.SelectedRows[0].DataBoundItem);
+                        addPoint();
                     //Recargar
                     }
                 }

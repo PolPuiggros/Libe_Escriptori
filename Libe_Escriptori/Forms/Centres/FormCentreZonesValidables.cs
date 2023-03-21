@@ -20,6 +20,8 @@ namespace Libe_Escriptori.Forms.Centres
         private String textBoxHintZoneCoordinates = " Coordenades de la zona";
         private String textBoxHintRange = " Radi";
         private Form activeForm;
+        public delegate void DoEvent();
+        public event DoEvent addPoint;
         Label ruta;
         validable_zones vz;
 
@@ -32,60 +34,50 @@ namespace Libe_Escriptori.Forms.Centres
 
         private void textBoxZoneName_Enter(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Enter(textBoxZoneName, textBoxHintZoneName);
+            Utilities.textBoxSearch_Enter(textBoxZoneName, textBoxHintZoneName);
         }
 
         private void textBoxZoneName_Leave(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Leave(textBoxZoneName, textBoxHintZoneName);
+            Utilities.textBoxSearch_Leave(textBoxZoneName, textBoxHintZoneName);
         }
 
         private void textBoxZoneCoordinates_Enter(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Enter(textBoxZoneCoordinates, textBoxHintZoneCoordinates);
+            Utilities.textBoxSearch_Enter(textBoxZoneCoordinates, textBoxHintZoneCoordinates);
         }
 
         private void textBoxZoneCoordinates_Leave(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Leave(textBoxZoneCoordinates, textBoxHintZoneCoordinates);
+            Utilities.textBoxSearch_Leave(textBoxZoneCoordinates, textBoxHintZoneCoordinates);
         }
 
         private void textBoxRange_Enter(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Enter(textBoxRange, textBoxHintRange);
+            Utilities.textBoxSearch_Enter(textBoxRange, textBoxHintRange);
         }
 
         private void textBoxRange_Leave(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Leave(textBoxRange, textBoxHintRange);
-        }
-        private void OpenChildForm(Form childForm)
-        {
-            if (activeForm != null)
-            {
-                activeForm.Close();
-            }
-
-            activeForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            panelZonesValidables.Controls.Add(childForm);
-            panelZonesValidables.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
+            Utilities.textBoxSearch_Leave(textBoxRange, textBoxHintRange);
         }
      
         private void buttonAfegirAules_Click_1(object sender, EventArgs e)
         {
             FormCentreZonesAfegirAules f = new FormCentreZonesAfegirAules(ruta, vz);
-            f.ShowDialog();
+            DialogResult dr = f.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                addPoint();
+            }
+            
         }
 
         private void FormCentreZonesValidables_Load(object sender, EventArgs e)
         {
             refreshDGV();
-            vz = (validable_zones)dataGridView1.Rows[1].DataBoundItem;
+            dataGridView1.Rows[0].Selected = true;
+            vz = (validable_zones)dataGridView1.SelectedRows[0].DataBoundItem;
         }
 
         private void buttonGuardarZona_Click(object sender, EventArgs e)
@@ -112,10 +104,12 @@ namespace Libe_Escriptori.Forms.Centres
                     textBoxZoneName.Text = "";
                     textBoxRange.Text = "";
                     textBoxZoneCoordinates.Text = "";
-                    TextBoxDesign.textBoxSearch_Leave(textBoxZoneName, textBoxHintZoneName);
-                    TextBoxDesign.textBoxSearch_Leave(textBoxZoneCoordinates, textBoxHintZoneCoordinates);
-                    TextBoxDesign.textBoxSearch_Leave(textBoxRange, textBoxHintRange);
+                    Utilities.textBoxSearch_Leave(textBoxZoneName, textBoxHintZoneName);
+                    Utilities.textBoxSearch_Leave(textBoxZoneCoordinates, textBoxHintZoneCoordinates);
+                    Utilities.textBoxSearch_Leave(textBoxRange, textBoxHintRange);
                     refreshDGV();
+                    this.addPoint();
+                    
                 }
 
             }
@@ -163,8 +157,8 @@ namespace Libe_Escriptori.Forms.Centres
         {
             if (e.ColumnIndex == 4)
             {
-                vz = (validable_zones)dataGridView1.Rows[e.RowIndex].DataBoundItem;
-                int numAules = ZonesValidablesOrm.SelectClassrooms(vz.id);
+                validable_zones valz = (validable_zones)dataGridView1.Rows[e.RowIndex].DataBoundItem;
+                int numAules = ZonesValidablesOrm.SelectClassrooms(valz.id, true);
                 e.Value = numAules.ToString();
             }
 
@@ -182,6 +176,7 @@ namespace Libe_Escriptori.Forms.Centres
                     {
                         ZonesValidablesOrm.Delete(vz);
                         refreshDGV();
+                        addPoint();
                     }
                 }
             }

@@ -23,10 +23,21 @@ namespace Libe_Escriptori
 
         private void fillFields()
         {
+            string subj;
             labeUuser.Text = "Administrador";
             labelAccio.Text = printAccio();
             labelSouce.Text = printSource();
-            labelSubjecte.Text = LogsOrm.SelectSubjecte(log.changed_id, log.tablechange);
+            subj = LogsOrm.SelectSubjecte(log.changed_id, log.tablechange);
+            if (subj.Length > 17)
+            {
+                labelSubjecte.Text = subj.Substring(0, 17) + "...";
+            }
+            else
+            {
+                labelSubjecte.Text = subj;
+            }
+            labelTimeStamp.Text = log.datetime.ToShortTimeString();
+            labelDate.Text = log.datetime.ToShortDateString();
         }
 
 
@@ -35,11 +46,11 @@ namespace Libe_Escriptori
             switch (log.tablechange)
             {
                 case "PROFESORS":
-                    return "el professor";
+                    return "el docent";
                 case "STUDENTS":
                     return "l'estudiant";
                 case "VALIDABLE ZONES":
-                    return "la zona validable";
+                    return "la zona";
                 case "CLASSROOMS":
                     return "la classe";
                 case "GROUPS":
@@ -49,11 +60,11 @@ namespace Libe_Escriptori
                 case "MODULES":
                     return "el mòdul";
                 case "DEPARTMENTS":
-                    return "el departament";
+                    return "el dept";
                 case "UNITS":
-                    return "la unitat formativa";
+                    return "la UF";
                 default:
-                    return "Nom de la taula";
+                    return "Not found";
             }
         }
 
@@ -72,11 +83,6 @@ namespace Libe_Escriptori
         }
 
         private void labeUuser_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
         {
 
         }

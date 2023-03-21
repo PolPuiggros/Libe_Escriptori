@@ -20,6 +20,8 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
         private String textBoxHint = "  Búsqueda...";
         Form activeForm;
         Label labeld;
+        public delegate void DoEvent();
+        public event DoEvent addPoint;
         public GestionarUsuarisProfessors(Label label)
         {
             InitializeComponent();
@@ -99,6 +101,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
                 {
                     dataGridViewTeachers.CurrentRow.Selected = true;
                     ProfesorsOrm.Delete((profesors)dataGridViewTeachers.SelectedRows[0].DataBoundItem);
+                    addPoint();
                 }
             }
         }

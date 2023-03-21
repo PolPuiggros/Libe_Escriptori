@@ -28,13 +28,13 @@ namespace Libe_Escriptori.Models.Centre
 
             return _validables;
         }
-        public static int SelectClassrooms(int idZV)
+        public static int SelectClassrooms(int idZV, bool state)
         {
             List<classrooms> _classrooms = null;
             try
             {
                 _classrooms = Orm.db.classrooms
-                .Where(c => c.validable_zones.id == idZV)
+                .Where(c => c.validable_zones.id == idZV && c.active == state)
                 .ToList();
             }
             catch (SqlException e)

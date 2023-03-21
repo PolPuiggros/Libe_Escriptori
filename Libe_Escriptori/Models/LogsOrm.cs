@@ -11,7 +11,7 @@ namespace Libe_Escriptori.Models
         public static List<logs> Select()
         {
             List<logs> list = new List<logs>();
-            list = Orm.db.logs.ToList();
+            list = Orm.db.logs.OrderByDescending(l => l.id).ToList();
 
             return list;
         }

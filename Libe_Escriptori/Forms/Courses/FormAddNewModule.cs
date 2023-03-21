@@ -43,32 +43,32 @@ namespace Libe_Escriptori.Forms.Courses
 
         private void textBoxAbbreviation_Enter(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Enter(textBoxAbbreviation, textBoxHintAbreviation);
+            Utilities.textBoxSearch_Enter(textBoxAbbreviation, textBoxHintAbreviation);
         }
 
         private void textBoxAbbreviation_Leave(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Leave(textBoxAbbreviation, textBoxHintAbreviation);
+            Utilities.textBoxSearch_Leave(textBoxAbbreviation, textBoxHintAbreviation);
         }
 
         private void textBoxHours_Enter(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Enter(textBoxHours, textBoxHintHours);
+            Utilities.textBoxSearch_Enter(textBoxHours, textBoxHintHours);
         }
 
         private void textBoxHours_Leave(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Leave(textBoxHours, textBoxHintHours);
+            Utilities.textBoxSearch_Leave(textBoxHours, textBoxHintHours);
         }
 
         private void textBoxName_Enter(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Enter(textBoxName, textBoxHintName);
+            Utilities.textBoxSearch_Enter(textBoxName, textBoxHintName);
         }
 
         private void textBoxName_Leave(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Leave(textBoxName, textBoxHintName);
+            Utilities.textBoxSearch_Leave(textBoxName, textBoxHintName);
         }
         
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -110,32 +110,32 @@ namespace Libe_Escriptori.Forms.Courses
         private void textBoxAbbrebiationUF_Enter(object sender, EventArgs e)
         {
             
-            TextBoxDesign.textBoxSearch_Enter(textBoxAbbrebiationUF, textBoxHintAbreviationUF);
+            Utilities.textBoxSearch_Enter(textBoxAbbrebiationUF, textBoxHintAbreviationUF);
         }
 
         private void textBoxAbbrebiationUF_Leave(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Leave(textBoxAbbrebiationUF, textBoxHintAbreviationUF);
+            Utilities.textBoxSearch_Leave(textBoxAbbrebiationUF, textBoxHintAbreviationUF);
         }
 
         private void textBoxNameUF_Enter(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Enter(textBoxNameUF, textBoxHintNameUF);
+            Utilities.textBoxSearch_Enter(textBoxNameUF, textBoxHintNameUF);
         }
 
         private void textBoxNameUF_Leave(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Leave(textBoxNameUF, textBoxHintNameUF);
+            Utilities.textBoxSearch_Leave(textBoxNameUF, textBoxHintNameUF);
         }
 
         private void textBoxHoursUF_Enter(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Enter(textBoxHoursUF, textBoxHintHoursUF);
+            Utilities.textBoxSearch_Enter(textBoxHoursUF, textBoxHintHoursUF);
         }
 
         private void textBoxHoursUF_Leave(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Leave(textBoxHoursUF, textBoxHintHoursUF);
+            Utilities.textBoxSearch_Leave(textBoxHoursUF, textBoxHintHoursUF);
         }
 
         private void buttonSaveUf_Click(object sender, EventArgs e)

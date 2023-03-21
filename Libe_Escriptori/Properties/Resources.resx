@@ -148,6 +148,9 @@
   <data name="users-group" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\users-group.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="popupdef1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\popupdef1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="pencil (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pencil (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -187,6 +190,9 @@
   <data name="profile_pic_big" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\profile_pic_big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="popupdef" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\popupdef.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="eraser" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eraser.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -205,7 +211,7 @@
   <data name="close (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="popupdef" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\popupdef.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="inbox1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\inbox1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

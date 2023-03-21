@@ -42,15 +42,8 @@ namespace Libe_Escriptori
             this.buttonZonesValidables = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.buttonLogout = new System.Windows.Forms.Button();
             this.labelUserName = new System.Windows.Forms.Label();
-            this.buttonCentre = new System.Windows.Forms.Button();
-            this.buttonGestionarGrups = new System.Windows.Forms.Button();
-            this.buttonGestionarCursos = new System.Windows.Forms.Button();
-            this.buttonGestionarUsuaris = new System.Windows.Forms.Button();
-            this.buttonInici = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelTop = new System.Windows.Forms.Panel();
             this.labelRuta = new System.Windows.Forms.Label();
             this.panelMove = new System.Windows.Forms.Panel();
@@ -59,6 +52,13 @@ namespace Libe_Escriptori
             this.buttonProfile = new System.Windows.Forms.Button();
             this.buttonInbox = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.buttonLogout = new System.Windows.Forms.Button();
+            this.buttonCentre = new System.Windows.Forms.Button();
+            this.buttonGestionarGrups = new System.Windows.Forms.Button();
+            this.buttonGestionarCursos = new System.Windows.Forms.Button();
+            this.buttonGestionarUsuaris = new System.Windows.Forms.Button();
+            this.buttonInici = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panelTot.SuspendLayout();
             this.panelUsuaris.SuspendLayout();
@@ -66,9 +66,9 @@ namespace Libe_Escriptori
             this.panelMenu.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelTop.SuspendLayout();
             this.panelAll.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -92,9 +92,9 @@ namespace Libe_Escriptori
             // panelLogs
             // 
             this.panelLogs.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panelLogs.Location = new System.Drawing.Point(757, -9);
+            this.panelLogs.Location = new System.Drawing.Point(744, -9);
             this.panelLogs.Name = "panelLogs";
-            this.panelLogs.Size = new System.Drawing.Size(200, 220);
+            this.panelLogs.Size = new System.Drawing.Size(230, 230);
             this.panelLogs.TabIndex = 6;
             // 
             // panelUsuaris
@@ -229,6 +229,147 @@ namespace Libe_Escriptori
             this.panel2.Size = new System.Drawing.Size(275, 72);
             this.panel2.TabIndex = 8;
             // 
+            // labelUserName
+            // 
+            this.labelUserName.AutoSize = true;
+            this.labelUserName.Font = new System.Drawing.Font("Segoe UI", 13F);
+            this.labelUserName.Location = new System.Drawing.Point(90, 28);
+            this.labelUserName.Name = "labelUserName";
+            this.labelUserName.Size = new System.Drawing.Size(126, 25);
+            this.labelUserName.TabIndex = 0;
+            this.labelUserName.Text = "Administrador";
+            // 
+            // panelLogo
+            // 
+            this.panelLogo.Controls.Add(this.pictureBox1);
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(275, 92);
+            this.panelLogo.TabIndex = 0;
+            // 
+            // panelTop
+            // 
+            this.panelTop.BackgroundImage = global::Libe_Escriptori.Properties.Resources.gradient;
+            this.panelTop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelTop.Controls.Add(this.labelRuta);
+            this.panelTop.Controls.Add(this.panelMove);
+            this.panelTop.Controls.Add(this.panelAll);
+            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTop.Location = new System.Drawing.Point(275, 0);
+            this.panelTop.Margin = new System.Windows.Forms.Padding(0);
+            this.panelTop.Name = "panelTop";
+            this.panelTop.Size = new System.Drawing.Size(1005, 70);
+            this.panelTop.TabIndex = 1;
+            // 
+            // labelRuta
+            // 
+            this.labelRuta.AutoSize = true;
+            this.labelRuta.BackColor = System.Drawing.Color.Transparent;
+            this.labelRuta.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRuta.ForeColor = System.Drawing.Color.White;
+            this.labelRuta.Location = new System.Drawing.Point(25, 36);
+            this.labelRuta.Name = "labelRuta";
+            this.labelRuta.Size = new System.Drawing.Size(47, 25);
+            this.labelRuta.TabIndex = 2;
+            this.labelRuta.Text = "Inici";
+            // 
+            // panelMove
+            // 
+            this.panelMove.BackColor = System.Drawing.Color.Transparent;
+            this.panelMove.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelMove.Location = new System.Drawing.Point(0, 0);
+            this.panelMove.Name = "panelMove";
+            this.panelMove.Size = new System.Drawing.Size(831, 30);
+            this.panelMove.TabIndex = 1;
+            this.panelMove.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelMove_MouseDown);
+            this.panelMove.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelMove_MouseMove);
+            this.panelMove.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelMove_MouseUp);
+            // 
+            // panelAll
+            // 
+            this.panelAll.BackColor = System.Drawing.Color.Transparent;
+            this.panelAll.Controls.Add(this.buttonMinimize);
+            this.panelAll.Controls.Add(this.buttonProfile);
+            this.panelAll.Controls.Add(this.buttonInbox);
+            this.panelAll.Controls.Add(this.buttonClose);
+            this.panelAll.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelAll.Location = new System.Drawing.Point(831, 0);
+            this.panelAll.Name = "panelAll";
+            this.panelAll.Size = new System.Drawing.Size(174, 70);
+            this.panelAll.TabIndex = 0;
+            // 
+            // buttonMinimize
+            // 
+            this.buttonMinimize.BackColor = System.Drawing.Color.Transparent;
+            this.buttonMinimize.BackgroundImage = global::Libe_Escriptori.Properties.Resources.minus;
+            this.buttonMinimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonMinimize.FlatAppearance.BorderSize = 0;
+            this.buttonMinimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.buttonMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMinimize.Location = new System.Drawing.Point(116, 6);
+            this.buttonMinimize.Name = "buttonMinimize";
+            this.buttonMinimize.Size = new System.Drawing.Size(26, 29);
+            this.buttonMinimize.TabIndex = 2;
+            this.buttonMinimize.TabStop = false;
+            this.buttonMinimize.UseVisualStyleBackColor = false;
+            this.buttonMinimize.Click += new System.EventHandler(this.buttonMinimize_Click);
+            // 
+            // buttonProfile
+            // 
+            this.buttonProfile.BackColor = System.Drawing.Color.Transparent;
+            this.buttonProfile.BackgroundImage = global::Libe_Escriptori.Properties.Resources.profile_pic_big;
+            this.buttonProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonProfile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonProfile.FlatAppearance.BorderSize = 0;
+            this.buttonProfile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonProfile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.buttonProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonProfile.Location = new System.Drawing.Point(63, 18);
+            this.buttonProfile.Name = "buttonProfile";
+            this.buttonProfile.Size = new System.Drawing.Size(42, 42);
+            this.buttonProfile.TabIndex = 0;
+            this.buttonProfile.TabStop = false;
+            this.buttonProfile.UseVisualStyleBackColor = false;
+            // 
+            // buttonInbox
+            // 
+            this.buttonInbox.BackColor = System.Drawing.Color.Transparent;
+            this.buttonInbox.BackgroundImage = global::Libe_Escriptori.Properties.Resources.inbox1;
+            this.buttonInbox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonInbox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonInbox.FlatAppearance.BorderSize = 0;
+            this.buttonInbox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonInbox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.buttonInbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInbox.Location = new System.Drawing.Point(10, 24);
+            this.buttonInbox.Name = "buttonInbox";
+            this.buttonInbox.Size = new System.Drawing.Size(36, 36);
+            this.buttonInbox.TabIndex = 1;
+            this.buttonInbox.TabStop = false;
+            this.buttonInbox.UseVisualStyleBackColor = false;
+            this.buttonInbox.Click += new System.EventHandler(this.buttonInbox_Click);
+            // 
+            // buttonClose
+            // 
+            this.buttonClose.BackColor = System.Drawing.Color.Transparent;
+            this.buttonClose.BackgroundImage = global::Libe_Escriptori.Properties.Resources.close;
+            this.buttonClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonClose.FlatAppearance.BorderSize = 0;
+            this.buttonClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
+            this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClose.Location = new System.Drawing.Point(151, 5);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.Size = new System.Drawing.Size(18, 18);
+            this.buttonClose.TabIndex = 1;
+            this.buttonClose.TabStop = false;
+            this.buttonClose.UseVisualStyleBackColor = false;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+            // 
             // buttonLogout
             // 
             this.buttonLogout.BackColor = System.Drawing.Color.Transparent;
@@ -245,16 +386,6 @@ namespace Libe_Escriptori
             this.buttonLogout.TabIndex = 2;
             this.buttonLogout.UseVisualStyleBackColor = false;
             this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
-            // 
-            // labelUserName
-            // 
-            this.labelUserName.AutoSize = true;
-            this.labelUserName.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.labelUserName.Location = new System.Drawing.Point(90, 28);
-            this.labelUserName.Name = "labelUserName";
-            this.labelUserName.Size = new System.Drawing.Size(126, 25);
-            this.labelUserName.TabIndex = 0;
-            this.labelUserName.Text = "Administrador";
             // 
             // buttonCentre
             // 
@@ -347,15 +478,6 @@ namespace Libe_Escriptori
             this.buttonInici.UseVisualStyleBackColor = true;
             this.buttonInici.Click += new System.EventHandler(this.buttonInici_Click);
             // 
-            // panelLogo
-            // 
-            this.panelLogo.Controls.Add(this.pictureBox1);
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(275, 92);
-            this.panelLogo.TabIndex = 0;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::Libe_Escriptori.Properties.Resources.logo;
@@ -365,128 +487,6 @@ namespace Libe_Escriptori
             this.pictureBox1.Size = new System.Drawing.Size(87, 87);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // panelTop
-            // 
-            this.panelTop.BackgroundImage = global::Libe_Escriptori.Properties.Resources.gradient;
-            this.panelTop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelTop.Controls.Add(this.labelRuta);
-            this.panelTop.Controls.Add(this.panelMove);
-            this.panelTop.Controls.Add(this.panelAll);
-            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTop.Location = new System.Drawing.Point(275, 0);
-            this.panelTop.Margin = new System.Windows.Forms.Padding(0);
-            this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(1005, 70);
-            this.panelTop.TabIndex = 1;
-            // 
-            // labelRuta
-            // 
-            this.labelRuta.AutoSize = true;
-            this.labelRuta.BackColor = System.Drawing.Color.Transparent;
-            this.labelRuta.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRuta.ForeColor = System.Drawing.Color.White;
-            this.labelRuta.Location = new System.Drawing.Point(25, 36);
-            this.labelRuta.Name = "labelRuta";
-            this.labelRuta.Size = new System.Drawing.Size(47, 25);
-            this.labelRuta.TabIndex = 2;
-            this.labelRuta.Text = "Inici";
-            // 
-            // panelMove
-            // 
-            this.panelMove.BackColor = System.Drawing.Color.Transparent;
-            this.panelMove.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelMove.Location = new System.Drawing.Point(0, 0);
-            this.panelMove.Name = "panelMove";
-            this.panelMove.Size = new System.Drawing.Size(831, 30);
-            this.panelMove.TabIndex = 1;
-            this.panelMove.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelMove_MouseDown);
-            this.panelMove.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelMove_MouseMove);
-            this.panelMove.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelMove_MouseUp);
-            // 
-            // panelAll
-            // 
-            this.panelAll.BackColor = System.Drawing.Color.Transparent;
-            this.panelAll.Controls.Add(this.buttonMinimize);
-            this.panelAll.Controls.Add(this.buttonProfile);
-            this.panelAll.Controls.Add(this.buttonInbox);
-            this.panelAll.Controls.Add(this.buttonClose);
-            this.panelAll.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelAll.Location = new System.Drawing.Point(831, 0);
-            this.panelAll.Name = "panelAll";
-            this.panelAll.Size = new System.Drawing.Size(174, 70);
-            this.panelAll.TabIndex = 0;
-            // 
-            // buttonMinimize
-            // 
-            this.buttonMinimize.BackColor = System.Drawing.Color.Transparent;
-            this.buttonMinimize.BackgroundImage = global::Libe_Escriptori.Properties.Resources.minus;
-            this.buttonMinimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonMinimize.FlatAppearance.BorderSize = 0;
-            this.buttonMinimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.buttonMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.buttonMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMinimize.Location = new System.Drawing.Point(116, 6);
-            this.buttonMinimize.Name = "buttonMinimize";
-            this.buttonMinimize.Size = new System.Drawing.Size(26, 29);
-            this.buttonMinimize.TabIndex = 2;
-            this.buttonMinimize.TabStop = false;
-            this.buttonMinimize.UseVisualStyleBackColor = false;
-            this.buttonMinimize.Click += new System.EventHandler(this.buttonMinimize_Click);
-            // 
-            // buttonProfile
-            // 
-            this.buttonProfile.BackColor = System.Drawing.Color.Transparent;
-            this.buttonProfile.BackgroundImage = global::Libe_Escriptori.Properties.Resources.profile_pic_big;
-            this.buttonProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonProfile.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonProfile.FlatAppearance.BorderSize = 0;
-            this.buttonProfile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.buttonProfile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.buttonProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonProfile.Location = new System.Drawing.Point(63, 18);
-            this.buttonProfile.Name = "buttonProfile";
-            this.buttonProfile.Size = new System.Drawing.Size(42, 42);
-            this.buttonProfile.TabIndex = 0;
-            this.buttonProfile.TabStop = false;
-            this.buttonProfile.UseVisualStyleBackColor = false;
-            // 
-            // buttonInbox
-            // 
-            this.buttonInbox.BackColor = System.Drawing.Color.Transparent;
-            this.buttonInbox.BackgroundImage = global::Libe_Escriptori.Properties.Resources.inbox;
-            this.buttonInbox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonInbox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonInbox.FlatAppearance.BorderSize = 0;
-            this.buttonInbox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.buttonInbox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.buttonInbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonInbox.Location = new System.Drawing.Point(10, 24);
-            this.buttonInbox.Name = "buttonInbox";
-            this.buttonInbox.Size = new System.Drawing.Size(36, 36);
-            this.buttonInbox.TabIndex = 1;
-            this.buttonInbox.TabStop = false;
-            this.buttonInbox.UseVisualStyleBackColor = false;
-            this.buttonInbox.Click += new System.EventHandler(this.buttonInbox_Click);
-            // 
-            // buttonClose
-            // 
-            this.buttonClose.BackColor = System.Drawing.Color.Transparent;
-            this.buttonClose.BackgroundImage = global::Libe_Escriptori.Properties.Resources.close;
-            this.buttonClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonClose.FlatAppearance.BorderSize = 0;
-            this.buttonClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.buttonClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
-            this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonClose.Location = new System.Drawing.Point(151, 5);
-            this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(18, 18);
-            this.buttonClose.TabIndex = 1;
-            this.buttonClose.TabStop = false;
-            this.buttonClose.UseVisualStyleBackColor = false;
-            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // MainForm
             // 
@@ -508,10 +508,10 @@ namespace Libe_Escriptori
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panelLogo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             this.panelAll.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

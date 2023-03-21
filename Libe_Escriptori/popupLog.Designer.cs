@@ -36,7 +36,7 @@
             this.panelAllLogs.BackColor = System.Drawing.Color.Transparent;
             this.panelAllLogs.Location = new System.Drawing.Point(3, 19);
             this.panelAllLogs.Name = "panelAllLogs";
-            this.panelAllLogs.Size = new System.Drawing.Size(194, 197);
+            this.panelAllLogs.Size = new System.Drawing.Size(225, 208);
             this.panelAllLogs.TabIndex = 0;
             // 
             // popupLog
@@ -44,9 +44,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.BackgroundImage = global::Libe_Escriptori.Properties.Resources.popupdef;
-            this.ClientSize = new System.Drawing.Size(200, 220);
+            this.BackgroundImage = global::Libe_Escriptori.Properties.Resources.popupdef1;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(230, 230);
             this.Controls.Add(this.panelAllLogs);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "popupLog";
             this.Text = "popupLog";

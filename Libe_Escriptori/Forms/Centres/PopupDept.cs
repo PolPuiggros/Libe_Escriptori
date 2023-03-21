@@ -58,13 +58,13 @@ namespace Libe_Escriptori.Forms.Centres
 
         private void buttonGuardarCanvis_Click(object sender, EventArgs e)
         {
-            
             if(textBox1.Text != "")
             {
                 departments newDept = new departments();
                 newDept.name = textBox1.Text;
                 newDept.profesor_in_charge_id = (int)comboBox1.SelectedValue;
                 DepartmentsOrm.Update(department.id, newDept);
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else
