@@ -260,7 +260,12 @@ namespace Libe_Escriptori.Forms.Courses
         private void panelCoursesAdd_Paint(object sender, PaintEventArgs e)
         {
 
+<<<<<<< HEAD
+        private void comboBoxDepartment_SelectedValueChanged(object sender, EventArgs e)
+        {
+
+=======
+>>>>>>> LIBE-91-Afegir-Cursos
         }
-     
     }
 }

@@ -18,7 +18,7 @@ namespace Libe_Escriptori.Models
         public lessons()
         {
             this.attendance = new HashSet<attendance>();
-            this.profesors1 = new HashSet<profesors>();
+            this.profesors = new HashSet<profesors>();
         }
     
         public int id { get; set; }
@@ -28,15 +28,13 @@ namespace Libe_Escriptori.Models
         public int schedule_id { get; set; }
         public int module_id { get; set; }
         public int classroom_id { get; set; }
-        public int profesor_id { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<attendance> attendance { get; set; }
-        public virtual schedules schedules { get; set; }
-        public virtual profesors profesors { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<profesors> profesors1 { get; set; }
-        public virtual modules modules { get; set; }
         public virtual classrooms classrooms { get; set; }
+        public virtual modules modules { get; set; }
+        public virtual schedules schedules { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<profesors> profesors { get; set; }
     }
 }

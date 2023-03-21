@@ -31,7 +31,6 @@ namespace Libe_Escriptori.Models
         public virtual DbSet<center_information> center_information { get; set; }
         public virtual DbSet<justification_status> justification_status { get; set; }
         public virtual DbSet<justifications> justifications { get; set; }
-        public virtual DbSet<lessons> lessons { get; set; }
         public virtual DbSet<logs> logs { get; set; }
         public virtual DbSet<schedules> schedules { get; set; }
         public virtual DbSet<user_type> user_type { get; set; }
@@ -39,6 +38,7 @@ namespace Libe_Escriptori.Models
         public virtual DbSet<departments> departments { get; set; }
         public virtual DbSet<profesors> profesors { get; set; }
         public virtual DbSet<units> units { get; set; }
+        public virtual DbSet<groups> groups { get; set; }
         public virtual DbSet<modules> modules { get; set; }
         public virtual DbSet<validable_zones> validable_zones { get; set; }
         public virtual DbSet<users_desktop> users_desktop { get; set; }
@@ -47,7 +47,7 @@ namespace Libe_Escriptori.Models
         public virtual DbSet<holiday_type> holiday_type { get; set; }
         public virtual DbSet<holidays> holidays { get; set; }
         public virtual DbSet<students> students { get; set; }
-        public virtual DbSet<groups> groups { get; set; }
         public virtual DbSet<classrooms> classrooms { get; set; }
+        public virtual DbSet<lessons> lessons { get; set; }
     }
 }

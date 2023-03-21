@@ -635,7 +635,7 @@ namespace Libe_Escriptori.Forms.Groups
                     newLesson.schedule_id = _group.schedule_id;
                     newLesson.module_id = actualModule.id;
                     newLesson.classroom_id = 2;
-                    newLesson.profesor_id = _group.tutor_id;
+                    //newLesson.profesor_id = _group.tutor_id;
 
                     LessonsOrm.Insert(newLesson);
 

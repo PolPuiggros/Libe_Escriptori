@@ -17,8 +17,8 @@ namespace Libe_Escriptori.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public courses()
         {
-            this.modules = new HashSet<modules>();
             this.groups = new HashSet<groups>();
+            this.modules = new HashSet<modules>();
         }
     
         public int id { get; set; }
@@ -33,8 +33,8 @@ namespace Libe_Escriptori.Models
     
         public virtual departments departments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<modules> modules { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<groups> groups { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<modules> modules { get; set; }
     }
 }
