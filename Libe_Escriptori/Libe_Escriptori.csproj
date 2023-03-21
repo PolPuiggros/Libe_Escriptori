@@ -192,6 +192,12 @@
     <Compile Include="Forms\Groups\FormScheduleCellInfo.Designer.cs">
       <DependentUpon>FormScheduleCellInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Log.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Log.Designer.cs">
+      <DependentUpon>Log.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +222,7 @@
     <Compile Include="Models\center_information.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Centre\AulesOrm.cs" />
     <Compile Include="Models\Centre\ZonesValidablesOrm.cs" />
     <Compile Include="Models\classrooms.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
@@ -254,6 +261,7 @@
     <Compile Include="Models\logs.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LogsOrm.cs" />
     <Compile Include="Models\ModelLibe.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -305,10 +313,16 @@
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
+    <Compile Include="popupLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popupLog.Designer.cs">
+      <DependentUpon>popupLog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TextBoxDesign.cs" />
     <Compile Include="Utilities\Validations.cs" />
+    <Compile Include="Utilities.cs" />
     <EmbeddedResource Include="Forms\Centres\FormCalendari.resx">
       <DependentUpon>FormCalendari.cs</DependentUpon>
     </EmbeddedResource>
@@ -369,11 +383,17 @@
     <EmbeddedResource Include="Forms\Groups\FormScheduleCellInfo.resx">
       <DependentUpon>FormScheduleCellInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Log.resx">
+      <DependentUpon>Log.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popupLog.resx">
+      <DependentUpon>popupLog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -395,6 +415,7 @@
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\csproj.AssemblyReference.cache" />
+    <None Include="Properties\DataSources\Libe_Escriptori.Models.classrooms.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.Courses.CoursesORM.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.courses.datasource" />
     <None Include="Properties\DataSources\Libe_Escriptori.Models.modules.datasource" />
@@ -449,12 +470,17 @@
     <Content Include="Resources\home2.png" />
     <Content Include="Resources\home3.png" />
     <Content Include="Resources\inbox.png" />
+    <None Include="Resources\inbox1.png" />
     <Content Include="Resources\left-click.png" />
     <Content Include="Resources\lines_yellow.jpg" />
     <None Include="Resources\mid_eraser.png" />
+    <None Include="Resources\logo.png" />
     <Content Include="Resources\minus.png" />
     <None Include="Resources\pencil.png" />
     <None Include="Resources\pencil %281%29.png" />
+    <None Include="Resources\popupp.png" />
+    <None Include="Resources\popupdef.png" />
+    <None Include="Resources\popupdef1.png" />
     <Content Include="Resources\profile_pic.png" />
     <Content Include="Resources\profile_pic_big.png" />
     <None Include="Resources\remove.png" />

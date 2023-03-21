@@ -20,6 +20,8 @@ namespace Libe_Escriptori.Forms.Courses
     {
         Form activeForm;
         Label labeld;
+        public delegate void DoEvent();
+        public event DoEvent addPoint;
         public FormCourses(Label labelRuta)
         {
             InitializeComponent();
@@ -95,7 +97,8 @@ namespace Libe_Escriptori.Forms.Courses
             if (e.ColumnIndex == 3)
             {
                 var selectedCourse = (courses)dataGridViewCourses.SelectedRows[0].DataBoundItem;
-                OpenChildForm(new FormCoursesAdd(labeld, selectedCourse));
+                FormCoursesAdd form = new FormCoursesAdd(labeld, selectedCourse);
+                OpenChildForm(form);
             }
             else if (e.ColumnIndex == 4)
             {
@@ -106,6 +109,7 @@ namespace Libe_Escriptori.Forms.Courses
                     dataGridViewCourses.CurrentRow.Selected = true;
                     CoursesORM.Delete((courses)dataGridViewCourses.SelectedRows[0].DataBoundItem);
                     bindingSourceCourses.DataSource = CoursesORM.Select();
+                    addPoint();
                 }
             }
         }

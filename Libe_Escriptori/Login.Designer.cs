@@ -47,7 +47,7 @@ namespace Libe_Escriptori
             this.buttonLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(38)))), ((int)(((byte)(51)))));
             this.buttonLogin.FlatAppearance.BorderSize = 0;
             this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.buttonLogin.ForeColor = System.Drawing.Color.White;
             this.buttonLogin.Location = new System.Drawing.Point(231, 485);
             this.buttonLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -73,7 +73,7 @@ namespace Libe_Escriptori
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 42F);
             this.label1.Location = new System.Drawing.Point(177, 187);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(277, 64);
@@ -83,27 +83,29 @@ namespace Libe_Escriptori
             // textBoxUsername
             // 
             this.textBoxUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxUsername.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxUsername.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.textBoxUsername.Location = new System.Drawing.Point(116, 324);
             this.textBoxUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(403, 31);
             this.textBoxUsername.TabIndex = 3;
+            this.textBoxUsername.Text = "politecnics";
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxPassword.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.textBoxPassword.Location = new System.Drawing.Point(116, 405);
             this.textBoxPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(403, 31);
             this.textBoxPassword.TabIndex = 4;
+            this.textBoxPassword.Text = "politecnics";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.label2.Location = new System.Drawing.Point(113, 299);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 25);
@@ -113,7 +115,7 @@ namespace Libe_Escriptori
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.label3.Location = new System.Drawing.Point(113, 380);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(91, 25);
@@ -152,7 +154,7 @@ namespace Libe_Escriptori
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonLogin);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Login";

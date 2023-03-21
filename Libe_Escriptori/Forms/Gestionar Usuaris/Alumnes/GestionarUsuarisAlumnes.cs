@@ -19,6 +19,8 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
         private String textBoxHint = " Introdueix dades clau de l'usuari ex. DNI, Cognom...";
         Form activeForm;
         Label label;
+        public delegate void DoEvent();
+        public event DoEvent addPoint;
         public GestionarUsuarisAlumnes(Label labelRuta)
         {
             InitializeComponent();

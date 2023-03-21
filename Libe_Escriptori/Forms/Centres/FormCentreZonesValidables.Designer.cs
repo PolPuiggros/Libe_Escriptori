@@ -35,23 +35,23 @@ namespace Libe_Escriptori.Forms.Centres
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxZoneName = new System.Windows.Forms.TextBox();
             this.textBoxZoneCoordinates = new System.Windows.Forms.TextBox();
-            this.textBoxRange = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.buttonGuardarZona = new System.Windows.Forms.Button();
-            this.buttonAfegirAules = new System.Windows.Forms.Button();
-            this.panelZonesValidables = new System.Windows.Forms.Panel();
-            this.Guardar = new System.Windows.Forms.Button();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.bindingSourceZonesValidables = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.radiusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.latitudeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.longitudeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classroomsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.bindingSourceZonesValidables = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.buttonAfegirAules = new System.Windows.Forms.Button();
+            this.buttonGuardarZona = new System.Windows.Forms.Button();
+            this.textBoxRange = new System.Windows.Forms.TextBox();
+            this.Guardar = new System.Windows.Forms.Button();
+            this.panelZonesValidables = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panelZonesValidables.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceZonesValidables)).BeginInit();
+            this.panelZonesValidables.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -92,20 +92,6 @@ namespace Libe_Escriptori.Forms.Centres
             this.textBoxZoneCoordinates.Enter += new System.EventHandler(this.textBoxZoneCoordinates_Enter);
             this.textBoxZoneCoordinates.Leave += new System.EventHandler(this.textBoxZoneCoordinates_Leave);
             // 
-            // textBoxRange
-            // 
-            this.textBoxRange.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
-            this.textBoxRange.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxRange.Location = new System.Drawing.Point(586, 165);
-            this.textBoxRange.MaximumSize = new System.Drawing.Size(153, 31);
-            this.textBoxRange.MinimumSize = new System.Drawing.Size(153, 31);
-            this.textBoxRange.Name = "textBoxRange";
-            this.textBoxRange.Size = new System.Drawing.Size(153, 29);
-            this.textBoxRange.TabIndex = 3;
-            this.textBoxRange.Text = " Radi";
-            this.textBoxRange.Enter += new System.EventHandler(this.textBoxRange_Enter);
-            this.textBoxRange.Leave += new System.EventHandler(this.textBoxRange_Leave);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -141,75 +127,6 @@ namespace Libe_Escriptori.Forms.Centres
             this.dataGridView1.TabIndex = 15;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
-            // 
-            // buttonGuardarZona
-            // 
-            this.buttonGuardarZona.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(171)))));
-            this.buttonGuardarZona.FlatAppearance.BorderSize = 0;
-            this.buttonGuardarZona.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonGuardarZona.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.buttonGuardarZona.ForeColor = System.Drawing.Color.White;
-            this.buttonGuardarZona.Location = new System.Drawing.Point(775, 165);
-            this.buttonGuardarZona.Name = "buttonGuardarZona";
-            this.buttonGuardarZona.Size = new System.Drawing.Size(137, 31);
-            this.buttonGuardarZona.TabIndex = 16;
-            this.buttonGuardarZona.Text = "Guardar zona";
-            this.buttonGuardarZona.UseVisualStyleBackColor = false;
-            this.buttonGuardarZona.Click += new System.EventHandler(this.buttonGuardarZona_Click);
-            // 
-            // buttonAfegirAules
-            // 
-            this.buttonAfegirAules.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(168)))), ((int)(((byte)(241)))));
-            this.buttonAfegirAules.FlatAppearance.BorderSize = 0;
-            this.buttonAfegirAules.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAfegirAules.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.buttonAfegirAules.ForeColor = System.Drawing.Color.Black;
-            this.buttonAfegirAules.Location = new System.Drawing.Point(664, 442);
-            this.buttonAfegirAules.Name = "buttonAfegirAules";
-            this.buttonAfegirAules.Size = new System.Drawing.Size(117, 27);
-            this.buttonAfegirAules.TabIndex = 17;
-            this.buttonAfegirAules.Text = "Afegir aules";
-            this.buttonAfegirAules.UseVisualStyleBackColor = false;
-            this.buttonAfegirAules.Click += new System.EventHandler(this.buttonAfegirAules_Click_1);
-            // 
-            // panelZonesValidables
-            // 
-            this.panelZonesValidables.Controls.Add(this.Guardar);
-            this.panelZonesValidables.Controls.Add(this.textBoxRange);
-            this.panelZonesValidables.Controls.Add(this.buttonGuardarZona);
-            this.panelZonesValidables.Controls.Add(this.buttonAfegirAules);
-            this.panelZonesValidables.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelZonesValidables.Location = new System.Drawing.Point(0, 0);
-            this.panelZonesValidables.Name = "panelZonesValidables";
-            this.panelZonesValidables.Size = new System.Drawing.Size(1005, 650);
-            this.panelZonesValidables.TabIndex = 0;
-            // 
-            // Guardar
-            // 
-            this.Guardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(171)))));
-            this.Guardar.FlatAppearance.BorderSize = 0;
-            this.Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Guardar.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.Guardar.ForeColor = System.Drawing.Color.White;
-            this.Guardar.Location = new System.Drawing.Point(430, 562);
-            this.Guardar.Name = "Guardar";
-            this.Guardar.Size = new System.Drawing.Size(137, 40);
-            this.Guardar.TabIndex = 18;
-            this.Guardar.Text = "Guardar";
-            this.Guardar.UseVisualStyleBackColor = false;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.FillWeight = 121.8274F;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = global::Libe_Escriptori.Properties.Resources.remove;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Width = 40;
-            // 
-            // bindingSourceZonesValidables
-            // 
-            this.bindingSourceZonesValidables.DataSource = typeof(Libe_Escriptori.Models.validable_zones);
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -265,24 +182,107 @@ namespace Libe_Escriptori.Forms.Centres
             this.Eliminar.ReadOnly = true;
             this.Eliminar.Width = 40;
             // 
+            // bindingSourceZonesValidables
+            // 
+            this.bindingSourceZonesValidables.DataSource = typeof(Libe_Escriptori.Models.validable_zones);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.FillWeight = 121.8274F;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::Libe_Escriptori.Properties.Resources.remove;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Width = 40;
+            // 
+            // buttonAfegirAules
+            // 
+            this.buttonAfegirAules.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(168)))), ((int)(((byte)(241)))));
+            this.buttonAfegirAules.FlatAppearance.BorderSize = 0;
+            this.buttonAfegirAules.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAfegirAules.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.buttonAfegirAules.ForeColor = System.Drawing.Color.Black;
+            this.buttonAfegirAules.Location = new System.Drawing.Point(775, 510);
+            this.buttonAfegirAules.Name = "buttonAfegirAules";
+            this.buttonAfegirAules.Size = new System.Drawing.Size(137, 31);
+            this.buttonAfegirAules.TabIndex = 17;
+            this.buttonAfegirAules.Text = "Gestionar Aules";
+            this.buttonAfegirAules.UseVisualStyleBackColor = false;
+            this.buttonAfegirAules.Click += new System.EventHandler(this.buttonAfegirAules_Click_1);
+            // 
+            // buttonGuardarZona
+            // 
+            this.buttonGuardarZona.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(171)))));
+            this.buttonGuardarZona.FlatAppearance.BorderSize = 0;
+            this.buttonGuardarZona.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGuardarZona.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.buttonGuardarZona.ForeColor = System.Drawing.Color.White;
+            this.buttonGuardarZona.Location = new System.Drawing.Point(775, 165);
+            this.buttonGuardarZona.Name = "buttonGuardarZona";
+            this.buttonGuardarZona.Size = new System.Drawing.Size(137, 31);
+            this.buttonGuardarZona.TabIndex = 16;
+            this.buttonGuardarZona.Text = "Guardar zona";
+            this.buttonGuardarZona.UseVisualStyleBackColor = false;
+            this.buttonGuardarZona.Click += new System.EventHandler(this.buttonGuardarZona_Click);
+            // 
+            // textBoxRange
+            // 
+            this.textBoxRange.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
+            this.textBoxRange.ForeColor = System.Drawing.Color.Gray;
+            this.textBoxRange.Location = new System.Drawing.Point(586, 165);
+            this.textBoxRange.MaximumSize = new System.Drawing.Size(153, 31);
+            this.textBoxRange.MinimumSize = new System.Drawing.Size(153, 31);
+            this.textBoxRange.Name = "textBoxRange";
+            this.textBoxRange.Size = new System.Drawing.Size(153, 29);
+            this.textBoxRange.TabIndex = 3;
+            this.textBoxRange.Text = " Radi";
+            this.textBoxRange.Enter += new System.EventHandler(this.textBoxRange_Enter);
+            this.textBoxRange.Leave += new System.EventHandler(this.textBoxRange_Leave);
+            // 
+            // Guardar
+            // 
+            this.Guardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(171)))));
+            this.Guardar.FlatAppearance.BorderSize = 0;
+            this.Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Guardar.Font = new System.Drawing.Font("Segoe UI", 13F);
+            this.Guardar.ForeColor = System.Drawing.Color.White;
+            this.Guardar.Location = new System.Drawing.Point(430, 562);
+            this.Guardar.Name = "Guardar";
+            this.Guardar.Size = new System.Drawing.Size(137, 40);
+            this.Guardar.TabIndex = 18;
+            this.Guardar.Text = "Guardar";
+            this.Guardar.UseVisualStyleBackColor = false;
+            // 
+            // panelZonesValidables
+            // 
+            this.panelZonesValidables.Controls.Add(this.Guardar);
+            this.panelZonesValidables.Controls.Add(this.textBoxRange);
+            this.panelZonesValidables.Controls.Add(this.buttonGuardarZona);
+            this.panelZonesValidables.Controls.Add(this.buttonAfegirAules);
+            this.panelZonesValidables.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelZonesValidables.Location = new System.Drawing.Point(0, 0);
+            this.panelZonesValidables.Name = "panelZonesValidables";
+            this.panelZonesValidables.Size = new System.Drawing.Size(1005, 650);
+            this.panelZonesValidables.TabIndex = 0;
+            // 
             // FormCentreZonesValidables
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 650);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBoxZoneCoordinates);
             this.Controls.Add(this.textBoxZoneName);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panelZonesValidables);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCentreZonesValidables";
             this.Text = "FormCentreZonesValidables";
             this.Load += new System.EventHandler(this.FormCentreZonesValidables_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceZonesValidables)).EndInit();
             this.panelZonesValidables.ResumeLayout(false);
             this.panelZonesValidables.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceZonesValidables)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -293,12 +293,7 @@ namespace Libe_Escriptori.Forms.Centres
         private Label label1;
         private TextBox textBoxZoneName;
         private TextBox textBoxZoneCoordinates;
-        private TextBox textBoxRange;
         private DataGridView dataGridView1;
-        private Button buttonGuardarZona;
-        private Button buttonAfegirAules;
-        private Panel panelZonesValidables;
-        private Button Guardar;
         private BindingSource bindingSourceZonesValidables;
         private DataGridViewImageColumn dataGridViewImageColumn1;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
@@ -307,5 +302,10 @@ namespace Libe_Escriptori.Forms.Centres
         private DataGridViewTextBoxColumn longitudeDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn classroomsDataGridViewTextBoxColumn;
         private DataGridViewImageColumn Eliminar;
+        private Button buttonAfegirAules;
+        private Button buttonGuardarZona;
+        private TextBox textBoxRange;
+        private Button Guardar;
+        private Panel panelZonesValidables;
     }
 }

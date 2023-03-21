@@ -17,6 +17,8 @@ namespace Libe_Escriptori.Forms.Centres
     public partial class FormCentreDepartaments : Form
     {
         private String textBoxHintNameDepartment = " Nom del departament";
+        public delegate void DoEvent();
+        public event DoEvent addPoint;
         public FormCentreDepartaments()
         {
             InitializeComponent();
@@ -30,12 +32,12 @@ namespace Libe_Escriptori.Forms.Centres
 
         private void textBoxNomDepartament_Enter(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Enter(textBoxNomDepartament, textBoxHintNameDepartment);
+            Utilities.textBoxSearch_Enter(textBoxNomDepartament, textBoxHintNameDepartment);
         }
 
         private void textBoxNomDepartament_Leave(object sender, EventArgs e)
         {
-            TextBoxDesign.textBoxSearch_Leave(textBoxNomDepartament, textBoxHintNameDepartment);
+            Utilities.textBoxSearch_Leave(textBoxNomDepartament, textBoxHintNameDepartment);
         }
 
 
@@ -62,6 +64,7 @@ namespace Libe_Escriptori.Forms.Centres
             _departments.created_timestamp = DateTime.Now;
 
             DepartmentsOrm.Insert(_departments);
+            addPoint();
             refreshDGV();
         }
 
@@ -81,6 +84,7 @@ namespace Libe_Escriptori.Forms.Centres
                     if (dia == DialogResult.OK)
                     {
                         DepartmentsOrm.Delete(dept);
+                        addPoint();
                         refreshDGV();
                     }
                 }
@@ -91,7 +95,11 @@ namespace Libe_Escriptori.Forms.Centres
                 if (dept != null)
                 {
                     PopupDept popup = new PopupDept(dept);
-                    popup.Show();
+                    DialogResult dr = popup.ShowDialog();
+                    if(dr == DialogResult.OK)
+                    {
+                        addPoint();
+                    }
                     
                 }
             }

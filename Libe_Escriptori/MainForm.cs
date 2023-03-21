@@ -1,9 +1,12 @@
+using Libe_Escriptori.Forms.Centres;
+using Libe_Escriptori.Forms.Courses;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace Libe_Escriptori
 {
+   
     public partial class MainForm : Form
     {
         Button previousButton;
@@ -13,18 +16,25 @@ namespace Libe_Escriptori
         private Button currentButton;
         //MID PANEL SIZE: 1005; 650
         //POPUP SIZE!!!! 664; 495
-
+        private Image noti = Properties.Resources.inbox1;
+        private Image def = Properties.Resources.inbox;
         public MainForm()
         {
             InitializeComponent();
             customDesign();
             previousButton = buttonInici;
+            panelLogs.Visible = false;
+            buttonInbox.BackgroundImage = def;
         }
         private void customDesign()
         {
             selectedEntry(buttonInici);
             panelUsuaris.Visible = false;
             panelCentreSubmenu.Visible = false;
+        }
+        void fm_addpoint()
+        {
+            buttonInbox.BackgroundImage = noti;
         }
         private void OpenChildForm(Form childForm, object btnSender)
         {
@@ -115,7 +125,9 @@ namespace Libe_Escriptori
             selectedEntry(buttonGestionarCursos);
             previousButton = buttonGestionarCursos;
             hideSubMenu();
-            OpenChildForm(new Forms.Courses.FormCourses(labelRuta), sender);
+            FormCourses form = new FormCourses(labelRuta);
+            form.addPoint += new FormCourses.DoEvent(fm_addpoint);
+            OpenChildForm(form, sender);
             labelRuta.Text = "Gestionar Cursos";
         }
 
@@ -142,15 +154,20 @@ namespace Libe_Escriptori
             DefaultButton(buttonZonesValidables, previousButton, true);
             selectedEntry(buttonZonesValidables);
             previousButton = buttonZonesValidables;
-            OpenChildForm(new Forms.Centres.FormCentreZonesValidables(labelRuta), sender);
+            FormCentreZonesValidables form = new FormCentreZonesValidables(labelRuta);
+            form.addPoint += new FormCentreZonesValidables.DoEvent(fm_addpoint);
+            OpenChildForm(form, sender);
             labelRuta.Text = "Centre/Zones Validables";
         }
+        
         private void buttonDepartamentsCentre_Click(object sender, EventArgs e)
         {
             DefaultButton(buttonDepartamentsCentre, previousButton, true);
             selectedEntry(buttonDepartamentsCentre);
             previousButton = buttonDepartamentsCentre;
-            OpenChildForm(new Forms.Centres.FormCentreDepartaments(), sender);
+            FormCentreDepartaments fcd = new FormCentreDepartaments();
+            fcd.addPoint += new FormCentreDepartaments.DoEvent(fm_addpoint);
+            OpenChildForm(fcd, sender);
             labelRuta.Text = "Centre/Departaments";
         }
 
@@ -228,5 +245,36 @@ namespace Libe_Escriptori
                 this.Close();
             }
         }
+
+        private void buttonInbox_Click(object sender, EventArgs e)
+        {
+            buttonInbox.BackgroundImage = def;
+
+            if(panelLogs.Visible == true)
+            {
+                panelLogs.Visible = false;
+            }
+            else
+            {
+                OpenLogsForm(new popupLog(), sender);
+            }
+            
+        }
+
+        private void OpenLogsForm(popupLog popupLog, object sender)
+        {
+            if (activeForm != null)
+            {
+                activeForm.SendToBack();
+            }
+            panelLogs.Visible = true;
+            popupLog.TopLevel = false;
+            popupLog.Dock = DockStyle.Fill;
+            panelLogs.Controls.Add(popupLog);
+            panelLogs.Tag = popupLog;
+            popupLog.BringToFront();
+            popupLog.Show();
+        }
+
     }
 }

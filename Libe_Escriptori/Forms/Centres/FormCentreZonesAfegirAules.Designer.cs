@@ -30,16 +30,22 @@ namespace Libe_Escriptori.Forms.Centres
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.labelZonaValidable = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonGuardarZona = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.panelMove = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            this.panelMove.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -60,7 +66,7 @@ namespace Libe_Escriptori.Forms.Centres
             this.textBoxName.MaximumSize = new System.Drawing.Size(420, 31);
             this.textBoxName.MinimumSize = new System.Drawing.Size(420, 31);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(420, 31);
+            this.textBoxName.Size = new System.Drawing.Size(420, 27);
             this.textBoxName.TabIndex = 2;
             this.textBoxName.Text = " Nom de l\'aula";
             this.textBoxName.Enter += new System.EventHandler(this.textBoxName_Enter);
@@ -99,16 +105,49 @@ namespace Libe_Escriptori.Forms.Centres
             this.buttonGuardarZona.TabIndex = 7;
             this.buttonGuardarZona.Text = "Afegir l\'aula";
             this.buttonGuardarZona.UseVisualStyleBackColor = false;
+            this.buttonGuardarZona.Click += new System.EventHandler(this.buttonGuardarZona_Click);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(35, 149);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nameDataGridViewTextBoxColumn,
+            this.Delete});
+            this.dataGridView1.DataSource = this.bindingSource1;
+            this.dataGridView1.Location = new System.Drawing.Point(35, 155);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowTemplate.Height = 40;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(592, 248);
             this.dataGridView1.TabIndex = 8;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Aula";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "";
+            this.Delete.Image = global::Libe_Escriptori.Properties.Resources.close__1_;
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Width = 40;
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataSource = typeof(Libe_Escriptori.Models.classrooms);
             // 
             // button1
             // 
@@ -117,30 +156,17 @@ namespace Libe_Escriptori.Forms.Centres
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(342, 426);
+            this.button1.Location = new System.Drawing.Point(271, 429);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(137, 39);
             this.button1.TabIndex = 9;
             this.button1.Text = "Acceptar";
             this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(168)))), ((int)(((byte)(241)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(165, 426);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(137, 39);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panelMove
             // 
+            this.panelMove.Controls.Add(this.button3);
             this.panelMove.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMove.Location = new System.Drawing.Point(0, 0);
             this.panelMove.Name = "panelMove";
@@ -150,14 +176,27 @@ namespace Libe_Escriptori.Forms.Centres
             this.panelMove.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelMove_MouseMove);
             this.panelMove.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelMove_MouseUp);
             // 
+            // button3
+            // 
+            this.button3.BackgroundImage = global::Libe_Escriptori.Properties.Resources.close1;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Location = new System.Drawing.Point(638, 6);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(20, 20);
+            this.button3.TabIndex = 12;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // FormCentreZonesAfegirAules
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.ClientSize = new System.Drawing.Size(664, 495);
             this.Controls.Add(this.panelMove);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonGuardarZona);
@@ -170,6 +209,8 @@ namespace Libe_Escriptori.Forms.Centres
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormCentreZonesAfegirAules";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            this.panelMove.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,7 +225,10 @@ namespace Libe_Escriptori.Forms.Centres
         private Button buttonGuardarZona;
         private DataGridView dataGridView1;
         private Button button1;
-        private Button button2;
         private Panel panelMove;
+        private Button button3;
+        private BindingSource bindingSource1;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewImageColumn Delete;
     }
 }
