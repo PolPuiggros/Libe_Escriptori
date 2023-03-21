@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualBasic;
+﻿using Libe_Escriptori.Models;
+using Libe_Escriptori.Models.Centre;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,7 +22,6 @@ namespace Libe_Escriptori.Forms.Centres
         int month, year;
         public static Color colorPicked = Color.White;
 
-
         //Arrays de dies "especials"
         public static List<DateTime> diesLliureDisposicio = new List<DateTime>();
         public static List<DateTime> diesFestius = new List<DateTime>();
@@ -35,6 +36,16 @@ namespace Libe_Escriptori.Forms.Centres
 
         private void FormCalendari_Load(object sender, EventArgs e)
         {
+            List<holidays> llirueDisp = CalendariOrm.Select(1);
+            List<holidays> festius = CalendariOrm.Select(2);
+            foreach (holidays dia in llirueDisp)
+            {
+                diesLliureDisposicio.Add(dia.festive_day);
+            }
+            foreach (holidays dia in festius)
+            {
+                diesFestius.Add(dia.festive_day);
+            }
             displayDays();
         }
         private void displayDays()

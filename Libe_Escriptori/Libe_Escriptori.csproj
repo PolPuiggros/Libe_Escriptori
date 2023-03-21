@@ -223,6 +223,7 @@
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Centre\AulesOrm.cs" />
+    <Compile Include="Models\Centre\CalendariOrm.cs" />
     <Compile Include="Models\Centre\ZonesValidablesOrm.cs" />
     <Compile Include="Models\classrooms.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>

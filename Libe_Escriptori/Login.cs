@@ -32,7 +32,7 @@ namespace Libe_Escriptori
             }
             else
             {
-                MessageBox.Show("No has introduit bé el correu o la contrasenya", "ERROR",
+                MessageBox.Show("No has introduit bé el correu o la contrasenya", "Error",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
