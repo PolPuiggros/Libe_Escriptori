@@ -171,7 +171,17 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
                         }
                         else
                         {
-                            AlumnesOrm.Update(_student, textBoxName.Text, textBoxSurname1.Text, textBoxSurname2.Text, textBoxEmail.Text, textBoxDni.Text, textBoxPhone.Text, checkBoxAutoregister.Checked, checkBoxRepeater.Checked, listUnits);
+                            _student.name = textBoxName.Text;
+                            _student.surname = textBoxSurname1.Text;
+                            _student.surname2 = textBoxSurname2.Text;
+                            _student.email = textBoxEmail.Text;
+                            _student.dni = textBoxDni.Text;
+                            _student.phone_number = textBoxPhone.Text;
+                            _student.autoregister = checkBoxAutoregister.Checked;
+                            _student.has_repeated = checkBoxRepeater.Checked;
+                            _student.units = listUnits;
+                            _student.active = true;
+                            AlumnesOrm.Update(_student);
                         }
                         this.Close();
                     } else 

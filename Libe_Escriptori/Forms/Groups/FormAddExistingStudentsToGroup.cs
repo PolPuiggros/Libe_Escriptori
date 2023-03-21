@@ -57,34 +57,46 @@ namespace Libe_Escriptori.Forms.Groups
         private void FormAddExistingStudentsToGroup_Load(object sender, EventArgs e)
         {
             studentsBindingSource.DataSource = AlumnesOrm.SelectStudentsCourses(true,group.course_id);
+            students _student = new students();
+            foreach (DataGridViewRow row in dataGridViewExistingStudents.Rows)
+            {
+                _student = (students)row.DataBoundItem;
+
+
+                if (_student.group_id == group.id)
+                {
+                    row.Cells["headerGroup"].Value = true;
+                }
+
+
+            }
+
         }
 
         private void buttonSaveStudentsGroup_Click(object sender, EventArgs e)
         {
-            students _student = new students(); 
+            students _student = new students();
             foreach (DataGridViewRow row in dataGridViewExistingStudents.Rows)
             {
                 _student = (students)row.DataBoundItem;
-                if (Convert.ToBoolean(row.Cells[3].Value))
+                
+
+                if (Convert.ToBoolean(row.Cells["headerGroup"].Value))
                 {
                     _student.group_id = group.id;
                 }
+                
+
+                AlumnesOrm.Update(_student);
+
             }
             this.Close();
         }
 
         private void dataGridViewExistingStudents_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            students _student = (students)dataGridViewExistingStudents.Rows[e.RowIndex].DataBoundItem;
-            switch (dataGridViewExistingStudents[e.RowIndex,3].Value)
-            {
-                case "True":
-                    dataGridViewExistingStudents[e.RowIndex, 3].Value = false;
-                    break;
-                case "False":
-                    dataGridViewExistingStudents[e.RowIndex, 3].Value = true;
-                    break;
-            }
+            if (e.RowIndex >= 0)
+                this.dataGridViewExistingStudents.Rows[e.RowIndex].Cells["headerGroup"].Value = true;
         }
     }
 }

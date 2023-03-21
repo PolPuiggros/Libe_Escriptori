@@ -98,7 +98,7 @@ namespace Libe_Escriptori.Forms.Groups
             }
             if (e.ColumnIndex == 4)
             {
-                e.Value = _groups.students.Count.ToString();
+                e.Value = _groups.students.Count(student => student.active).ToString();
             }
         }
 

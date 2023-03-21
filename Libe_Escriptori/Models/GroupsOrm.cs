@@ -47,5 +47,19 @@ namespace Libe_Escriptori.Models
             Orm.db.groups.Remove(_group);
             Orm.db.SaveChanges();
         }
+
+        public static void Update(groups _groups)
+        {
+            groups _group = Orm.db.groups
+                            .Where(group => group.id == _groups.id)
+                            .FirstOrDefault();
+
+            _group.grade = _groups.grade;
+            _group.group_letter = _groups.group_letter;
+            _group.course_id = _groups.course_id;
+            _group.tutor_id = _groups.tutor_id;
+            _group.classroom_id = _groups.classroom_id;
+            Orm.db.SaveChanges();
+        }
     }
 }

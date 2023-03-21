@@ -190,6 +190,17 @@ namespace Libe_Escriptori.Forms.Groups
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            if (!adding)
+            {
+                group.grade = Int32.Parse(comboBoxYearGroup.SelectedItem.ToString());
+                group.group_letter = comboBoxClassGroup.SelectedItem.ToString();
+                courses _course = (courses)comboBoxCicleGroup.SelectedItem;
+                group.course_id = _course.id;
+                profesors _tutor = (profesors)comboBoxTutorGroup.SelectedItem;
+                group.tutor_id = _tutor.id;
+
+                GroupsOrm.Update(group);
+            }
             this.Close();
         }
     }

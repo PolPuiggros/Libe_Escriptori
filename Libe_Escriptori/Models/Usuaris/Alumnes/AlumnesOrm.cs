@@ -41,49 +41,23 @@ namespace Libe_Escriptori.Models.Usuaris.Alumnes
             return _students;
         }
 
-        public static void Update(students _student, string name, string surname, string surname2, string email, string dni, string phone, bool autoregister, bool repiter, List<units> _units)
+        public static void Update(students _student)
         {
-            _student = Orm.db.students
+            students student = Orm.db.students
                 .Where(c => c.id == _student.id)
                 .First();
 
-            if (!_student.name.Equals(name))
-            {
-                _student.name = name;
-            }
-            if (!_student.surname.Equals(surname))
-            {
-                _student.surname = surname;
-            }
-            if (!_student.surname2.Equals(surname2))
-            {
-                _student.surname2 = surname2;
-            }
-            if (!_student.email.Equals(email))
-            {
-                _student.email = email;
-            }
-            if (!_student.dni.Equals(dni))
-            {
-                _student.dni = dni;
-            }
-            if (!_student.phone_number.Equals(phone))
-            {
-                _student.phone_number = phone;
-            }
-            if (_student.autoregister != autoregister)
-            {
-                _student.autoregister = autoregister;
-            }
-            if (_student.has_repeated != repiter)
-            {
-                _student.has_repeated = repiter;
-            }
-            if (_student.units != _units)
-            {
-                _student.units = _units;
-            }
-            _student.updated_timestamp = DateTime.Now;
+           
+            student.name = _student.name;
+            student.surname = _student.surname;
+            student.surname2 = _student.surname2;
+            student.email = _student.email;           
+            student.dni = _student.dni;
+            student.phone_number = _student.phone_number;                     
+            student.autoregister = _student.autoregister;           
+            student.has_repeated = _student.has_repeated;
+            student.units = _student.units;
+            student.updated_timestamp = DateTime.Now;
             Orm.db.SaveChanges();
         }
     }

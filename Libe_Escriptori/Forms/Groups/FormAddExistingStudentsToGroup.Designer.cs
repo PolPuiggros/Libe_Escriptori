@@ -33,15 +33,15 @@ namespace Libe_Escriptori.Forms.Groups
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewExistingStudents = new System.Windows.Forms.DataGridView();
-            this.buttonSaveStudentsGroup = new System.Windows.Forms.Button();
-            this.buttonClose = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.headerGroup = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.surnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.surname2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.headerGroup = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonSaveStudentsGroup = new System.Windows.Forms.Button();
+            this.buttonClose = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExistingStudents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -72,13 +72,65 @@ namespace Libe_Escriptori.Forms.Groups
             this.headerGroup});
             this.dataGridViewExistingStudents.DataSource = this.studentsBindingSource;
             this.dataGridViewExistingStudents.Location = new System.Drawing.Point(27, 58);
+            this.dataGridViewExistingStudents.MultiSelect = false;
             this.dataGridViewExistingStudents.Name = "dataGridViewExistingStudents";
             this.dataGridViewExistingStudents.RowHeadersVisible = false;
             this.dataGridViewExistingStudents.RowHeadersWidth = 51;
             this.dataGridViewExistingStudents.RowTemplate.Height = 25;
+            this.dataGridViewExistingStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewExistingStudents.Size = new System.Drawing.Size(612, 349);
             this.dataGridViewExistingStudents.TabIndex = 0;
             this.dataGridViewExistingStudents.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewExistingStudents_CellClick);
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Nom";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // surnameDataGridViewTextBoxColumn
+            // 
+            this.surnameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.surnameDataGridViewTextBoxColumn.DataPropertyName = "surname";
+            this.surnameDataGridViewTextBoxColumn.HeaderText = "1r Cognom";
+            this.surnameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.surnameDataGridViewTextBoxColumn.Name = "surnameDataGridViewTextBoxColumn";
+            this.surnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // surname2DataGridViewTextBoxColumn
+            // 
+            this.surname2DataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.surname2DataGridViewTextBoxColumn.DataPropertyName = "surname2";
+            this.surname2DataGridViewTextBoxColumn.HeaderText = "2n Cognom";
+            this.surname2DataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.surname2DataGridViewTextBoxColumn.Name = "surname2DataGridViewTextBoxColumn";
+            this.surname2DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // groupidDataGridViewTextBoxColumn
+            // 
+            this.groupidDataGridViewTextBoxColumn.DataPropertyName = "group_id";
+            this.groupidDataGridViewTextBoxColumn.HeaderText = "group_id";
+            this.groupidDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.groupidDataGridViewTextBoxColumn.Name = "groupidDataGridViewTextBoxColumn";
+            this.groupidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.groupidDataGridViewTextBoxColumn.Visible = false;
+            this.groupidDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // headerGroup
+            // 
+            this.headerGroup.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.headerGroup.HeaderText = "DAM1A";
+            this.headerGroup.MinimumWidth = 6;
+            this.headerGroup.Name = "headerGroup";
+            this.headerGroup.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.headerGroup.Width = 102;
+            // 
+            // studentsBindingSource
+            // 
+            this.studentsBindingSource.DataSource = typeof(Libe_Escriptori.Models.students);
             // 
             // buttonSaveStudentsGroup
             // 
@@ -126,56 +178,6 @@ namespace Libe_Escriptori.Forms.Groups
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
-            // 
-            // headerGroup
-            // 
-            this.headerGroup.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.headerGroup.HeaderText = "DAM1A";
-            this.headerGroup.MinimumWidth = 6;
-            this.headerGroup.Name = "headerGroup";
-            this.headerGroup.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.headerGroup.Width = 102;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Nom";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // surnameDataGridViewTextBoxColumn
-            // 
-            this.surnameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.surnameDataGridViewTextBoxColumn.DataPropertyName = "surname";
-            this.surnameDataGridViewTextBoxColumn.HeaderText = "1r Cognom";
-            this.surnameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.surnameDataGridViewTextBoxColumn.Name = "surnameDataGridViewTextBoxColumn";
-            this.surnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // surname2DataGridViewTextBoxColumn
-            // 
-            this.surname2DataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.surname2DataGridViewTextBoxColumn.DataPropertyName = "surname2";
-            this.surname2DataGridViewTextBoxColumn.HeaderText = "2n Cognom";
-            this.surname2DataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.surname2DataGridViewTextBoxColumn.Name = "surname2DataGridViewTextBoxColumn";
-            this.surname2DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // groupidDataGridViewTextBoxColumn
-            // 
-            this.groupidDataGridViewTextBoxColumn.DataPropertyName = "group_id";
-            this.groupidDataGridViewTextBoxColumn.HeaderText = "group_id";
-            this.groupidDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.groupidDataGridViewTextBoxColumn.Name = "groupidDataGridViewTextBoxColumn";
-            this.groupidDataGridViewTextBoxColumn.ReadOnly = true;
-            this.groupidDataGridViewTextBoxColumn.Visible = false;
-            this.groupidDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // studentsBindingSource
-            // 
-            this.studentsBindingSource.DataSource = typeof(Libe_Escriptori.Models.students);
             // 
             // FormAddExistingStudentsToGroup
             // 
