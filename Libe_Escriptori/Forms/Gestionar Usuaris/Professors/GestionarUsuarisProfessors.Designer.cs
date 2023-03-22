@@ -38,15 +38,15 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.textBoxFiltres = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridViewTeachers = new System.Windows.Forms.DataGridView();
-            this.buttonNew = new System.Windows.Forms.Button();
-            this.ColumnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.surname1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.surname2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phonenumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.bindingSourceProfesors = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonNew = new System.Windows.Forms.Button();
             this.panelGestionarUsuarisProfessors.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTeachers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProfesors)).BeginInit();
@@ -75,6 +75,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.textBoxFiltres.Size = new System.Drawing.Size(450, 27);
             this.textBoxFiltres.TabIndex = 15;
             this.textBoxFiltres.Text = " Introdueix dades clau del professor ex. DNI, Cognom...";
+            this.textBoxFiltres.TextChanged += new System.EventHandler(this.textBoxFiltres_TextChanged);
             this.textBoxFiltres.Enter += new System.EventHandler(this.textBoxFiltres_Enter);
             this.textBoxFiltres.Leave += new System.EventHandler(this.textBoxFiltres_Leave);
             // 
@@ -141,38 +142,6 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.dataGridViewTeachers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTeachers_CellClick);
             this.dataGridViewTeachers.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridViewTeachers_CellPainting);
             // 
-            // buttonNew
-            // 
-            this.buttonNew.BackColor = System.Drawing.Color.White;
-            this.buttonNew.FlatAppearance.BorderSize = 0;
-            this.buttonNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.buttonNew.Location = new System.Drawing.Point(93, 43);
-            this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(137, 27);
-            this.buttonNew.TabIndex = 10;
-            this.buttonNew.Text = "Nou";
-            this.buttonNew.UseVisualStyleBackColor = false;
-            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
-            // 
-            // ColumnEdit
-            // 
-            this.ColumnEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColumnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnEdit.HeaderText = "";
-            this.ColumnEdit.Name = "ColumnEdit";
-            this.ColumnEdit.ReadOnly = true;
-            this.ColumnEdit.Width = 5;
-            // 
-            // ColumnDelete
-            // 
-            this.ColumnDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColumnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnDelete.HeaderText = "";
-            this.ColumnDelete.Name = "ColumnDelete";
-            this.ColumnDelete.ReadOnly = true;
-            this.ColumnDelete.Width = 5;
-            // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -213,9 +182,41 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.phonenumberDataGridViewTextBoxColumn.Name = "phonenumberDataGridViewTextBoxColumn";
             this.phonenumberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // ColumnEdit
+            // 
+            this.ColumnEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnEdit.HeaderText = "";
+            this.ColumnEdit.Name = "ColumnEdit";
+            this.ColumnEdit.ReadOnly = true;
+            this.ColumnEdit.Width = 5;
+            // 
+            // ColumnDelete
+            // 
+            this.ColumnDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnDelete.HeaderText = "";
+            this.ColumnDelete.Name = "ColumnDelete";
+            this.ColumnDelete.ReadOnly = true;
+            this.ColumnDelete.Width = 5;
+            // 
             // bindingSourceProfesors
             // 
             this.bindingSourceProfesors.DataSource = typeof(Libe_Escriptori.Models.profesors);
+            // 
+            // buttonNew
+            // 
+            this.buttonNew.BackColor = System.Drawing.Color.White;
+            this.buttonNew.FlatAppearance.BorderSize = 0;
+            this.buttonNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.buttonNew.Location = new System.Drawing.Point(93, 43);
+            this.buttonNew.Name = "buttonNew";
+            this.buttonNew.Size = new System.Drawing.Size(137, 27);
+            this.buttonNew.TabIndex = 10;
+            this.buttonNew.Text = "Nou";
+            this.buttonNew.UseVisualStyleBackColor = false;
+            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
             // GestionarUsuarisProfessors
             // 
