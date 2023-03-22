@@ -31,23 +31,24 @@ namespace Libe_Escriptori.Forms.Courses
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelNewModule = new System.Windows.Forms.Panel();
+            this.buttonSaveUf = new System.Windows.Forms.Button();
+            this.textBoxHoursUF = new System.Windows.Forms.TextBox();
+            this.textBoxNameUF = new System.Windows.Forms.TextBox();
+            this.textBoxAbbrebiationUF = new System.Windows.Forms.TextBox();
             this.labelNewModule = new System.Windows.Forms.Label();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.labelUF = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.bindingSourceUnits = new System.Windows.Forms.BindingSource(this.components);
             this.textBoxHours = new System.Windows.Forms.TextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxAbbreviation = new System.Windows.Forms.TextBox();
-            this.textBoxAbbrebiationUF = new System.Windows.Forms.TextBox();
-            this.textBoxNameUF = new System.Windows.Forms.TextBox();
-            this.textBoxHoursUF = new System.Windows.Forms.TextBox();
-            this.buttonSaveUf = new System.Windows.Forms.Button();
             this.abreviationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalhoursDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSourceUnits = new System.Windows.Forms.BindingSource(this.components);
             this.panelNewModule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUnits)).BeginInit();
@@ -72,6 +73,63 @@ namespace Libe_Escriptori.Forms.Courses
             this.panelNewModule.Name = "panelNewModule";
             this.panelNewModule.Size = new System.Drawing.Size(1005, 650);
             this.panelNewModule.TabIndex = 0;
+            // 
+            // buttonSaveUf
+            // 
+            this.buttonSaveUf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(64)))), ((int)(((byte)(171)))));
+            this.buttonSaveUf.FlatAppearance.BorderSize = 0;
+            this.buttonSaveUf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSaveUf.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.buttonSaveUf.ForeColor = System.Drawing.Color.White;
+            this.buttonSaveUf.Location = new System.Drawing.Point(787, 191);
+            this.buttonSaveUf.Name = "buttonSaveUf";
+            this.buttonSaveUf.Size = new System.Drawing.Size(137, 31);
+            this.buttonSaveUf.TabIndex = 14;
+            this.buttonSaveUf.Text = "Guardar UF";
+            this.buttonSaveUf.UseVisualStyleBackColor = false;
+            this.buttonSaveUf.Click += new System.EventHandler(this.buttonSaveUf_Click);
+            // 
+            // textBoxHoursUF
+            // 
+            this.textBoxHoursUF.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
+            this.textBoxHoursUF.ForeColor = System.Drawing.Color.Gray;
+            this.textBoxHoursUF.Location = new System.Drawing.Point(621, 192);
+            this.textBoxHoursUF.MaximumSize = new System.Drawing.Size(179, 31);
+            this.textBoxHoursUF.MinimumSize = new System.Drawing.Size(150, 31);
+            this.textBoxHoursUF.Name = "textBoxHoursUF";
+            this.textBoxHoursUF.Size = new System.Drawing.Size(160, 29);
+            this.textBoxHoursUF.TabIndex = 13;
+            this.textBoxHoursUF.Text = " Hores UF";
+            this.textBoxHoursUF.Enter += new System.EventHandler(this.textBoxHoursUF_Enter);
+            this.textBoxHoursUF.Leave += new System.EventHandler(this.textBoxHoursUF_Leave);
+            // 
+            // textBoxNameUF
+            // 
+            this.textBoxNameUF.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
+            this.textBoxNameUF.ForeColor = System.Drawing.Color.Gray;
+            this.textBoxNameUF.Location = new System.Drawing.Point(284, 192);
+            this.textBoxNameUF.MaximumSize = new System.Drawing.Size(325, 31);
+            this.textBoxNameUF.MinimumSize = new System.Drawing.Size(179, 31);
+            this.textBoxNameUF.Name = "textBoxNameUF";
+            this.textBoxNameUF.Size = new System.Drawing.Size(325, 29);
+            this.textBoxNameUF.TabIndex = 12;
+            this.textBoxNameUF.Text = " Nom UF";
+            this.textBoxNameUF.Enter += new System.EventHandler(this.textBoxNameUF_Enter);
+            this.textBoxNameUF.Leave += new System.EventHandler(this.textBoxNameUF_Leave);
+            // 
+            // textBoxAbbrebiationUF
+            // 
+            this.textBoxAbbrebiationUF.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
+            this.textBoxAbbrebiationUF.ForeColor = System.Drawing.Color.Gray;
+            this.textBoxAbbrebiationUF.Location = new System.Drawing.Point(96, 192);
+            this.textBoxAbbrebiationUF.MaximumSize = new System.Drawing.Size(179, 31);
+            this.textBoxAbbrebiationUF.MinimumSize = new System.Drawing.Size(179, 31);
+            this.textBoxAbbrebiationUF.Name = "textBoxAbbrebiationUF";
+            this.textBoxAbbrebiationUF.Size = new System.Drawing.Size(179, 29);
+            this.textBoxAbbrebiationUF.TabIndex = 11;
+            this.textBoxAbbrebiationUF.Text = " Abreviació UF";
+            this.textBoxAbbrebiationUF.Enter += new System.EventHandler(this.textBoxAbbrebiationUF_Enter);
+            this.textBoxAbbrebiationUF.Leave += new System.EventHandler(this.textBoxAbbrebiationUF_Leave);
             // 
             // labelNewModule
             // 
@@ -129,13 +187,22 @@ namespace Libe_Escriptori.Forms.Courses
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.abreviationDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn,
             this.totalhoursDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.bindingSourceUnits;
-            this.dataGridView1.Location = new System.Drawing.Point(96, 229);
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(171)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.Location = new System.Drawing.Point(96, 236);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
@@ -143,6 +210,10 @@ namespace Libe_Escriptori.Forms.Courses
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(828, 289);
             this.dataGridView1.TabIndex = 3;
+            // 
+            // bindingSourceUnits
+            // 
+            this.bindingSourceUnits.DataSource = typeof(Libe_Escriptori.Models.units);
             // 
             // textBoxHours
             // 
@@ -186,75 +257,18 @@ namespace Libe_Escriptori.Forms.Courses
             this.textBoxAbbreviation.Enter += new System.EventHandler(this.textBoxAbbreviation_Enter);
             this.textBoxAbbreviation.Leave += new System.EventHandler(this.textBoxAbbreviation_Leave);
             // 
-            // textBoxAbbrebiationUF
-            // 
-            this.textBoxAbbrebiationUF.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
-            this.textBoxAbbrebiationUF.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxAbbrebiationUF.Location = new System.Drawing.Point(96, 192);
-            this.textBoxAbbrebiationUF.MaximumSize = new System.Drawing.Size(179, 31);
-            this.textBoxAbbrebiationUF.MinimumSize = new System.Drawing.Size(179, 31);
-            this.textBoxAbbrebiationUF.Name = "textBoxAbbrebiationUF";
-            this.textBoxAbbrebiationUF.Size = new System.Drawing.Size(179, 29);
-            this.textBoxAbbrebiationUF.TabIndex = 11;
-            this.textBoxAbbrebiationUF.Text = " Abreviació UF";
-            this.textBoxAbbrebiationUF.Enter += new System.EventHandler(this.textBoxAbbrebiationUF_Enter);
-            this.textBoxAbbrebiationUF.Leave += new System.EventHandler(this.textBoxAbbrebiationUF_Leave);
-            // 
-            // textBoxNameUF
-            // 
-            this.textBoxNameUF.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
-            this.textBoxNameUF.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxNameUF.Location = new System.Drawing.Point(284, 192);
-            this.textBoxNameUF.MaximumSize = new System.Drawing.Size(325, 31);
-            this.textBoxNameUF.MinimumSize = new System.Drawing.Size(179, 31);
-            this.textBoxNameUF.Name = "textBoxNameUF";
-            this.textBoxNameUF.Size = new System.Drawing.Size(325, 29);
-            this.textBoxNameUF.TabIndex = 12;
-            this.textBoxNameUF.Text = " Nom UF";
-            this.textBoxNameUF.Enter += new System.EventHandler(this.textBoxNameUF_Enter);
-            this.textBoxNameUF.Leave += new System.EventHandler(this.textBoxNameUF_Leave);
-            // 
-            // textBoxHoursUF
-            // 
-            this.textBoxHoursUF.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic);
-            this.textBoxHoursUF.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxHoursUF.Location = new System.Drawing.Point(621, 192);
-            this.textBoxHoursUF.MaximumSize = new System.Drawing.Size(179, 31);
-            this.textBoxHoursUF.MinimumSize = new System.Drawing.Size(150, 31);
-            this.textBoxHoursUF.Name = "textBoxHoursUF";
-            this.textBoxHoursUF.Size = new System.Drawing.Size(160, 29);
-            this.textBoxHoursUF.TabIndex = 13;
-            this.textBoxHoursUF.Text = " Hores UF";
-            this.textBoxHoursUF.Enter += new System.EventHandler(this.textBoxHoursUF_Enter);
-            this.textBoxHoursUF.Leave += new System.EventHandler(this.textBoxHoursUF_Leave);
-            // 
-            // buttonSaveUf
-            // 
-            this.buttonSaveUf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(64)))), ((int)(((byte)(171)))));
-            this.buttonSaveUf.FlatAppearance.BorderSize = 0;
-            this.buttonSaveUf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSaveUf.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.buttonSaveUf.ForeColor = System.Drawing.Color.White;
-            this.buttonSaveUf.Location = new System.Drawing.Point(787, 191);
-            this.buttonSaveUf.Name = "buttonSaveUf";
-            this.buttonSaveUf.Size = new System.Drawing.Size(137, 31);
-            this.buttonSaveUf.TabIndex = 14;
-            this.buttonSaveUf.Text = "Guardar UF";
-            this.buttonSaveUf.UseVisualStyleBackColor = false;
-            this.buttonSaveUf.Click += new System.EventHandler(this.buttonSaveUf_Click);
-            // 
             // abreviationDataGridViewTextBoxColumn
             // 
             this.abreviationDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.abreviationDataGridViewTextBoxColumn.DataPropertyName = "abreviation";
-            this.abreviationDataGridViewTextBoxColumn.HeaderText = "abreviation";
+            this.abreviationDataGridViewTextBoxColumn.HeaderText = "Abreviació";
             this.abreviationDataGridViewTextBoxColumn.Name = "abreviationDataGridViewTextBoxColumn";
             this.abreviationDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Nom";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             this.nameDataGridViewTextBoxColumn.Width = 400;
@@ -263,13 +277,9 @@ namespace Libe_Escriptori.Forms.Courses
             // 
             this.totalhoursDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.totalhoursDataGridViewTextBoxColumn.DataPropertyName = "total_hours";
-            this.totalhoursDataGridViewTextBoxColumn.HeaderText = "total_hours";
+            this.totalhoursDataGridViewTextBoxColumn.HeaderText = "Hores totals";
             this.totalhoursDataGridViewTextBoxColumn.Name = "totalhoursDataGridViewTextBoxColumn";
             this.totalhoursDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bindingSourceUnits
-            // 
-            this.bindingSourceUnits.DataSource = typeof(Libe_Escriptori.Models.units);
             // 
             // FormAddNewModule
             // 

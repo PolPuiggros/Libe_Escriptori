@@ -74,5 +74,10 @@ namespace Libe_Escriptori.Forms.Courses
         {
             bindingSourceAllModules.DataSource = ModulesORM.SelectAll(_course);
         }
+
+        private void dataGridViewModules_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

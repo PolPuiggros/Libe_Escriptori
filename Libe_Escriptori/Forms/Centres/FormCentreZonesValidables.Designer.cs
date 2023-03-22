@@ -36,22 +36,22 @@ namespace Libe_Escriptori.Forms.Centres
             this.textBoxZoneName = new System.Windows.Forms.TextBox();
             this.textBoxZoneCoordinates = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.radiusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.latitudeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.longitudeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.classroomsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.bindingSourceZonesValidables = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.buttonAfegirAules = new System.Windows.Forms.Button();
             this.buttonGuardarZona = new System.Windows.Forms.Button();
             this.textBoxRange = new System.Windows.Forms.TextBox();
             this.Guardar = new System.Windows.Forms.Button();
             this.panelZonesValidables = new System.Windows.Forms.Panel();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.radiusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.latitudeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.longitudeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classroomsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSourceZonesValidables = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceZonesValidables)).BeginInit();
             this.panelZonesValidables.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceZonesValidables)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -110,7 +110,7 @@ namespace Libe_Escriptori.Forms.Centres
             this.dataGridView1.DataSource = this.bindingSourceZonesValidables;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(171)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -127,73 +127,6 @@ namespace Libe_Escriptori.Forms.Centres
             this.dataGridView1.TabIndex = 15;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.FillWeight = 95.63452F;
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Nom";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // radiusDataGridViewTextBoxColumn
-            // 
-            this.radiusDataGridViewTextBoxColumn.DataPropertyName = "radius";
-            this.radiusDataGridViewTextBoxColumn.FillWeight = 95.63452F;
-            this.radiusDataGridViewTextBoxColumn.HeaderText = "Radi";
-            this.radiusDataGridViewTextBoxColumn.Name = "radiusDataGridViewTextBoxColumn";
-            this.radiusDataGridViewTextBoxColumn.ReadOnly = true;
-            this.radiusDataGridViewTextBoxColumn.Width = 131;
-            // 
-            // latitudeDataGridViewTextBoxColumn
-            // 
-            this.latitudeDataGridViewTextBoxColumn.DataPropertyName = "latitude";
-            this.latitudeDataGridViewTextBoxColumn.FillWeight = 95.63452F;
-            this.latitudeDataGridViewTextBoxColumn.HeaderText = "Latitut";
-            this.latitudeDataGridViewTextBoxColumn.Name = "latitudeDataGridViewTextBoxColumn";
-            this.latitudeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.latitudeDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // longitudeDataGridViewTextBoxColumn
-            // 
-            this.longitudeDataGridViewTextBoxColumn.DataPropertyName = "longitude";
-            this.longitudeDataGridViewTextBoxColumn.FillWeight = 95.63452F;
-            this.longitudeDataGridViewTextBoxColumn.HeaderText = "Longitude";
-            this.longitudeDataGridViewTextBoxColumn.Name = "longitudeDataGridViewTextBoxColumn";
-            this.longitudeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.longitudeDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // classroomsDataGridViewTextBoxColumn
-            // 
-            this.classroomsDataGridViewTextBoxColumn.DataPropertyName = "classrooms";
-            this.classroomsDataGridViewTextBoxColumn.FillWeight = 95.63452F;
-            this.classroomsDataGridViewTextBoxColumn.HeaderText = "Nombre d\'aules";
-            this.classroomsDataGridViewTextBoxColumn.Name = "classroomsDataGridViewTextBoxColumn";
-            this.classroomsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.classroomsDataGridViewTextBoxColumn.Width = 131;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.FillWeight = 121.8274F;
-            this.Eliminar.HeaderText = "";
-            this.Eliminar.Image = global::Libe_Escriptori.Properties.Resources.close__1_;
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            this.Eliminar.Width = 40;
-            // 
-            // bindingSourceZonesValidables
-            // 
-            this.bindingSourceZonesValidables.DataSource = typeof(Libe_Escriptori.Models.validable_zones);
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.FillWeight = 121.8274F;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = global::Libe_Escriptori.Properties.Resources.remove;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Width = 40;
             // 
             // buttonAfegirAules
             // 
@@ -265,6 +198,73 @@ namespace Libe_Escriptori.Forms.Centres
             this.panelZonesValidables.Size = new System.Drawing.Size(1005, 650);
             this.panelZonesValidables.TabIndex = 0;
             // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.FillWeight = 121.8274F;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::Libe_Escriptori.Properties.Resources.remove;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Width = 40;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.FillWeight = 121.8274F;
+            this.Eliminar.HeaderText = "";
+            this.Eliminar.Image = global::Libe_Escriptori.Properties.Resources.close__1_;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Width = 40;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.FillWeight = 95.63452F;
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Nom";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // radiusDataGridViewTextBoxColumn
+            // 
+            this.radiusDataGridViewTextBoxColumn.DataPropertyName = "radius";
+            this.radiusDataGridViewTextBoxColumn.FillWeight = 95.63452F;
+            this.radiusDataGridViewTextBoxColumn.HeaderText = "Radi";
+            this.radiusDataGridViewTextBoxColumn.Name = "radiusDataGridViewTextBoxColumn";
+            this.radiusDataGridViewTextBoxColumn.ReadOnly = true;
+            this.radiusDataGridViewTextBoxColumn.Width = 131;
+            // 
+            // latitudeDataGridViewTextBoxColumn
+            // 
+            this.latitudeDataGridViewTextBoxColumn.DataPropertyName = "latitude";
+            this.latitudeDataGridViewTextBoxColumn.FillWeight = 95.63452F;
+            this.latitudeDataGridViewTextBoxColumn.HeaderText = "Latitut";
+            this.latitudeDataGridViewTextBoxColumn.Name = "latitudeDataGridViewTextBoxColumn";
+            this.latitudeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.latitudeDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // longitudeDataGridViewTextBoxColumn
+            // 
+            this.longitudeDataGridViewTextBoxColumn.DataPropertyName = "longitude";
+            this.longitudeDataGridViewTextBoxColumn.FillWeight = 95.63452F;
+            this.longitudeDataGridViewTextBoxColumn.HeaderText = "Longitude";
+            this.longitudeDataGridViewTextBoxColumn.Name = "longitudeDataGridViewTextBoxColumn";
+            this.longitudeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.longitudeDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // classroomsDataGridViewTextBoxColumn
+            // 
+            this.classroomsDataGridViewTextBoxColumn.DataPropertyName = "classrooms";
+            this.classroomsDataGridViewTextBoxColumn.FillWeight = 95.63452F;
+            this.classroomsDataGridViewTextBoxColumn.HeaderText = "Nombre d\'aules";
+            this.classroomsDataGridViewTextBoxColumn.Name = "classroomsDataGridViewTextBoxColumn";
+            this.classroomsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.classroomsDataGridViewTextBoxColumn.Width = 131;
+            // 
+            // bindingSourceZonesValidables
+            // 
+            this.bindingSourceZonesValidables.DataSource = typeof(Libe_Escriptori.Models.validable_zones);
+            // 
             // FormCentreZonesValidables
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -280,9 +280,9 @@ namespace Libe_Escriptori.Forms.Centres
             this.Text = "FormCentreZonesValidables";
             this.Load += new System.EventHandler(this.FormCentreZonesValidables_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceZonesValidables)).EndInit();
             this.panelZonesValidables.ResumeLayout(false);
             this.panelZonesValidables.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceZonesValidables)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

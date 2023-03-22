@@ -112,39 +112,6 @@ namespace Libe_Escriptori.Forms.Courses
             }
         }
 
-        private void dataGridViewModules_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
-        {
-            if (e.RowIndex < 0)
-                return;
-            // Edit button column
-            if (e.ColumnIndex == 4)
-            {
-                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-
-                var w = 15;
-                var h = 15;
-                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
-                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
-
-                e.Graphics.DrawImage(Resources.bin, new Rectangle(x, y, w, h));
-                e.Handled = true;
-            }
-
-            // Delete button column
-            if (e.ColumnIndex == 5)
-            {
-                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-
-                var w = 15;
-                var h = 15;
-                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
-                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
-
-                e.Graphics.DrawImage(Resources.bin, new Rectangle(x, y, w, h));
-                e.Handled = true;
-            }
-        }
-
         private void FormCoursesAdd_Load(object sender, EventArgs e)
         {
             listDepartments = DepartmentsOrm.Select(true);
