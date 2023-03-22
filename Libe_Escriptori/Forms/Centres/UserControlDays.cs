@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Libe_Escriptori.Models;
+using Libe_Escriptori.Models.Centre;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,19 +21,18 @@ namespace Libe_Escriptori.Forms.Centres
         private Color green = Color.FromArgb(128, 255, 128);
         private Color pink = Color.FromArgb(255, 128, 255);
         private Color weekendColor = Color.FromArgb(255, 128, 128);
-        private Color previousColor;
 
         private DateTime defaultDateTime = new DateTime(1, 1, 1);
         public UserControlDays(Color color, Label date)
         {
             InitializeComponent();
             BackGroundColor(color);
-            this.labelMonthYear = date.Text;
+            labelMonthYear = date.Text;
         }
 
         private void BackGroundColor(Color color)
         {
-            this.BackColor = color;
+            BackColor = color;
         }
 
         private void UserControlDays_Load(object sender, EventArgs e)
@@ -108,94 +109,86 @@ namespace Libe_Escriptori.Forms.Centres
                 BackGroundColor(colorPicked);
             }
             
-            if (colorPicked.Equals(blue) && FormCalendari.diesLliureDisposicio.Where(d => d.Equals(daySelected)).FirstOrDefault() == default)
+            if (colorPicked.Equals(blue))
             {
-                var isFestiu = FormCalendari.diesFestius.Where(d => d.Equals(daySelected)).FirstOrDefault();
-                if (isFestiu != default)
+                if(FormCalendari.allHolidays.FindIndex(h => h.festive_day == daySelected) != -1)
                 {
-                    FormCalendari.diesFestius.Remove(isFestiu);
+                    CalendariOrm.UpdateType(1, daySelected); //Actualitzem el dia de vacances a lliure elecció
                 }
-                FormCalendari.diesLliureDisposicio.Add(daySelected);
+                else
+                {
+                    holidays holiday = new holidays();
+                    holiday.calendar_id = 1;
+                    holiday.festive_day = daySelected;
+                    holiday.type = 1;
+
+                    CalendariOrm.Insert(holiday);
+                }
 
             }
-            else if (colorPicked.Equals(yellow) && FormCalendari.diesFestius.Where(d => d.Equals(daySelected)).FirstOrDefault() == default)
+            else if (colorPicked.Equals(yellow))
             {
-                var isLliureDisposicio = FormCalendari.diesLliureDisposicio.Where(d => d.Equals(daySelected)).FirstOrDefault();
-                if (isLliureDisposicio != default)
+                if (FormCalendari.allHolidays.FindIndex(h => h.festive_day == daySelected) != -1)
                 {
-                    FormCalendari.diesLliureDisposicio.Remove(isLliureDisposicio);
+                    CalendariOrm.UpdateType(2, daySelected); //Actualitzem el dia de lliure elecció a vacances 
                 }
-                FormCalendari.diesFestius.Add(daySelected);
+                else
+                {
+                    holidays holiday = new holidays();
+                    holiday.calendar_id = 1;
+                    holiday.festive_day = daySelected;
+                    holiday.type = 2;
+
+                    CalendariOrm.Insert(holiday);
+                }
             }
             else if (colorPicked.Equals(green))
             {
-                var isFestiu = FormCalendari.diesFestius.Where(d => d.Equals(daySelected)).FirstOrDefault();
-                var isLliureDisposicio = FormCalendari.diesLliureDisposicio.Where(d => d.Equals(daySelected)).FirstOrDefault();
+                if (FormCalendari.allHolidays.FindIndex(h => h.festive_day == daySelected) != -1)
+                {
+                    CalendariOrm.Delete(daySelected);
+                }
+                if (FormCalendari.fiCurs == daySelected)
+                {
+                    CalendariOrm.UpdateEndingDate(defaultDateTime);
+                }
 
+                CalendariOrm.UpdateStartingDate(daySelected);
 
-                if (isFestiu != null)
-                {
-                    FormCalendari.diesFestius.Remove(isFestiu);
-                }
-                if (isLliureDisposicio != null)
-                {
-                    FormCalendari.diesLliureDisposicio.Remove(isLliureDisposicio);
-                }
-                if (daySelected == FormCalendari.fiCurs)
-                {
-                    FormCalendari.fiCurs = defaultDateTime;
-                }
-               
-                FormCalendari.iniciCurs = daySelected;
 
             }
             else if (colorPicked.Equals(pink))
             {
-                var isFestiu = FormCalendari.diesFestius.Where(d => d.Equals(daySelected)).FirstOrDefault();
-                var isLliureDisposicio = FormCalendari.diesLliureDisposicio.Where(d => d.Equals(daySelected)).FirstOrDefault();
-                if (isFestiu != null)
+                if (FormCalendari.allHolidays.FindIndex(h => h.festive_day == daySelected) != -1)
                 {
-                    FormCalendari.diesFestius.Remove(isFestiu);
+                    CalendariOrm.Delete(daySelected);
                 }
-                if (isLliureDisposicio != null)
+                if (FormCalendari.iniciCurs == daySelected)
                 {
-                    FormCalendari.diesLliureDisposicio.Remove(isLliureDisposicio);
+                    CalendariOrm.UpdateStartingDate(defaultDateTime);
                 }
-                if (daySelected == FormCalendari.iniciCurs)
-                {
-                    FormCalendari.iniciCurs = defaultDateTime;
-                }
-                FormCalendari.fiCurs = daySelected;
+
+                CalendariOrm.UpdateEndingDate(daySelected);
+
             }
             else if (colorPicked.Equals(Color.White))
             {
-                var isFestiu = FormCalendari.diesFestius.Where(d => d.Equals(daySelected)).FirstOrDefault();
-                var isLliureDisposicio = FormCalendari.diesLliureDisposicio.Where(d => d.Equals(daySelected)).FirstOrDefault();
-                if (isFestiu != null)
+                if (FormCalendari.allHolidays.FindIndex(h => h.festive_day == daySelected) != -1)
                 {
-                    FormCalendari.diesFestius.Remove(isFestiu);
+                    CalendariOrm.Delete(daySelected);
                 }
-                if(isLliureDisposicio != null){
-                    FormCalendari.diesLliureDisposicio.Remove(isLliureDisposicio);
-                }
-
-                if (daySelected == FormCalendari.fiCurs)
+                if (FormCalendari.fiCurs == daySelected)
                 {
-                    FormCalendari.fiCurs = defaultDateTime; 
+                    CalendariOrm.UpdateEndingDate(defaultDateTime);
                 }
-                if (daySelected == FormCalendari.iniciCurs)
+                if (FormCalendari.iniciCurs == daySelected)
                 {
-                    FormCalendari.iniciCurs = defaultDateTime;
+                    CalendariOrm.UpdateStartingDate(defaultDateTime);
                 }
             }
         }
 
-        private void UserControlDays_MouseUp(object sender, MouseEventArgs e)
-        {
-           if(e.Button == MouseButtons.Right)
-            {
-                //TODO
-            }
-        }
+
+       
     }
 }

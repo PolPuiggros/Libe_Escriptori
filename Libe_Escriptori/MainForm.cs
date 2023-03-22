@@ -176,7 +176,9 @@ namespace Libe_Escriptori
             DefaultButton(buttonCalendariCentre, previousButton, true);
             selectedEntry(buttonCalendariCentre);
             previousButton = buttonCalendariCentre;
-            OpenChildForm(new Forms.Centres.FormCalendari(), sender);
+            FormCalendari fc = new FormCalendari();
+            fc.addPoint += new FormCalendari.DoEvent(fm_addpoint);
+            OpenChildForm(fc, sender);
             labelRuta.Text = "Centre/Calendari";
         }
 

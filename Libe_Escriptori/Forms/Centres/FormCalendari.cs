@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualBasic;
+﻿using Libe_Escriptori.Models;
+using Libe_Escriptori.Models.Centre;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,13 +22,14 @@ namespace Libe_Escriptori.Forms.Centres
         int month, year;
         public static Color colorPicked = Color.White;
 
-
         //Arrays de dies "especials"
-        public static List<DateTime> diesLliureDisposicio = new List<DateTime>();
-        public static List<DateTime> diesFestius = new List<DateTime>();
-        public static DateTime iniciCurs;
+        public static List<holidays> allHolidays = new List<holidays>();
         public static DateTime fiCurs;
-
+        public static DateTime iniciCurs;
+        calendars calendari;
+        public delegate void DoEvent();
+        public event DoEvent addPoint;
+        public static List<holidays> holiDaysOftheMonth;
 
         public FormCalendari()
         {
@@ -35,8 +38,18 @@ namespace Libe_Escriptori.Forms.Centres
 
         private void FormCalendari_Load(object sender, EventArgs e)
         {
+            getData();
             displayDays();
         }
+
+        private void getData()
+        {
+            allHolidays = CalendariOrm.Select();
+            calendari = CalendariOrm.SelectCalendari();
+            iniciCurs = calendari.starting_date;
+            fiCurs = calendari.ending_date;
+        }
+
         private void displayDays()
         {
             DateTime now = DateTime.Now;
@@ -44,7 +57,7 @@ namespace Libe_Escriptori.Forms.Centres
             year = now.Year;
             String monthName = ci.DateTimeFormat.GetMonthName(month);
             monthName = char.ToUpper(monthName[0]) + monthName.Substring(1);
-            
+            int iteratorHoliday = 0;
             labelDate.Text = monthName + " " + year;
 
             DateTime startOfTheMonth = new DateTime(year, month, 1);
@@ -55,6 +68,7 @@ namespace Libe_Escriptori.Forms.Centres
             int sunday = 5 - daysOftheWeek;
             int saturday = 6 - daysOftheWeek;
 
+            holiDaysOftheMonth = getHolidaysOfTheMonth(startOfTheMonth, allHolidays);
 
             for (int i = 1; i < daysOftheWeek; i++)
             {               
@@ -73,22 +87,26 @@ namespace Libe_Escriptori.Forms.Centres
                 }
                 else
                 {
-                    int indexLliureDisposicio = diesLliureDisposicio.IndexOf(dia);
-                    int indexFestius = diesFestius.IndexOf(dia);
+                    int index = holiDaysOftheMonth.FindIndex(h => h.festive_day == dia);
 
-                    if (indexLliureDisposicio != -1)
-                    {
-                        UserControlDays ucdaysLliureDispo = new UserControlDays(Color.FromArgb(192, 192, 255), labelDate);
-                        ucdaysLliureDispo.days(i);
-                        flowLayoutPanelDaysContainer.Controls.Add(ucdaysLliureDispo);
+                    if (index != -1)
+                    {                   
+                        if (holiDaysOftheMonth[iteratorHoliday].type == 1)
+                        {
+                            UserControlDays ucdaysLliureDispo = new UserControlDays(Color.FromArgb(192, 192, 255), labelDate);
+                            ucdaysLliureDispo.days(i);
+                            flowLayoutPanelDaysContainer.Controls.Add(ucdaysLliureDispo);
+                        }
+                        else if (holiDaysOftheMonth[iteratorHoliday].type == 2)
+                        {
+                            UserControlDays ucdaysFestius = new UserControlDays(Color.FromArgb(255, 255, 128), labelDate);
+                            ucdaysFestius.days(i);
+                            flowLayoutPanelDaysContainer.Controls.Add(ucdaysFestius);
+                        }
+                        iteratorHoliday++;
+
                     }
-                    else if (indexFestius != -1)
-                    {
-                        UserControlDays ucdaysFestius = new UserControlDays(Color.FromArgb(255, 255, 128), labelDate);
-                        ucdaysFestius.days(i);
-                        flowLayoutPanelDaysContainer.Controls.Add(ucdaysFestius);
-                    }
-                    else if (dia == iniciCurs)
+                    else if (dia == iniciCurs) //green
                     {
                         UserControlDays ucdaysIniciCurs = new UserControlDays(Color.FromArgb(128, 255, 128), labelDate);
                         ucdaysIniciCurs.days(i);
@@ -119,8 +137,8 @@ namespace Libe_Escriptori.Forms.Centres
                 month = 0;
                 year++;
             }
+            getData();
             month++;
-
             String monthName = ci.DateTimeFormat.GetMonthName(month);
             monthName = char.ToUpper(monthName[0]) + monthName.Substring(1);
             labelDate.Text = monthName + " " + year;
@@ -130,6 +148,9 @@ namespace Libe_Escriptori.Forms.Centres
             if (daysOftheWeek <= 0) daysOftheWeek = 1;
             int sunday = 5 - daysOftheWeek;
             int saturday = 6 - daysOftheWeek;
+            int iteratorHoliday = 0;
+
+            holiDaysOftheMonth = getHolidaysOfTheMonth(startOfTheMonth, allHolidays);
 
             for (int i = 1; i < daysOftheWeek; i++)
             {
@@ -147,23 +168,27 @@ namespace Libe_Escriptori.Forms.Centres
                     flowLayoutPanelDaysContainer.Controls.Add(ucdays);
                 }
                 else
-                { 
-                    int indexLliureDisposicio = diesLliureDisposicio.IndexOf(dia);
-                    int indexFestius = diesFestius.IndexOf(dia);
+                {
+                    int index = holiDaysOftheMonth.FindIndex(h => h.festive_day == dia);
 
-                    if (indexLliureDisposicio != -1)
+                    if (index != -1)
                     {
-                        UserControlDays ucdaysLliureDispo = new UserControlDays(Color.FromArgb(192, 192, 255), labelDate);
-                        ucdaysLliureDispo.days(i);
-                        flowLayoutPanelDaysContainer.Controls.Add(ucdaysLliureDispo);
+                        if (holiDaysOftheMonth[iteratorHoliday].type == 1)
+                        {
+                            UserControlDays ucdaysLliureDispo = new UserControlDays(Color.FromArgb(192, 192, 255), labelDate);
+                            ucdaysLliureDispo.days(i);
+                            flowLayoutPanelDaysContainer.Controls.Add(ucdaysLliureDispo);
+                        }
+                        else if (holiDaysOftheMonth[iteratorHoliday].type == 2)
+                        {
+                            UserControlDays ucdaysFestius = new UserControlDays(Color.FromArgb(255, 255, 128), labelDate);
+                            ucdaysFestius.days(i);
+                            flowLayoutPanelDaysContainer.Controls.Add(ucdaysFestius);
+                        }
+                        iteratorHoliday++;
+
                     }
-                    else if (indexFestius != -1)
-                    {
-                        UserControlDays ucdaysFestius = new UserControlDays(Color.FromArgb(255, 255, 128), labelDate);
-                        ucdaysFestius.days(i);
-                        flowLayoutPanelDaysContainer.Controls.Add(ucdaysFestius);
-                    }
-                    else if(dia == iniciCurs)
+                    else if (dia == iniciCurs) //green
                     {
                         UserControlDays ucdaysIniciCurs = new UserControlDays(Color.FromArgb(128, 255, 128), labelDate);
                         ucdaysIniciCurs.days(i);
@@ -181,9 +206,8 @@ namespace Libe_Escriptori.Forms.Centres
                         ucdays.days(i);
                         flowLayoutPanelDaysContainer.Controls.Add(ucdays);
                     }
-                    
-                }
 
+                }
             }
         }
         private void buttonAnterior_Click(object sender, EventArgs e)
@@ -195,6 +219,7 @@ namespace Libe_Escriptori.Forms.Centres
                 year--;
             }
             month--;
+            getData();
             String monthName = ci.DateTimeFormat.GetMonthName(month);
             monthName = char.ToUpper(monthName[0]) + monthName.Substring(1);
             labelDate.Text = monthName + " " + year;
@@ -204,6 +229,8 @@ namespace Libe_Escriptori.Forms.Centres
             if (daysOftheWeek <= 0) daysOftheWeek = 1;
             int sunday = 5 - daysOftheWeek;
             int saturday = 6 - daysOftheWeek;
+            int iteratorHoliday = 0;
+            holiDaysOftheMonth = getHolidaysOfTheMonth(startOfTheMonth, allHolidays);
 
             for (int i = 1; i < daysOftheWeek; i++)
             {
@@ -222,22 +249,26 @@ namespace Libe_Escriptori.Forms.Centres
                 }
                 else
                 {
-                    int indexLliureDisposicio = diesLliureDisposicio.IndexOf(dia);
-                    int indexFestius = diesFestius.IndexOf(dia);
+                    int index = holiDaysOftheMonth.FindIndex(h => h.festive_day == dia);
 
-                    if (indexLliureDisposicio != -1)
+                    if (index != -1)
                     {
-                        UserControlDays ucdaysLliureDispo = new UserControlDays(Color.FromArgb(192, 192, 255), labelDate);
-                        ucdaysLliureDispo.days(i);
-                        flowLayoutPanelDaysContainer.Controls.Add(ucdaysLliureDispo);
+                        if (holiDaysOftheMonth[iteratorHoliday].type == 1)
+                        {
+                            UserControlDays ucdaysLliureDispo = new UserControlDays(Color.FromArgb(192, 192, 255), labelDate);
+                            ucdaysLliureDispo.days(i);
+                            flowLayoutPanelDaysContainer.Controls.Add(ucdaysLliureDispo);
+                        }
+                        else if (holiDaysOftheMonth[iteratorHoliday].type == 2)
+                        {
+                            UserControlDays ucdaysFestius = new UserControlDays(Color.FromArgb(255, 255, 128), labelDate);
+                            ucdaysFestius.days(i);
+                            flowLayoutPanelDaysContainer.Controls.Add(ucdaysFestius);
+                        }
+                        iteratorHoliday++;
+
                     }
-                    else if (indexFestius != -1)
-                    {
-                        UserControlDays ucdaysFestius = new UserControlDays(Color.FromArgb(255, 255, 128), labelDate);
-                        ucdaysFestius.days(i);
-                        flowLayoutPanelDaysContainer.Controls.Add(ucdaysFestius);
-                    }
-                    else if (dia == iniciCurs)
+                    else if (dia == iniciCurs) //green
                     {
                         UserControlDays ucdaysIniciCurs = new UserControlDays(Color.FromArgb(128, 255, 128), labelDate);
                         ucdaysIniciCurs.days(i);
@@ -301,6 +332,19 @@ namespace Libe_Escriptori.Forms.Centres
         private void panel20_Click(object sender, EventArgs e)
         {
             colorPicked = Color.FromArgb(255, 128, 255);
+        }
+
+        private List<holidays> getHolidaysOfTheMonth(DateTime data, List<holidays> allHolidays)
+        {
+            List<holidays> result = new List<holidays>();
+            foreach (holidays holiday in allHolidays)
+            {
+                if(holiday.festive_day.Month == data.Month && holiday.festive_day.Year == data.Year)
+                {
+                    result.Add(holiday);
+                }
+            }
+            return result;
         }
     }
 }

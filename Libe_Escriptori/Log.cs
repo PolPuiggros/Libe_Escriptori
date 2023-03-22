@@ -63,6 +63,8 @@ namespace Libe_Escriptori
                     return "el dept";
                 case "UNITS":
                     return "la UF";
+                case "CALENDAR":
+                    return "el calendari";
                 default:
                     return "Not found";
             }
