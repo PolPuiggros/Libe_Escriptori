@@ -68,7 +68,6 @@ namespace Libe_Escriptori.Forms.Groups
             this.panelSchedule.Controls.Add(this.listViewModuls);
             this.panelSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSchedule.Location = new System.Drawing.Point(0, 0);
-            this.panelSchedule.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelSchedule.Name = "panelSchedule";
             this.panelSchedule.Size = new System.Drawing.Size(1005, 650);
             this.panelSchedule.TabIndex = 0;
@@ -81,29 +80,26 @@ namespace Libe_Escriptori.Forms.Groups
             this.panel1.Controls.Add(this.labelLeftClick);
             this.panel1.Controls.Add(this.pictureBoxRightClick);
             this.panel1.Controls.Add(this.pictureBoxLeftClick);
-            this.panel1.Location = new System.Drawing.Point(832, 431);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Location = new System.Drawing.Point(832, 389);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(150, 126);
+            this.panel1.Size = new System.Drawing.Size(131, 103);
             this.panel1.TabIndex = 16;
             // 
             // labelRightClick
             // 
             this.labelRightClick.AutoSize = true;
-            this.labelRightClick.Location = new System.Drawing.Point(49, 91);
-            this.labelRightClick.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelRightClick.Location = new System.Drawing.Point(37, 74);
             this.labelRightClick.Name = "labelRightClick";
-            this.labelRightClick.Size = new System.Drawing.Size(108, 16);
+            this.labelRightClick.Size = new System.Drawing.Size(86, 13);
             this.labelRightClick.TabIndex = 18;
             this.labelRightClick.Text = "Veure informació";
             // 
             // labelLeftClick
             // 
             this.labelLeftClick.AutoSize = true;
-            this.labelLeftClick.Location = new System.Drawing.Point(49, 28);
-            this.labelLeftClick.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelLeftClick.Location = new System.Drawing.Point(37, 23);
             this.labelLeftClick.Name = "labelLeftClick";
-            this.labelLeftClick.Size = new System.Drawing.Size(82, 16);
+            this.labelLeftClick.Size = new System.Drawing.Size(65, 13);
             this.labelLeftClick.TabIndex = 17;
             this.labelLeftClick.Text = "Afegir mòdul";
             // 
@@ -114,10 +110,9 @@ namespace Libe_Escriptori.Forms.Groups
             this.pictureBoxRightClick.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBoxRightClick.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxRightClick.Image")));
             this.pictureBoxRightClick.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxRightClick.InitialImage")));
-            this.pictureBoxRightClick.Location = new System.Drawing.Point(5, 80);
-            this.pictureBoxRightClick.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBoxRightClick.Location = new System.Drawing.Point(4, 65);
             this.pictureBoxRightClick.Name = "pictureBoxRightClick";
-            this.pictureBoxRightClick.Size = new System.Drawing.Size(40, 37);
+            this.pictureBoxRightClick.Size = new System.Drawing.Size(30, 30);
             this.pictureBoxRightClick.TabIndex = 1;
             this.pictureBoxRightClick.TabStop = false;
             // 
@@ -128,10 +123,9 @@ namespace Libe_Escriptori.Forms.Groups
             this.pictureBoxLeftClick.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBoxLeftClick.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLeftClick.Image")));
             this.pictureBoxLeftClick.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxLeftClick.InitialImage")));
-            this.pictureBoxLeftClick.Location = new System.Drawing.Point(5, 18);
-            this.pictureBoxLeftClick.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBoxLeftClick.Location = new System.Drawing.Point(4, 15);
             this.pictureBoxLeftClick.Name = "pictureBoxLeftClick";
-            this.pictureBoxLeftClick.Size = new System.Drawing.Size(40, 37);
+            this.pictureBoxLeftClick.Size = new System.Drawing.Size(30, 30);
             this.pictureBoxLeftClick.TabIndex = 0;
             this.pictureBoxLeftClick.TabStop = false;
             // 
@@ -167,8 +161,7 @@ namespace Libe_Escriptori.Forms.Groups
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewSchedule.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewSchedule.Location = new System.Drawing.Point(25, 30);
-            this.dataGridViewSchedule.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewSchedule.Location = new System.Drawing.Point(40, 24);
             this.dataGridViewSchedule.MultiSelect = false;
             this.dataGridViewSchedule.Name = "dataGridViewSchedule";
             this.dataGridViewSchedule.ReadOnly = true;
@@ -181,7 +174,7 @@ namespace Libe_Escriptori.Forms.Groups
             this.dataGridViewSchedule.RowTemplate.Height = 55;
             this.dataGridViewSchedule.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewSchedule.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewSchedule.Size = new System.Drawing.Size(788, 527);
+            this.dataGridViewSchedule.Size = new System.Drawing.Size(754, 468);
             this.dataGridViewSchedule.TabIndex = 12;
             this.dataGridViewSchedule.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSchedule_CellClick);
             this.dataGridViewSchedule.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSchedule_CellDoubleClick);
@@ -247,10 +240,9 @@ namespace Libe_Escriptori.Forms.Groups
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSave.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.buttonSave.ForeColor = System.Drawing.Color.White;
-            this.buttonSave.Location = new System.Drawing.Point(541, 572);
-            this.buttonSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonSave.Location = new System.Drawing.Point(541, 553);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(137, 40);
+            this.buttonSave.Size = new System.Drawing.Size(131, 41);
             this.buttonSave.TabIndex = 14;
             this.buttonSave.Text = "Guardar";
             this.buttonSave.UseVisualStyleBackColor = false;
@@ -262,10 +254,9 @@ namespace Libe_Escriptori.Forms.Groups
             this.buttonCancel.FlatAppearance.BorderSize = 0;
             this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCancel.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.buttonCancel.Location = new System.Drawing.Point(373, 572);
-            this.buttonCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonCancel.Location = new System.Drawing.Point(350, 553);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(137, 40);
+            this.buttonCancel.Size = new System.Drawing.Size(131, 41);
             this.buttonCancel.TabIndex = 13;
             this.buttonCancel.Text = "Cancelar";
             this.buttonCancel.UseVisualStyleBackColor = false;
@@ -282,11 +273,10 @@ namespace Libe_Escriptori.Forms.Groups
             this.listViewModuls.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.listViewModuls.FullRowSelect = true;
             this.listViewModuls.HideSelection = false;
-            this.listViewModuls.Location = new System.Drawing.Point(832, 29);
-            this.listViewModuls.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewModuls.Location = new System.Drawing.Point(814, 24);
             this.listViewModuls.MultiSelect = false;
             this.listViewModuls.Name = "listViewModuls";
-            this.listViewModuls.Size = new System.Drawing.Size(150, 358);
+            this.listViewModuls.Size = new System.Drawing.Size(165, 349);
             this.listViewModuls.TabIndex = 15;
             this.listViewModuls.TileSize = new System.Drawing.Size(130, 30);
             this.listViewModuls.UseCompatibleStateImageBehavior = false;
@@ -299,12 +289,11 @@ namespace Libe_Escriptori.Forms.Groups
             // 
             // FormCreateScheduleGroup
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 650);
             this.Controls.Add(this.panelSchedule);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormCreateScheduleGroup";
             this.Text = "FormCreateScheduleGroup";
             this.Load += new System.EventHandler(this.FormCreateScheduleGroup_Load);

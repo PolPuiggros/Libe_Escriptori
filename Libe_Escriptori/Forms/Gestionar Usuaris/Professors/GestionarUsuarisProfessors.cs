@@ -17,9 +17,11 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
 {
     public partial class GestionarUsuarisProfessors : Form
     {
-        private String textBoxHint = " Introdueix dades clau del professor ex. DNI, Cognom...";
+        private String textBoxHint = " Introdueix dades clau del professor ex. Nom, Cognom...";
         Form activeForm;
         Label labeld;
+        
+
         public GestionarUsuarisProfessors(Label label)
         {
             InitializeComponent();
@@ -28,6 +30,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
         private void GestionarUsuarisProfessors_Load(object sender, EventArgs e)
         {
             bindingSourceProfesors.DataSource = ProfesorsOrm.Select(true);
+           
         }
         private void OpenChildForm(Form childForm)
         {
@@ -117,6 +120,60 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
         private void textBoxFiltres_Leave(object sender, EventArgs e)
         {
             TextBoxDesign.textBoxSearch_Leave(textBoxFiltres, textBoxHint);
+        }
+
+        private void textBoxFiltres_TextChanged(object sender, EventArgs e)
+        {
+            string value = textBoxFiltres.Text.Trim();
+            List<profesors> filteredList;
+            if (value.Contains(','))
+            {
+                var values = textBoxFiltres.Text.Split(',').Select(p => p.Trim()).ToList();
+
+                List<List<profesors>> partFilteredList = new List<List<profesors>>();
+                foreach (string v in values)
+                {
+
+                    if (v.Any(char.IsDigit))
+                    {
+                        partFilteredList.Add(Orm.db.profesors
+                                                  .Where(c => c.active == true && c.phone_number.ToString().Contains(v))
+                                                  .ToList());
+                    }
+                    else
+                    {
+                        partFilteredList.Add(Orm.db.profesors
+                                               .Where(c => c.active == true && (c.name.Contains(v) || c.surname1.Contains(v)))
+                                               .ToList());
+                    }
+
+                }
+
+                filteredList = partFilteredList[0];
+                for (int i = 1; i < partFilteredList.Count; i++)
+                {
+                    filteredList = filteredList.Intersect(partFilteredList[i]).ToList();
+                }
+
+
+            }
+            else
+            {
+                if (value.Any(char.IsDigit))
+                {
+                    filteredList = Orm.db.profesors
+                                        .Where(c => c.active == true && c.phone_number.ToString().Contains(value))
+                                        .ToList();
+                }
+                else
+                {
+                    filteredList = Orm.db.profesors
+                       .Where(c => c.active == true && (c.name.Contains(value) || c.surname1.Contains(value)))
+                       .ToList();
+                }
+            }
+
+            bindingSourceProfesors.DataSource = filteredList;
         }
     }
 }

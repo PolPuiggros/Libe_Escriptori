@@ -41,6 +41,14 @@ namespace Libe_Escriptori.Models.Usuaris.Alumnes
             return _students;
         }
 
+        public static List<students> SelectStudentsGroup (int idGroup)
+        {
+            List<students> _students = Orm.db.students
+                .Where(student => student.active == true && student.group_id == idGroup)
+                .ToList();
+            return _students;
+        }
+
         public static void Update(students _student, string name, string surname, string surname2, string email, string dni, string phone, bool autoregister, bool repiter, List<units> _units)
         {
             _student = Orm.db.students

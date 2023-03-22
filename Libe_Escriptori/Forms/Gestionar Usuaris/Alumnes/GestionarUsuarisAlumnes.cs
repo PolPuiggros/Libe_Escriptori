@@ -1,5 +1,6 @@
 ﻿using Libe_Escriptori.Models;
 using Libe_Escriptori.Models.Centre;
+using Libe_Escriptori.Models.Courses;
 using Libe_Escriptori.Models.Usuaris.Alumnes;
 using Libe_Escriptori.Properties;
 using System;
@@ -19,6 +20,8 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
         private String textBoxHint = " Introdueix dades clau de l'usuari ex. DNI, Cognom...";
         Form activeForm;
         Label label;
+        private groups filterGroup;
+
         public GestionarUsuarisAlumnes(Label labelRuta)
         {
             InitializeComponent();
@@ -29,6 +32,21 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
         private void GestionarUsuarisAlumnes_Load(object sender, EventArgs e)
         {
             bindingSourceStudents.DataSource = AlumnesOrm.Select(true);
+
+            List<groups> listG = GroupsOrm.Select();
+            List<groupComboBox> listCombo = new List<groupComboBox>();
+
+            foreach(groups g in listG)
+            {
+                courses c = CoursesORM.Select(g.course_id);
+                listCombo.Add(new groupComboBox(g.id, c.abreviation + g.grade + g.group_letter));
+            }
+
+            comboBoxFilter.DataSource = listCombo;
+            comboBoxFilter.DisplayMember = "group";
+            comboBoxFilter.ValueMember = "id";
+
+            
         }
 
         private void OpenChildForm(Form childForm)
@@ -102,6 +120,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
 
         private void refreshDGV()
         {
+            textBoxFiltres.Text = textBoxHint;
             bindingSourceStudents.DataSource = AlumnesOrm.Select(true);
         }
 
@@ -112,28 +131,59 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
 
         private void textBoxFiltres_TextChanged(object sender, EventArgs e)
         {
-            string dni = "";
-            //string value = "%" + textBoxFiltres.Text + "%";
-            string value = textBoxFiltres.Text;
-            string filter = "name LIKE '%" + value + "%'"; //+ " OR surname LIKE " + value + " OR dni LIKE " + dni;
-            if (textBoxFiltres.Text.Contains(","))
+            
+            string value = textBoxFiltres.Text.Trim();
+            List<students> filteredList;
+            if (value.Contains(','))
             {
-                var values = textBoxFiltres.Text.Split(',');
-                foreach(string v in values)
+                var values = textBoxFiltres.Text.Split(',').Select(p => p.Trim()).ToList();
+                
+                List<List<students>> partFilteredList = new List<List<students>>();
+                foreach (string v in values)
                 {
-                    if (v.Contains("1"))
+                    
+                    if (v.Any(char.IsDigit))
                     {
-                        dni = v;
+                        partFilteredList.Add(Orm.db.students
+                                                  .Where(c => c.active == true && c.dni.ToString().Contains(v))
+                                                  .ToList());
                     }
-                    filter += "OR name LIKE %" + v + "% OR surname LIKE %" + v + "%";
+                    else
+                    {
+                        partFilteredList.Add(Orm.db.students
+                                               .Where(c => c.active == true && (c.name.Contains(v) || c.surname.Contains(v)))
+                                               .ToList());
+                    }
+
+                }
+
+                filteredList = partFilteredList[0];
+                for (int i = 1; i < partFilteredList.Count; i++)
+                {
+                    filteredList = filteredList.Intersect(partFilteredList[i]).ToList();
+                }
+
+
+            }
+            else
+            {
+                if (value.Any(char.IsDigit))
+                {
+                    filteredList = Orm.db.students
+                                        .Where(c => c.active == true && c.dni.ToString().Contains(value))
+                                        .ToList();
+                }
+                else
+                {
+                    filteredList = Orm.db.students
+                       .Where(c => c.active == true && (c.name.Contains(value) || c.surname.Contains(value)))
+                       .ToList();
                 }
             }
             
-            bindingSourceStudents.Filter = filter;
+            bindingSourceStudents.DataSource = filteredList;
+            
            
-            bindingSourceStudents.ResetBindings(false);
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = bindingSourceStudents;
             
         }
 
@@ -145,6 +195,24 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
         private void textBoxFiltres_Leave(object sender, EventArgs e)
         {
             TextBoxDesign.textBoxSearch_Leave(textBoxFiltres, textBoxHint);
+        }
+
+        private void comboBoxFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            bindingSourceStudents.DataSource = AlumnesOrm.SelectStudentsGroup((int)comboBoxFilter.SelectedValue);
+        }
+    }
+
+    public class groupComboBox
+    {
+        public string group { get; set; }
+        public int id { get; set; }
+
+        public groupComboBox(int id, string group)
+        {
+            this.id = id;
+            this.group = group;
         }
     }
 }

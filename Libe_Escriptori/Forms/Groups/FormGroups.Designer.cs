@@ -37,9 +37,6 @@ namespace Libe_Escriptori.Forms.Groups
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBoxFilter = new System.Windows.Forms.ComboBox();
             this.dataGridViewGroups = new System.Windows.Forms.DataGridView();
-            this.bindingSourceGroups = new System.Windows.Forms.BindingSource(this.components);
-            this.buttonNewGroup = new System.Windows.Forms.Button();
-            this.groupsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.courseidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gradeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupletterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +49,9 @@ namespace Libe_Escriptori.Forms.Groups
             this.schedulesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.headerDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.bindingSourceGroups = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonNewGroup = new System.Windows.Forms.Button();
+            this.groupsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelGroups.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroups)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGroups)).BeginInit();
@@ -67,7 +67,6 @@ namespace Libe_Escriptori.Forms.Groups
             this.panelGroups.Controls.Add(this.buttonNewGroup);
             this.panelGroups.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelGroups.Location = new System.Drawing.Point(0, 0);
-            this.panelGroups.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelGroups.Name = "panelGroups";
             this.panelGroups.Size = new System.Drawing.Size(1005, 650);
             this.panelGroups.TabIndex = 0;
@@ -79,17 +78,16 @@ namespace Libe_Escriptori.Forms.Groups
             this.comboBox3.ForeColor = System.Drawing.SystemColors.WindowText;
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.IntegralHeight = false;
-            this.comboBox3.ItemHeight = 28;
+            this.comboBox3.ItemHeight = 21;
             this.comboBox3.Items.AddRange(new object[] {
             "Nom",
             "Cognom",
             "DNI"});
-            this.comboBox3.Location = new System.Drawing.Point(580, 72);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboBox3.MaximumSize = new System.Drawing.Size(228, 0);
-            this.comboBox3.MinimumSize = new System.Drawing.Size(137, 0);
+            this.comboBox3.Location = new System.Drawing.Point(626, 54);
+            this.comboBox3.MaximumSize = new System.Drawing.Size(172, 0);
+            this.comboBox3.MinimumSize = new System.Drawing.Size(104, 0);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(168, 36);
+            this.comboBox3.Size = new System.Drawing.Size(164, 29);
             this.comboBox3.TabIndex = 11;
             this.comboBox3.Text = "Classe";
             // 
@@ -100,17 +98,16 @@ namespace Libe_Escriptori.Forms.Groups
             this.comboBox1.ForeColor = System.Drawing.SystemColors.WindowText;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.IntegralHeight = false;
-            this.comboBox1.ItemHeight = 28;
+            this.comboBox1.ItemHeight = 21;
             this.comboBox1.Items.AddRange(new object[] {
             "Nom",
             "Cognom",
             "DNI"});
-            this.comboBox1.Location = new System.Drawing.Point(775, 72);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboBox1.MaximumSize = new System.Drawing.Size(228, 0);
-            this.comboBox1.MinimumSize = new System.Drawing.Size(137, 0);
+            this.comboBox1.Location = new System.Drawing.Point(809, 54);
+            this.comboBox1.MaximumSize = new System.Drawing.Size(172, 0);
+            this.comboBox1.MinimumSize = new System.Drawing.Size(104, 0);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(168, 36);
+            this.comboBox1.Size = new System.Drawing.Size(164, 29);
             this.comboBox1.TabIndex = 10;
             this.comboBox1.Text = "Any";
             // 
@@ -121,17 +118,16 @@ namespace Libe_Escriptori.Forms.Groups
             this.comboBoxFilter.ForeColor = System.Drawing.SystemColors.WindowText;
             this.comboBoxFilter.FormattingEnabled = true;
             this.comboBoxFilter.IntegralHeight = false;
-            this.comboBoxFilter.ItemHeight = 28;
+            this.comboBoxFilter.ItemHeight = 21;
             this.comboBoxFilter.Items.AddRange(new object[] {
             "Nom",
             "Cognom",
             "DNI"});
-            this.comboBoxFilter.Location = new System.Drawing.Point(384, 72);
-            this.comboBoxFilter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboBoxFilter.MaximumSize = new System.Drawing.Size(228, 0);
-            this.comboBoxFilter.MinimumSize = new System.Drawing.Size(137, 0);
+            this.comboBoxFilter.Location = new System.Drawing.Point(444, 54);
+            this.comboBoxFilter.MaximumSize = new System.Drawing.Size(172, 0);
+            this.comboBoxFilter.MinimumSize = new System.Drawing.Size(104, 0);
             this.comboBoxFilter.Name = "comboBoxFilter";
-            this.comboBoxFilter.Size = new System.Drawing.Size(168, 36);
+            this.comboBoxFilter.Size = new System.Drawing.Size(164, 29);
             this.comboBoxFilter.TabIndex = 9;
             this.comboBoxFilter.Text = "Cicle";
             // 
@@ -168,43 +164,18 @@ namespace Libe_Escriptori.Forms.Groups
             this.headerEdit,
             this.headerDelete});
             this.dataGridViewGroups.DataSource = this.bindingSourceGroups;
-            this.dataGridViewGroups.Location = new System.Drawing.Point(61, 127);
-            this.dataGridViewGroups.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewGroups.Location = new System.Drawing.Point(46, 103);
             this.dataGridViewGroups.Name = "dataGridViewGroups";
             this.dataGridViewGroups.ReadOnly = true;
             this.dataGridViewGroups.RowHeadersVisible = false;
             this.dataGridViewGroups.RowHeadersWidth = 51;
             this.dataGridViewGroups.RowTemplate.Height = 25;
             this.dataGridViewGroups.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewGroups.Size = new System.Drawing.Size(882, 464);
+            this.dataGridViewGroups.Size = new System.Drawing.Size(927, 498);
             this.dataGridViewGroups.TabIndex = 5;
             this.dataGridViewGroups.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGroups_CellClick);
             this.dataGridViewGroups.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridViewGroups.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
-            // 
-            // bindingSourceGroups
-            // 
-            this.bindingSourceGroups.DataSource = typeof(Libe_Escriptori.Models.groups);
-            // 
-            // buttonNewGroup
-            // 
-            this.buttonNewGroup.BackColor = System.Drawing.Color.White;
-            this.buttonNewGroup.FlatAppearance.BorderSize = 0;
-            this.buttonNewGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNewGroup.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.buttonNewGroup.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonNewGroup.Location = new System.Drawing.Point(61, 66);
-            this.buttonNewGroup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.buttonNewGroup.Name = "buttonNewGroup";
-            this.buttonNewGroup.Size = new System.Drawing.Size(137, 35);
-            this.buttonNewGroup.TabIndex = 4;
-            this.buttonNewGroup.Text = "Nou";
-            this.buttonNewGroup.UseVisualStyleBackColor = false;
-            this.buttonNewGroup.Click += new System.EventHandler(this.buttonNewGroup_Click_1);
-            // 
-            // groupsBindingSource
-            // 
-            this.groupsBindingSource.DataSource = typeof(Libe_Escriptori.Models.groups);
             // 
             // courseidDataGridViewTextBoxColumn
             // 
@@ -311,7 +282,7 @@ namespace Libe_Escriptori.Forms.Groups
             this.headerEdit.ReadOnly = true;
             this.headerEdit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.headerEdit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.headerEdit.Width = 33;
+            this.headerEdit.Width = 29;
             // 
             // headerDelete
             // 
@@ -323,18 +294,40 @@ namespace Libe_Escriptori.Forms.Groups
             this.headerDelete.ReadOnly = true;
             this.headerDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.headerDelete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.headerDelete.Width = 33;
+            this.headerDelete.Width = 29;
+            // 
+            // bindingSourceGroups
+            // 
+            this.bindingSourceGroups.DataSource = typeof(Libe_Escriptori.Models.groups);
+            // 
+            // buttonNewGroup
+            // 
+            this.buttonNewGroup.BackColor = System.Drawing.Color.White;
+            this.buttonNewGroup.FlatAppearance.BorderSize = 0;
+            this.buttonNewGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNewGroup.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.buttonNewGroup.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonNewGroup.Location = new System.Drawing.Point(46, 54);
+            this.buttonNewGroup.Name = "buttonNewGroup";
+            this.buttonNewGroup.Size = new System.Drawing.Size(137, 31);
+            this.buttonNewGroup.TabIndex = 4;
+            this.buttonNewGroup.Text = "Nou";
+            this.buttonNewGroup.UseVisualStyleBackColor = false;
+            this.buttonNewGroup.Click += new System.EventHandler(this.buttonNewGroup_Click_1);
+            // 
+            // groupsBindingSource
+            // 
+            this.groupsBindingSource.DataSource = typeof(Libe_Escriptori.Models.groups);
             // 
             // FormGroups
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(227)))), ((int)(((byte)(227)))));
             this.ClientSize = new System.Drawing.Size(1005, 650);
             this.Controls.Add(this.panelGroups);
             this.ForeColor = System.Drawing.SystemColors.Desktop;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormGroups";
             this.Text = "FormGroups";
             this.Load += new System.EventHandler(this.FormGroups_Load);

@@ -18,6 +18,7 @@ namespace Libe_Escriptori.Models.Courses
 
 
         }
+
         public static courses Select(int id)
         {
             courses _courses = Orm.db.courses

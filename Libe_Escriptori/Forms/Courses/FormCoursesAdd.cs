@@ -228,7 +228,6 @@ namespace Libe_Escriptori.Forms.Courses
             //TODO: Validations
             //TODO: If inserted return true, else false
 
-
             int hours = 0;
 
             _course.abreviation = textBoxAbbreviation.Text;
