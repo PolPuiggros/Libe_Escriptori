@@ -49,7 +49,7 @@ namespace Libe_Escriptori.Models.Usuaris.Alumnes
             return _students;
         }
 
-        public static void Update(students _student, string name, string surname, string surname2, string email, string dni, string phone, bool autoregister, bool repiter, List<units> _units)
+        public static void Update(students _student)
 
         {
             students student = Orm.db.students

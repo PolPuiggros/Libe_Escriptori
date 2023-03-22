@@ -31,6 +31,7 @@ namespace Libe_Escriptori.Forms.Centres
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxNomDepartament = new System.Windows.Forms.TextBox();
             this.comboBoxCoordinador = new System.Windows.Forms.ComboBox();
@@ -120,6 +121,14 @@ namespace Libe_Escriptori.Forms.Centres
             this.Edit,
             this.Delete});
             this.dataGridViewDepartments.DataSource = this.bindingSourceDepartments;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(171)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewDepartments.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewDepartments.Location = new System.Drawing.Point(100, 255);
             this.dataGridViewDepartments.Name = "dataGridViewDepartments";
             this.dataGridViewDepartments.ReadOnly = true;
@@ -157,7 +166,7 @@ namespace Libe_Escriptori.Forms.Centres
             // 
             this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Edit.HeaderText = "";
-            this.Edit.Image = global::Libe_Escriptori.Properties.Resources.pencil__1_;
+            this.Edit.Image = global::Libe_Escriptori.Properties.Resources.pencil1;
             this.Edit.Name = "Edit";
             this.Edit.ReadOnly = true;
             this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
