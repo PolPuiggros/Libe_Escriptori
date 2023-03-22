@@ -91,6 +91,7 @@ namespace Libe_Escriptori
             this.textBoxUsername.Size = new System.Drawing.Size(403, 31);
             this.textBoxUsername.TabIndex = 3;
             this.textBoxUsername.Text = "politecnics";
+            this.textBoxUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxUsername_KeyDown);
             // 
             // textBoxPassword
             // 
@@ -102,6 +103,7 @@ namespace Libe_Escriptori
             this.textBoxPassword.Size = new System.Drawing.Size(403, 31);
             this.textBoxPassword.TabIndex = 4;
             this.textBoxPassword.Text = "politecnics";
+            this.textBoxPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPassword_KeyDown);
             // 
             // label2
             // 
