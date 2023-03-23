@@ -24,6 +24,7 @@ namespace Libe_Escriptori
             customDesign();
             previousButton = buttonInici;
             panelLogs.Visible = false;
+            panelProfileImg.Visible = false;
             buttonInbox.BackgroundImage = def;
         }
         private void customDesign()
@@ -251,7 +252,7 @@ namespace Libe_Escriptori
         private void buttonInbox_Click(object sender, EventArgs e)
         {
             buttonInbox.BackgroundImage = def;
-
+            panelProfileImg.Visible = false;
             if(panelLogs.Visible == true)
             {
                 panelLogs.Visible = false;
@@ -277,6 +278,32 @@ namespace Libe_Escriptori
             popupLog.BringToFront();
             popupLog.Show();
         }
+        private void OpenProfilePic(PopupProfileImg popup, object sender)
+        {
+            if (activeForm != null)
+            {
+                activeForm.SendToBack();
+            }
+            panelProfileImg.Visible = true;
+            popup.TopLevel = false;
+            popup.Dock = DockStyle.Fill;
+            panelProfileImg.Controls.Add(popup);
+            panelProfileImg.Tag = popup;
+            popup.BringToFront();
+            popup.Show();
+        }
 
+        private void buttonProfile_Click(object sender, EventArgs e)
+        {
+            panelLogs.Visible = false;
+            if (panelProfileImg.Visible == true)
+            {
+                panelProfileImg.Visible = false;
+            }
+            else
+            {
+                OpenProfilePic(new PopupProfileImg(), sender);
+            }
+        }
     }
 }

@@ -137,7 +137,7 @@ namespace Libe_Escriptori.Forms.Groups
             this.dataGridViewSchedule.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;

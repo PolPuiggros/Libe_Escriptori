@@ -32,6 +32,7 @@ namespace Libe_Escriptori.Forms.Groups
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelGroups = new System.Windows.Forms.Panel();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -47,8 +48,8 @@ namespace Libe_Escriptori.Forms.Groups
             this.coursesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.profesorsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.schedulesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.headerEdit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.headerDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.headerEdit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.headerDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.bindingSourceGroups = new System.Windows.Forms.BindingSource(this.components);
             this.buttonNewGroup = new System.Windows.Forms.Button();
             this.groupsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -141,14 +142,14 @@ namespace Libe_Escriptori.Forms.Groups
             this.dataGridViewGroups.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewGroups.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewGroups.ColumnHeadersHeight = 35;
+            this.dataGridViewGroups.ColumnHeadersHeight = 30;
             this.dataGridViewGroups.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewGroups.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.courseidDataGridViewTextBoxColumn,
@@ -164,18 +165,25 @@ namespace Libe_Escriptori.Forms.Groups
             this.headerEdit,
             this.headerDelete});
             this.dataGridViewGroups.DataSource = this.bindingSourceGroups;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(171)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewGroups.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewGroups.Location = new System.Drawing.Point(46, 103);
             this.dataGridViewGroups.Name = "dataGridViewGroups";
             this.dataGridViewGroups.ReadOnly = true;
             this.dataGridViewGroups.RowHeadersVisible = false;
             this.dataGridViewGroups.RowHeadersWidth = 51;
-            this.dataGridViewGroups.RowTemplate.Height = 25;
+            this.dataGridViewGroups.RowTemplate.Height = 30;
             this.dataGridViewGroups.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewGroups.Size = new System.Drawing.Size(927, 498);
             this.dataGridViewGroups.TabIndex = 5;
             this.dataGridViewGroups.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGroups_CellClick);
             this.dataGridViewGroups.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
-            this.dataGridViewGroups.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
             // 
             // courseidDataGridViewTextBoxColumn
             // 
@@ -274,27 +282,25 @@ namespace Libe_Escriptori.Forms.Groups
             // 
             // headerEdit
             // 
-            this.headerEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.headerEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.headerEdit.HeaderText = "";
+            this.headerEdit.Image = global::Libe_Escriptori.Properties.Resources.pencil1;
             this.headerEdit.MinimumWidth = 6;
             this.headerEdit.Name = "headerEdit";
             this.headerEdit.ReadOnly = true;
             this.headerEdit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.headerEdit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.headerEdit.Width = 29;
+            this.headerEdit.Width = 40;
             // 
             // headerDelete
             // 
-            this.headerDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.headerDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.headerDelete.HeaderText = "";
+            this.headerDelete.Image = global::Libe_Escriptori.Properties.Resources.close__1_;
             this.headerDelete.MinimumWidth = 6;
             this.headerDelete.Name = "headerDelete";
             this.headerDelete.ReadOnly = true;
             this.headerDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.headerDelete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.headerDelete.Width = 29;
+            this.headerDelete.Width = 40;
             // 
             // bindingSourceGroups
             // 
@@ -302,11 +308,11 @@ namespace Libe_Escriptori.Forms.Groups
             // 
             // buttonNewGroup
             // 
-            this.buttonNewGroup.BackColor = System.Drawing.Color.White;
+            this.buttonNewGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(171)))));
             this.buttonNewGroup.FlatAppearance.BorderSize = 0;
             this.buttonNewGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNewGroup.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.buttonNewGroup.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonNewGroup.ForeColor = System.Drawing.Color.White;
             this.buttonNewGroup.Location = new System.Drawing.Point(46, 54);
             this.buttonNewGroup.Name = "buttonNewGroup";
             this.buttonNewGroup.Size = new System.Drawing.Size(137, 31);
@@ -359,7 +365,7 @@ namespace Libe_Escriptori.Forms.Groups
         private DataGridViewTextBoxColumn coursesDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn profesorsDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn schedulesDataGridViewTextBoxColumn;
-        private DataGridViewButtonColumn headerEdit;
-        private DataGridViewButtonColumn headerDelete;
+        private DataGridViewImageColumn headerEdit;
+        private DataGridViewImageColumn headerDelete;
     }
 }

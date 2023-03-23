@@ -32,6 +32,7 @@ namespace Libe_Escriptori.Forms.Groups
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewExistingStudents = new System.Windows.Forms.DataGridView();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.surnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,7 +57,7 @@ namespace Libe_Escriptori.Forms.Groups
             this.dataGridViewExistingStudents.BackgroundColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -71,13 +72,21 @@ namespace Libe_Escriptori.Forms.Groups
             this.groupidDataGridViewTextBoxColumn,
             this.headerGroup});
             this.dataGridViewExistingStudents.DataSource = this.studentsBindingSource;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(171)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewExistingStudents.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewExistingStudents.Location = new System.Drawing.Point(20, 47);
-            this.dataGridViewExistingStudents.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewExistingStudents.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewExistingStudents.MultiSelect = false;
             this.dataGridViewExistingStudents.Name = "dataGridViewExistingStudents";
             this.dataGridViewExistingStudents.RowHeadersVisible = false;
-            this.dataGridViewExistingStudents.RowHeadersWidth = 51;
-            this.dataGridViewExistingStudents.RowTemplate.Height = 25;
+            this.dataGridViewExistingStudents.RowHeadersWidth = 30;
+            this.dataGridViewExistingStudents.RowTemplate.Height = 30;
             this.dataGridViewExistingStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewExistingStudents.Size = new System.Drawing.Size(459, 284);
             this.dataGridViewExistingStudents.TabIndex = 0;
@@ -127,7 +136,7 @@ namespace Libe_Escriptori.Forms.Groups
             this.headerGroup.MinimumWidth = 6;
             this.headerGroup.Name = "headerGroup";
             this.headerGroup.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.headerGroup.Width = 84;
+            this.headerGroup.Width = 66;
             // 
             // studentsBindingSource
             // 

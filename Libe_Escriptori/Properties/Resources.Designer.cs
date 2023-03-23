@@ -333,6 +333,16 @@ namespace Libe_Escriptori.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap popupdef2 {
+            get {
+                object obj = ResourceManager.GetObject("popupdef2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap popupp {
             get {
                 object obj = ResourceManager.GetObject("popupp", resourceCulture);
@@ -356,6 +366,16 @@ namespace Libe_Escriptori.Properties {
         internal static System.Drawing.Bitmap profile_pic_big {
             get {
                 object obj = ResourceManager.GetObject("profile_pic_big", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap profile_pic3 {
+            get {
+                object obj = ResourceManager.GetObject("profile_pic3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

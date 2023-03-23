@@ -40,8 +40,8 @@ namespace Libe_Escriptori.Forms.Groups
             // labelDay
             // 
             this.labelDay.AutoSize = true;
-            this.labelDay.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelDay.Location = new System.Drawing.Point(12, 23);
+            this.labelDay.Font = new System.Drawing.Font("Segoe UI", 12.75F);
+            this.labelDay.Location = new System.Drawing.Point(11, 15);
             this.labelDay.Name = "labelDay";
             this.labelDay.Size = new System.Drawing.Size(61, 23);
             this.labelDay.TabIndex = 0;
@@ -51,8 +51,8 @@ namespace Libe_Escriptori.Forms.Groups
             // 
             this.labelHour.AllowDrop = true;
             this.labelHour.AutoSize = true;
-            this.labelHour.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelHour.Location = new System.Drawing.Point(104, 23);
+            this.labelHour.Font = new System.Drawing.Font("Segoe UI", 12.75F);
+            this.labelHour.Location = new System.Drawing.Point(78, 15);
             this.labelHour.Name = "labelHour";
             this.labelHour.Size = new System.Drawing.Size(89, 23);
             this.labelHour.TabIndex = 1;
@@ -61,8 +61,8 @@ namespace Libe_Escriptori.Forms.Groups
             // labelModul
             // 
             this.labelModul.AutoSize = true;
-            this.labelModul.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelModul.Location = new System.Drawing.Point(75, 60);
+            this.labelModul.Font = new System.Drawing.Font("Segoe UI", 12.75F);
+            this.labelModul.Location = new System.Drawing.Point(64, 41);
             this.labelModul.Name = "labelModul";
             this.labelModul.Size = new System.Drawing.Size(43, 23);
             this.labelModul.TabIndex = 2;
@@ -71,20 +71,21 @@ namespace Libe_Escriptori.Forms.Groups
             // comboBoxClass
             // 
             this.comboBoxClass.FormattingEnabled = true;
-            this.comboBoxClass.Location = new System.Drawing.Point(32, 95);
+            this.comboBoxClass.Location = new System.Drawing.Point(29, 72);
             this.comboBoxClass.Name = "comboBoxClass";
-            this.comboBoxClass.Size = new System.Drawing.Size(134, 23);
+            this.comboBoxClass.Size = new System.Drawing.Size(115, 21);
             this.comboBoxClass.TabIndex = 3;
             // 
             // buttonDone
             // 
-            this.buttonDone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(168)))), ((int)(((byte)(241)))));
+            this.buttonDone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(171)))));
             this.buttonDone.FlatAppearance.BorderSize = 0;
             this.buttonDone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDone.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonDone.Location = new System.Drawing.Point(59, 133);
+            this.buttonDone.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonDone.ForeColor = System.Drawing.Color.White;
+            this.buttonDone.Location = new System.Drawing.Point(55, 109);
             this.buttonDone.Name = "buttonDone";
-            this.buttonDone.Size = new System.Drawing.Size(75, 23);
+            this.buttonDone.Size = new System.Drawing.Size(64, 28);
             this.buttonDone.TabIndex = 4;
             this.buttonDone.Text = "Guardar";
             this.buttonDone.UseVisualStyleBackColor = false;
@@ -92,9 +93,9 @@ namespace Libe_Escriptori.Forms.Groups
             // 
             // FormScheduleCellInfo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(205, 168);
+            this.ClientSize = new System.Drawing.Size(176, 146);
             this.Controls.Add(this.buttonDone);
             this.Controls.Add(this.comboBoxClass);
             this.Controls.Add(this.labelModul);

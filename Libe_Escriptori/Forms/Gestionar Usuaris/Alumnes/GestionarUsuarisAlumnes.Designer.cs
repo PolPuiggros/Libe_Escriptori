@@ -150,7 +150,6 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.dataGridView1.Size = new System.Drawing.Size(871, 474);
             this.dataGridView1.TabIndex = 11;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
             // 
             // bindingSourceStudents
             // 
