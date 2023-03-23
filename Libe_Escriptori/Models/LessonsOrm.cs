@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Libe_Escriptori.Models
 {
@@ -22,6 +23,17 @@ namespace Libe_Escriptori.Models
                                             .Where(lesson => lesson.weekday == weekday)
                                             .ToList();
             return _lessons;
+        }
+
+        public static lessons SelectFromAttributes(string day,string hour,string module,int scheduleId)
+        {
+            //int _hour = int.Parse(hour);
+            
+            TimeSpan time = TimeSpan.Parse(hour);
+            lessons _lesson = Orm.db.lessons
+                .Where(lesson => lesson.schedule_id == scheduleId && lesson.starting_hour.Equals(time) && lesson.weekday == day)
+                .FirstOrDefault();
+            return _lesson;
         }
 
         public static List<TimeSpan> SelectHours()
