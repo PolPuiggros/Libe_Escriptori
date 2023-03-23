@@ -103,7 +103,7 @@ namespace Libe_Escriptori.Forms.Groups
                             }
                             if (cell.ColumnIndex == 1)
                             {
-                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Mon       "))
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Dilluns"))
                                 {
                                     cell.Value = hourLessonsList[indexHour].modules.code;
                                     indexModule = modulesCodes.IndexOf(cell.Value.ToString());
@@ -113,7 +113,7 @@ namespace Libe_Escriptori.Forms.Groups
                             }
                             if (cell.ColumnIndex == 2)
                             {
-                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Tue       "))
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Dimarts"))
                                 {
                                     cell.Value = hourLessonsList[indexHour].modules.code;
                                     indexModule = modulesCodes.IndexOf(cell.Value.ToString());
@@ -124,7 +124,7 @@ namespace Libe_Escriptori.Forms.Groups
                             }
                             if (cell.ColumnIndex == 3)
                             {
-                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Wed       "))
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Dimecres"))
                                 {
                                     cell.Value = hourLessonsList[indexHour].modules.code;
                                     indexModule = modulesCodes.IndexOf(cell.Value.ToString());
@@ -134,7 +134,7 @@ namespace Libe_Escriptori.Forms.Groups
                             }
                             if (cell.ColumnIndex == 4)
                             {
-                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Thu       "))
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Dijous"))
                                 {
                                     cell.Value = hourLessonsList[indexHour].modules.code;
                                     indexModule = modulesCodes.IndexOf(cell.Value.ToString());
@@ -144,7 +144,7 @@ namespace Libe_Escriptori.Forms.Groups
                             }
                             if (cell.ColumnIndex == 5)
                             {
-                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Fri       "))
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Divendres"))
                                 {
                                     cell.Value = hourLessonsList[indexHour].modules.code;
                                     indexModule = modulesCodes.IndexOf(cell.Value.ToString());
@@ -168,7 +168,7 @@ namespace Libe_Escriptori.Forms.Groups
                             }
                             if (cell.ColumnIndex == 1)
                             {
-                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Mon       "))
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Dilluns"))
                                 {
                                     cell.Value = hourLessonsList[indexHour].modules.code;
                                     indexModule = modulesCodes.IndexOf(cell.Value.ToString());
@@ -178,7 +178,7 @@ namespace Libe_Escriptori.Forms.Groups
                             }
                             if (cell.ColumnIndex == 2)
                             {
-                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Tue       "))
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Dimarts"))
                                 {
                                     cell.Value = hourLessonsList[indexHour].modules.code;
                                     indexModule = modulesCodes.IndexOf(cell.Value.ToString());
@@ -188,7 +188,7 @@ namespace Libe_Escriptori.Forms.Groups
                             }
                             if (cell.ColumnIndex == 3)
                             {
-                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Wed       "))
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Dimecres"))
                                 {
                                     cell.Value = hourLessonsList[indexHour].modules.code;
                                     indexModule = modulesCodes.IndexOf(cell.Value.ToString());
@@ -198,7 +198,7 @@ namespace Libe_Escriptori.Forms.Groups
                             }
                             if (cell.ColumnIndex == 4)
                             {
-                                if (indexHour < hourLessonsList.Count  && hourLessonsList[indexHour].weekday.Equals("Thu       "))
+                                if (indexHour < hourLessonsList.Count  && hourLessonsList[indexHour].weekday.Equals("Dijous"))
                                 {
                                     cell.Value = hourLessonsList[indexHour].modules.code;
                                     indexModule = modulesCodes.IndexOf(cell.Value.ToString());
@@ -208,7 +208,7 @@ namespace Libe_Escriptori.Forms.Groups
                             }
                             if (cell.ColumnIndex == 5)
                             {
-                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Fri       "))
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Divendres"))
                                 {
                                     cell.Value = hourLessonsList[indexHour].modules.code;
                                     indexModule = modulesCodes.IndexOf(cell.Value.ToString());
@@ -233,7 +233,7 @@ namespace Libe_Escriptori.Forms.Groups
                             }
                             if (cell.ColumnIndex == 1)
                             {
-                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Mon       "))
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Dilluns"))
                                 {
                                     cell.Value = hourLessonsList[indexHour].modules.code;
                                     indexModule = modulesCodes.IndexOf(cell.Value.ToString());
@@ -243,7 +243,7 @@ namespace Libe_Escriptori.Forms.Groups
                             }
                             if (cell.ColumnIndex == 2)
                             {
-                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Tue       "))
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Dimarts"))
                                 {
                                     cell.Value = hourLessonsList[indexHour].modules.code;
                                     indexModule = modulesCodes.IndexOf(cell.Value.ToString());
@@ -253,7 +253,7 @@ namespace Libe_Escriptori.Forms.Groups
                             }
                             if (cell.ColumnIndex == 3)
                             {
-                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Wed       "))
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Dimecres"))
                                 {
                                     cell.Value = hourLessonsList[indexHour].modules.code;
                                     indexModule = modulesCodes.IndexOf(cell.Value.ToString());
@@ -263,7 +263,7 @@ namespace Libe_Escriptori.Forms.Groups
                             }
                             if (cell.ColumnIndex == 4)
                             {
-                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Thu       "))
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Dijous"))
                                 {
                                     cell.Value = hourLessonsList[indexHour].modules.code;
                                     indexModule = modulesCodes.IndexOf(cell.Value.ToString());
@@ -273,7 +273,7 @@ namespace Libe_Escriptori.Forms.Groups
                             }
                             if (cell.ColumnIndex == 5)
                             {
-                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Fri       "))
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Divendres"))
                                 {
                                     cell.Value = hourLessonsList[indexHour].modules.code;
                                     indexModule = modulesCodes.IndexOf(cell.Value.ToString());
@@ -297,7 +297,7 @@ namespace Libe_Escriptori.Forms.Groups
                             }
                             if (cell.ColumnIndex == 1)
                             {
-                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Mon       "))
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Dilluns"))
                                 {
                                     cell.Value = hourLessonsList[indexHour].modules.code;
                                     indexModule = modulesCodes.IndexOf(cell.Value.ToString());
@@ -307,7 +307,7 @@ namespace Libe_Escriptori.Forms.Groups
                             }
                             if (cell.ColumnIndex == 2)
                             {
-                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Tue       "))
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Dimarts"))
                                 {
                                     cell.Value = hourLessonsList[indexHour].modules.code;
                                     indexModule = modulesCodes.IndexOf(cell.Value.ToString());
@@ -317,7 +317,7 @@ namespace Libe_Escriptori.Forms.Groups
                             }
                             if (cell.ColumnIndex == 3)
                             {
-                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Wed       "))
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Dimecres"))
                                 {
                                     cell.Value = hourLessonsList[indexHour].modules.code;
                                     indexModule = modulesCodes.IndexOf(cell.Value.ToString());
@@ -327,7 +327,7 @@ namespace Libe_Escriptori.Forms.Groups
                             }
                             if (cell.ColumnIndex == 4)
                             {
-                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Thu       "))
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Dijous"))
                                 {
                                     cell.Value = hourLessonsList[indexHour].modules.code;
                                     indexModule = modulesCodes.IndexOf(cell.Value.ToString());
@@ -337,7 +337,7 @@ namespace Libe_Escriptori.Forms.Groups
                             }
                             if (cell.ColumnIndex == 5)
                             {
-                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Fri       "))
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Divendres"))
                                 {
                                     cell.Value = hourLessonsList[indexHour].modules.code;
                                     indexModule = modulesCodes.IndexOf(cell.Value.ToString());
@@ -361,7 +361,7 @@ namespace Libe_Escriptori.Forms.Groups
                             }
                             if (cell.ColumnIndex == 1)
                             {
-                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Mon       "))
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Dilluns"))
                                 {
                                     cell.Value = hourLessonsList[indexHour].modules.code;
                                     indexModule = modulesCodes.IndexOf(cell.Value.ToString());
@@ -371,7 +371,7 @@ namespace Libe_Escriptori.Forms.Groups
                             }
                             if (cell.ColumnIndex == 2)
                             {
-                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Tue       "))
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Dimarts"))
                                 {
                                     cell.Value = hourLessonsList[indexHour].modules.code;
                                     indexModule = modulesCodes.IndexOf(cell.Value.ToString());
@@ -381,7 +381,7 @@ namespace Libe_Escriptori.Forms.Groups
                             }
                             if (cell.ColumnIndex == 3)
                             {
-                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Wed       "))
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Dimecres"))
                                 {
                                     cell.Value = hourLessonsList[indexHour].modules.code;
                                     indexModule = modulesCodes.IndexOf(cell.Value.ToString());
@@ -391,7 +391,7 @@ namespace Libe_Escriptori.Forms.Groups
                             }
                             if (cell.ColumnIndex == 4)
                             {
-                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Thu       "))
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Dijous"))
                                 {
                                     cell.Value = hourLessonsList[indexHour].modules.code;
                                     indexModule = modulesCodes.IndexOf(cell.Value.ToString());
@@ -401,7 +401,7 @@ namespace Libe_Escriptori.Forms.Groups
                             }
                             if (cell.ColumnIndex == 5)
                             {
-                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Fri       "))
+                                if (indexHour < hourLessonsList.Count && hourLessonsList[indexHour].weekday.Equals("Divendres"))
                                 {
                                     cell.Value = hourLessonsList[indexHour].modules.code;
                                     indexModule = modulesCodes.IndexOf(cell.Value.ToString());
@@ -480,8 +480,8 @@ namespace Libe_Escriptori.Forms.Groups
                     // classroom
 
 
-                    Form formDetailClass = new FormScheduleCellInfo(day,hour,module,"1.01");
-                    formDetailClass.Show();
+                    Form formDetailClass = new FormScheduleCellInfo(day,hour,module, _group.schedule_id);
+                    formDetailClass.ShowDialog();
                 }
                 
 
@@ -561,8 +561,8 @@ namespace Libe_Escriptori.Forms.Groups
                         // classroom
 
 
-                        Form formDetailClass = new FormScheduleCellInfo(day, hour, module, "1.01");
-                        formDetailClass.Show();
+                        Form formDetailClass = new FormScheduleCellInfo(day, hour, module, _group.schedule_id);
+                        formDetailClass.ShowDialog();
                     }
                 }
             }
@@ -596,23 +596,23 @@ namespace Libe_Escriptori.Forms.Groups
 
                     switch (column)
                     {
-                        case 1:
-                            weekdayConsult = "Mon       ";
-                            break;
-                        case 2:
-                            weekdayConsult = "Tue       ";
-                            break;
-                        case 3:
-                            weekdayConsult = "Wed       ";
-                            break;
-                        case 4:
-                            weekdayConsult = "Thu       ";
-                            break;
-                        case 5:
-                            weekdayConsult = "Fri       ";
-                            break;
-                        default:
-                            break;
+                         case 1:
+                                weekdayConsult = "Dilluns";
+                                break;
+                            case 2:
+                                weekdayConsult = "Dimarts";
+                                break;
+                            case 3:
+                                weekdayConsult = "Dimecres";
+                                break;
+                            case 4:
+                                weekdayConsult = "Dijous";
+                                break;
+                            case 5:
+                                weekdayConsult = "Divendres";
+                                break;
+                            default:
+                                break;
                     }
 
                     string selectedModule = listViewModuls.SelectedItems[0].Text;
@@ -666,19 +666,19 @@ namespace Libe_Escriptori.Forms.Groups
                         switch (column)
                         {
                             case 1:
-                                weekdayConsult = "Mon       ";
+                                weekdayConsult = "Dilluns";
                                 break;
                             case 2:
-                                weekdayConsult = "Tue       ";
+                                weekdayConsult = "Dimarts";
                                 break;
                             case 3:
-                                weekdayConsult = "Wed       ";
+                                weekdayConsult = "Dimecres";
                                 break;
                             case 4:
-                                weekdayConsult = "Thu       ";
+                                weekdayConsult = "Dijous";
                                 break;
                             case 5:
-                                weekdayConsult = "Fri       ";
+                                weekdayConsult = "Divendres";
                                 break;
                             default:
                                 break;

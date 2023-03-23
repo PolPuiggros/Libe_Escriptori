@@ -21,6 +21,15 @@ namespace Libe_Escriptori.Models.Centre
             return _classrooms;
         }
 
+        public static List<classrooms> Select(bool state)
+        {
+            List<classrooms> _classrooms = Orm.db.classrooms
+            .Where(c => c.active == state)
+            .ToList();
+
+            return _classrooms;
+        }
+
         public static void Insert(classrooms aula)
         {
             Orm.db.classrooms.Add(aula);
