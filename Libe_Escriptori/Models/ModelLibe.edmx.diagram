@@ -2045,7 +2045,6 @@
 
         <EntityTypeShape EntityType="libeModel.modules" Width="1.5" PointX="15" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="libeModel.validable_zones" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="libeModel.users_desktop" Width="1.5" PointX="11.125" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="libeModel.users_desktop_type" Width="1.5" PointX="8.875" PointY="3.25" IsExpanded="true" />
         <EntityTypeShape EntityType="libeModel.courses" Width="1.5" PointX="12.75" PointY="8.25" IsExpanded="true" />
         <AssociationConnector Association="libeModel.FK_attendance_attendance_status" ManuallyRouted="false" />
@@ -2063,7 +2062,6 @@
         <AssociationConnector Association="libeModel.FK_groups_schedules" ManuallyRouted="false" />
         <AssociationConnector Association="libeModel.FK_units_units" ManuallyRouted="false" />
         <AssociationConnector Association="libeModel.profesor_module" ManuallyRouted="false" />
-        <AssociationConnector Association="libeModel.FK_users_desktop_users_desktop_type" ManuallyRouted="false" />
         <AssociationConnector Association="libeModel.FK_courses_departments" ManuallyRouted="false" />
         <AssociationConnector Association="libeModel.course_module" ManuallyRouted="false" />
 
@@ -2088,6 +2086,8 @@
         <AssociationConnector Association="libeModel.FK_lessons_modules" />
         <AssociationConnector Association="libeModel.FK_lessons_schedules" />
         <AssociationConnector Association="libeModel.profesor_lesson" />
+        <EntityTypeShape EntityType="libeModel.users_desktop" Width="1.5" PointX="11.125" PointY="2.625" />
+        <AssociationConnector Association="libeModel.FK_users_desktop_users_desktop_type" />
 
       </Diagram>
     </Diagrams>

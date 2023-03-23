@@ -1,6 +1,6 @@
 ﻿namespace Libe_Escriptori
 {
-    partial class ProfilePictrure
+    partial class ProfilePic
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -34,22 +34,25 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::Libe_Escriptori.Properties.Resources.profile_pic3;
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::Libe_Escriptori.Properties.Resources.profile_pic_big;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Location = new System.Drawing.Point(2, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // ProfilePictrure
+            // ProfilePic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.pictureBox1);
-            this.Name = "ProfilePictrure";
-            this.Size = new System.Drawing.Size(70, 70);
+            this.Name = "ProfilePic";
+            this.Size = new System.Drawing.Size(53, 53);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

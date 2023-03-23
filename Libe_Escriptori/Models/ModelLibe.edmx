@@ -75,6 +75,7 @@
           <Property Name="created_timestamp" Type="datetime" />
           <Property Name="updated_timestamp" Type="datetime" />
           <Property Name="deleted_timestamp" Type="datetime" />
+          <Property Name="duration" Type="int" />
         </EntityType>
         <EntityType Name="departments">
           <Key>
@@ -284,6 +285,7 @@
           <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="password" Type="varchar(max)" Nullable="false" />
           <Property Name="type" Type="int" Nullable="false" />
+          <Property Name="profile_img" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="active" Type="bit" Nullable="false" />
           <Property Name="created_timestamp" Type="datetime" />
           <Property Name="updated_timestamp" Type="datetime" />
@@ -551,7 +553,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_lessons_schedules">
-          <End Role="schedules" Type="Self.schedules" Multiplicity="1" />
+          <End Role="schedules" Type="Self.schedules" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="lessons" Type="Self.lessons" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="schedules">
@@ -1095,12 +1099,7 @@
 						<End Role="profesors" EntitySet="profesors" />
 					</AssociationSet>
 					<EntitySet Name="validable_zones" EntityType="libeModel.validable_zones" />
-					<EntitySet Name="users_desktop" EntityType="libeModel.users_desktop" />
 					<EntitySet Name="users_desktop_type" EntityType="libeModel.users_desktop_type" />
-					<AssociationSet Name="FK_users_desktop_users_desktop_type" Association="libeModel.FK_users_desktop_users_desktop_type">
-						<End Role="users_desktop_type" EntitySet="users_desktop_type" />
-						<End Role="users_desktop" EntitySet="users_desktop" />
-					</AssociationSet>
 					<EntitySet Name="courses" EntityType="libeModel.courses" />
 					<AssociationSet Name="FK_courses_departments" Association="libeModel.FK_courses_departments">
 						<End Role="departments" EntitySet="departments" />
@@ -1174,6 +1173,11 @@
           <AssociationSet Name="profesor_lesson" Association="libeModel.profesor_lesson">
             <End Role="lessons" EntitySet="lessons" />
             <End Role="profesors" EntitySet="profesors" />
+          </AssociationSet>
+          <EntitySet Name="users_desktop" EntityType="libeModel.users_desktop" />
+          <AssociationSet Name="FK_users_desktop_users_desktop_type" Association="libeModel.FK_users_desktop_users_desktop_type">
+            <End Role="users_desktop_type" EntitySet="users_desktop_type" />
+            <End Role="users_desktop" EntitySet="users_desktop" />
           </AssociationSet>
 				</EntityContainer>
 				<EntityType Name="users">
@@ -1389,40 +1393,14 @@
 					<Property Name="deleted_timestamp" Type="DateTime" Precision="3" />
 					<NavigationProperty Name="classrooms" Relationship="libeModel.FK_classrooms1_validable_zones" FromRole="validable_zones" ToRole="classrooms" />
 				</EntityType>
-				<EntityType Name="users_desktop">
-					<Key>
-						<PropertyRef Name="id" />
-					</Key>
-					<Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-					<Property Name="username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-					<Property Name="password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-					<Property Name="type" Type="Int32" Nullable="false" />
-					<Property Name="active" Type="Boolean" Nullable="false" />
-					<NavigationProperty Name="users_desktop_type" Relationship="libeModel.FK_users_desktop_users_desktop_type" FromRole="users_desktop" ToRole="users_desktop_type" />
-					<Property Name="created_timestamp" Type="DateTime" Precision="3" />
-					<Property Name="updated_timestamp" Type="DateTime" Precision="3" />
-					<Property Name="deleted_timestamp" Type="DateTime" Precision="3" />
-				</EntityType>
 				<EntityType Name="users_desktop_type">
 					<Key>
 						<PropertyRef Name="type" />
 					</Key>
 					<Property Name="type" Type="Int32" Nullable="false" />
 					<Property Name="type_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-					<NavigationProperty Name="users_desktop" Relationship="libeModel.FK_users_desktop_users_desktop_type" FromRole="users_desktop_type" ToRole="users_desktop" />
+          <NavigationProperty Name="users_desktop" Relationship="libeModel.FK_users_desktop_users_desktop_type" FromRole="users_desktop_type" ToRole="users_desktop" />
 				</EntityType>
-				<Association Name="FK_users_desktop_users_desktop_type">
-					<End Type="libeModel.users_desktop_type" Role="users_desktop_type" Multiplicity="1" />
-					<End Type="libeModel.users_desktop" Role="users_desktop" Multiplicity="*" />
-					<ReferentialConstraint>
-						<Principal Role="users_desktop_type">
-							<PropertyRef Name="type" />
-						</Principal>
-						<Dependent Role="users_desktop">
-							<PropertyRef Name="type" />
-						</Dependent>
-					</ReferentialConstraint>
-				</Association>
 				<EntityType Name="courses">
 					<Key>
 						<PropertyRef Name="id" />
@@ -1439,6 +1417,7 @@
 					<NavigationProperty Name="departments" Relationship="libeModel.FK_courses_departments" FromRole="courses" ToRole="departments" />
 					<NavigationProperty Name="groups" Relationship="libeModel.FK_groups_groups" FromRole="courses" ToRole="groups" />
 					<NavigationProperty Name="modules" Relationship="libeModel.course_module" FromRole="courses" ToRole="modules" />
+          <Property Name="duration" Type="Int32" />
 				</EntityType>
 				<Association Name="FK_courses_departments">
 					<End Type="libeModel.departments" Role="departments" Multiplicity="1" />
@@ -1696,6 +1675,33 @@
           <End Type="libeModel.lessons" Role="lessons" Multiplicity="*" />
           <End Type="libeModel.profesors" Role="profesors" Multiplicity="*" />
         </Association>
+        <EntityType Name="users_desktop">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="Int32" Nullable="false" />
+          <Property Name="profile_img" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <Property Name="created_timestamp" Type="DateTime" Precision="3" />
+          <Property Name="updated_timestamp" Type="DateTime" Precision="3" />
+          <Property Name="deleted_timestamp" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="users_desktop_type" Relationship="libeModel.FK_users_desktop_users_desktop_type" FromRole="users_desktop" ToRole="users_desktop_type" />
+        </EntityType>
+        <Association Name="FK_users_desktop_users_desktop_type">
+          <End Type="libeModel.users_desktop_type" Role="users_desktop_type" Multiplicity="1" />
+          <End Type="libeModel.users_desktop" Role="users_desktop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users_desktop_type">
+              <PropertyRef Name="type" />
+            </Principal>
+            <Dependent Role="users_desktop">
+              <PropertyRef Name="type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
 			</Schema>
 		</edmx:ConceptualModels>
 		<!-- C-S mapping content -->
@@ -1905,20 +1911,6 @@
 							</MappingFragment>
 						</EntityTypeMapping>
 					</EntitySetMapping>
-					<EntitySetMapping Name="users_desktop">
-						<EntityTypeMapping TypeName="libeModel.users_desktop">
-							<MappingFragment StoreEntitySet="users_desktop">
-								<ScalarProperty Name="deleted_timestamp" ColumnName="deleted_timestamp" />
-								<ScalarProperty Name="updated_timestamp" ColumnName="updated_timestamp" />
-								<ScalarProperty Name="created_timestamp" ColumnName="created_timestamp" />
-								<ScalarProperty Name="active" ColumnName="active" />
-								<ScalarProperty Name="type" ColumnName="type" />
-								<ScalarProperty Name="password" ColumnName="password" />
-								<ScalarProperty Name="username" ColumnName="username" />
-								<ScalarProperty Name="id" ColumnName="id" />
-							</MappingFragment>
-						</EntityTypeMapping>
-					</EntitySetMapping>
 					<EntitySetMapping Name="users_desktop_type">
 						<EntityTypeMapping TypeName="libeModel.users_desktop_type">
 							<MappingFragment StoreEntitySet="users_desktop_type">
@@ -1930,7 +1922,8 @@
 					<EntitySetMapping Name="courses">
 						<EntityTypeMapping TypeName="libeModel.courses">
 							<MappingFragment StoreEntitySet="courses">
-								<ScalarProperty Name="deleted_timestamp" ColumnName="deleted_timestamp" />
+								<ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="deleted_timestamp" ColumnName="deleted_timestamp" />
 								<ScalarProperty Name="updated_timestamp" ColumnName="updated_timestamp" />
 								<ScalarProperty Name="created_timestamp" ColumnName="created_timestamp" />
 								<ScalarProperty Name="active" ColumnName="active" />
@@ -2031,6 +2024,21 @@
               <ScalarProperty Name="id" ColumnName="lesson_id" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="users_desktop">
+            <EntityTypeMapping TypeName="libeModel.users_desktop">
+              <MappingFragment StoreEntitySet="users_desktop">
+                <ScalarProperty Name="deleted_timestamp" ColumnName="deleted_timestamp" />
+                <ScalarProperty Name="updated_timestamp" ColumnName="updated_timestamp" />
+                <ScalarProperty Name="created_timestamp" ColumnName="created_timestamp" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="profile_img" ColumnName="profile_img" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
 				</EntityContainerMapping>
 			</Mapping>
 		</edmx:Mappings>

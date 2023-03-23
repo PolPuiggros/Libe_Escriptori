@@ -18,6 +18,7 @@ namespace Libe_Escriptori.Models
         public string username { get; set; }
         public string password { get; set; }
         public int type { get; set; }
+        public string profile_img { get; set; }
         public bool active { get; set; }
         public Nullable<System.DateTime> created_timestamp { get; set; }
         public Nullable<System.DateTime> updated_timestamp { get; set; }

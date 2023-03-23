@@ -28,10 +28,10 @@ namespace Libe_Escriptori
         private void login()
         {
             string password;
-            password = LoginOrm.Select(true, textBoxUsername.Text);
+            password = UserDesktopOrm.Select(true, textBoxUsername.Text);
             if (password != null && Blowfish.verificarContra(password, textBoxPassword.Text))
             {
-                MainForm mf = new MainForm();
+                MainForm mf = new MainForm(UserDesktopOrm.SelectUser(true, textBoxUsername.Text));
                 mf.Show();
                 this.Hide();
             }
