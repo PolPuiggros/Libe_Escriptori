@@ -14,6 +14,9 @@ namespace Libe_Escriptori
     public partial class ProfilePic : UserControl
     {
         string imageName;
+        public delegate void DoEvent();
+        public event DoEvent updateProfile;
+        public event DoEvent closeParent;
         public ProfilePic(string imageName)
         {
             InitializeComponent();
@@ -25,6 +28,8 @@ namespace Libe_Escriptori
         {
             UserDesktopOrm.UpdateImage(imageName);
             FormFotosPerfil.imageSelected = imageName;
+            updateProfile();
+            closeParent();
         }
     }
 }

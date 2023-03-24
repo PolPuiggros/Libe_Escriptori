@@ -321,6 +321,7 @@ namespace Libe_Escriptori
         void fm_updateProfile()
         {
             buttonProfile.BackgroundImage = Image.FromFile(@"..\..\ImagesProfile\" + userLogged.profile_img);
+            panelProfileImg.Visible = false;
         }
     }
 }

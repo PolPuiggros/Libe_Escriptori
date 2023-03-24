@@ -52,6 +52,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormFotosPerfil";
             this.Text = "FormFotosPerfil";
+            this.Load += new System.EventHandler(this.FormFotosPerfil_Load);
             this.ResumeLayout(false);
 
         }

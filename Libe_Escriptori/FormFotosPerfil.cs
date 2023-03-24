@@ -20,7 +20,7 @@ namespace Libe_Escriptori
         {
             InitializeComponent();
             fillList();
-            display();
+
         }
 
         private void display()
@@ -34,6 +34,8 @@ namespace Libe_Escriptori
                 else
                 {
                     ProfilePic pp = new ProfilePic(foto);
+                    pp.updateProfile += new ProfilePic.DoEvent(updateProfile);
+                    pp.closeParent += new ProfilePic.DoEvent(close);
                     flowLayoutPanel1.Controls.Add(pp);
                 }
             }
@@ -43,8 +45,16 @@ namespace Libe_Escriptori
         {
             for (int i = 1; i <= 9; i++)
             {
-                fotos.Add("profile_pic"+i+".png");
+                fotos.Add("profile_pic" + i + ".png");
             }
+        }
+
+        private void FormFotosPerfil_Load(object sender, EventArgs e)
+        {
+            display();
+        }
+        void close() {
+            this.Close();
         }
     }
 }
