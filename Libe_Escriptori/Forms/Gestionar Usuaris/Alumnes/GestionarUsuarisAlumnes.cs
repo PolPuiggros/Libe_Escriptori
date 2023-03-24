@@ -37,7 +37,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
 
             List<groups> listG = GroupsOrm.Select();
             List<groupComboBox> listCombo = new List<groupComboBox>();
-
+            listCombo.Add(new groupComboBox());
             foreach(groups g in listG)
             {
                 courses c = CoursesORM.Select(g.course_id);
@@ -168,8 +168,15 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
 
         private void comboBoxFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            bindingSourceStudents.DataSource = AlumnesOrm.SelectStudentsGroup((int)comboBoxFilter.SelectedValue);
+            if (comboBoxFilter.SelectedIndex == 0)
+            {
+                bindingSourceStudents.DataSource = AlumnesOrm.Select(true);
+            }
+            else
+            {
+                bindingSourceStudents.DataSource = AlumnesOrm.SelectStudentsGroup((int)comboBoxFilter.SelectedValue);
+            }
+            
         }
     }
 
@@ -177,6 +184,12 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
     {
         public string group { get; set; }
         public int id { get; set; }
+
+        public groupComboBox()
+        {
+            this.id = 0;
+            this.group = "Tots";
+        }
 
         public groupComboBox(int id, string group)
         {

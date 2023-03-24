@@ -100,10 +100,15 @@ namespace Libe_Escriptori.Forms.Courses
             if (addingNew)
             {
                 
-                if (addNewCourse())
+                if (textBoxAbbreviation.Text != textBoxHintAbreviation && !String.IsNullOrEmpty(textBoxAbbreviation.Text) &&
+                    textBoxFullName.Text != textBoxHintName && !String.IsNullOrEmpty(textBoxFullName.Text) && addNewCourse())
                 {
                     addingNew = false;
                     OpenChildForm(new FormAddNewModule(labeld, _course));
+                }
+                else
+                {
+                    MessageBox.Show("Abans d'afegir moduls, omple els texts d'Abreviació i de Nom del curs");
                 }
             }
             else
@@ -167,9 +172,17 @@ namespace Libe_Escriptori.Forms.Courses
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-
-            addNewCourse();
-            this.Close();
+            if(!String.IsNullOrEmpty(textBoxAbbreviation.Text) && textBoxAbbreviation.Text != textBoxHintAbreviation && !String.IsNullOrEmpty(textBoxFullName.Text) && textBoxFullName.Text != textBoxHintName && comboBoxDepartment.SelectedIndex >= 0)
+            {
+                addNewCourse();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Omple tots els camps");
+            }
+            
+           
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

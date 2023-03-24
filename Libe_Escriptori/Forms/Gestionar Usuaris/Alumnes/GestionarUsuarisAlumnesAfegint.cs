@@ -62,10 +62,13 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
                 textBoxDni.ForeColor = Color.Black;
                 checkBoxAutoregister.Checked = _student.autoregister;
                 checkBoxRepeater.Checked = _student.has_repeated;
+
             } else
             {
                 comboBoxCourse.SelectedIndex = -1;
             }
+            loadAllUnits();
+            loadStudentUnits();
         }
 
         private void textBoxName_Enter(object sender, EventArgs e)
@@ -238,6 +241,11 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
 
         private void comboBoxCourse_SelectedIndexChanged(object sender, EventArgs e)
         {
+            loadAllUnits();
+        }
+
+        private void loadAllUnits()
+        {
             listBoxStudentUnits.DataSource = null;
             listUnits.Clear();
             if (comboBoxCourse.SelectedValue != null)
@@ -253,6 +261,18 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
                 listBoxAllUnits.DataSource = _formatedUnitName;
             }
         }
+
+        private void loadStudentUnits()
+        {
+          
+            listUnits = _student.units.ToList();
+                        
+            List<string> _formatedUnitName = formatUnitName(listUnits);
+            listBoxStudentUnits.DataSource = _formatedUnitName;
+
+            listBoxAllUnits.ClearSelected();
+        }
+
         private List<string> formatUnitName(List<units> _units)
         {
             string unitAbbr, unitName, moduleCode;

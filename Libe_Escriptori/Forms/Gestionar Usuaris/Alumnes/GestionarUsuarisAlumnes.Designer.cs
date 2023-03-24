@@ -38,10 +38,6 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.textBoxFiltres = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.bindingSourceStudents = new System.Windows.Forms.BindingSource(this.components);
-            this.comboBoxFilter = new System.Windows.Forms.ComboBox();
-            this.bindingSourceGroups = new System.Windows.Forms.BindingSource(this.components);
-            this.buttonNew = new System.Windows.Forms.Button();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.surnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.surname2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +48,10 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.hasrepeatedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ColumnEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.ColumnDelete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.bindingSourceStudents = new System.Windows.Forms.BindingSource(this.components);
+            this.comboBoxFilter = new System.Windows.Forms.ComboBox();
+            this.bindingSourceGroups = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonNew = new System.Windows.Forms.Button();
             this.panelGestionarUsuaris.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceStudents)).BeginInit();
@@ -79,7 +79,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.textBoxFiltres.MaximumSize = new System.Drawing.Size(829, 31);
             this.textBoxFiltres.MinimumSize = new System.Drawing.Size(450, 31);
             this.textBoxFiltres.Name = "textBoxFiltres";
-            this.textBoxFiltres.Size = new System.Drawing.Size(450, 31);
+            this.textBoxFiltres.Size = new System.Drawing.Size(450, 27);
             this.textBoxFiltres.TabIndex = 13;
             this.textBoxFiltres.Text = " Introdueix dades clau de l\'usuari ex. DNI, Cognom...";
             this.textBoxFiltres.TextChanged += new System.EventHandler(this.textBoxFiltres_TextChanged);
@@ -134,6 +134,7 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGridView1.Location = new System.Drawing.Point(63, 110);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -150,49 +151,6 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.dataGridView1.Size = new System.Drawing.Size(871, 474);
             this.dataGridView1.TabIndex = 11;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // bindingSourceStudents
-            // 
-            this.bindingSourceStudents.DataSource = typeof(Libe_Escriptori.Models.students);
-            // 
-            // comboBoxFilter
-            // 
-            this.comboBoxFilter.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBoxFilter.DataSource = this.bindingSourceGroups;
-            this.comboBoxFilter.DisplayMember = "course_id";
-            this.comboBoxFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxFilter.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.comboBoxFilter.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.comboBoxFilter.FormattingEnabled = true;
-            this.comboBoxFilter.IntegralHeight = false;
-            this.comboBoxFilter.ItemHeight = 21;
-            this.comboBoxFilter.Location = new System.Drawing.Point(802, 49);
-            this.comboBoxFilter.MaximumSize = new System.Drawing.Size(150, 0);
-            this.comboBoxFilter.MinimumSize = new System.Drawing.Size(121, 0);
-            this.comboBoxFilter.Name = "comboBoxFilter";
-            this.comboBoxFilter.Size = new System.Drawing.Size(132, 29);
-            this.comboBoxFilter.TabIndex = 8;
-            this.comboBoxFilter.ValueMember = "id";
-            this.comboBoxFilter.SelectedIndexChanged += new System.EventHandler(this.comboBoxFilter_SelectedIndexChanged);
-            // 
-            // bindingSourceGroups
-            // 
-            this.bindingSourceGroups.DataSource = typeof(Libe_Escriptori.Models.groups);
-            // 
-            // buttonNew
-            // 
-            this.buttonNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(171)))));
-            this.buttonNew.FlatAppearance.BorderSize = 0;
-            this.buttonNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.buttonNew.ForeColor = System.Drawing.Color.White;
-            this.buttonNew.Location = new System.Drawing.Point(63, 49);
-            this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(125, 27);
-            this.buttonNew.TabIndex = 6;
-            this.buttonNew.Text = "Nou";
-            this.buttonNew.UseVisualStyleBackColor = false;
-            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -277,6 +235,49 @@ namespace Libe_Escriptori.Forms.Gestionar_Usuaris
             this.ColumnDelete.ReadOnly = true;
             this.ColumnDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ColumnDelete.Width = 40;
+            // 
+            // bindingSourceStudents
+            // 
+            this.bindingSourceStudents.DataSource = typeof(Libe_Escriptori.Models.students);
+            // 
+            // comboBoxFilter
+            // 
+            this.comboBoxFilter.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBoxFilter.DataSource = this.bindingSourceGroups;
+            this.comboBoxFilter.DisplayMember = "course_id";
+            this.comboBoxFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFilter.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.comboBoxFilter.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.comboBoxFilter.FormattingEnabled = true;
+            this.comboBoxFilter.IntegralHeight = false;
+            this.comboBoxFilter.ItemHeight = 21;
+            this.comboBoxFilter.Location = new System.Drawing.Point(802, 49);
+            this.comboBoxFilter.MaximumSize = new System.Drawing.Size(150, 0);
+            this.comboBoxFilter.MinimumSize = new System.Drawing.Size(121, 0);
+            this.comboBoxFilter.Name = "comboBoxFilter";
+            this.comboBoxFilter.Size = new System.Drawing.Size(132, 29);
+            this.comboBoxFilter.TabIndex = 8;
+            this.comboBoxFilter.ValueMember = "id";
+            this.comboBoxFilter.SelectedIndexChanged += new System.EventHandler(this.comboBoxFilter_SelectedIndexChanged);
+            // 
+            // bindingSourceGroups
+            // 
+            this.bindingSourceGroups.DataSource = typeof(Libe_Escriptori.Models.groups);
+            // 
+            // buttonNew
+            // 
+            this.buttonNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(171)))));
+            this.buttonNew.FlatAppearance.BorderSize = 0;
+            this.buttonNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.buttonNew.ForeColor = System.Drawing.Color.White;
+            this.buttonNew.Location = new System.Drawing.Point(63, 49);
+            this.buttonNew.Name = "buttonNew";
+            this.buttonNew.Size = new System.Drawing.Size(125, 27);
+            this.buttonNew.TabIndex = 6;
+            this.buttonNew.Text = "Nou";
+            this.buttonNew.UseVisualStyleBackColor = false;
+            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
             // GestionarUsuarisAlumnes
             // 

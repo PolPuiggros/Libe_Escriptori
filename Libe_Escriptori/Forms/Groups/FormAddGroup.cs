@@ -1,4 +1,5 @@
 ﻿using Libe_Escriptori.Models;
+using Libe_Escriptori.Models.Centre;
 using Libe_Escriptori.Models.Courses;
 using Libe_Escriptori.Models.Usuaris.Profesors;
 using System;
@@ -166,6 +167,10 @@ namespace Libe_Escriptori.Forms.Groups
             groupsBindingSource.DataSource = GroupsOrm.Select();
             coursesBindingSource.DataSource = CoursesORM.Select();
             profesorsBindingSource.DataSource = ProfesorsOrm.Select(true);
+            comboBoxMainClassGroup.DataSource = AulesOrm.Select(true);
+            comboBoxMainClassGroup.DisplayMember = "name";
+            comboBoxMainClassGroup.ValueMember = "id";
+            
 
             if (!adding)
             {
@@ -200,6 +205,10 @@ namespace Libe_Escriptori.Forms.Groups
                 group.tutor_id = _tutor.id;
 
                 GroupsOrm.Update(group);
+
+            } else
+            {
+                MessageBox.Show("Crea un horari primer");
             }
             this.Close();
         }

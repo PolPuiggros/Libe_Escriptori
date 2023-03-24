@@ -1,5 +1,6 @@
 ﻿using Libe_Escriptori.Forms.Gestionar_Usuaris;
 using Libe_Escriptori.Models;
+using Libe_Escriptori.Models.Courses;
 using Libe_Escriptori.Properties;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace Libe_Escriptori.Forms.Groups
         Form activeForm;
         Label ruta;
         bool add = false;
+        List<groups> listGroups;
         public FormGroups(Label ruta)
         {
             InitializeComponent();
@@ -47,7 +49,15 @@ namespace Libe_Escriptori.Forms.Groups
 
         private void FormGroups_Load(object sender, EventArgs e)
         {
+            courses emptyCourse = new courses();
+            emptyCourse.abreviation = "Tots";
+            List<courses> listCourses = new List<courses>();
+            listCourses.Add(emptyCourse);
+            listCourses.AddRange(CoursesORM.Select());
+
             bindingSourceGroups.DataSource = GroupsOrm.Select();
+            bindingSourceCourses.DataSource = listCourses;
+
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -80,6 +90,87 @@ namespace Libe_Escriptori.Forms.Groups
             {
                 GroupsOrm.Delete(_groups);
             }
+        }
+
+        private void comboBoxFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxFilter.SelectedValue != null)
+            {
+                if (comboBoxFilter.SelectedIndex == 0)
+                {
+                    bindingSourceGroups.DataSource = GroupsOrm.Select();
+                    comboBoxFilterGrade.DataSource = null;
+                    comboBoxFilterLetter.DataSource = null;
+                } else
+                {
+                    listGroups = GroupsOrm.SelectFromCourse((int)comboBoxFilter.SelectedValue);
+                    List<string> grades = new List<string>();
+                    List<string> group_letter = new List<string>();
+                    grades.Add("Tots");
+                    group_letter.Add("Tots");
+                    foreach (groups g in listGroups)
+                    {
+                        if (!grades.Contains(g.grade.ToString()))
+                        {
+                            grades.Add(g.grade.ToString());
+                        }
+                        if (!group_letter.Contains(g.group_letter))
+                        {
+                            group_letter.Add(g.group_letter);
+                        }
+
+                    }
+                    bindingSourceGroups.DataSource = null;
+                    bindingSourceGroups.DataSource = listGroups;
+                    comboBoxFilterGrade.DataSource = grades;
+                    comboBoxFilterLetter.DataSource = group_letter;
+                }
+                
+            }
+           
+        }
+
+        private void comboBoxFilterGrade_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxFilterGrade.SelectedIndex == 0)
+            {
+                if (comboBoxFilter.SelectedValue != null)
+                {
+                    listGroups = GroupsOrm.SelectFromCourse((int)comboBoxFilter.SelectedValue);
+                }
+                else
+                {
+                    listGroups = GroupsOrm.Select();
+                }
+
+            } else
+            {
+                listGroups = listGroups.Where(g => g.grade.ToString() == (string)comboBoxFilterGrade.SelectedValue).ToList();
+                
+            }
+            bindingSourceGroups.DataSource = listGroups;
+        }
+
+        private void comboBoxFilterLetter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxFilterGrade.SelectedIndex == 0)
+            {
+                if (comboBoxFilter.SelectedValue != null)
+                {
+                    listGroups = GroupsOrm.SelectFromCourse((int)comboBoxFilter.SelectedValue);
+                }
+                else
+                {
+                    listGroups = GroupsOrm.Select();
+                }
+
+            }
+            else
+            {
+                listGroups = listGroups.Where(g => g.group_letter == (string)comboBoxFilterLetter.SelectedValue).ToList();
+
+            }
+            bindingSourceGroups.DataSource = listGroups;
         }
     }
 }

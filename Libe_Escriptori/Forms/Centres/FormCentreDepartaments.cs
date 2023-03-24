@@ -56,16 +56,24 @@ namespace Libe_Escriptori.Forms.Centres
 
         private void buttonGuardarDepartament_Click(object sender, EventArgs e)
         {
-            departments _departments = new departments();
+            if (!String.IsNullOrEmpty(textBoxNomDepartament.Text) && textBoxNomDepartament.Text != textBoxHintNameDepartment && comboBoxCoordinador.SelectedIndex >= 0)
+            {
+                departments _departments = new departments();
 
-            _departments.name = textBoxNomDepartament.Text;
-            _departments.profesors = (profesors)comboBoxCoordinador.SelectedItem;
-            _departments.active = true;
-            _departments.created_timestamp = DateTime.Now;
+                _departments.name = textBoxNomDepartament.Text;
+                _departments.profesors = (profesors)comboBoxCoordinador.SelectedItem;
+                _departments.active = true;
+                _departments.created_timestamp = DateTime.Now;
 
-            DepartmentsOrm.Insert(_departments);
-            addPoint();
-            refreshDGV();
+                DepartmentsOrm.Insert(_departments);
+                addPoint();
+                refreshDGV();
+            }
+            else
+            {
+                MessageBox.Show("Omple tots els camps");
+            }
+           
         }
 
         private void refreshDGV()

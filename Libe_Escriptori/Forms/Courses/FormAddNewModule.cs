@@ -93,28 +93,44 @@ namespace Libe_Escriptori.Forms.Courses
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            if (addingNew)
+            if (textBoxAbbreviation.Text != textBoxHintAbreviation && !String.IsNullOrEmpty(textBoxName.Text) && textBoxName.Text != textBoxHintName && textBoxHours.Text != textBoxHintHours && !String.IsNullOrEmpty(textBoxHours.Text))
             {
-                modules _newModule = new modules();
-                _newModule.name = textBoxName.Text;
-                _newModule.code = textBoxAbbreviation.Text;
-                _newModule.total_hours = int.Parse(textBoxHours.Text);
-                _newModule.active = true;
-                ModulesORM.InsertWithUnits(_newModule, listUnits);
-                _course.modules.Add(_newModule);
-                CoursesORM.Update(_course);
-            }
-            else
+                int hours;
+                if (int.TryParse(textBoxHours.Text, out hours))
+                {
+                    if (addingNew)
+                    {
+                        modules _newModule = new modules();
+                        _newModule.name = textBoxName.Text;
+                        _newModule.code = textBoxAbbreviation.Text;
+                        _newModule.total_hours = int.Parse(textBoxHours.Text);
+                        _newModule.active = true;
+                        ModulesORM.InsertWithUnits(_newModule, listUnits);
+                        _course.modules.Add(_newModule);
+                        CoursesORM.Update(_course);
+                    }
+                    else
+                    {
+                        _module.name = textBoxName.Text;
+                        _module.code = textBoxAbbreviation.Text;
+                        _module.total_hours = int.Parse(textBoxHours.Text);
+                        _module.active = true;
+                        ModulesORM.Update(_module);
+                        _course.modules.Add(_module);
+                        CoursesORM.Update(_course);
+                    }
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Les hores han de ser en format numeric, sense punts ni lletres");
+                }
+                    
+            } else
             {
-                _module.name = textBoxName.Text;
-                _module.code = textBoxAbbreviation.Text;
-                _module.total_hours = int.Parse(textBoxHours.Text);
-                _module.active = true;
-                ModulesORM.Update(_module);
-                _course.modules.Add(_module);
-                CoursesORM.Update(_course);
+                MessageBox.Show("Omple tots els camps");
             }
-            this.Close();
+           
         }
 
         private void textBoxAbbrebiationUF_Enter(object sender, EventArgs e)
@@ -150,26 +166,42 @@ namespace Libe_Escriptori.Forms.Courses
 
         private void buttonSaveUf_Click(object sender, EventArgs e)
         {
-            units u = new units();
-            u.abreviation = textBoxAbbrebiationUF.Text;
-            u.total_hours = int.Parse(textBoxHoursUF.Text);
-            u.name = textBoxNameUF.Text;
-            
-            u.active = true;
-            if (addingNew)
+            if (textBoxAbbrebiationUF.Text != textBoxHintAbreviationUF && !String.IsNullOrEmpty(textBoxAbbrebiationUF.Text) && !String.IsNullOrEmpty(textBoxHoursUF.Text) && textBoxHoursUF.Text != textBoxHintHoursUF && textBoxNameUF.Text != textBoxHintNameUF && !String.IsNullOrEmpty(textBoxNameUF.Text))
             {
+                int hours;
+                if (int.TryParse(textBoxHoursUF.Text, out hours))
+                {
+                    units u = new units();
+                    u.abreviation = textBoxAbbrebiationUF.Text;
+                    u.total_hours = int.Parse(textBoxHoursUF.Text);
+                    u.name = textBoxNameUF.Text;
+
+                    u.active = true;
+                    if (addingNew)
+                    {
+
+                        u.module_id = -1;
+                        listUnits.Add(u);
+                        bindingSourceUnits.DataSource = null;
+                        bindingSourceUnits.DataSource = listUnits;
+                    }
+                    else
+                    {
+                        u.module_id = _module.id;
+                        UnitsORM.Insert(u);
+
+                    }
+                } else
+                {
+                    MessageBox.Show("Les hores han de ser en format numeric, sense punts ni lletres");
+                }
                 
-                u.module_id = -1;
-                listUnits.Add(u);
-                bindingSourceUnits.DataSource = null;
-                bindingSourceUnits.DataSource = listUnits;
             }
             else
             {
-                u.module_id = _module.id;
-                UnitsORM.Insert(u);
-                
+                MessageBox.Show("Omple tots els camps referents a la UF");
             }
+            
             
         }
 

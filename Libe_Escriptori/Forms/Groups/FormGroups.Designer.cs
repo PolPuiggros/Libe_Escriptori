@@ -31,12 +31,13 @@ namespace Libe_Escriptori.Forms.Groups
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelGroups = new System.Windows.Forms.Panel();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxFilterGrade = new System.Windows.Forms.ComboBox();
+            this.comboBoxFilterLetter = new System.Windows.Forms.ComboBox();
             this.comboBoxFilter = new System.Windows.Forms.ComboBox();
+            this.bindingSourceCourses = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewGroups = new System.Windows.Forms.DataGridView();
             this.courseidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gradeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,17 +53,16 @@ namespace Libe_Escriptori.Forms.Groups
             this.headerDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.bindingSourceGroups = new System.Windows.Forms.BindingSource(this.components);
             this.buttonNewGroup = new System.Windows.Forms.Button();
-            this.groupsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelGroups.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCourses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroups)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGroups)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelGroups
             // 
-            this.panelGroups.Controls.Add(this.comboBox3);
-            this.panelGroups.Controls.Add(this.comboBox1);
+            this.panelGroups.Controls.Add(this.comboBoxFilterGrade);
+            this.panelGroups.Controls.Add(this.comboBoxFilterLetter);
             this.panelGroups.Controls.Add(this.comboBoxFilter);
             this.panelGroups.Controls.Add(this.dataGridViewGroups);
             this.panelGroups.Controls.Add(this.buttonNewGroup);
@@ -72,65 +72,60 @@ namespace Libe_Escriptori.Forms.Groups
             this.panelGroups.Size = new System.Drawing.Size(1005, 650);
             this.panelGroups.TabIndex = 0;
             // 
-            // comboBox3
+            // comboBoxFilterGrade
             // 
-            this.comboBox3.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBox3.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.comboBox3.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.IntegralHeight = false;
-            this.comboBox3.ItemHeight = 21;
-            this.comboBox3.Items.AddRange(new object[] {
-            "Nom",
-            "Cognom",
-            "DNI"});
-            this.comboBox3.Location = new System.Drawing.Point(626, 54);
-            this.comboBox3.MaximumSize = new System.Drawing.Size(172, 0);
-            this.comboBox3.MinimumSize = new System.Drawing.Size(104, 0);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(164, 29);
-            this.comboBox3.TabIndex = 11;
-            this.comboBox3.Text = "Classe";
+            this.comboBoxFilterGrade.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBoxFilterGrade.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.comboBoxFilterGrade.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.comboBoxFilterGrade.FormattingEnabled = true;
+            this.comboBoxFilterGrade.IntegralHeight = false;
+            this.comboBoxFilterGrade.ItemHeight = 21;
+            this.comboBoxFilterGrade.Location = new System.Drawing.Point(626, 54);
+            this.comboBoxFilterGrade.MaximumSize = new System.Drawing.Size(172, 0);
+            this.comboBoxFilterGrade.MinimumSize = new System.Drawing.Size(104, 0);
+            this.comboBoxFilterGrade.Name = "comboBoxFilterGrade";
+            this.comboBoxFilterGrade.Size = new System.Drawing.Size(164, 29);
+            this.comboBoxFilterGrade.TabIndex = 11;
+            this.comboBoxFilterGrade.SelectedIndexChanged += new System.EventHandler(this.comboBoxFilterGrade_SelectedIndexChanged);
             // 
-            // comboBox1
+            // comboBoxFilterLetter
             // 
-            this.comboBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.comboBox1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.IntegralHeight = false;
-            this.comboBox1.ItemHeight = 21;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Nom",
-            "Cognom",
-            "DNI"});
-            this.comboBox1.Location = new System.Drawing.Point(809, 54);
-            this.comboBox1.MaximumSize = new System.Drawing.Size(172, 0);
-            this.comboBox1.MinimumSize = new System.Drawing.Size(104, 0);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(164, 29);
-            this.comboBox1.TabIndex = 10;
-            this.comboBox1.Text = "Any";
+            this.comboBoxFilterLetter.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBoxFilterLetter.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.comboBoxFilterLetter.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.comboBoxFilterLetter.FormattingEnabled = true;
+            this.comboBoxFilterLetter.IntegralHeight = false;
+            this.comboBoxFilterLetter.ItemHeight = 21;
+            this.comboBoxFilterLetter.Location = new System.Drawing.Point(809, 54);
+            this.comboBoxFilterLetter.MaximumSize = new System.Drawing.Size(172, 0);
+            this.comboBoxFilterLetter.MinimumSize = new System.Drawing.Size(104, 0);
+            this.comboBoxFilterLetter.Name = "comboBoxFilterLetter";
+            this.comboBoxFilterLetter.Size = new System.Drawing.Size(164, 29);
+            this.comboBoxFilterLetter.TabIndex = 10;
+            this.comboBoxFilterLetter.SelectedIndexChanged += new System.EventHandler(this.comboBoxFilterLetter_SelectedIndexChanged);
             // 
             // comboBoxFilter
             // 
             this.comboBoxFilter.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBoxFilter.DataSource = this.bindingSourceCourses;
+            this.comboBoxFilter.DisplayMember = "abreviation";
             this.comboBoxFilter.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.comboBoxFilter.ForeColor = System.Drawing.SystemColors.WindowText;
             this.comboBoxFilter.FormattingEnabled = true;
             this.comboBoxFilter.IntegralHeight = false;
             this.comboBoxFilter.ItemHeight = 21;
-            this.comboBoxFilter.Items.AddRange(new object[] {
-            "Nom",
-            "Cognom",
-            "DNI"});
             this.comboBoxFilter.Location = new System.Drawing.Point(444, 54);
             this.comboBoxFilter.MaximumSize = new System.Drawing.Size(172, 0);
             this.comboBoxFilter.MinimumSize = new System.Drawing.Size(104, 0);
             this.comboBoxFilter.Name = "comboBoxFilter";
             this.comboBoxFilter.Size = new System.Drawing.Size(164, 29);
             this.comboBoxFilter.TabIndex = 9;
-            this.comboBoxFilter.Text = "Cicle";
+            this.comboBoxFilter.ValueMember = "id";
+            this.comboBoxFilter.SelectedIndexChanged += new System.EventHandler(this.comboBoxFilter_SelectedIndexChanged);
+            // 
+            // bindingSourceCourses
+            // 
+            this.bindingSourceCourses.DataSource = typeof(Libe_Escriptori.Models.courses);
             // 
             // dataGridViewGroups
             // 
@@ -140,15 +135,15 @@ namespace Libe_Escriptori.Forms.Groups
             this.dataGridViewGroups.AllowUserToResizeRows = false;
             this.dataGridViewGroups.AutoGenerateColumns = false;
             this.dataGridViewGroups.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGroups.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGroups.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewGroups.ColumnHeadersHeight = 30;
             this.dataGridViewGroups.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewGroups.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -165,14 +160,14 @@ namespace Libe_Escriptori.Forms.Groups
             this.headerEdit,
             this.headerDelete});
             this.dataGridViewGroups.DataSource = this.bindingSourceGroups;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(171)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewGroups.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(60)))), ((int)(((byte)(171)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewGroups.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewGroups.Location = new System.Drawing.Point(46, 103);
             this.dataGridViewGroups.Name = "dataGridViewGroups";
             this.dataGridViewGroups.ReadOnly = true;
@@ -321,10 +316,6 @@ namespace Libe_Escriptori.Forms.Groups
             this.buttonNewGroup.UseVisualStyleBackColor = false;
             this.buttonNewGroup.Click += new System.EventHandler(this.buttonNewGroup_Click_1);
             // 
-            // groupsBindingSource
-            // 
-            this.groupsBindingSource.DataSource = typeof(Libe_Escriptori.Models.groups);
-            // 
             // FormGroups
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -338,9 +329,9 @@ namespace Libe_Escriptori.Forms.Groups
             this.Text = "FormGroups";
             this.Load += new System.EventHandler(this.FormGroups_Load);
             this.panelGroups.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCourses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroups)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGroups)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -351,9 +342,8 @@ namespace Libe_Escriptori.Forms.Groups
         private DataGridView dataGridViewGroups;
         private Button buttonNewGroup;
         private ComboBox comboBoxFilter;
-        private ComboBox comboBox1;
-        private ComboBox comboBox3;
-        private BindingSource groupsBindingSource;
+        private ComboBox comboBoxFilterLetter;
+        private ComboBox comboBoxFilterGrade;
         private BindingSource bindingSourceGroups;
         private DataGridViewTextBoxColumn courseidDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn gradeDataGridViewTextBoxColumn;
@@ -367,5 +357,6 @@ namespace Libe_Escriptori.Forms.Groups
         private DataGridViewTextBoxColumn schedulesDataGridViewTextBoxColumn;
         private DataGridViewImageColumn headerEdit;
         private DataGridViewImageColumn headerDelete;
+        private BindingSource bindingSourceCourses;
     }
 }

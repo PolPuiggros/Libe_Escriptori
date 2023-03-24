@@ -26,6 +26,15 @@ namespace Libe_Escriptori.Models
             return _group;
         }
 
+        public static List<groups> SelectFromCourse(int idCourse)
+        {
+            List<groups> _groups = Orm.db.groups
+               .Where(group => group.active == true && group.course_id == idCourse)
+               .ToList();
+
+            return _groups;
+        }
+
         public static void Insert(groups _group)
         {
             Orm.db.groups.Add(_group);
