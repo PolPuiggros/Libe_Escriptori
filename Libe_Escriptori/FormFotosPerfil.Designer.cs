@@ -1,6 +1,6 @@
 ﻿namespace Libe_Escriptori
 {
-    partial class PopupProfileImg
+    partial class FormFotosPerfil
     {
         /// <summary>
         /// Required designer variable.
@@ -28,37 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanelPictrues = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
-            // flowLayoutPanelPictrues
+            // flowLayoutPanel1
             // 
-            this.flowLayoutPanelPictrues.BackColor = System.Drawing.Color.Transparent;
-            this.flowLayoutPanelPictrues.Location = new System.Drawing.Point(4, 18);
-            this.flowLayoutPanelPictrues.Name = "flowLayoutPanelPictrues";
-            this.flowLayoutPanelPictrues.Size = new System.Drawing.Size(180, 208);
-            this.flowLayoutPanelPictrues.TabIndex = 0;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 18);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(182, 186);
+            this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // PopupProfileImg
+            // FormFotosPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.AutoScroll = true;
             this.BackgroundImage = global::Libe_Escriptori.Properties.Resources.popupdef2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(189, 230);
-            this.Controls.Add(this.flowLayoutPanelPictrues);
+            this.ClientSize = new System.Drawing.Size(189, 208);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "PopupProfileImg";
-            this.Text = "PopupProfileImg";
-            this.TransparencyKey = System.Drawing.SystemColors.Control;
+            this.Name = "FormFotosPerfil";
+            this.Text = "FormFotosPerfil";
+            this.Load += new System.EventHandler(this.FormFotosPerfil_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelPictrues;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

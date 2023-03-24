@@ -1,5 +1,6 @@
 using Libe_Escriptori.Forms.Centres;
 using Libe_Escriptori.Forms.Courses;
+using Libe_Escriptori.Models;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -18,15 +19,25 @@ namespace Libe_Escriptori
         //POPUP SIZE!!!! 664; 495
         private Image noti = Properties.Resources.inbox1;
         private Image def = Properties.Resources.inbox;
-        public MainForm()
+        users_desktop userLogged;
+
+        public MainForm(users_desktop user)
         {
             InitializeComponent();
+            userLogged = user;
             customDesign();
             previousButton = buttonInici;
             panelLogs.Visible = false;
             panelProfileImg.Visible = false;
             buttonInbox.BackgroundImage = def;
+            setProfileImg();
         }
+
+        private void setProfileImg()
+        {
+            buttonProfile.BackgroundImage = Image.FromFile(@"..\..\ImagesProfile\" + userLogged.profile_img);
+        }
+
         private void customDesign()
         {
             selectedEntry(buttonInici);
@@ -278,7 +289,7 @@ namespace Libe_Escriptori
             popupLog.BringToFront();
             popupLog.Show();
         }
-        private void OpenProfilePic(PopupProfileImg popup, object sender)
+        private void OpenProfilePic(FormFotosPerfil popup, object sender)
         {
             if (activeForm != null)
             {
@@ -302,8 +313,15 @@ namespace Libe_Escriptori
             }
             else
             {
-                OpenProfilePic(new PopupProfileImg(), sender);
+                FormFotosPerfil form = new FormFotosPerfil();
+                form.updateProfile += new FormFotosPerfil.DoEvent(fm_updateProfile);
+                OpenProfilePic(form, sender);
             }
+        }
+        void fm_updateProfile()
+        {
+            buttonProfile.BackgroundImage = Image.FromFile(@"..\..\ImagesProfile\" + userLogged.profile_img);
+            panelProfileImg.Visible = false;
         }
     }
 }

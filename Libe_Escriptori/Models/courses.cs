@@ -30,6 +30,7 @@ namespace Libe_Escriptori.Models
         public Nullable<System.DateTime> created_timestamp { get; set; }
         public Nullable<System.DateTime> updated_timestamp { get; set; }
         public Nullable<System.DateTime> deleted_timestamp { get; set; }
+        public Nullable<int> duration { get; set; }
     
         public virtual departments departments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

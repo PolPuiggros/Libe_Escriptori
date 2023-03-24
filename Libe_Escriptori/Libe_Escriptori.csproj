@@ -72,6 +72,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Blowfish.cs" />
+    <Compile Include="FormFotosPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFotosPerfil.Designer.cs">
+      <DependentUpon>FormFotosPerfil.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Centres\FormCalendari.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -258,7 +264,7 @@
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LessonsOrm.cs" />
-    <Compile Include="Models\Login\LoginOrm.cs" />
+    <Compile Include="Models\LogedUser\UserDesktopOrm.cs" />
     <Compile Include="Models\logs.cs">
       <DependentUpon>ModelLibe.tt</DependentUpon>
     </Compile>
@@ -320,16 +326,24 @@
     <Compile Include="popupLog.Designer.cs">
       <DependentUpon>popupLog.cs</DependentUpon>
     </Compile>
-    <Compile Include="PopupProfileImg.cs">
-      <SubType>Form</SubType>
+    <Compile Include="ProfilePic.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PopupProfileImg.Designer.cs">
-      <DependentUpon>PopupProfileImg.cs</DependentUpon>
+    <Compile Include="ProfilePic.Designer.cs">
+      <DependentUpon>ProfilePic.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="UtilitiesDesign.cs" />
     <Compile Include="Utilities\Validations.cs" />
+    <EmbeddedResource Include="FormFotosPerfil.resx">
+      <DependentUpon>FormFotosPerfil.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Centres\FormCalendari.resx">
       <DependentUpon>FormCalendari.cs</DependentUpon>
     </EmbeddedResource>
@@ -402,19 +416,14 @@
     <EmbeddedResource Include="popupLog.resx">
       <DependentUpon>popupLog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PopupProfileImg.resx">
-      <DependentUpon>PopupProfileImg.cs</DependentUpon>
+    <EmbeddedResource Include="ProfilePic.resx">
+      <DependentUpon>ProfilePic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EntityDeploy Include="Models\ModelLibe.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelLibe.Designer.cs</LastGenOutput>
@@ -495,6 +504,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ImagesProfile\profile_pic1.png" />
+    <Content Include="ImagesProfile\profile_pic2.png" />
+    <Content Include="ImagesProfile\profile_pic3.png" />
+    <Content Include="ImagesProfile\profile_pic4.png" />
+    <Content Include="ImagesProfile\profile_pic5.png" />
+    <Content Include="ImagesProfile\profile_pic6.png" />
+    <Content Include="ImagesProfile\profile_pic7.png" />
+    <Content Include="ImagesProfile\profile_pic8.png" />
+    <Content Include="ImagesProfile\profile_pic9.png" />
     <Content Include="Models\ModelLibe.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ModelLibe.Context.cs</LastGenOutput>
@@ -630,7 +648,7 @@
     <None Include="Resources\pencil1.png" />
     <None Include="Resources\pencil2.png" />
     <None Include="Resources\popupdef2.png" />
-    <Content Include="Resources\profile_pic.png" />
+    <Content Include="Resources\profile_pic_wirdo.png" />
     <Content Include="Resources\profile_pic_big.png" />
     <None Include="Resources\remove.png" />
     <Content Include="Resources\right-click.png" />
