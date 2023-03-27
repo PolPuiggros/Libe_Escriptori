@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,13 +27,23 @@ namespace Libe_Escriptori.Models.Login
             return user;
         }
 
-        public static void UpdateImage(string imageName)
+        public static string UpdateImage(string imageName)
         {
-            users_desktop user = Orm.db.users_desktop
-                .Where(c => c.active == true)
-                .FirstOrDefault();
-            user.profile_img = imageName;
-            Orm.MySaveChanges();
+            string message = "";
+            try
+            {
+                users_desktop user = Orm.db.users_desktop
+                    .Where(c => c.active == true)
+                    .FirstOrDefault();
+                user.profile_img = imageName;
+                Orm.MySaveChanges();
+            }
+            catch (DbUpdateException e)
+            {
+                SqlException sqlException = (SqlException)e.InnerException.InnerException;
+                message = Orm.MissatgeError(sqlException);
+            }
+            return message;
         }
     }
 }

@@ -40,6 +40,12 @@ namespace Libe_Escriptori.Models
                     return Orm.db.departments.Where(p => p.id == idCanvi).FirstOrDefault().name;
                 case "UNITS":
                     return Orm.db.units.Where(p => p.id == idCanvi).FirstOrDefault().name;
+                case "USERS_DESKTOP":
+                    return Orm.db.users_desktop.Where(u => u.id == idCanvi).FirstOrDefault().username;
+                case "LESSONS":
+                    lessons l = Orm.db.lessons.Where(u => u.id == idCanvi).FirstOrDefault();
+                    string lessonString = l.weekday + " " + l.starting_hour.ToString();
+                    return lessonString;
                 default:
                     return "undefined";
             }

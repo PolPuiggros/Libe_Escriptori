@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,10 +20,20 @@ namespace Libe_Escriptori.Models
             return id_user;
         }
 
-        public static void Insert(users _users)
+        public static string Insert(users _users)
         {
-            Orm.db.users.Add(_users);
-            Orm.db.SaveChanges();
+            string message = "";
+            try
+            {
+                Orm.db.users.Add(_users);
+                Orm.db.SaveChanges();
+            }
+            catch (DbUpdateException e)
+            {
+                SqlException sqlException = (SqlException)e.InnerException.InnerException;
+                message = Orm.MissatgeError(sqlException);
+            }
+            return message;
         }
     }
 }

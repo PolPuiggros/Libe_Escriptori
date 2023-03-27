@@ -90,23 +90,31 @@ namespace Libe_Escriptori.Forms.Groups
                     
                     schedules schedule = new schedules();
                     schedule.name = "Horari de ";
-                    SchedulesOrm.Insert(schedule);
-                    tutor = (profesors)comboBoxTutorGroup.SelectedItem;
-                    groups newGroup = new groups();
-                    newGroup.grade = Int32.Parse(comboBoxYearGroup.SelectedItem.ToString());
-                    newGroup.group_letter = comboBoxClassGroup.SelectedItem.ToString();
-                    courses _course = (courses)comboBoxCicleGroup.SelectedItem;
-                    newGroup.course_id = _course.id;
-                    profesors _tutor = (profesors)comboBoxTutorGroup.SelectedItem;
-                    newGroup.tutor_id = _tutor.id;
-                    newGroup.schedule_id = schedule.id;
-                    newGroup.active = true;
-                    newGroup.classroom_id = 2;
-                    GroupsOrm.Insert(newGroup);
-                    OpenChildForm(new FormCreateScheduleGroup(ruta, adding, newGroup));
-                    adding = false;
-                    group = newGroup;
-                    createdSchedule = true;
+                    string queryResult = SchedulesOrm.Insert(schedule);
+                    if (String.IsNullOrEmpty(queryResult))
+                    {
+                        tutor = (profesors)comboBoxTutorGroup.SelectedItem;
+                        groups newGroup = new groups();
+                        newGroup.grade = Int32.Parse(comboBoxYearGroup.SelectedItem.ToString());
+                        newGroup.group_letter = comboBoxClassGroup.SelectedItem.ToString();
+                        courses _course = (courses)comboBoxCicleGroup.SelectedItem;
+                        newGroup.course_id = _course.id;
+                        profesors _tutor = (profesors)comboBoxTutorGroup.SelectedItem;
+                        newGroup.tutor_id = _tutor.id;
+                        newGroup.schedule_id = schedule.id;
+                        newGroup.active = true;
+                        newGroup.classroom_id = 2;
+                        GroupsOrm.Insert(newGroup);
+                        OpenChildForm(new FormCreateScheduleGroup(ruta, adding, newGroup));
+                        adding = false;
+                        group = newGroup;
+                        createdSchedule = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show(queryResult);
+                    }
+                   
                 }
                 else
                 {

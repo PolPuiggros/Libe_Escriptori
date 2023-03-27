@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,34 +30,65 @@ namespace Libe_Escriptori.Models.Courses
             return _units;
         }
 
-        public static void Delete(units _units)
+        public static string Delete(units _units)
         {
-            _units = Orm.db.units
-                .Where(c => c.id == _units.id)
-                .First();
-            _units.active = false;
-            _units.deleted_timestamp = DateTime.Now;
-            Orm.db.SaveChanges();
+            string message = "";
+            try
+            {
+                _units = Orm.db.units
+                    .Where(c => c.id == _units.id)
+                    .First();
+                _units.active = false;
+                _units.deleted_timestamp = DateTime.Now;
+                Orm.db.SaveChanges();
+            }
+            catch (DbUpdateException e)
+            {
+                SqlException sqlException = (SqlException)e.InnerException.InnerException;
+                message = Orm.MissatgeError(sqlException);
+            }
+            return message;
+
         }
 
-        public static void Update(units _units) {
-            units unit = Orm.db.units
-                .Where(c => c.id == _units.id)
-                .First();
+        public static string Update(units _units) {
+            string message = "";
+            try
+            {
+                units unit = Orm.db.units
+                    .Where(c => c.id == _units.id)
+                    .First();
 
-            unit.abreviation = _units.abreviation;
-            unit.name = _units.name;
-            unit.total_hours = _units.total_hours;
-            unit.active = _units.active;
-            unit.module_id = _units.module_id;
+                unit.abreviation = _units.abreviation;
+                unit.name = _units.name;
+                unit.total_hours = _units.total_hours;
+                unit.active = _units.active;
+                unit.module_id = _units.module_id;
 
-            Orm.db.SaveChanges();
+                Orm.db.SaveChanges();
+            }
+            catch (DbUpdateException e)
+            {
+                SqlException sqlException = (SqlException)e.InnerException.InnerException;
+                message = Orm.MissatgeError(sqlException);
+            }
+            return message;
         }
 
-        public static void Insert(units _units)
+        public static string Insert(units _units)
         {
-            Orm.db.units.Add(_units);
-            Orm.db.SaveChanges();
+            string message = "";
+            try
+            {
+                Orm.db.units.Add(_units);
+                Orm.db.SaveChanges();
+            }
+            catch (DbUpdateException e)
+            {
+                SqlException sqlException = (SqlException)e.InnerException.InnerException;
+                message = Orm.MissatgeError(sqlException);
+            }
+            return message;
         }
 
     }

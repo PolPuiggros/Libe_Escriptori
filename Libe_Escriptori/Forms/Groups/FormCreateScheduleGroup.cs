@@ -637,12 +637,14 @@ namespace Libe_Escriptori.Forms.Groups
                     newLesson.classroom_id = 2;
                     //newLesson.profesor_id = _group.tutor_id;
 
-                    LessonsOrm.Insert(newLesson);
+                    string queryResult = LessonsOrm.Insert(newLesson);
+                    if (!String.IsNullOrEmpty(queryResult))
+                    {
+                        MessageBox.Show(queryResult);
+                    }
 
                     dataGridViewSchedule.CurrentCell.Value = actualModule.code;
                     dataGridViewSchedule.CurrentCell.Style.BackColor = colors[indexItem];
-
-
 
 
                 }

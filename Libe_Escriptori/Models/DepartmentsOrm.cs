@@ -19,10 +19,20 @@ namespace Libe_Escriptori.Models
 
             return _departments;
         }
-        public static void Insert(departments _departments)
+        public static string Insert(departments _departments)
         {
-            Orm.db.departments.Add(_departments);
-            Orm.db.SaveChanges();
+            string message = "";
+            try
+            {
+                Orm.db.departments.Add(_departments);
+                Orm.db.SaveChanges();
+            }
+            catch (DbUpdateException e)
+            {
+                SqlException sqlException = (SqlException)e.InnerException.InnerException;
+                message = Orm.MissatgeError(sqlException);
+            }
+            return message;
         }
 
         public static string Delete(departments dept)

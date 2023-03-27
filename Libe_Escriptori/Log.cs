@@ -63,6 +63,10 @@ namespace Libe_Escriptori
                     return "el dept";
                 case "UNITS":
                     return "la UF";
+                case "USERS_DESKTOP":
+                    return "l'usuari";
+                case "LESSONS":
+                    return "la classe";
                 default:
                     return "Not found";
             }

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,15 +54,25 @@ namespace Libe_Escriptori.Models
             return _lessons;
         }
 
-        public static void Update(lessons _lesson)
+        public static string Update(lessons _lesson)
         {
-            lessons updateLesson = Orm.db.lessons
-                                .Where(lesson => lesson.id == _lesson.id)
-                                .ToList()
-                                .FirstOrDefault();
+            string message = "";
+            try
+            {
+                lessons updateLesson = Orm.db.lessons
+                                    .Where(lesson => lesson.id == _lesson.id)
+                                    .ToList()
+                                    .FirstOrDefault();
 
-            updateLesson.module_id = _lesson.module_id;
-            Orm.db.SaveChanges();
+                updateLesson.module_id = _lesson.module_id;
+                Orm.db.SaveChanges();
+            }
+            catch (DbUpdateException e)
+            {
+                SqlException sqlException = (SqlException)e.InnerException.InnerException;
+                message = Orm.MissatgeError(sqlException);
+            }
+            return message;
         }
 
         public static lessons SelectLessonsAtDayHour(TimeSpan hour, string weekday, int scheduleId)
@@ -74,10 +86,20 @@ namespace Libe_Escriptori.Models
             return _lesson;
         }
 
-        public static void Insert(lessons _lesson)
+        public static string Insert(lessons _lesson)
         {
-            Orm.db.lessons.Add(_lesson);
-            Orm.db.SaveChanges();
+            string message = "";
+            try
+            {
+                Orm.db.lessons.Add(_lesson);
+                Orm.db.SaveChanges();
+            }
+            catch (DbUpdateException e)
+            {
+                SqlException sqlException = (SqlException)e.InnerException.InnerException;
+                message = Orm.MissatgeError(sqlException);
+            }
+            return message;
         }
     }
 }

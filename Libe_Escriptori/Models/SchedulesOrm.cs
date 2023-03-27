@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,10 +25,20 @@ namespace Libe_Escriptori.Models
             return _schedule;
         }
 
-        public static void Insert(schedules _schedule)
+        public static string Insert(schedules _schedule)
         {
-            Orm.db.schedules.Add(_schedule);
-            Orm.db.SaveChanges();
+            string message = "";
+            try
+            {
+                Orm.db.schedules.Add(_schedule);
+                Orm.db.SaveChanges();
+            }
+            catch (DbUpdateException e)
+            {
+                SqlException sqlException = (SqlException)e.InnerException.InnerException;
+                message = Orm.MissatgeError(sqlException);
+            }
+            return message;
         }
 
     }

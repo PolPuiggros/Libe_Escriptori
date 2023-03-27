@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,40 +61,70 @@ namespace Libe_Escriptori.Models.Courses
             return modules;
         }
 
-        public static void Delete(modules _modules)
+        public static string Delete(modules _modules)
         {
-            _modules = Orm.db.modules
-                .Where(c => c.id == _modules.id)
-                .First();
-            _modules.active = false;
-            _modules.deleted_timestamp = DateTime.Now;
-            Orm.db.SaveChanges();
-        }
-
-        public static void Update(modules _modules) {
-            modules module = Orm.db.modules
-                .Where(c => c.id == _modules.id)
-                .First();
-
-            module.code = _modules.code;
-            module.name = _modules.name;
-            module.total_hours = _modules.total_hours;
-            module.active = _modules.active;
-            Orm.db.SaveChanges();
-        }
-
-        public static void InsertWithUnits(modules _modules, List<units> listUnits)
-        {
-            Orm.db.modules.Add(_modules);
-            Orm.db.SaveChanges();
-            var lastModules = Orm.db.modules
-               .ToList()
-               .Last();
-            foreach(units u in listUnits)
+            string message = "";
+            try
             {
-                u.module_id = lastModules.id;
-                UnitsORM.Insert(u);
+                _modules = Orm.db.modules
+                    .Where(c => c.id == _modules.id)
+                    .First();
+                _modules.active = false;
+                _modules.deleted_timestamp = DateTime.Now;
+                Orm.db.SaveChanges();
             }
+            catch (DbUpdateException e)
+            {
+                SqlException sqlException = (SqlException)e.InnerException.InnerException;
+                message = Orm.MissatgeError(sqlException);
+            }
+            return message;
+        }
+
+        public static string Update(modules _modules) {
+            string message = "";
+            try
+            {
+                modules module = Orm.db.modules
+                    .Where(c => c.id == _modules.id)
+                    .First();
+
+                module.code = _modules.code;
+                module.name = _modules.name;
+                module.total_hours = _modules.total_hours;
+                module.active = _modules.active;
+                Orm.db.SaveChanges();
+            }
+            catch (DbUpdateException e)
+            {
+                SqlException sqlException = (SqlException)e.InnerException.InnerException;
+                message = Orm.MissatgeError(sqlException);
+            }
+            return message;
+        }
+
+        public static string InsertWithUnits(modules _modules, List<units> listUnits)
+        {
+            string message = "";
+            try
+            {
+                Orm.db.modules.Add(_modules);
+                Orm.db.SaveChanges();
+                var lastModules = Orm.db.modules
+                   .ToList()
+                   .Last();
+                foreach (units u in listUnits)
+                {
+                    u.module_id = lastModules.id;
+                    UnitsORM.Insert(u);
+                }
+            }
+            catch (DbUpdateException e)
+            {
+                SqlException sqlException = (SqlException)e.InnerException.InnerException;
+                message = Orm.MissatgeError(sqlException);
+            }
+            return message;
 
         }
 
