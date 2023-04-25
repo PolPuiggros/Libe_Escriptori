@@ -67,19 +67,18 @@ namespace Libe_Escriptori.Forms.Centres
             if (daysOftheWeek <= 0) daysOftheWeek = 1;
             int sunday = 5 - daysOftheWeek;
             int saturday = 6 - daysOftheWeek;
-
             holiDaysOftheMonth = getHolidaysOfTheMonth(startOfTheMonth, allHolidays);
 
             for (int i = 1; i < daysOftheWeek; i++)
-            {               
+            {
                 UserControlBlank ucblank = new UserControlBlank(Color.FromKnownColor(KnownColor.Control));
-                flowLayoutPanelDaysContainer.Controls.Add(ucblank);               
+                flowLayoutPanelDaysContainer.Controls.Add(ucblank);
             }
 
-            for( int i = 1; i <= days; i++)
+            for (int i = 1; i <= days; i++)
             {
                 DateTime dia = new DateTime(year, month, i);
-                if( (i + sunday) % 7 == 0 || (i + saturday) % 7 == 0)
+                if ((i + daysOftheWeek) % 7 == 0 || (i + daysOftheWeek - 1) % 7 == 0)
                 {
                     UserControlDays ucdays = new UserControlDays(Color.FromArgb(255, 128, 128), labelDate);
                     ucdays.days(i);
@@ -90,7 +89,7 @@ namespace Libe_Escriptori.Forms.Centres
                     int index = holiDaysOftheMonth.FindIndex(h => h.festive_day == dia);
 
                     if (index != -1)
-                    {                   
+                    {
                         if (holiDaysOftheMonth[iteratorHoliday].type == 1)
                         {
                             UserControlDays ucdaysLliureDispo = new UserControlDays(Color.FromArgb(192, 192, 255), labelDate);
@@ -126,7 +125,6 @@ namespace Libe_Escriptori.Forms.Centres
                     }
 
                 }
-
             }
         }
         private void buttonSeguent_Click(object sender, EventArgs e)
